@@ -1,6 +1,6 @@
 /*
  * editor.js
- * Scale Face Constructor
+ * Scale Master
  * JavaScript driven, all client-side browser application,
  * creates printable vector scale faces for DIY meters etc.
  *
