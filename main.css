@@ -147,7 +147,13 @@ body>footer {
 }
 body>footer div {
     display: inline-block;
-    margin:0 16px;
+    margin:0 10px;
+}
+body>footer .sep{
+    width:1px;
+    height: 10px;
+    margin: 0;
+    background: rgba(255,255,255,0.5);
 }
 body>#main {
     top:41px;
