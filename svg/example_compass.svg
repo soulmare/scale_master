@@ -1,0 +1,542 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="794" height="1123">
+   <!-- Created with Scale Face Constructor -->
+   <g id="scale_meta">
+      <title id="scale_title" class="meta">Example: Compass</title>
+      <desc id="scale_description" class="meta">Sample scale created with Scale Face Constructor</desc>
+   </g>
+   <rect id="background" width="100%" height="100%" fill="#ffffff"/>
+   <g id="scale_wrapper" fill="none" transform="translate(397,561.5)">
+      <g class="div" title="10 deg" stroke-width="0.6" fill="none" stroke="#000000" data-r="100" data-length="20" data-angle="360" data-keep-angle="">
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-180)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-170)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-160)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-150)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-140)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-130)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-120)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-110)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-100)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-90)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-80)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-70)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-60)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-50)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-40)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-30)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-20)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(-10)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(10)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(20)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(30)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(40)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(50)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(60)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(70)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(80)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(90)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(100)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(110)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(120)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(130)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(140)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(150)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(160)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(170)" />
+         <line x1="0" y1="-100" x2="0" y2="-120" transform="rotate(180)" />
+      </g>
+      <g class="div" title="5 deg" stroke-width="0.5" fill="none" stroke="#000000" data-r="100" data-angle="360" data-length="14">
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-180)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-175)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-170)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-165)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-160)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-155)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-150)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-145)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-140)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-135)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-130)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-125)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-120)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-115)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-110)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-105)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-100)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-95)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-90)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-85)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-80)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-75)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-70)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-65)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-60)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-55)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-50)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-45)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-40)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-35)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-30)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-25)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-20)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-15)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-10)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(-5)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(5)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(10)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(15)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(20)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(25)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(30)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(35)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(40)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(45)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(50)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(55)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(60)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(65)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(70)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(75)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(80)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(85)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(90)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(95)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(100)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(105)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(110)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(115)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(120)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(125)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(130)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(135)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(140)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(145)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(150)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(155)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(160)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(165)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(170)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(175)" />
+         <line x1="0" y1="-100" x2="0" y2="-114" transform="rotate(180)" />
+      </g>
+      <g class="div" title="1 deg" stroke-width="0.5" fill="none" stroke="#000000" data-r="100" data-length="10" data-angle="360" data-keep-angle="">
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-180)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-179)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-178)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-177)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-176)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-175)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-174)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-173)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-172)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-171)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-170)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-169)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-168)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-167)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-166)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-165)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-164)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-163)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-162)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-161)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-160)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-159)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-158)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-157)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-156)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-155)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-154)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-153)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-152)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-151)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-150)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-149)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-148)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-147)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-146)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-145)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-144)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-143)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-142)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-141)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-140)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-139)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-138)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-137)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-136)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-135)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-134)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-133)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-132)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-131)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-130)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-129)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-128)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-127)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-126)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-125)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-124)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-123)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-122)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-121)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-120)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-119)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-118)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-117)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-116)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-115)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-114)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-113)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-112)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-111)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-110)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-109)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-108)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-107)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-106)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-105)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-104)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-103)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-102)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-101)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-100)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-99)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-98)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-97)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-96)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-95)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-94)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-93)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-92)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-91)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-90)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-89)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-88)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-87)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-86)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-85)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-84)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-83)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-82)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-81)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-80)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-79)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-78)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-77)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-76)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-75)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-74)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-73)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-72)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-71)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-70)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-69)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-68)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-67)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-66)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-65)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-64)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-63)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-62)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-61)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-60)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-59)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-58)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-57)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-56)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-55)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-54)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-53)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-52)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-51)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-50)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-49)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-48)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-47)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-46)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-45)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-44)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-43)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-42)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-41)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-40)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-39)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-38)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-37)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-36)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-35)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-34)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-33)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-32)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-31)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-30)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-29)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-28)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-27)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-26)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-25)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-24)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-23)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-22)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-21)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-20)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-19)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-18)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-17)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-16)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-15)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-14)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-13)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-12)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-11)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-10)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-9)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-8)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-7)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-6)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-5)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-4)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-3)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-2)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(-1)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(1)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(2)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(3)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(4)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(5)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(6)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(7)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(8)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(9)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(10)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(11)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(12)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(13)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(14)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(15)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(16)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(17)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(18)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(19)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(20)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(21)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(22)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(23)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(24)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(25)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(26)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(27)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(28)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(29)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(30)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(31)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(32)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(33)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(34)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(35)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(36)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(37)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(38)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(39)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(40)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(41)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(42)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(43)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(44)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(45)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(46)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(47)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(48)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(49)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(50)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(51)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(52)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(53)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(54)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(55)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(56)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(57)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(58)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(59)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(60)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(61)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(62)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(63)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(64)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(65)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(66)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(67)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(68)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(69)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(70)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(71)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(72)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(73)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(74)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(75)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(76)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(77)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(78)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(79)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(80)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(81)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(82)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(83)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(84)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(85)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(86)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(87)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(88)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(89)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(90)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(91)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(92)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(93)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(94)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(95)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(96)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(97)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(98)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(99)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(100)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(101)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(102)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(103)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(104)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(105)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(106)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(107)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(108)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(109)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(110)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(111)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(112)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(113)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(114)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(115)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(116)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(117)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(118)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(119)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(120)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(121)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(122)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(123)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(124)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(125)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(126)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(127)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(128)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(129)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(130)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(131)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(132)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(133)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(134)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(135)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(136)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(137)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(138)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(139)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(140)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(141)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(142)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(143)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(144)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(145)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(146)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(147)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(148)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(149)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(150)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(151)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(152)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(153)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(154)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(155)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(156)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(157)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(158)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(159)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(160)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(161)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(162)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(163)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(164)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(165)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(166)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(167)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(168)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(169)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(170)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(171)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(172)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(173)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(174)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(175)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(176)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(177)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(178)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(179)" />
+         <line x1="0" y1="-100" x2="0" y2="-110" transform="rotate(180)" />
+      </g>
+      <g class="label" title="90 deg cardinal directions" fill="#000000" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="18.89764" data-r="86.92913385826773" data-angle="360" data-keep-angle="true" data-label-step="1" data-label-start="0">
+         <text dominant-baseline="central" x="0" y="-86.92913385826773" transform="rotate(-180) rotate(180,0,-86.92913385826773)" data-keep-angle="true" class="">S</text>
+         <text dominant-baseline="central" x="0" y="-86.92913385826773" transform="rotate(-90) rotate(90,0,-86.92913385826773)" data-keep-angle="true" class="">W</text>
+         <text dominant-baseline="central" x="0" y="-86.92913385826773" data-keep-angle="true" class="">N</text>
+         <text dominant-baseline="central" x="0" y="-86.92913385826773" transform="rotate(90) rotate(-90,0,-86.92913385826773)" data-keep-angle="true" class="">E</text>
+      </g>
+      <g class="label" title="90 deg" dominant-baseline="central" font-family="Arial" font-size="13.606299212598428" text-anchor="middle" data-r="128.50393700787401" data-angle="360" data-keep-angle="false" fill="#000000" data-label-step="90" transform="rotate(180)" font-weight="bold">
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-180)" data-keep-angle="false">0</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-90)" data-keep-angle="false">90</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(0)" data-keep-angle="false">180</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(90)" data-keep-angle="false">270</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(180)" data-keep-angle="false" class="" visibility="hidden">360</text>
+      </g>
+      <g class="label" title="10 deg" fill="#000000" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="9.070866141732283" data-r="128.50393700787401" data-angle="360" data-keep-angle="false" data-label-step="10" data-label-start="0" transform="rotate(180)">
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-180)" data-keep-angle="false" class="" visibility="hidden">0</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-170)" data-keep-angle="false">10</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-160)" data-keep-angle="false">20</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-150)" data-keep-angle="false">30</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-140)" data-keep-angle="false">40</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-130)" data-keep-angle="false">50</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-120)" data-keep-angle="false">60</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-110)" data-keep-angle="false">70</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-100)" data-keep-angle="false">80</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-90)" data-keep-angle="false" class="" visibility="hidden">90</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-80)" data-keep-angle="false">100</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-70)" data-keep-angle="false">110</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-60)" data-keep-angle="false">120</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-50)" data-keep-angle="false">130</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-40)" data-keep-angle="false">140</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-30)" data-keep-angle="false">150</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-20)" data-keep-angle="false">160</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(-10)" data-keep-angle="false">170</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(0)" data-keep-angle="false" class="" visibility="hidden">180</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(10)" data-keep-angle="false">190</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(20)" data-keep-angle="false">200</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(30)" data-keep-angle="false">210</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(40)" data-keep-angle="false">220</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(50)" data-keep-angle="false">230</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(60)" data-keep-angle="false">240</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(70)" data-keep-angle="false">250</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(80)" data-keep-angle="false">260</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(90)" data-keep-angle="false" class="" visibility="hidden">270</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(100)" data-keep-angle="false">280</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(110)" data-keep-angle="false">290</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(120)" data-keep-angle="false">300</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(130)" data-keep-angle="false">310</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(140)" data-keep-angle="false">320</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(150)" data-keep-angle="false">330</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(160)" data-keep-angle="false">340</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(170)" data-keep-angle="false">350</text>
+         <text dominant-baseline="central" x="0" y="-128.50393700787401" transform="rotate(180)" data-keep-angle="false" class="" visibility="hidden">360</text>
+      </g>
+      <circle class="circle" stroke-width="1.51181" stroke="#000000" title="center" cx="0" cy="0" r="3.7795275590551185" />
+      <circle class="circle" stroke-width="1.51181" stroke="#000000" title="internal" cx="0" cy="0" r="99.77952755905513" />
+      <circle class="circle" stroke-width="0.7559055118110237" stroke="#000000" title="external" cx="0" cy="0" r="139.84251968503938" />
+   </g>
+</svg>

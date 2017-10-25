@@ -1,0 +1,211 @@
+<svg width="794" height="1123" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4" data-generator-version="0.3" data-generator-name="Scale Constructor">
+ <!-- Created with Scale Face Constructor -->
+ <g id="scale_meta">
+  <title id="scale_title">New Scale</title>
+  <desc id="scale_description">Created with Scale Face Constructor</desc>
+ </g>
+ <rect fill="#ffffff" height="100%" width="100%" id="background"/>
+ <g transform="translate(397,561.5)" fill="none" id="scale_wrapper">
+
+<!--<image xlink:href="data:image/png;base64,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" height="400" width="400" y="-188.9764" x="-188.9764" class="image"/>-->
+     
+ <image class="image _ed_sel" x="0" y="0" width="400" height="400" xlink:href="data:image/png;base64,
+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"></image>
+     
+ <g opacity="0.66" data-length="30.2362" data-r="188.9764" data-angle="120" title="New divisions group" stroke="#ff0000" stroke-width="7.5591" class="div">
+   <line data-keep-angle="false" transform="rotate(-60) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-54) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-48) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-42) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-36) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-30) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-24) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-18) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-12) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-6) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(0) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(6) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(12) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(18) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(24) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(30) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(36) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(42) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(48) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(54) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(60) " y2="-219.2126" x2="0" y1="-188.9764" x1="0"/>
+  </g>
+  <g data-length="26.4567" data-r="188.9764" data-angle="120" title="1" stroke="#000000" stroke-width="3.0236" class="div">
+   <line data-keep-angle="false" transform="rotate(-60) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-54) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-48) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-42) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-36) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-30) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-24) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-18) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-12) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-6) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(0) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(6) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(12) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(18) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(24) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(30) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(36) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(42) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(48) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(54) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(60) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+  </g>
+  <g data-length="15.1181" data-r="188.9764" data-angle="120" title="2" stroke="#000000" stroke-width="2.2677" class="div">
+   <line data-keep-angle="false" transform="rotate(-60) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-57) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-54) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-51) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-48) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-45) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-42) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-39) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-36) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-33) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-30) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-27) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-24) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-21) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-18) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-15) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-12) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-9) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-6) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-3) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(0) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(3) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(6) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(9) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(12) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(15) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(18) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(21) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(24) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(27) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(30) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(33) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(36) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(39) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(42) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(45) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(48) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(51) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(54) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(57) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(60) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+  </g>
+  <g data-label-start="0" data-label-step="2" data-keep-angle="true" data-angle="120" data-r="234.3307" font-size="19.2756" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#000000" title="New labels group" class="label">
+   <text font-size="26.0787" font-weight="bold" data-keep-angle="true" transform="rotate(-60) rotate(60,0,-234.3307) " y="-234.3307" x="0">0</text>
+   <text data-keep-angle="true" transform="rotate(-48) rotate(48,0,-234.3307) " y="-234.3307" x="0">2</text>
+   <text data-keep-angle="true" transform="rotate(-36) rotate(36,0,-234.3307) " y="-234.3307" x="0">4</text>
+   <text data-keep-angle="true" transform="rotate(-24) rotate(24,0,-234.3307) " y="-234.3307" x="0">6</text>
+   <text data-keep-angle="true" transform="rotate(-12) rotate(12,0,-234.3307) " y="-234.3307" x="0">8</text>
+   <text font-size="26.0787" font-weight="bold" data-keep-angle="true" transform="rotate(0) rotate(0,0,-234.3307) " y="-234.3307" x="0">10</text>
+   <text data-keep-angle="true" transform="rotate(12) rotate(-12,0,-234.3307) " y="-234.3307" x="0">12</text>
+   <text data-keep-angle="true" transform="rotate(24) rotate(-24,0,-234.3307) " y="-234.3307" x="0">14</text>
+   <text data-keep-angle="true" transform="rotate(36) rotate(-36,0,-234.3307) " y="-234.3307" x="0">16</text>
+   <text data-keep-angle="true" transform="rotate(48) rotate(-48,0,-234.3307) " y="-234.3307" x="0">18</text>
+   <text font-size="26.0787" font-weight="bold" data-keep-angle="true" transform="rotate(60) rotate(-60,0,-234.3307) " y="-234.3307" x="0">20</text>
+  </g>
+  <text transform="rotate(0) " font-weight="bold" font-size="45.7323" font-family="Arial" fill="#000000" dominant-baseline="central" text-anchor="middle" y="-102.0472" x="0" class="label">A</text>
+  <circle r="1.5118" cy="0" cx="0" title="New circle" stroke="#000000" stroke-width="1.5118" class="circle"/>
+  <circle r="60.4724" cy="0" cx="0" title="New circle" stroke="#000000" stroke-width="1.5118" class="circle"/>
+  <path data-top-cut="75.5906" transform=" translate(0,30.2362)" data-height="302.3622" data-width="468.6614" title="New scale plate" d="M0 0 H -234.3307 V -226.7717 L -158.7402 -302.3622 H 158.7402 L 234.3307 -226.7717 V 0 Z" stroke="#000000" stroke-width="1.5118" class="plate plate-rectangular-top plate-top-cut"/>
+  <path data-r="181.4173" data-angle="121" title="New arc" d="M 157.8976 -89.3342 A 181.4173 181.4173 0 0 0 -157.8976 -89.3342" stroke="#000000" stroke-width="2.2677" class="arc"/>
+  <g data-length="11.3386" data-r="170.0787" data-angle="120" title="New divisions group" stroke="#000000" stroke-width="1.5118" class="div">
+   <line data-keep-angle="false" transform="rotate(-60) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-16) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(7) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(26) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(40) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(50) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(60) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
+  </g>
+  <g data-label-start="0" data-label-step="1" data-keep-angle="true" data-angle="120" data-r="160.6299" font-size="15.1181" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#000000" title="New labels group" class="label">
+   <text data-keep-angle="true" transform="rotate(-60) rotate(60,0,-160.6299) " y="-160.6299" x="0">0</text>
+   <text class="0" data-keep-angle="true" transform="rotate(-16) rotate(16,0,-160.6299) " y="-160.6299" x="0">1</text>
+   <text data-keep-angle="true" transform="rotate(7) rotate(-7,0,-160.6299) " y="-160.6299" x="0">2</text>
+   <text data-keep-angle="true" transform="rotate(26) rotate(-26,0,-160.6299) " y="-160.6299" x="0">3</text>
+   <text data-keep-angle="true" transform="rotate(40) rotate(-40,0,-160.6299) " y="-160.6299" x="0">4</text>
+   <text data-keep-angle="true" transform="rotate(50) rotate(-50,0,-160.6299) " y="-160.6299" x="0">5</text>
+   <text data-keep-angle="true" transform="rotate(60) rotate(-60,0,-160.6299) " y="-160.6299" x="0">6</text>
+  </g>
+ </g>
+</svg>

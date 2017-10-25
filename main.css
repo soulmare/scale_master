@@ -1,0 +1,425 @@
+:root {
+
+  --main-bg-color: #111315;
+  --main-text-color: #bebebe;
+  --panel-bg-color: #1e2123;
+  --input-bg-color: #c6cccf;
+  --input-text-color: #333;
+  --input-active-bg-color: #f0f0f0;
+  --input-active-text-color: #000;
+  --input-inactive-text-color: #666;
+    
+  --panel-padding: 10px;
+}
+html,body{
+    height:100vh;
+    width: 100vw;
+    min-width: 500px;
+    min-height: 220px;
+    margin: 0;
+    font-size:14px;
+    font-family:Arial,Helvetica;
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    
+/* No text selection highlighting */
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+.app_name .type{
+    font-size: 10px;
+    font-weight: normal;
+    margin-left:3px;
+    vertical-align: super;
+}
+.app_name .type.alpha{
+/*    color:#ffff00;*/
+}
+a{
+    color: #ccc;
+}
+a:hover{
+    color: #fff;
+}
+/*
+.clickable{
+    background: -webkit-gradient(linear,left top,left bottom,from(#434b50),to(#373e42));
+    background-image: linear-gradient(rgb(67, 75, 80), rgb(55, 62, 66));
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    background: -o-linear-gradient(#434b50,#373e42);
+    background: linear-gradient(#434b50,#373e42);
+    -webkit-box-shadow: 0 1px 0 0 hsla(0,0%,100%,.05), 0 1px 0 0 hsla(0,0%,100%,.05) inset;
+    box-shadow: 0 1px 0 0 hsla(0,0%,100%,.05), inset 0 1px 0 0 hsla(0,0%,100%,.05);
+    border-width: 1px;
+    border-style: solid;
+    border-color: #1d1e20 #111213 #0c0c0d;
+    border-radius: 3px;
+}
+*/
+#objects{
+    margin: 0;
+    bottom: 44px;
+    max-height: 300px;
+    position: absolute;
+    left: var(--panel-padding);
+    right: var(--panel-padding);
+    top: var(--panel-padding);
+}
+#objects select{
+    position: absolute;
+    width: 100%;
+}
+#objects select[name="main_objects"]{
+    top: 56px;
+    margin-bottom:9px;
+    height: 90px;
+}
+#objects select[name="main_objects"] option{
+}
+#objects select option.tag-g{
+    font-weight: bold;
+}
+#objects select option[data-visibility="false"] {
+    color: #666;
+    font-style: italic;
+}
+#objects select[name="child_objects"]{
+    top: 160px;
+    bottom: 0;
+}
+#obj_buttons{
+    position: absolute;
+    top:20px;
+}
+option[disabled]{
+    font-style: italic;
+    color:var(--input-inactive-text-color);
+}
+h1{
+    font-size: 18px;
+    font-weight: bold;
+}
+header>h1{
+    position: absolute;
+    top: 11px;
+    left: 19px;
+    padding: 0;
+    margin: 0;
+}
+body>header,body>footer {
+    border:#000 solid;
+    box-sizing: border-box;
+}
+body>header,body>footer,body>#main {
+    position: absolute;
+    width:100%;
+}
+@media screen and (max-height: 300px) {
+    body>header,body>footer,body>#main {
+        position: static;
+    }
+}
+body>header {
+    height: 40px;
+    border-width:0 0 1px;
+}
+body>footer {
+    border-width:1px 0 0;
+    height: 30px;
+    bottom:0;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 7px;
+    font-size: 12px;
+}
+body>footer div {
+    display: inline-block;
+    margin:0 16px;
+}
+body>#main {
+    top:41px;
+    bottom:31px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: row;
+}
+#hdr_buttons{
+    position: relative;
+    text-align: center;
+    padding: 4px;
+}
+#hdr_buttons button{
+    min-width: 100px;
+    height: 28px;
+    text-align: left;
+}
+.panel{
+    position: relative;
+    background-color: var(--panel-bg-color);
+    border:#000 solid;
+    border-width:0 1px;
+    padding:var(--panel-padding);
+    flex: 0 25%;
+    min-width: 150px;
+    max-width: 280px;
+    -webkit-box-shadow: inset 0px 0px 8px 4px rgba(95, 95, 95, 0.15);
+    -moz-box-shadow: inset 0px 0px 8px 4px rgba(95, 95, 95, 0.15);
+    box-shadow: inset 0px 0px 8px 4px rgba(95, 95, 95, 0.15);
+}
+.panel label.wide{
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    color:#999;
+    margin-bottom: 7px;
+}
+.panel label.ed{
+    display: table-row;
+    position: relative;
+}
+.panel label.ed div{
+    display: table-cell;
+    font-size:13px;
+    padding: 3px 0;
+}
+.panel label.ed .l{
+    width:30%;
+    text-align: right;
+    vertical-align: middle;
+    padding-right: 3px;
+}
+.panel label.ed .v{
+    font-style: italic;
+    font-size: 14px;
+}
+.panel label.ed .u{
+    margin-left:3px;
+}
+.panel label.ed textarea{
+    margin-bottom: -3px;
+    height:50px;
+    width: 96%;
+}
+.panel>.inner{
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    padding-right: 5px;
+}
+#viewframe_status{
+    position: absolute;
+    height: 23px;
+    border-top:#494949 solid 1px;
+    padding: 7px 4px 2px 4px;
+    right: 2px;
+    left: 2px;
+    bottom: 2px;
+}
+#viewframe_status label{
+}
+input[name="zoom"]{
+    width:80px;
+}
+#viewframe_status #coords{
+    position: absolute;
+    right: 10px;
+}
+#viewframe_status #coords .val{
+    display: inline-block;
+    min-width: 30px;
+}
+body>#main>*{
+}
+body>#main>#context_pan{
+    order: 1;
+}
+body>#main>#content{
+    position:relative;
+    flex: 1;
+    padding: 20px 0 0 20px;
+}
+input,textarea,select{
+    background: var(--input-bg-color);
+}
+input:focus, textarea:focus, select:focus{
+    background: var(--input-active-bg-color);
+}
+input[type="number"],
+input[type="range"]{
+    width:60px;
+}
+input[type="range"]{
+    height: 8px;
+}
+button{
+    margin: 2px;
+    position: relative;
+    padding:5px 11px 5px 2px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid #444444;
+    background: #222222 url(images/ui-bg_highlight-soft_35_222222_1x100.png) 50% 50% repeat-x;
+    font-weight: normal;
+    color: #eeeeee;
+}
+button.small{
+    padding: 4px 0;
+}
+button[data-dropdown] span:last-child:after{
+    content: '\25BC';/*&#9660;*/
+    color:#999;
+}
+button:hover{
+    border-color:#0b93d5;
+    background: #003147 url(images/ui-bg_highlight-soft_33_003147_1x100.png) 50% 50% repeat-x;
+}
+button .icon{
+    width: 16px;
+    height: 16px;
+    float: left;
+    margin: 0 4px;
+    background-image: url(images/ui-icons_cccccc_256x240.png);
+}
+button[data-disabled="true"],button[disabled]{
+    opacity:0.6;
+    cursor: default;
+    pointer-events: none;
+}
+.icon-flag,button .icon-flag{
+    display: inline-block;
+    width: 26px;
+    height: 20px;
+    vertical-align: middle;
+    background-image: url(images/sprite.png) !important;
+    background-position: -2px -2px;
+}
+button .icon-flag{
+    position: relative;
+    top: -2px;
+    opacity: 0.8;
+}
+button:hover .icon-flag{
+    opacity: 1;
+}
+#languages_dropdown .icon-flag{
+    margin-right:5px;
+}
+.icon-flag.icon-flag-ru{
+    background-position: -2px -21px;
+}
+.dropdown{
+    position: absolute;
+    left: 28px;
+    top: -6px;
+    z-index: 100;
+    background: var(--panel-bg-color);
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    border:#000 solid 1px;
+    -webkit-box-shadow: 6px 7px 8px 0px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 6px 7px 8px 0px rgba(0, 0, 0, 0.7);
+    box-shadow: 6px 7px 8px 0px rgba(0, 0, 0, 0.7);
+}
+.dropdown a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    white-space: nowrap;
+    border: #494949 solid;
+    border-width: 1px 0px 0;
+}
+.dropdown a:hover{
+    background: var(--main-bg-color);
+}
+.ruler{
+    position:absolute;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    background-color: var(--panel-bg-color);
+    color: var(--main-text-color);
+}
+.ruler canvas{
+    display: block;
+    position: absolute;
+}
+#ruler_x{
+    height:20px;
+    left: 20px;
+    right: 0px;
+}
+#ruler_y{
+    width:20px;
+    top: 20px;
+    bottom: 0px;
+}
+#editor_viewport{
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    left: 20px;
+    right: 0;
+    overflow: auto;
+    -webkit-box-shadow: -6px -6px 15px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -6px -6px 15px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: -6px -6px 15px 0px rgba(0, 0, 0, 0.75);
+}
+#workspace{
+/*    text-align: center;*/
+    position: relative;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: lightgray;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b5bdc8+0,828c95+36,28343b+100;Grey+Black+3D */
+    background: -moz-radial-gradient(center, ellipse cover, #b5bdc8 0%, #828c95 50%, #28343b 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover, #b5bdc8 0%,#828c95 50%,#28343b 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center, #b5bdc8 0%,#828c95 50%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+#svg_doc *{
+/*    pointer-events: visible;*/
+}
+#svg_doc line,
+#svg_doc text,
+#svg_doc circle,
+#svg_doc ._ed_select_box_margin,
+#svg_doc path{
+    cursor:pointer;
+}
+#svg_doc ._ed_select_box_margin{
+    opacity:0.5;
+}
+#workspace:focus #svg_doc ._ed_select_box_margin{
+    opacity:1;
+}
+#svg_doc line:hover,
+#svg_doc circle:hover,
+#svg_doc path:hover{
+    stroke:#ff0000;
+}
+#svg_doc text:hover{
+    fill:#ff0000;
+    stroke: none;
+}
+#page_bg{
+/*    pointer-events: none;*/
+}
+#svg_doc{
+    position: absolute;
+/*    background: #fff;*/
+/*    pointer-events: none;*/
+}

@@ -1,0 +1,57 @@
+<svg width="794" height="1123" data-generator-name="Scale Constructor" data-generator-version="0.3.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4">
+ <!-- Created with Scale Constructor -->
+ <title>М4205.12 50x40мм 10A</title>
+ <desc>Измерительная головка М4205.12 50x40мм 10A</desc>
+ <rect id="background" width="100%" height="100%" fill="#ffffff"/>
+ <g id="scale_wrapper" fill="none" transform="translate(397,562)" stroke="#000000">
+
+  <path data-top-cut="32.126" transform="translate(0,13.2283) " data-height="151.1811" data-width="188.9764" title="margins" d="M0 0 H -94.4882 V -119.0551 L -62.3622 -151.1811 H 62.3622 L 94.4882 -119.0551 V 0 Z" fill="none" stroke="#000000" stroke-width="0.7559" class="plate plate-rectangular-top plate-top-cut"/>
+  <g data-label-start="0" data-label-step="2" data-keep-angle="false" data-angle="85" data-r="130.3937" font-size="13.2283" font-family="Arial" text-anchor="middle" dominant-baseline="central" stroke="none" fill="#000000" title="values" class="label">
+   <text transform="rotate(-42.5 0,0) rotate(42.5 0,-130.3937) translate(22.6772,26.4567) " data-keep-angle="true" stroke="none" dominant-baseline="central" text-anchor="middle" y="-130.3937" x="0">0</text>
+   <text transform="rotate(-25.5)" data-keep-angle="false" stroke="none" dominant-baseline="central" text-anchor="middle" y="-130.3937" x="0">2</text>
+   <text transform="rotate(-8.5)" data-keep-angle="false" stroke="none" dominant-baseline="central" text-anchor="middle" y="-130.3937" x="0">4</text>
+   <text transform="rotate(8.5,0,0)" data-keep-angle="false" stroke="none" dominant-baseline="central" text-anchor="middle" y="-130.3937" x="0">6</text>
+   <text transform="rotate(25.5)" data-keep-angle="false" stroke="none" dominant-baseline="central" text-anchor="middle" y="-130.3937" x="0">8</text>
+   <text transform="rotate(42.5 0,0) rotate(-42.5 0,-130.3937) translate(-22.6772,26.4567) " data-keep-angle="true" stroke="none" dominant-baseline="central" text-anchor="middle" y="-130.3937" x="0">10</text>
+  </g>
+  <g data-length="15.1181" data-r="105.8268" data-angle="85" title="lev 1" fill="none" stroke="#000000" stroke-width="1.5118" class="div">
+   <line transform="rotate(-42.5)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-34)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-25.5)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-17)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-8.5)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(8.5)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(17)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(25.5)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(34)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(42.5)" y2="-120.9449" x2="0" y1="-105.8268" x1="0"/>
+  </g>
+  <g data-length="10.2047" data-r="105.8268" data-angle="85" title="lev 2" fill="none" stroke="#000000" stroke-width="0.7559" class="div">
+   <line transform="rotate(-42.5)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-38.25)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-34)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-29.75)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-25.5)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-21.25)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-17)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-12.75)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-8.5)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(-4.25)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(4.25)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(8.5)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(12.75)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(17)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(21.25)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(25.5)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(29.75)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(34)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(38.25)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+   <line transform="rotate(42.5)" y2="-116.0315" x2="0" y1="-105.8268" x1="0"/>
+  </g>
+  <circle r="35.9055" cy="0" cx="0" fill="none" stroke="#000000" stroke-width="0.7559" class="circle"/>
+  <circle r="0.378" cy="0" cx="0" title="center" fill="none" stroke="#000000" stroke-width="0.7559" class="circle"/>
+  <text font-weight="bold" font-size="23.811" font-family="Arial" stroke="none" fill="#000000" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0" class="label">A</text>
+ </g>
+</svg>

@@ -1,0 +1,59 @@
+<svg width="794" height="1123" data-generator-name="Scale Constructor" data-generator-version="0.3.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-size="A4" data-image-orientation="portrait">
+ <!-- Created with Scale Constructor -->
+ <title>М42300 70x58.5мм 10A</title>
+ <desc>Измерительная головка М42300 70x58.5мм 10A</desc>
+ <rect fill="#ffffff" height="100%" width="100%" id="background"/>
+ <g transform="translate(397,562)" fill="none" id="scale_wrapper" stroke="#000000">
+  <g data-angle="88.4" data-length="17.0079" data-r="139.8425" stroke="#000000" stroke-width="1.5118" title="Divisions" class="div">
+   <line transform="rotate(-44.2)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-35.36)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-26.52)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-17.68)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-8.84)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(8.84)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(17.68)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(26.52)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(35.36)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(44.2)" y2="-156.8503" x2="0" y1="-139.8425" x1="0"/>
+  </g>
+  <g data-angle="88.4" data-length="11.3386" data-r="139.8425" stroke="#000000" stroke-width="1.1339" title="Divisions 2 level" class="div">
+   <line transform="rotate(-44.2)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-39.78)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-35.36)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-30.94)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-26.52)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-22.1)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-17.68)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-13.26)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-8.84)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(-4.42)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(4.42)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(8.84)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(13.26)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(17.68)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(22.1)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(26.52)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(30.94)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(35.36)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(39.78)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+   <line transform="rotate(44.2)" y2="-151.181" x2="0" y1="-139.8425" x1="0"/>
+  </g>
+  <g data-label-step="2" data-keep-angle="false" data-angle="85" data-r="170.0787" text-anchor="middle" font-size="18.8976" font-family="Arial" dominant-baseline="central" title="Value labels" class="label" stroke="none" fill="#000000" data-label-start="0">
+   <text data-keep-angle="true" transform="rotate(-42.5 0,0) rotate(42.5 -8.6929,-170.0787) translate(31.3701,29.4803) " y="-170.0787" x="-8.6929" dominant-baseline="central" stroke="none">0</text>
+   <text data-keep-angle="false" transform="rotate(-25.5,0,0) rotate(25.5,0,-170.0787)" y="-170.0787" x="0" dominant-baseline="central" stroke="none">2</text>
+   <text data-keep-angle="false" y="-170.0787" x="0" dominant-baseline="central" stroke="none" transform="rotate(-8.5) rotate(8.5,0,-170.0787)">4</text>
+   <text data-keep-angle="false" transform="rotate(8.5) rotate(-8.5,0,-170.0787)" y="-170.0787" x="0" dominant-baseline="central" stroke="none">6</text>
+   <text x="0" y="-170.0787" text-anchor="middle" dominant-baseline="central" stroke="none" transform="rotate(25.5) rotate(-25.5,0,-170.0787)" data-keep-angle="false">8</text>
+   <text x="8.6929" y="-170.0787" text-anchor="middle" dominant-baseline="central" stroke="none" transform="rotate(42.5 0,0) rotate(-42.5 8.6929,-170.0787) translate(-29.4803,31.3701) " data-keep-angle="false">10</text>
+  </g>
+  <text text-anchor="middle" font-weight="normal" font-size="37.7953" font-family="Arial" y="0" title="Center label" fill="#000000" class="label" dominant-baseline="central" transform="translate(0,-100) " stroke="none">A</text>
+  <path stroke-width="1.1339" data-top-cut="7.5591" data-height="221.1024" data-width="264.5669" transform="translate(0,13.2283) " d="M0 0 H -132.2835 V -213.5433 L -124.7244 -221.1024 H 124.7244 L 132.2835 -213.5433 V 0 Z" stroke="#000000" title="Scale Plate" class="plate plate-rectangular-top"/>
+  <circle cy="0" cx="0" r="35.9055" title="center circle" stroke="#000000" class="circle" stroke-width="1.1339"/>
+  <circle r="5.6693" title="Hole" stroke="#000000" class="circle" stroke-width="1.1339" transform="translate(-47.2441,0) "/>
+  <circle r="5.6693" title="Hole" stroke="#000000" class="circle" stroke-width="1.1339" transform="translate(47.2441,0) "/>
+
+  <circle r="0.378" cy="0" cx="0" title="center point" fill="none" stroke="#000000" stroke-width="0.7559" class="circle"/>
+ </g>
+</svg>

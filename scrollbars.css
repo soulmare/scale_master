@@ -1,0 +1,45 @@
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-button {
+    background-size: 100%;
+    height: 10px;
+    width: 10px;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+    background-color: #999;
+}
+::-webkit-scrollbar-button:end {
+    display: block;
+}
+::-webkit-scrollbar-button:start {
+    display: none;
+}
+::-webkit-scrollbar-button:horizontal:increment { /* Right */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAV0lEQVQ4T73TwQoAIAgD0Pnn9eWFh27qFlJCt3wFU0OzLOkfAPzQyoAFYCpIBfjrFGEARRSgRFQgRW6AEPkKhImoP0jjVIByFhjQGiTa7LE8Wya6hefCBhILGhGzGTl7AAAAAElFTkSuQmCC);
+}
+::-webkit-scrollbar-button:horizontal:decrement { /* Left */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVQ4T72TQQoAIAgEt5fX08ODYJbgKiR4c0YUHWjGIPgFQPKIrEDACeCqzwgUls60wMK0wMOU4AWnBRH8TyCdWiPoobSWGEnoO/DjlARWUhaopPxM4dNugpQOESmtVbwAAAAASUVORK5CYII=);
+}
+::-webkit-scrollbar-button:vertical:increment { /* Down */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVklEQVQ4T93S0QoAEAwF0OvLzZ+LwrCN5Y0XJfeoawGPKzzm8RFAAKKzjwSAeAcepIbLg2uJN0gPS0A5s5AprAEasoUtYEXE8AloCN+3j/poEp1DOK5nfmcNES1z5SIAAAAASUVORK5CYII=);
+}
+::-webkit-scrollbar-button:vertical:decrement { /* Up */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVUlEQVQ4T2NkoBAwUqifYfAb0AD1IozG8DE+L4A01UN1NDIwMGA1BJcByJphtmI1BJsB2DTjNATdAHyasRqCbAAxmjEMgRlAimYUQwZ/QiKYVQbeCwBFhQ0RcSHRhgAAAABJRU5ErkJggg==);
+}
+::-webkit-scrollbar-track {
+    background: #f8f8f8;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1);
+}
+::-webkit-scrollbar-thumb {
+    background: #aaa;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+	border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #989898;
+}
+::-webkit-scrollbar-thumb:active {
+    background: #808080;
+    -webkit-box-shadow: inset 1px 1px 2px rgba(0,0,0,0.3);
+}

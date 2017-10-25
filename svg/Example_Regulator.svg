@@ -1,0 +1,48 @@
+<svg width="794" height="1123" data-generator-name="Scale Constructor" data-generator-version="0.3.20" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4">
+ <!-- Created with Scale Constructor -->
+ <title>Example: Regulator</title>
+ <desc>Created with Scale Constructor</desc>
+ <rect id="background" width="100%" height="100%" fill="#ffffff"/>
+ <g id="scale_wrapper" fill="none" transform="translate(397,562)" stroke="#000000">
+
+  <g font-weight="bold" data-label-start="0" data-label-step="2" data-keep-angle="true" data-angle="240" data-r="75.5906" font-size="18.8976" font-family="Arial" text-anchor="middle" dominant-baseline="central" stroke="none" fill="#000000" title="labels" class="label">
+   <text data-keep-angle="true" transform="rotate(-120) rotate(120,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">0</text>
+   <text data-keep-angle="true" transform="rotate(-80) rotate(80,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">2</text>
+   <text data-keep-angle="true" transform="rotate(-40) rotate(40,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">4</text>
+   <text data-keep-angle="true" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">6</text>
+   <text data-keep-angle="true" transform="rotate(40) rotate(-40,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">8</text>
+   <text data-keep-angle="true" transform="rotate(80) rotate(-80,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">10</text>
+   <text data-keep-angle="true" transform="rotate(120) rotate(-120,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">12</text>
+  </g>
+  <g data-length="11.3386" data-r="49.1339" data-angle="240" title="1 unit" fill="none" stroke="#000000" stroke-width="1.8898" class="div">
+   <line data-keep-angle="false" transform="rotate(-120)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-100 0,0) " y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-80)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-60)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-40)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-20)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(20)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(40)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(60)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(80)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(100)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(120)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+  </g>
+  <g data-length="11.3386" data-r="49.1339" data-angle="240" title="2 units" fill="none" stroke="#000000" stroke-width="3.0236" class="div">
+   <line data-keep-angle="false" transform="rotate(-120 0,0) " y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-80)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(-40)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(40)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(80 0,0) " y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+   <line data-keep-angle="false" transform="rotate(120)" y2="-60.4724" x2="0" y1="-49.1339" x1="0"/>
+  </g>
+  <path data-r="49.1339" data-angle="243.5" title="int" d="M 41.7811 25.8549 A 49.1339 49.1339 0 1 0 -41.7811 25.8549" fill="none" stroke="#000000" stroke-width="3.0236" class="arc"/>
+  <path data-r="60.4724" data-angle="243" title="ext" d="M 51.5612 31.5968 A 60.4724 60.4724 0 1 0 -51.5612 31.5968" fill="none" stroke="#000000" stroke-width="3.0236" class="arc"/>
+  <circle r="41.5748" cy="0" cx="0" title="central" fill="none" stroke="#000000" stroke-width="1.1339" class="circle"/>
+  <line y2="-41.5748" x2="0" y1="41.5748" x1="0" title="vr" stroke="#000000" stroke-width="0.7559" class="line"/>
+  <line y2="0" x2="41.5748" y1="0" x1="-41.5748" title="hr" stroke="#000000" stroke-width="0.7559" class="line"/>
+  <circle r="90.7087" cy="0" cx="0" title="ext" fill="none" stroke="#000000" stroke-width="1.1339" class="circle"/>
+ </g>
+</svg>
