@@ -1,7 +1,6 @@
 # scale_master
-# https://github.com/soulmare/scale_master/
-
-DEMO: https://soulmare.github.io/scale_master/
+# LIVE DEMO: https://soulmare.github.io/scale_master/
+# SOURCE: https://github.com/soulmare/scale_master/
 
 Web application for drawing analog meter scales
 JavaScript driven, all client-side browser application, creates printable vector scale faces for analog meters etc.
