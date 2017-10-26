@@ -108,6 +108,8 @@ editor = {};
                     var langcode = language.match(/^\w+/);
                     if (langcode) {
                         langcode = langcode[0].toLowerCase();
+                        if (langcode === 'ua')
+                            langcode = 'ru';
                         if (['en', 'ru'].indexOf(langcode) >= 0)
                             editor.cfg.language = langcode;
                     }
@@ -1317,7 +1319,7 @@ editor = {};
             
         editor.localize = function(lang) {
             lang = lang || editor.cfg.language;
-console.log(lang);
+//console.log(lang);
 //console.log(editor.vm.model);
             editor.cfg.language = lang;
 
