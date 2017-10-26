@@ -1102,9 +1102,9 @@ editor = {};
         editor.download_svg = function() {
             $('#hdr_buttons button').attr('disabled', 'disabled');
             var svg = this.svgToString();
-            this.client_download_blob(this.get_filename()+'.svg', 'image/svg', svg);
-//            if (!this.client_download_datauri(this.get_filename(), '.svg', 'data:image/svg+xml;charset=UTF-8;base64,' + svgedit.utilities.encode64(svg)))
-//                alert('ERROR: Direct download is not supported by your browser.');
+//            this.client_download_blob(this.get_filename()+'.svg', 'image/svg', svg);
+            if (!this.client_download_datauri(this.get_filename(), '.svg', 'data:image/svg+xml;charset=UTF-8;base64,' + svgedit.utilities.encode64(svg)))
+                alert('ERROR: Direct download is not supported by your browser.');
             $('#hdr_buttons button').removeAttr('disabled');
         };
 
