@@ -1195,6 +1195,12 @@ editor = {};
                 };
                 reader.readAsDataURL(file);
             },100);
+            
+            // Re-create file input
+            var i_html = input.outerHTML;
+            var i_parent = input.parentNode;
+            input.remove();
+            $(i_html).appendTo(i_parent);
         };
     
     
@@ -1219,6 +1225,12 @@ editor = {};
                 };
                 reader.readAsText(file);
             },100);
+
+            // Re-create file input
+            var i_html = input.outerHTML;
+            var i_parent = input.parentNode;
+            input.remove();
+            $(i_html).appendTo(i_parent);
         };
     
     
