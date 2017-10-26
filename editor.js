@@ -1031,8 +1031,38 @@ editor = {};
         }; // end svgToString()
 
     
-        // Source: SVG Edit
-		editor.clientDownloadSupport = function (filename, suffix, uri) {
+        // Source: https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
+        editor.b64toBlob = function (b64Data, contentType, sliceSize) {
+          contentType = contentType || '';
+          sliceSize = sliceSize || 512;
+
+          var byteCharacters = atob(b64Data);
+          var byteArrays = [];
+
+          for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+              byteNumbers[i] = slice.charCodeAt(i);
+            }
+
+            var byteArray = new Uint8Array(byteNumbers);
+
+            byteArrays.push(byteArray);
+          }
+
+          var blob = new Blob(byteArrays, {type: contentType});
+          return blob;
+        }
+                        
+    
+        // Source: SVG Edit clientDownloadSupport()
+		editor.client_download_datauri = function (filename, suffix, uri) {
+            if (uri.length >= 2097100) {
+                alert('File too large');
+                return true;
+            }
 			var a,
 				support = $('<a>')[0].download === '';
 			if (support) {
@@ -1041,7 +1071,16 @@ editor = {};
 				return true;
 			}
 		};
-        
+
+    
+		editor.client_download_blob = function (filename, contentType, raw_data) {
+            var blob = editor.b64toBlob(svgedit.utilities.encode64(raw_data, true));
+            var blobUrl = URL.createObjectURL(blob);
+            a = $('<a>hidden</a>').attr({download: filename || 'file', href: blobUrl}).css('display', 'none').appendTo('body');
+            a[0].click();
+            return true;
+		};
+    
         
         editor.get_filename = function() {
             return editor.vm.model.title.replace(/[\/\\:*?"<>|]/g, '_').trim();
@@ -1050,8 +1089,9 @@ editor = {};
         editor.download_svg = function() {
             $('#hdr_buttons button').attr('disabled', 'disabled');
             var svg = this.svgToString();
-            if (!this.clientDownloadSupport(this.get_filename(), '.svg', 'data:image/svg+xml;charset=UTF-8;base64,' + svgedit.utilities.encode64(svg)))
-                alert('ERROR: Direct download is not supported by your browser.');
+            this.client_download_blob(this.get_filename()+'.svg', 'image/svg', svg);
+//            if (!this.client_download_datauri(this.get_filename(), '.svg', 'data:image/svg+xml;charset=UTF-8;base64,' + svgedit.utilities.encode64(svg)))
+//                alert('ERROR: Direct download is not supported by your browser.');
             $('#hdr_buttons button').removeAttr('disabled');
         };
 
@@ -1093,10 +1133,11 @@ editor = {};
                         var uri_prfx = 'data:image/png;base64,';
                         var src = svgedit.utilities.decode64(datauri.substr(uri_prfx.length), true);
                         var modified_src = png_set_ppi(src, ppi);
-                        datauri = uri_prfx + svgedit.utilities.encode64(modified_src, true);
+//                        datauri = uri_prfx + svgedit.utilities.encode64(modified_src, true);
+//                        if (!editor.client_download_datauri(editor.get_filename(), '.png', datauri))
+//                            alert('ERROR: Direct download is not supported by your browser.');
 
-                        if (!editor.clientDownloadSupport(editor.get_filename(), '.png', datauri))
-                            alert('ERROR: Direct download is not supported by your browser.');
+                        editor.client_download_blob(editor.get_filename() + '.png', 'image/png', src);
                         
                         $('#hdr_buttons button').removeAttr('disabled');
                     }
