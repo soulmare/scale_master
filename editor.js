@@ -325,44 +325,45 @@ editor = {};
 
             // Workspace keyboard actions
             $('#workspace').bind('keydown', function (e) {
-//                console.log(e.which);
+//                console.log(e.which, e.ctrlKey, e.shiftKey);
+                var delta = editor.units_to_px(e.ctrlKey ? 1 : 0.1);
                 switch (e.which) {
                     case 37:
                         // left
-                        if (e.ctrlKey) {
+                        if (e.shiftKey) {
                             var scroll_pos = $('#editor_viewport').scrollLeft();
                             if (scroll_pos)
                                 $('#editor_viewport').scrollLeft(scroll_pos - 5)
                         } else if (editor.vm.model.selected_object)
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) - editor.units_to_px(0.1));
+                            $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) - delta);
                         e.preventDefault();
                         break;
                     case 38:
                         // up
-                        if (e.ctrlKey) {
+                        if (e.shiftKey) {
                             var scroll_pos = $('#editor_viewport').scrollTop();
                             if (scroll_pos)
                                 $('#editor_viewport').scrollTop(scroll_pos - 5)
                         } else if (editor.vm.model.selected_object)
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) - editor.units_to_px(0.1));
+                            $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) - delta);
                         e.preventDefault();
                         break;
                     case 39:
                         // right
-                        if (e.ctrlKey) {
+                        if (e.shiftKey) {
                             var scroll_pos = $('#editor_viewport').scrollLeft();
                             $('#editor_viewport').scrollLeft(scroll_pos + 5)
                         } else if (editor.vm.model.selected_object)
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) + editor.units_to_px(0.1));
+                            $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) + delta);
                         e.preventDefault();
                         break;
                     case 40:
                         // down
-                        if (e.ctrlKey) {
+                        if (e.shiftKey) {
                             var scroll_pos = $('#editor_viewport').scrollTop();
                             $('#editor_viewport').scrollTop(scroll_pos + 5)
                         } else if (editor.vm.model.selected_object)
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) + editor.units_to_px(0.1));
+                            $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) + delta);
                         e.preventDefault();
                         break;
                     case 46:
@@ -794,7 +795,7 @@ editor = {};
                 sel_margin.setAttribute('class', '_ed_select_box_margin');
                 sel_margin.setAttribute('fill', 'none');
 //                    sel_margin.setAttribute('opacity', '0.4');
-                sel_margin.setAttribute('stroke-width', 1.5);
+                sel_margin.setAttribute('stroke-width', 1.0);
                 sel_margin.setAttribute('stroke', margin_idx ? '#FFFF00' : '#0000FF');
                 if (margin_idx)
                     sel_margin.setAttribute('stroke-dasharray', '5,5');
@@ -1294,18 +1295,20 @@ editor = {};
             var obj = editor.vm.model.selected_object;
             
             if (obj) {
-                // Move select box node to make it always on top
+                // Move select box node to the end, making it always on top
                 var scale_wrapper = editor.document.getElementById('scale_wrapper');
-//                this.selected_object.element.parentNode.insertBefore(this.selected_object.element, prev_obj.element);
                 scale_wrapper.append(editor.select_box);
                 // Set select box position and size
                 editor.select_box.setAttribute('visibility', 'visible');
+//console.log()
+                var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
                 var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
-                var select_box_padding = Math.max(4, bb.width*0.03, bb.height*0.03);
-                $('._ed_select_box_margin').attr('x', bb.x - select_box_padding);
-                $('._ed_select_box_margin').attr('y', bb.y - select_box_padding);
-                $('._ed_select_box_margin').attr('width', bb.width+select_box_padding*2);
-                $('._ed_select_box_margin').attr('height', bb.height+select_box_padding*2);
+//                var select_box_padding = Math.max(4, bb.width*0.03, bb.height*0.03);
+                var select_box_padding = bb.width + bb.height < 10 ? 4 : 0;
+                $('._ed_select_box_margin').attr('x', bb.x - select_box_padding - sb_stroke_width);
+                $('._ed_select_box_margin').attr('y', bb.y - select_box_padding - sb_stroke_width);
+                $('._ed_select_box_margin').attr('width', bb.width + select_box_padding*2 + sb_stroke_width*2);
+                $('._ed_select_box_margin').attr('height', bb.height + select_box_padding*2 + sb_stroke_width*2);
                 // Take in account parent group transform
                 if (obj.parent_obj && obj.parent_obj.element.getAttribute('transform'))
                     editor.select_box.setAttribute('transform', obj.parent_obj.element.getAttribute('transform'));
