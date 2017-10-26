@@ -120,7 +120,7 @@
         <button class="small" data-i18n-title="move_down" title="Move down" data-link="{on move_down} data-disabled{:1 && !selected_object}"><span class="icon ui-icon-arrowthick-1-s"></span></button>
         <button class="small" data-i18n-title="delete" title="Delete" data-link="{on delete} data-disabled{:1 && !selected_object}"><span class="icon ui-icon-trash"></span></button>
     </div>
-    <select name="main_objects" size="9999" data-link="selected_parent" onfocus="editor.trigger_sel_object_focus(this)">
+    <select name="main_objects" size="9999" data-link="selected_parent" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigget_objects_list_keydown(event)">
     {^{if display_parent_list}}
         {^{for objects}}
             {{if id_parent===-1}}
@@ -131,7 +131,7 @@
         {{/for}}
     {{/if}}
     </select>
-    <select name="child_objects" size="9999" data-link="selected_child" onfocus="editor.trigger_sel_object_focus(this)">
+    <select name="child_objects" size="9999" data-link="selected_child" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigget_objects_list_keydown(event)">
         {^{if selected_parent!==null}}
             {^{for objects}}
                 {^{if ~root.selected_parent==id_parent}}

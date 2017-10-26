@@ -375,6 +375,19 @@ editor = {};
             
         }
 
+        
+        editor.trigget_objects_list_keydown = function (event) {
+//console.log(event);return;
+            switch (event.which) {
+                case 46:
+                    // delete
+                    if (editor.vm.model.selected_object)
+                        editor.vm.model.delete(null, {change: 'click'});
+                    event.target.focus();
+                    break;
+            }
+        };
+        
 
         // Sets current units
         editor.set_units = function (units_name) {
