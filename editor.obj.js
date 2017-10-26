@@ -431,9 +431,27 @@ editor.elm_image = function(element) {
     this.link_attributes = ['width', 'height'];
     // Parent constructor
     editor.elm_graphic.apply(this, arguments);
+    $.observe(this, 'width', 'height', this.trigger_resize);
 }
 editor.elm_image.prototype = Object.create(editor.elm_graphic.prototype);
 editor.elm_image.prototype.constructor = editor.elm_image;
+
+editor.elm_image.prototype.trigger_resize = function(ev, eventArgs) {
+    var _this = ev.target;
+    if (_this.preserve_aspect_ratio()) {
+        var k = parseFloat(_this.element.getAttribute('data-original-width')) / parseFloat(_this.element.getAttribute('data-original-height'));
+        if (eventArgs.path == 'width') {
+            var new_val = editor.units_round(eventArgs.value / k, 2);
+            if (_this.height != new_val)
+                $.observable(_this).setProperty('height', new_val);
+        }
+        if (eventArgs.path == 'height') {
+            var new_val = editor.units_round(eventArgs.value * k, 2);
+            if (_this.width != new_val)
+                $.observable(_this).setProperty('width', new_val);
+        }
+    }
+};
 
 
 editor.elm_image.prototype.preserve_aspect_ratio = function () {
@@ -444,6 +462,15 @@ editor.elm_image.prototype.preserve_aspect_ratio.set = function (val) {
         this.element.removeAttribute('preserveAspectRatio');
     else
         this.element.setAttribute('preserveAspectRatio', 'none');
+    if (val) {
+        var k = parseFloat(this.element.getAttribute('data-original-width')) / parseFloat(this.element.getAttribute('data-original-height'));
+        var new_width = editor.units_round(this.height * k, 2);
+        var new_height = editor.units_round(this.width / k, 2);
+        if (new_width > this.width)
+            $.observable(this).setProperty('height', new_height);
+        else
+            $.observable(this).setProperty('width', new_width);
+    }
 }
 
     
