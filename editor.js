@@ -1260,6 +1260,11 @@ editor = {};
             var obj = editor.vm.model.selected_object;
             
             if (obj) {
+                // Move select box node to make it always on top
+                var scale_wrapper = editor.document.getElementById('scale_wrapper');
+//                this.selected_object.element.parentNode.insertBefore(this.selected_object.element, prev_obj.element);
+                scale_wrapper.append(editor.select_box);
+                // Set select box position and size
                 editor.select_box.setAttribute('visibility', 'visible');
                 var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
                 var select_box_padding = Math.max(4, bb.width*0.03, bb.height*0.03);
