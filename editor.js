@@ -1087,7 +1087,25 @@ editor = {};
 
     
 		editor.client_download_blob = function (filename, contentType, raw_data) {
-            var blob = editor.b64toBlob(svgedit.utilities.encode64(raw_data, true));
+//            var blob = editor.b64toBlob(svgedit.utilities.encode64(raw_data, true));
+
+            if (contentType.indexOf('image/svg') !== -1) {
+                var blob = new Blob([raw_data], {type: contentType});
+            } else {
+                var byteArrays = [];
+                sliceSize = 512;
+                for (var offset = 0; offset < raw_data.length; offset += sliceSize) {
+                    var slice = raw_data.slice(offset, offset + sliceSize);
+                    var byteNumbers = new Array(slice.length);
+                    for (var i = 0; i < slice.length; i++) {
+                        byteNumbers[i] = slice.charCodeAt(i);
+                    }
+                    var byteArray = new Uint8Array(byteNumbers);
+                    byteArrays.push(byteArray);
+                }
+                var blob = new Blob(byteArrays, {type: contentType});
+            }
+            
             var blobUrl = URL.createObjectURL(blob);
             a = $('<a>hidden</a>').attr({download: filename || 'file', href: blobUrl}).css('display', 'none').appendTo('body');
             a[0].click();
@@ -1102,9 +1120,12 @@ editor = {};
         editor.download_svg = function() {
             $('#hdr_buttons button').attr('disabled', 'disabled');
             var svg = this.svgToString();
-//            this.client_download_blob(this.get_filename()+'.svg', 'image/svg', svg);
-            if (!this.client_download_datauri(this.get_filename(), '.svg', 'data:image/svg+xml;charset=UTF-8;base64,' + svgedit.utilities.encode64(svg)))
-                alert('ERROR: Direct download is not supported by your browser.');
+
+            this.client_download_blob(this.get_filename()+'.svg', 'image/svg', svg);
+
+//            if (!this.client_download_datauri(this.get_filename(), '.svg', 'data:image/svg+xml;charset=UTF-8;base64,' + svgedit.utilities.encode64(svg)))
+//                alert('ERROR: Direct download is not supported by your browser.');
+
             $('#hdr_buttons button').removeAttr('disabled');
         };
 
