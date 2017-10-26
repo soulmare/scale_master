@@ -108,7 +108,7 @@ editor = {};
                     var langcode = language.match(/^\w+/);
                     if (langcode) {
                         langcode = langcode[0].toLowerCase();
-                        if (langcode === 'ua')
+                        if (langcode === 'uk')
                             langcode = 'ru';
                         if (['en', 'ru'].indexOf(langcode) >= 0)
                             editor.cfg.language = langcode;
