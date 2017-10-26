@@ -53,7 +53,12 @@
   <circle cy="0" cx="0" r="35.9055" title="center circle" stroke="#000000" class="circle" stroke-width="1.1339"/>
   <circle r="5.6693" title="Hole" stroke="#000000" class="circle" stroke-width="1.1339" transform="translate(-47.2441,0) "/>
   <circle r="5.6693" title="Hole" stroke="#000000" class="circle" stroke-width="1.1339" transform="translate(47.2441,0) "/>
-
-  <circle r="0.378" cy="0" cx="0" title="center point" fill="none" stroke="#000000" stroke-width="0.7559" class="circle"/>
+  <g class="div" stroke-width="0.7559" stroke="#000000" fill="none" title="Centering" data-angle="360" data-r="0" data-length="35.9055">
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(-180)"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(-90)"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(90)"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(180)" visibility="hidden"/>
+  </g>
  </g>
 </svg>

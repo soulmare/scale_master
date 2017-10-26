@@ -85,9 +85,14 @@
    <line x1="0" y1="-249.4488" x2="0" y2="-258.8976" transform="rotate(40.5)"/>
   </g>
   <text class="label" x="0" y="-75.5906" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="55.937" transform="translate(0,-87.685) " font-weight="bold">A</text>
-  <circle class="circle" stroke-width="2.2677" stroke="#000000" fill="none" title="center point" cx="0" cy="0" r="1.1339"/>
   <circle class="circle" stroke-width="1.5118" stroke="#000000" fill="none" title="center" cx="0" cy="0" r="37.7953"/>
   <path class="plate plate-rectangular-top plate-top-cut" stroke-width="1.5118" stroke="#000000" fill="none" d="M0 0 H -207.874 V -377.9528 L -207.874 -377.9528 H 207.874 L 207.874 -377.9528 V 0 Z" data-width="415.748" data-height="377.9528" transform="translate(0,18.1417) "/>
-
+  <g class="div" stroke-width="0.7559" stroke="#000000" fill="none" title="Centering" data-angle="360" data-r="0" data-length="35.9055">
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(-180)"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(-90)"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(90)"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(180)" visibility="hidden"/>
+  </g>
  </g>
 </svg>

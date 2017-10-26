@@ -84,6 +84,12 @@
   <circle transform="translate(-47,0) " stroke-width="1.1339" class="circle" stroke="#000000" title="Hole" r="5.6693"/>
   <circle transform="translate(47,0) " stroke-width="1.1339" class="circle" stroke="#000000" title="Hole" r="5.6693"/>
   <text stroke="none" font-weight="bold" transform="translate(-102,31) " font-size="13.6063" font-family="Arial" fill="#000000" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0" class="label">М4200</text>
-
+  <g class="div" stroke-width="0.7559" stroke="#000000" fill="none" title="Centering" data-angle="360" data-r="0" data-length="35.9055">
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(-180)"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(-90)"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(90)"/>
+   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(180)" visibility="hidden"/>
+  </g>
  </g>
 </svg>
