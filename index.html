@@ -76,11 +76,11 @@
                 <li><a data-i18n="example_compass" href="#" onclick="editor.open_url('svg/example_compass.svg');return false;">Compass</a></li>
                 <li><a data-i18n="example_protractor" href="#" onclick="editor.open_url('svg/example_protractor.svg');return false;">Protractor</a></li>
                 <li><a data-i18n="example_regulator" href="#" onclick="editor.open_url('svg/Example_Regulator.svg');return false;">Regulator</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_10A.svg');return false;">M4203 32x23.5mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_20V.svg');return false;">M4203 32x23.5mm 20V</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4205_50x40mm_10A.svg');return false;">M4205 50x40mm 10A</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_20V.svg');return false;">M4200 69X60mm 20V</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_10A.svg');return false;">M4200 69X60mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_20V.svg');return false;">M4203 32x23.5mm 20V</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_10A.svg');return false;">M4203 32x23.5mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4205_50x40mm_10A.svg');return false;">M4205 50x40mm 10A</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_10A.svg');return false;">M42300 70x58.5mm 10A</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_30A.svg');return false;">M42300 70x58.5mm 30A</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_50A.svg');return false;">M42300 70x58.5mm 50A</a></li>
@@ -345,12 +345,12 @@
 
     {^{if selected_object^type == 'arc'}}
     <label class="ed">
-        <div class="l" data-link="{i18n:'angle' 'Angle:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^arc_angle()" min="0" max="360"><span class="u" data-link="{i18n:'deg'}"></span></div>
-    </label>
-    <label class="ed">
         <div class="l" data-link="{i18n:'radius' 'Radius:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^radius():to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'angle' 'Angle:'}"></div>
+        <div class="i"><input type="number" data-link="selected_object^arc_angle()" min="0" max="360"><span class="u" data-link="{i18n:'deg'}"></span></div>
     </label>
     {{/if}}
 
@@ -509,7 +509,7 @@
     </section>
     
     <footer>
-        <div class="app_name">Scale Master <span class="version"></span><span class="type"></span> &copy;2017 <a href="mailto:soulmare@gmail.com">Alexander Bolokhovetsky</a></div>
+        <div class="app_name">Scale Master <span class="version"></span><span class="type"></span> &copy;2017 <a href="mailto:soulmare@gmail.com" title="email">Alexander Bolokhovetsky</a></div>
         <div class="sep"></div>
         <div><a href="https://github.com/soulmare/scale_master" data-i18n="get_code">Get code</a></div>
     </footer>

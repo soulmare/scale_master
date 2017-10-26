@@ -31,7 +31,7 @@ editor = {};
                 },
                 // Mouse button, used for drag scrolling
                 // 0 - main button; 1 - wheel button; 2 - context menu button
-                drag_scroll_btn: 1,
+                drag_scroll_btn: 0,
                 rulers: {
                     stroke_style: 'rgba(255,255,255,0.8)',
                     // Vertical ruler labels orientation
@@ -210,9 +210,9 @@ editor = {};
             var on_workspace_mousemove = function(e) {
                 var point = editor.coords_mouse_event_to_document(e.originalEvent);
                 var dig_after_zero = editor.zoom * editor.cfg.units.conversion_k > 1 ? 1 : 0;
-                if (editor.zoom * editor.cfg.units.conversion_k > 2)
+                if (editor.zoom * editor.cfg.units.conversion_k > 8)
                     dig_after_zero = 2;
-                if (editor.zoom * editor.cfg.units.conversion_k > 5)
+                if (editor.zoom * editor.cfg.units.conversion_k > 14)
                     dig_after_zero = 3;
                 if (editor.cfg.document_origin_mode == 1)
                     point[1] = -point[1];
