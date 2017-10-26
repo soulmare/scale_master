@@ -1247,7 +1247,7 @@ console.log(lang);
             var i18n = $.i18n();
             i18n.locale = lang;
             
-            i18n.load( 'lang/' + i18n.locale + '.json', i18n.locale ).done(function () {
+            i18n.load( 'lang/' + i18n.locale + '.json?v=' + APP_VERSION, i18n.locale ).done(function () {
                 
                 // Inner text
                 $('[data-i18n]').i18n();
