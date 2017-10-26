@@ -395,7 +395,7 @@ editor.vm = {};
                         break;
                     case 'image':
                         element.setAttribute('x', -editor.units_round(ev.width/2));
-                        element.setAttribute('y', -editor.units_round(ev.width/2));
+                        element.setAttribute('y', -editor.units_round(ev.height/2));
                         element.setAttribute('width', ev.width);
                         element.setAttribute('height', ev.height);
                         element.setAttribute('data-original-width', ev.width);
