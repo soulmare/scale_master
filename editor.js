@@ -397,9 +397,10 @@ editor = {};
 
             var old_zoom = editor.zoom;
             if (!zoom_center_point) {
-                var zoom_center_point = editor.coords_visible_to_document([real_width/2, real_height/2],1);
-                var zoom_center_point = editor.coords_visible_to_document([real_width, real_height],1);
-//console.log(real_width, real_height, zoom_center_point);
+                // Viewport center is zoom default center point
+                var zoom_center_point = editor.coords_visible_to_document([
+                    $('#editor_viewport').scrollLeft()+$('#editor_viewport').width()/2,
+                    $('#editor_viewport').scrollTop()+$('#editor_viewport').height()/2]);
             }
 
             var old_ctr = editor.coords_document_to_visible(zoom_center_point, old_zoom);
@@ -679,6 +680,7 @@ editor = {};
         
         // Convert workspace pixel coordinates to document units coordinates
         editor.coords_visible_to_document = function (point, zoom_level/*default: editor.zoom*/) {
+//console.log(point);
             zoom_level = ('undefined' === typeof (zoom_level)) ? editor.zoom : zoom_level;
             var new_point = [];
             for(var i in [0,1])
