@@ -1,6 +1,5 @@
 # Scale Master
-# DEMO: https://soulmare.github.io/scale_master/
-SOURCE: https://github.com/soulmare/scale_master/
+## [ONLINE DEMO](https://soulmare.github.io/scale_master/)
 
 Web application for creating printable analog meter scales.
 
@@ -28,12 +27,11 @@ Scale Master - это браузерное JavaScript приложение, пр
 - Предложения по улучшению программы
 - Присылка шкал, выполненных на основе распространенных форматов измерительных головок, приборов и т. п.
 
-## БЛАГОДАРНОСТЬ
-- Использован JsViews MVVM фреймворк.
+## ИСПОЛЬЗОВАННЫЕ ПРОЕКТЫ
+- JsViews MVVM фреймворк.
 - Взяты небольшие функции из векторного редактора SVG-Edit
 - Несколько шкал из примеров взяты в рисовалке шкал автора Starichok, опубликованной на forum.cxem.net
 - Иконки кнопок от jQuery UI и еще откуда-то.
-
 
 
 автор:
