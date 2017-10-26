@@ -265,7 +265,7 @@ input:focus, textarea:focus, select:focus{
 }
 input[type="number"],
 input[type="range"]{
-    width:40px;
+    width:60px;
 }
 input[type="range"]{
     height: 8px;
