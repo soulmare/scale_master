@@ -236,7 +236,7 @@ editor = {};
             set_zoom_debounced = _.debounce(function (new_zoom, center_point) {editor.set_zoom(new_zoom, center_point)}, 100, {leading: true, maxWait:100});
             
             // Dispatch zoom input
-            $('input[type=number][name=zoom]').bind('change', function (e) {
+            $('input[type=number][name=zoom]').bind('input', function (e) {
 //                console.log($(this).val());
                 var zoom_perc = parseFloat($(this).val());
                 if (!isNaN(zoom_perc) && (zoom_perc > 0))
