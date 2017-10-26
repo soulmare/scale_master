@@ -92,6 +92,7 @@
 	"image_background_color": "Цвет фона:",
 	"image_obj_color": "Цвет рисунка:",
 	"preserve_aspect_ratio": "Сохранение пропорций",
+	"get_code": "Исходный код программы",
     
     "stub": "stub"
 }

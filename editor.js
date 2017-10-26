@@ -330,41 +330,31 @@ editor = {};
                 switch (e.which) {
                     case 37:
                         // left
-                        if (e.shiftKey) {
-                            var scroll_pos = $('#editor_viewport').scrollLeft();
-                            if (scroll_pos)
-                                $('#editor_viewport').scrollLeft(scroll_pos - 5)
-                        } else if (editor.vm.model.selected_object)
+                        if (editor.vm.model.selected_object) {
                             $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) - delta);
-                        e.preventDefault();
+                            e.preventDefault();
+                        }
                         break;
                     case 38:
                         // up
-                        if (e.shiftKey) {
-                            var scroll_pos = $('#editor_viewport').scrollTop();
-                            if (scroll_pos)
-                                $('#editor_viewport').scrollTop(scroll_pos - 5)
-                        } else if (editor.vm.model.selected_object)
+                        if (editor.vm.model.selected_object){
                             $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) - delta);
-                        e.preventDefault();
+                            e.preventDefault();
+                        }
                         break;
                     case 39:
                         // right
-                        if (e.shiftKey) {
-                            var scroll_pos = $('#editor_viewport').scrollLeft();
-                            $('#editor_viewport').scrollLeft(scroll_pos + 5)
-                        } else if (editor.vm.model.selected_object)
+                        if (editor.vm.model.selected_object){
                             $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) + delta);
-                        e.preventDefault();
+                            e.preventDefault();
+                        }
                         break;
                     case 40:
                         // down
-                        if (e.shiftKey) {
-                            var scroll_pos = $('#editor_viewport').scrollTop();
-                            $('#editor_viewport').scrollTop(scroll_pos + 5)
-                        } else if (editor.vm.model.selected_object)
+                        if (editor.vm.model.selected_object){
                             $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) + delta);
-                        e.preventDefault();
+                            e.preventDefault();
+                        }
                         break;
                     case 46:
                         // delete
@@ -1172,7 +1162,7 @@ editor = {};
 //                        if (!editor.client_download_datauri(editor.get_filename(), '.png', datauri))
 //                            alert('ERROR: Direct download is not supported by your browser.');
 
-                        editor.client_download_blob(editor.get_filename() + '.png', 'image/png', src);
+                        editor.client_download_blob(editor.get_filename() + ' ' + ppi + 'ppi.png', 'image/png', src);
                         
                         $('#hdr_buttons button').removeAttr('disabled');
                     }
