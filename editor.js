@@ -1165,7 +1165,7 @@ editor = {};
 //                        if (!editor.client_download_datauri(editor.get_filename(), '.png', datauri))
 //                            alert('ERROR: Direct download is not supported by your browser.');
 
-                        editor.client_download_blob(editor.get_filename() + ' ' + ppi + 'ppi.png', 'image/png', src);
+                        editor.client_download_blob(editor.get_filename() + ' ' + ppi + 'ppi.png', 'image/png', modified_src);
                         
                         $('#hdr_buttons button').removeAttr('disabled');
                     }
