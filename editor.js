@@ -46,12 +46,10 @@ editor = {};
                 document_origin_mode: 1,
                 styles: {
                     font_family: 'Arial',
-                    font_size: 18.89764, //in px
-//                    font_size: 15.11811, //in px
+                    font_size: 4,
                     objects_color: '#000000',
 //                    background_color: '#ffffff',
-//                    stroke_width: 0.7559, // 0.2mm in px
-                    stroke_width: 1.1339, // 0.3mm in px
+                    stroke_width: 0.3
                 },
                 size_round_digits: 4,
                 language: 'en',
@@ -59,8 +57,11 @@ editor = {};
                     items_count: 5,
                     label_text: '',
                     length: 100,
-                    radius: 50,
-                    size: 100
+                    r: 50,
+                    angle: 85,
+                    size: 100,
+                    font_size: 4,
+                    stroke_width: 0.3
                 }
             };
     
@@ -848,7 +849,7 @@ editor = {};
 
         
         editor.px_to_units = function (val) {
-            return (parseFloat(val) || 0) / editor.cfg.units.conversion_k;
+            return _.round((parseFloat(val) || 0) / editor.cfg.units.conversion_k, 2);
         }
         
 

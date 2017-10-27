@@ -238,6 +238,7 @@ editor.vm = {};
             },
             
             create_element: function (ev, eventArgs) {
+//console.log()
                 $('.dropdown').hide();
                 if (ev.element_type)
                     var elem_data = ev.element_type.split('.');
@@ -245,6 +246,43 @@ editor.vm = {};
                     var elem_data = ev.target.getAttribute('data-element-type').split('.');
                 var tag = elem_data.splice(0, 1)[0];
                 var classnames = elem_data;
+
+                // Get default values if possible
+                var base_size = editor.units_mm_to_px(100);
+                var sel_obj = editor.vm.model.selected_object;
+                if (sel_obj)
+                    var sel_group = sel_obj.tag === 'g' ? sel_obj : sel_obj.parent_obj || null;
+                else
+                    var sel_group = null;
+                if (sel_group) {
+                    if (sel_group.data_length)
+                        editor.cfg.new_item.length = editor.px_to_units(sel_group.data_length);
+                    if (sel_group.data_angle)
+                        editor.cfg.new_item.angle = sel_group.data_angle;
+                    if (sel_group.data_r)
+                        editor.cfg.new_item.r = editor.px_to_units(sel_group.data_r);
+                    if (sel_group.stroke_width_val())
+                        editor.cfg.new_item.stroke_width = editor.px_to_units(sel_group.stroke_width_val());
+                    if (sel_group.font_size)
+                        editor.cfg.new_item.font_size = editor.px_to_units(sel_group.font_size);
+//console.log(sel_group.font_size)
+                }
+                // Prefer object over it's group
+                if (sel_obj) {
+                    if (sel_obj.line_length && sel_obj.line_length())
+                        editor.cfg.new_item.length = editor.px_to_units(sel_obj.length);
+                    if (sel_obj.data_angle)
+                        editor.cfg.new_item.angle = sel_obj.data_angle;
+                    if (sel_obj.r)
+                        editor.cfg.new_item.r = editor.px_to_units(sel_obj.r);
+                    if (sel_obj.stroke_width_val())
+                        editor.cfg.new_item.stroke_width = editor.px_to_units(sel_obj.stroke_width_val());
+                    if (sel_obj.font_size)
+                        editor.cfg.new_item.font_size = editor.px_to_units(sel_obj.font_size);
+//console.log(sel_obj.font_size)
+                }
+                
+                // Request new item parameters
                 switch (tag) {
                     case 'g':
                         var items_count = 0;
@@ -279,11 +317,11 @@ editor.vm = {};
                             editor.cfg.new_item.length = length;
                         break;
                     case 'circle':
-                        var radius = prompt($.i18n('msg_radius'), editor.cfg.new_item.radius || 0);
+                        var radius = prompt($.i18n('msg_radius'), editor.cfg.new_item.r || 0);
                         if (radius === null)
                             return;
                         else
-                            editor.cfg.new_item.radius = radius;
+                            editor.cfg.new_item.r = radius;
                         break;
                     case 'path':
                         if (classnames.indexOf('plate-rectangular-top') > -1) {
@@ -293,33 +331,34 @@ editor.vm = {};
                             else
                                 editor.cfg.new_item.size = size;
                         } else if (classnames.indexOf('arc') > -1) {
-                            var radius = prompt($.i18n('msg_radius'), editor.cfg.new_item.radius || 0);
+                            var radius = prompt($.i18n('msg_radius'), editor.cfg.new_item.r || 0);
                             if (radius === null)
                                 return;
                             else
-                                editor.cfg.new_item.radius = radius;
+                                editor.cfg.new_item.r = radius;
                         }
                         break;
                 }
                 
-                var base_size = editor.units_mm_to_px(100);
                 
+                // Create new element
                 var element = document.createElementNS(editor.ns_svg, tag);
                 element.setAttribute('class', classnames.join(' '));
                 switch (tag) {
                     case 'text':
                         element.setAttribute('x', 0);
-                        element.setAttribute('y', -editor.units_round(base_size*0.2));
+//                        element.setAttribute('y', -editor.units_round(base_size*0.2));
+                        element.setAttribute('y', 0);
                         element.setAttribute('text-anchor', 'middle');
                         element.setAttribute('dominant-baseline', 'central');
                         element.setAttribute('fill', this.obj_color());
                         element.setAttribute('stroke', 'none');
                         element.setAttribute('font-family', editor.cfg.styles.font_family);
-                        element.setAttribute('font-size', editor.cfg.styles.font_size);
                         element.innerText = text;
+                        element.setAttribute('font-size', editor.units_to_px(editor.cfg.new_item.font_size || editor.cfg.styles.font_size));
                         break;
                     case 'line':
-                        element.setAttribute('stroke-width', editor.cfg.styles.stroke_width);
+                        element.setAttribute('stroke-width', editor.units_to_px(editor.cfg.new_item.stroke_width || editor.cfg.styles.stroke_width));
                         element.setAttribute('stroke', this.obj_color());
                         element.setAttribute('title', $.i18n('new_line'));
                         if (classnames.indexOf('h') >= 0) {
@@ -340,7 +379,7 @@ editor.vm = {};
                         }
                         break;
                     case 'circle':
-                        element.setAttribute('stroke-width', editor.cfg.styles.stroke_width);
+                        element.setAttribute('stroke-width', editor.units_to_px(editor.cfg.new_item.stroke_width || editor.cfg.styles.stroke_width));
                         element.setAttribute('stroke', this.obj_color());
                         element.setAttribute('fill', 'none');
                         element.setAttribute('title', $.i18n('new_circle'));
@@ -349,7 +388,7 @@ editor.vm = {};
                         element.setAttribute('r', editor.units_to_px(radius));
                         break;
                     case 'path':
-                        element.setAttribute('stroke-width', editor.cfg.styles.stroke_width);
+                        element.setAttribute('stroke-width', editor.units_to_px(editor.cfg.new_item.stroke_width || editor.cfg.styles.stroke_width));
                         element.setAttribute('stroke', this.obj_color());
                         element.setAttribute('fill', 'none');
                         element.setAttribute('d', '');
@@ -363,7 +402,7 @@ editor.vm = {};
                             }
                         } else if (classnames.indexOf('arc') > -1) {
                             element.setAttribute('title', $.i18n('new_arc'));
-                            element.setAttribute('data-angle', 85);
+                            element.setAttribute('data-angle', editor.cfg.new_item.angle);
                             element.setAttribute('data-r', editor.units_to_px(radius));
                         }
                         break;
@@ -375,20 +414,20 @@ editor.vm = {};
                             element.setAttribute('dominant-baseline', 'central');
                             element.setAttribute('text-anchor', 'middle');
                             element.setAttribute('font-family', editor.cfg.styles.font_family);
-                            element.setAttribute('font-size', editor.cfg.styles.font_size);
-                            element.setAttribute('data-r', editor.units_to_px(editor.cfg.new_item.radius*1.2));
-                            element.setAttribute('data-angle', '85');
+                            element.setAttribute('font-size', editor.units_to_px(editor.cfg.new_item.font_size || editor.cfg.styles.font_size));
+                            element.setAttribute('data-r', editor.units_to_px(editor.cfg.new_item.r*1.2));
+                            element.setAttribute('data-angle', editor.cfg.new_item.angle);
                             element.setAttribute('data-keep-angle', 'true');
                             element.setAttribute('data-label-step', '1');
                             element.setAttribute('data-label-start', '0');
                         } else {
-                            element.setAttribute('stroke-width', editor.cfg.styles.stroke_width);
+                            element.setAttribute('stroke-width', editor.units_to_px(editor.cfg.new_item.stroke_width || editor.cfg.styles.stroke_width));
                             element.setAttribute('stroke', this.obj_color());
                             element.setAttribute('fill', 'none');
                             if (classnames.indexOf('div') > -1) {
                                 element.setAttribute('title', $.i18n('new_divisions_group'));
-                                element.setAttribute('data-angle', '85');
-                                element.setAttribute('data-r', editor.units_to_px(editor.cfg.new_item.radius));
+                                element.setAttribute('data-angle', editor.cfg.new_item.angle);
+                                element.setAttribute('data-r', editor.units_to_px(editor.cfg.new_item.r));
                                 element.setAttribute('data-length', editor.units_round(base_size*0.04));
                             }
                         }
