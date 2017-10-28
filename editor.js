@@ -1316,7 +1316,7 @@ editor = {};
                 $('._ed_select_box_margin').attr('y', bb.y - sb_stroke_width - obj_stroke_width/2);
                 $('._ed_select_box_margin').attr('width', bb.width + sb_stroke_width*2 + obj_stroke_width);
                 $('._ed_select_box_margin').attr('height', bb.height + sb_stroke_width*2 + obj_stroke_width);
-                // Take in account parent group transform
+                // Take into account parent group transform
                 if (obj.parent_obj && obj.parent_obj.element.getAttribute('transform'))
                     editor.select_box.setAttribute('transform', obj.parent_obj.element.getAttribute('transform'));
                 else

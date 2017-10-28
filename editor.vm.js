@@ -594,6 +594,8 @@ editor.vm = {};
             editor.document.setAttribute('data-height', page_size[1]);
             var scale_wrapper = editor.document.getElementById('scale_wrapper');
             scale_wrapper.setAttribute('transform', 'translate('+Math.round(page_size[0]/2)+','+Math.round(page_size[1]/2)+')');
+            var service_grp = editor.document.getElementById('_ed_service_grp');
+            service_grp.setAttribute('transform', scale_wrapper.getAttribute('transform'));
             editor.set_zoom();
         };
         
