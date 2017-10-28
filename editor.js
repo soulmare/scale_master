@@ -1296,17 +1296,17 @@ editor = {};
                 var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
                 var obj_stroke_width = parseFloat(obj.element.getAttribute('stroke-width')) || 0;
                 var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
+//console.log(obj.stroke_width_val(), obj.element.getAttribute('stroke-width'))
                 // Apply minimum constraints on bbox
                 var min_bbox_size = 2;
                 if (bb.width < min_bbox_size){
+                    bb.x -= (min_bbox_size-bb.width)/2;
                     bb.width = min_bbox_size;
-                    bb.x -= min_bbox_size/2;
                 }
                 if (bb.height < min_bbox_size){
+                    bb.y -= (min_bbox_size-bb.height)/2;
                     bb.height = min_bbox_size;
-                    bb.y -= min_bbox_size/2;
                 }
-//console.log(obj.stroke_width_val(), obj.element.getAttribute('stroke-width'))
                 $('._ed_select_box_margin').attr('x', bb.x - sb_stroke_width - obj_stroke_width/2);
                 $('._ed_select_box_margin').attr('y', bb.y - sb_stroke_width - obj_stroke_width/2);
                 $('._ed_select_box_margin').attr('width', bb.width + sb_stroke_width*2 + obj_stroke_width);
