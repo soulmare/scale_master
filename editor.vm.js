@@ -16,7 +16,7 @@ editor.vm = {};
 (function(undef) {
     'use strict';
 
-    editor.vm.svg_elem_types = ['arc', 'axe', 'div', 'line', 'plate', 'hole', 'meta', 'label', 'circle', 'image'];
+    editor.vm.svg_elem_types = ['arc', 'axe', 'div', 'line', 'plate', 'hole', 'meta', 'label', 'circle', 'circlecnt', 'image'];
         
     editor.vm.init = function () {
 
@@ -118,6 +118,7 @@ editor.vm = {};
                     $.link('text', obj.element, obj);
                 var dynamic_update_select_box = _.throttle(editor.update_select_box, 30);
                 $.observe(obj, "x", "y", "x1", "y1", "x2", "y2", "cx", "cy", "shift_x", "shift_y",
+                          "data_cx", "data_cy", "data_r",
                           "data_width", "data_height", "width", "height", "text", "font_size_val",
                           "angle", "arc_angle", "r", "radius", "stroke_width_val",
                           dynamic_update_select_box);
@@ -166,7 +167,7 @@ editor.vm = {};
                 } else {
                     $.observable(_this).setProperty("selected_object", null);
                     console.log('ERROR: Object #'+eventArgs.value+' not found in trigger_select()');
-                    console.trace();
+//                    console.trace();
 //                    console.log(ev, eventArgs);
                 }
             },
@@ -183,7 +184,8 @@ editor.vm = {};
                 if (typeof(delete_obj) == 'undefined')
                     delete_obj = this.selected_object;
 
-//                var confirm_text = 'Delete object #'+delete_obj.idx+':'+delete_obj.tag+'.'+delete_obj.type+(delete_obj.children_objs.length ? " and "+delete_obj.children_objs.length+" child objects" : '')+'?';
+                $.observable(this).setProperty("tpl_objects_enabled", false);
+                
                 var obj_name = '[' + $.i18n('type_'+delete_obj.tag+'_'+delete_obj.type) + ']';
                 if (delete_obj.element.getAttribute('title'))
                     obj_name += ' ' + delete_obj.element.getAttribute('title');
@@ -231,6 +233,7 @@ editor.vm = {};
                     }
 
                 // Change current object selection
+                $.observable(this).setProperty("tpl_objects_enabled", true);
                 if (id_parent >= 0)
                     this.select(id_parent);
                 else
@@ -238,7 +241,6 @@ editor.vm = {};
             },
             
             create_element: function (ev, eventArgs) {
-//console.log()
                 $('.dropdown').hide();
                 if (ev.element_type)
                     var elem_data = ev.element_type.split('.');
@@ -330,7 +332,7 @@ editor.vm = {};
                                 return;
                             else
                                 editor.cfg.new_item.size = size;
-                        } else if (classnames.indexOf('arc') > -1) {
+                        } else if ((classnames.indexOf('arc') > -1) || (classnames.indexOf('circlecnt') > -1)) {
                             var radius = prompt($.i18n('msg_radius'), editor.cfg.new_item.r || 0);
                             if (radius === null)
                                 return;
@@ -344,6 +346,20 @@ editor.vm = {};
                 // Create new element
                 var element = document.createElementNS(editor.ns_svg, tag);
                 element.setAttribute('class', classnames.join(' '));
+
+                // Set common attributes
+                switch (tag) {
+                    case 'line':
+                    case 'circle':
+                    case 'circlecnt':
+                    case 'path':
+                        element.setAttribute('stroke-width', editor.units_to_px(editor.cfg.new_item.stroke_width || editor.cfg.styles.stroke_width));
+                        element.setAttribute('stroke', this.obj_color());
+                        element.setAttribute('fill', 'none');
+                        break;
+                }
+
+                // Set special attributes
                 switch (tag) {
                     case 'text':
                         element.setAttribute('x', 0);
@@ -358,8 +374,6 @@ editor.vm = {};
                         element.setAttribute('font-size', editor.units_to_px(editor.cfg.new_item.font_size || editor.cfg.styles.font_size));
                         break;
                     case 'line':
-                        element.setAttribute('stroke-width', editor.units_to_px(editor.cfg.new_item.stroke_width || editor.cfg.styles.stroke_width));
-                        element.setAttribute('stroke', this.obj_color());
                         element.setAttribute('title', $.i18n('new_line'));
                         if (classnames.indexOf('h') >= 0) {
                             element.setAttribute('x1', -editor.units_to_px(length*0.5));
@@ -379,18 +393,12 @@ editor.vm = {};
                         }
                         break;
                     case 'circle':
-                        element.setAttribute('stroke-width', editor.units_to_px(editor.cfg.new_item.stroke_width || editor.cfg.styles.stroke_width));
-                        element.setAttribute('stroke', this.obj_color());
-                        element.setAttribute('fill', 'none');
                         element.setAttribute('title', $.i18n('new_circle'));
                         element.setAttribute('cx', 0);
                         element.setAttribute('cy', 0);
                         element.setAttribute('r', editor.units_to_px(radius));
                         break;
                     case 'path':
-                        element.setAttribute('stroke-width', editor.units_to_px(editor.cfg.new_item.stroke_width || editor.cfg.styles.stroke_width));
-                        element.setAttribute('stroke', this.obj_color());
-                        element.setAttribute('fill', 'none');
                         element.setAttribute('d', '');
                         if (classnames.indexOf('plate-rectangular-top') > -1) {
                             element.setAttribute('title', $.i18n('new_scale_plate'));
@@ -403,6 +411,11 @@ editor.vm = {};
                         } else if (classnames.indexOf('arc') > -1) {
                             element.setAttribute('title', $.i18n('new_arc'));
                             element.setAttribute('data-angle', editor.cfg.new_item.angle);
+                            element.setAttribute('data-r', editor.units_to_px(radius));
+                        } else if (classnames.indexOf('circlecnt') > -1) {
+                            element.setAttribute('title', $.i18n('new_circlecnt'));
+                            element.setAttribute('data-cx', 0);
+                            element.setAttribute('data-cy', 0);
                             element.setAttribute('data-r', editor.units_to_px(radius));
                         }
                         break;
@@ -728,6 +741,8 @@ editor.vm = {};
                 return new editor.elm_arc(element);
             if (el_type == 'plate')
                 return new editor.elm_plate(element);
+            if (el_type == 'circlecnt')
+                return new editor.elm_circlecnt(element);
             return new editor.elm_path(element);
         }
         

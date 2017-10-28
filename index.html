@@ -26,8 +26,8 @@
     <script src="svgedit/math.js"></script>
     <script>
         APP_NAME = 'Scale Master';
-        APP_VERSION = '0.3.23';
-        APP_VERSION_TYPE = 'beta';
+        APP_VERSION = '0.4.0';
+        APP_VERSION_TYPE = 'dev';
         var app_style_names = ['main.css']
         for (var i in app_style_names)
             document.write('<link href="' + app_style_names[i] + '?v=' + APP_VERSION + '" rel="stylesheet"/>');
@@ -117,6 +117,7 @@
             <li><a href="#" data-link="{on create_element} {i18n:'type_line_line_v'}" data-element-type="line.line.v"></a></li>
             <li><a href="#" data-link="{on create_element} {i18n:'type_path_arc'}" data-element-type="path.arc"></a></li>
             <li><a href="#" data-link="{on create_element} {i18n:'type_circle_circle'}" data-element-type="circle.circle"></a></li>
+            <li><a href="#" data-link="{on create_element} {i18n:'type_path_circlecnt'}" data-element-type="path.circlecnt"></a></li>
             <li><a href="#" data-link="{on create_element} {i18n:'scale_plate' 'Scale plate'}" data-element-type="path.plate.plate-rectangular-top.plate-top-cut"></a></li>
             <li><a href="#" onclick="editor.embed_image()" data-link="{i18n:'type_image_image'}"></a></li>
         </ul>
@@ -404,6 +405,22 @@
     <label class="ed">
         <div class="l" data-link="{i18n:'r' 'R:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^r:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    {{/if}}
+
+    {^{if selected_object^type == 'circlecnt'}}
+    <label class="ed">
+        <div class="l" data-link="{i18n:'x' 'X:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_cx:to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'y' 'Y:'}"></div>
+
+        <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^data_cy:y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'r' 'R:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_r:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     {{/if}}
 

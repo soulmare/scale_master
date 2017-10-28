@@ -51,6 +51,7 @@ editor.elm.prototype.count_children = function () {
 
 
 // Class el_text
+// Extends elm
 
 editor.elm_text = function(element) {
     editor.elm.apply(this, arguments);
@@ -517,7 +518,6 @@ editor.elm_arc.prototype.radius.set = function(r) {
     $.observable(this).setProperty('data_r', r || 0);
     this.update_path();
 };
-//editor.elm_arc.prototype.arc_angle.depends = ['data_r'];
 
 
 // Class elm_plate
@@ -720,3 +720,27 @@ editor.elm_label_group.prototype.get_label_text = function(idx) {
     }
     return (parseFloat(this.data_label_start) || 0) + idx * step;
 }
+
+
+// Class elm_circlecnt
+// Extends elm_path
+
+editor.elm_circlecnt = function(element) {
+    this.link_attributes = ['data-cx', 'data-cy', 'data-r'];
+    // Parent constructor
+    editor.elm_path.apply(this, arguments);
+    $.observe(this, 'data_cx', 'data_cy', 'data_r', this.update_path);
+}
+editor.elm_circlecnt.prototype = Object.create(editor.elm_path.prototype);
+editor.elm_circlecnt.prototype.constructor = editor.elm_circlecnt;
+
+// Plate path setter
+editor.elm_circlecnt.prototype.update_path = function(ev, eventArgs) {
+    var _this = ev.target;
+    var cx = _this.data_cx || 0;
+    var cy = _this.data_cy || 0;
+    var r = _this.data_r || 0;
+//    var d = 'M-10,0a10,10 0 1,0 20,0a10,10 0 1,0 -20,0M 0 -10 V 10 M-10 0 H 10 0';
+    var d = 'M'+(cx-r)+','+cy+'a'+r+','+r+' 0 1,0 '+r*2+',0a'+r+','+r+' 0 1,0 -'+r*2+',0M'+cx+' '+(cy-r)+' V'+(cy+r)+' M'+(cx-r)+' '+cy+' H'+(cx+r);
+    _this.element.setAttribute('d', d);
+};

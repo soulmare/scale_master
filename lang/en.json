@@ -5,6 +5,7 @@
     "type_path_plate": "surface",
     "type_circle_circle": "circle",
     "type_path_arc": "arc",
+    "type_path_circlecnt": "hole",
     "type_line_div": "division",
     "type_line_line": "line",
     "type_line_line_h": "line horizontal",
@@ -25,6 +26,7 @@
 
     "new_label": "New label",
 	"new_circle": "New circle",
+	"new_circlecnt": "New hole",
 	"new_arc": "New arc",
 	"new_scale_plate": "New scale plate",
 	"new_labels_group": "New labels group",
