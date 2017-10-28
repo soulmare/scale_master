@@ -122,9 +122,9 @@
             <li><a href="#" data-link="{on create_element} {i18n:'scale_plate' 'Scale plate'}" data-element-type="path.plate.plate-rectangular-top.plate-top-cut"></a></li>
             <li><a href="#" onclick="editor.embed_image()" data-link="{i18n:'type_image_image'}"></a></li>
         </ul>
-        <button class="small" data-i18n-title="move_up" title="Move up" data-link="{on move_up} data-disabled{:1 && !selected_object}"><span class="icon ui-icon-arrowthick-1-n"></span></button>
-        <button class="small" data-i18n-title="move_down" title="Move down" data-link="{on move_down} data-disabled{:1 && !selected_object}"><span class="icon ui-icon-arrowthick-1-s"></span></button>
-        <button class="small" data-i18n-title="delete" title="Delete" data-link="{on delete} data-disabled{:1 && !selected_object}"><span class="icon ui-icon-trash"></span></button>
+        <button class="small" data-i18n-title="move_up" title="Move up" data-link="{on move_up} data-disabled{:!selected_object || selected_object^is_first()}"><span class="icon ui-icon-arrowthick-1-n"></span></button>
+        <button class="small" data-i18n-title="move_down" title="Move down" data-link="{on move_down} data-disabled{:!selected_object || selected_object^is_last()}"><span class="icon ui-icon-arrowthick-1-s"></span></button>
+        <button class="small" data-i18n-title="delete" title="Delete" data-link="{on delete} data-disabled{:!selected_object}"><span class="icon ui-icon-trash"></span></button>
     </div>
     <select name="main_objects" size="9999" data-link="selected_parent" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigget_objects_list_keydown(event)">
     {^{if display_parent_list}}

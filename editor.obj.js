@@ -346,6 +346,13 @@ editor.elm_graphic.prototype.fill_val.set = function(val) {
 };
 
 
+editor.elm_graphic.prototype.is_first = function () {
+    return !this.element.previousElementSibling;
+}
+editor.elm_graphic.prototype.is_last = function () {
+    return !this.element.nextElementSibling;
+}
+
 // Class elm_line
 // Extends elm_graphic
 

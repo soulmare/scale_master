@@ -766,7 +766,8 @@ editor = {};
                 return;
             }
 
-            if (!editor.document.getElementById('scale_wrapper')) {
+            var scale_wrapper = editor.document.getElementById('scale_wrapper');
+            if (!scale_wrapper) {
                 var msg = $.i18n('msg_bad_file_format');
                 alert(msg == 'msg_bad_file_format' ? 'File format is not fully supported' : msg);
                 var scale_wrapper = document.createElementNS(editor.ns_svg, 'g');
@@ -774,8 +775,14 @@ editor = {};
                 editor.document.appendChild(scale_wrapper);
             }
             
+            
+            // Create temporary service elements
+            var service_grp = document.createElementNS(editor.ns_svg, 'g');
+            service_grp.setAttribute('id', '_ed_service_grp');
+            service_grp.setAttribute('class', '_ed_temp');
+            service_grp.setAttribute('transform', scale_wrapper.getAttribute('transform'));
+            
             // Add select box
-
             editor.select_box = document.createElementNS(editor.ns_svg, 'g');
             editor.select_box.setAttribute('id', '_ed_select_box');
             editor.select_box.setAttribute('visibility', 'hidden');
@@ -796,7 +803,8 @@ editor = {};
                 editor.select_box.appendChild(sel_margin);
                 margin_idx++;
             }
-            editor.document.getElementById('scale_wrapper').appendChild(editor.select_box);
+            service_grp.appendChild(editor.select_box);
+            editor.document.appendChild(service_grp);
             
             $(editor.document).attr('id', 'svg_doc');
             $(editor.document).attr('data-width', $(editor.document).width());
@@ -1288,9 +1296,6 @@ editor = {};
             var obj = editor.vm.model.selected_object;
             
             if (obj) {
-                // Move select box node to the end, making it always on top
-                var scale_wrapper = editor.document.getElementById('scale_wrapper');
-                scale_wrapper.append(editor.select_box);
                 // Set select box position and size
                 editor.select_box.setAttribute('visibility', 'visible');
                 var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
