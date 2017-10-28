@@ -171,6 +171,7 @@ editor.vm = {};
 //                    console.log(ev, eventArgs);
                 }
             },
+
             // Event fired by DOM element
             trigger_element_click: function (e) {
                 // Do not know how to get needed kind of @this here, so using global var :(
@@ -179,6 +180,7 @@ editor.vm = {};
                         editor.vm.model.select(editor.vm.model.objects[i].idx);
                     }
             },
+
             // Delete current selected object, or object specified in @delete_obj
             delete: function (event, eventArgs, delete_obj) {
                 if (typeof(delete_obj) == 'undefined')
