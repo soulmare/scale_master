@@ -178,12 +178,14 @@ editor.vm = {};
                         editor.vm.model.select(editor.vm.model.objects[i].idx);
                     }
             },
+
             // Delete current selected object, or object specified in @delete_obj
             delete: function (event, eventArgs, delete_obj) {
                 if (typeof(delete_obj) == 'undefined')
                     delete_obj = this.selected_object;
 
-//                var confirm_text = 'Delete object #'+delete_obj.idx+':'+delete_obj.tag+'.'+delete_obj.type+(delete_obj.children_objs.length ? " and "+delete_obj.children_objs.length+" child objects" : '')+'?';
+                $.observable(this).setProperty("tpl_objects_enabled", false);
+                
                 var obj_name = '[' + $.i18n('type_'+delete_obj.tag+'_'+delete_obj.type) + ']';
                 if (delete_obj.element.getAttribute('title'))
                     obj_name += ' ' + delete_obj.element.getAttribute('title');
@@ -231,6 +233,7 @@ editor.vm = {};
                     }
 
                 // Change current object selection
+                $.observable(this).setProperty("tpl_objects_enabled", true);
                 if (id_parent >= 0)
                     this.select(id_parent);
                 else
