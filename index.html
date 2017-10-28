@@ -320,14 +320,16 @@
     </label>
     {{/if}}
 
-    {^{if selected_object^link_attributes.indexOf('font-weight')>-1}}
+    {^{if selected_object^font_style_ext}}
     <label class="ed">
-        <div class="l" data-link="{i18n:'font_weight' 'Font weight:'}"></div>
+        <div class="l" data-link="{i18n:'font_style' 'Font style:'}"></div>
         <div class="i">
-            <select data-link="selected_object^font_weight">
+            <select data-link="selected_object^font_style_ext()">
                 <option></option>
-                <option value="normal" data-link="{i18n:'text_normal' 'normal'}">normal</option>
-                <option value="bold" data-link="{i18n:'text_bold' 'bold'}">bold</option>
+                <option value="normal" data-link="{i18n:'text_normal' 'normal'}"></option>
+                <option value="bold" data-link="{i18n:'text_bold' 'bold'}"></option>
+                <option value="italic" data-link="{i18n:'text_italic' 'italic'}"></option>
+                <option value="bold_italic" data-link="{i18n:'text_bold_italic' 'bold italic'}"></option>
             </select>
         </div>
     </label>

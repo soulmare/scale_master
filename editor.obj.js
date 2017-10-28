@@ -323,6 +323,41 @@ editor.elm_graphic.prototype.font_size_val = function () {
 editor.elm_graphic.prototype.font_size_val.set = function(val) {
     return this._inherited_size_attr_set('font-size', val);
 };
+// font style
+editor.elm_graphic.prototype.font_style_ext = function () {
+    var style = [];
+    if (this.element.getAttribute('font-weight') == 'bold')
+        style.push('bold');
+    if (this.element.getAttribute('font-style') == 'italic')
+        style.push('italic');
+    if (!style.length && (this.element.getAttribute('font-weight') == 'normal') && (this.element.getAttribute('font-style') == 'normal'))
+        style.push('normal');
+    return style.join('_');
+};
+editor.elm_graphic.prototype.font_style_ext.set = function(val) {
+    switch (val) {
+        case 'normal':
+            this.element.setAttribute('font-weight', 'normal');
+            this.element.setAttribute('font-style', 'normal');
+            break;
+        case 'bold':
+            this.element.setAttribute('font-weight', 'bold');
+            this.element.setAttribute('font-style', 'normal');
+            break;
+        case 'italic':
+            this.element.setAttribute('font-weight', 'normal');
+            this.element.setAttribute('font-style', 'italic');
+            break;
+        case 'bold_italic':
+            this.element.setAttribute('font-weight', 'bold');
+            this.element.setAttribute('font-style', 'italic');
+            break;
+        default:
+            this.element.removeAttribute('font-weight');
+            this.element.removeAttribute('font-style');
+            break;
+    }
+};
 // stroke-width
 editor.elm_graphic.prototype.stroke_width_val = function () {
     return this._inherited_size_attr_get('stroke-width');
