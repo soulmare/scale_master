@@ -1293,16 +1293,24 @@ editor = {};
                 scale_wrapper.append(editor.select_box);
                 // Set select box position and size
                 editor.select_box.setAttribute('visibility', 'visible');
-//console.log('upd')
                 var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
                 var obj_stroke_width = parseFloat(obj.element.getAttribute('stroke-width')) || 0;
                 var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
-//                var select_box_padding = Math.max(4, bb.width*0.03, bb.height*0.03);
-                var select_box_padding = bb.width + bb.height < 10 ? 4 : 0;
-                $('._ed_select_box_margin').attr('x', bb.x - select_box_padding - sb_stroke_width/2 - obj_stroke_width/2);
-                $('._ed_select_box_margin').attr('y', bb.y - select_box_padding - sb_stroke_width/2 - obj_stroke_width/2);
-                $('._ed_select_box_margin').attr('width', bb.width + select_box_padding*2 + sb_stroke_width + obj_stroke_width);
-                $('._ed_select_box_margin').attr('height', bb.height + select_box_padding*2 + sb_stroke_width + obj_stroke_width);
+                // Apply minimum constraints on bbox
+                var min_bbox_size = 2;
+                if (bb.width < min_bbox_size){
+                    bb.width = min_bbox_size;
+                    bb.x -= min_bbox_size/2;
+                }
+                if (bb.height < min_bbox_size){
+                    bb.height = min_bbox_size;
+                    bb.y -= min_bbox_size/2;
+                }
+//console.log(obj.stroke_width_val(), obj.element.getAttribute('stroke-width'))
+                $('._ed_select_box_margin').attr('x', bb.x - sb_stroke_width - obj_stroke_width/2);
+                $('._ed_select_box_margin').attr('y', bb.y - sb_stroke_width - obj_stroke_width/2);
+                $('._ed_select_box_margin').attr('width', bb.width + sb_stroke_width*2 + obj_stroke_width);
+                $('._ed_select_box_margin').attr('height', bb.height + sb_stroke_width*2 + obj_stroke_width);
                 // Take in account parent group transform
                 if (obj.parent_obj && obj.parent_obj.element.getAttribute('transform'))
                     editor.select_box.setAttribute('transform', obj.parent_obj.element.getAttribute('transform'));

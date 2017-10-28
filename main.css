@@ -408,10 +408,10 @@ button:hover .icon-flag{
     cursor:pointer;
 }
 #svg_doc ._ed_select_box_margin{
-    opacity:0.5;
+    opacity:0.6;
 }
 #workspace:focus #svg_doc ._ed_select_box_margin{
-    opacity:1;
+    opacity:0.8;
 }
 #svg_doc line:hover,
 #svg_doc circle:hover,
