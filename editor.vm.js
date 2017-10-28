@@ -124,6 +124,7 @@ editor.vm = {};
                 $.observe(obj, "x", "y", "x1", "y1", "x2", "y2", "cx", "cy", "shift_x", "shift_y",
                           "stroke_width", "stroke_width_val", "data_cx", "data_cy", "data_r",
                           "data_width", "data_height", "width", "height", "text", "font_size_val",
+                          "font_family", "font_style_ext",
                           "angle", "arc_angle", "r", "radius",
                           dynamic_update_select_box);
 /*

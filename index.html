@@ -322,6 +322,22 @@
 
     {^{if selected_object^type == 'label'}}
     <label class="ed">
+        <div class="l" data-link="{i18n:'font' 'Font:'}"></div>
+        <div class="i">
+            <select data-link="selected_object^font_family">
+                <option></option>
+                <option value='Arial, Helvetica, sans-serif'>Arial</option>
+                <option value='"Comic Sans MS", cursive, sans-serif'>Comic Sans MS</option>
+                <option value='"Courier New", Courier, monospace'>Courier New</option>
+                <option value='Georgia, serif'>Georgia</option>
+                <option value='"Lucida Console", Monaco, monospace'>Lucida Console</option>
+                <option value='Tahoma, Geneva, sans-serif'>Tahoma</option>
+                <option value='"Times New Roman", Times, serif'>Times New Roman</option>
+                <option value='Verdana, Geneva, sans-serif'>Verdana</option>
+            </select>
+        </div>
+    </label>
+    <label class="ed">
         <div class="l" data-link="{i18n:'font_style' 'Font style:'}"></div>
         <div class="i">
             <select data-link="selected_object^font_style_ext()">

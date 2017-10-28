@@ -69,7 +69,7 @@ editor.elm_text.prototype.constructor = editor.elm_text;
 
 editor.elm_graphic = function(element) {
     if (element.nodeName == 'text')
-        var link_attributes = ['font-size', 'font-weight', 'fill'];
+        var link_attributes = ['font-size', 'font-family', 'fill'];
     else
         var link_attributes = ['title', 'stroke-width', 'stroke', 'fill'];
     link_attributes.push('data-keep-angle', 'x', 'y', 'opacity');
@@ -735,7 +735,7 @@ editor.elm_div_group.prototype.update_data_length = function(ev, eventArgs) {
 // Extends elm_supervisor_group
 
 editor.elm_label_group = function(element) {
-    this.link_attributes = ['data-label-start', 'data-label-step', 'font-size', 'font-weight'];
+    this.link_attributes = ['data-label-start', 'data-label-step', 'font-size', 'font-family'];
     // Parent constructor
     editor.elm_supervisor_group.apply(this, arguments);
     $.observe(this, 'data_label_start', this.update_labels_text);    
