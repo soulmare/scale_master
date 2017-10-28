@@ -217,6 +217,9 @@ body>#main {
 .panel label.ed textarea{
     margin-bottom: -3px;
     height:50px;
+}
+.panel label.ed textarea,
+.panel label.ed select{
     width: 96%;
 }
 .panel>.inner{
