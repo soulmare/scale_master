@@ -928,7 +928,7 @@ editor = {};
                         });
                     });
 */
-} else {
+                } else {
                     // Skip empty defs
                     if (elem.nodeName === 'defs' && !elem.firstChild) {return;}
                     
@@ -936,7 +936,8 @@ editor = {};
                     if (elem.className.baseVal && (elem.className.baseVal.indexOf('_ed_temp') >= 0)) {return;}
 
                     var moz_attrs = ['-moz-math-font-style', '_moz-math-font-style'];
-                    for (i = attrs.length - 1; i >= 0; i--) {
+//                    for (i = attrs.length - 1; i >= 0; i--) {
+                    for (i = 0; i <= attrs.length - 1; i++) {
                         attr = attrs.item(i);
                         var attrVal = toXml(attr.value);
                         //remove bogus attributes added by Gecko

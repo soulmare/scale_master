@@ -49,14 +49,14 @@
    <text transform="rotate(26.4)" data-keep-angle="false" stroke="none" dominant-baseline="central" text-anchor="middle" y="-53.6693" x="0">400</text>
    <text transform="rotate(44 0,0) rotate(-44 0,-53.6693) translate(3.4016,0.7559) " data-keep-angle="true" stroke="none" dominant-baseline="central" text-anchor="middle" y="-53.6693" x="0">500</text>
   </g>
-  <path data-top-cut="22.6772" transform="translate(0,10.9606) " data-height="86.9291" data-width="120.9449" title="края шкалы" d="M0 0 H -60.4724 V -64.252 L -37.7953 -86.9291 H 37.7953 L 60.4724 -64.252 V 0 Z" fill="none" stroke="#ff0000" stroke-width="0.7559" class="plate plate-rectangular-top plate-top-cut"/>
-  <text transform="translate(0,-37.7953) " font-weight="bold" font-size="11.3386" font-family="Arial" stroke="none" fill="#ff0000" dominant-baseline="central" text-anchor="middle" y="0" x="0" class="label">mA</text>
+  <path class="plate plate-rectangular-top plate-top-cut" data-top-cut="22.6772" transform="translate(0,10.9606) " data-height="86.9291" data-width="120.9449" title="края шкалы" d="M0 0 H -60.4724 V -64.252 L -37.7953 -86.9291 H 37.7953 L 60.4724 -64.252 V 0 Z" fill="none" stroke="#ff0000" stroke-width="0.7559"/>
+  <text class="label" transform="translate(0,-37.7953) " font-weight="bold" font-size="11.3386" font-family="Arial" stroke="none" fill="#ff0000" dominant-baseline="central" text-anchor="middle" y="0" x="0">mA</text>
   <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="17.0079" transform="translate(15.1181,-139.8425) ">Шаблон нужно правильно отмасштабировать,</text>
   <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="17.0079" transform="translate(11.3386,-119.0551) ">совместить начало координат с осью стрелки.</text>
   <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="17.0079" transform="translate(17.7638,60.4724) ">Красный цвет выбран для лучшего контраста.</text>
-  <path data-r="28.3465" data-cy="0" data-cx="0" title="центр. отверстие" d="M-28.3465,0a28.3465,28.3465 0 1,0 56.6929,0a28.3465,28.3465 0 1,0 -56.6929,0M0 -28.3465 V28.3465 M-28.3465 0 H28.3465" fill="none" stroke="#ff0000" stroke-width="0.7559" class="circlecnt"/>
-  <path transform="translate(48,0) " data-r="6.4252" data-cy="0" data-cx="0" title="крепеж" d="M-6.4252,0a6.4252,6.4252 0 1,0 12.8504,0a6.4252,6.4252 0 1,0 -12.8504,0M0 -6.4252 V6.4252 M-6.4252 0 H6.4252" fill="none" stroke="#ff0000" stroke-width="0.7559" class="circlecnt"/>
-  <path transform="translate(-48,0) " data-r="6.4252" data-cy="0" data-cx="0" title="крепеж" d="M-6.4252,0a6.4252,6.4252 0 1,0 12.8504,0a6.4252,6.4252 0 1,0 -12.8504,0M0 -6.4252 V6.4252 M-6.4252 0 H6.4252" fill="none" stroke="#ff0000" stroke-width="0.7559" class="circlecnt"/>
+  <path class="circlecnt" data-r="28.3465" data-cy="0" data-cx="0" title="центр. отверстие" d="M-28.3465,0a28.3465,28.3465 0 1,0 56.6929,0a28.3465,28.3465 0 1,0 -56.6929,0M0 -28.3465 V28.3465 M-28.3465 0 H28.3465" fill="none" stroke="#ff0000" stroke-width="0.7559"/>
+  <path class="circlecnt" transform="translate(48,0) " data-r="6.4252" data-cy="0" data-cx="0" title="крепеж" d="M-6.4252,0a6.4252,6.4252 0 1,0 12.8504,0a6.4252,6.4252 0 1,0 -12.8504,0M0 -6.4252 V6.4252 M-6.4252 0 H6.4252" fill="none" stroke="#ff0000" stroke-width="0.7559"/>
+  <path class="circlecnt" transform="translate(-48,0) " data-r="6.4252" data-cy="0" data-cx="0" title="крепеж" d="M-6.4252,0a6.4252,6.4252 0 1,0 12.8504,0a6.4252,6.4252 0 1,0 -12.8504,0M0 -6.4252 V6.4252 M-6.4252 0 H6.4252" fill="none" stroke="#ff0000" stroke-width="0.7559"/>
 
  </g>
 </svg>
