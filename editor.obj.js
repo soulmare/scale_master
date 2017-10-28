@@ -302,7 +302,7 @@ editor.elm_graphic.prototype._inherited_size_attr_get = function(attrName) {
     return parseFloat(this.element.getAttribute(attrName) || this.parent_element.getAttribute(attrName)) || '';
 }
 editor.elm_graphic.prototype._inherited_size_attr_set = function(attrName, val) {
-    if (!parseFloat(val)) {
+    if (isNaN(parseFloat(val))) {
         this.element.removeAttribute(attrName);
     } else
         this.element.setAttribute(attrName, parseFloat(val));
