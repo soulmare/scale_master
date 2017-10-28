@@ -420,8 +420,8 @@ editor.vm = {};
                         element.setAttribute('title', $.i18n('new_rect'));
                         element.setAttribute('x', -editor.units_round(editor.units_to_px(size/2)));
                         element.setAttribute('y', -editor.units_round(editor.units_to_px(size/2)));
-                        element.setAttribute('width', editor.units_round(editor.units_to_px(size/2)));
-                        element.setAttribute('height', editor.units_round(editor.units_to_px(size/2)));
+                        element.setAttribute('width', editor.units_round(editor.units_to_px(size)));
+                        element.setAttribute('height', editor.units_round(editor.units_to_px(size)));
                         break;
                     case 'path':
                         element.setAttribute('d', '');
