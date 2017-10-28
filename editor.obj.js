@@ -51,6 +51,7 @@ editor.elm.prototype.count_children = function () {
 
 
 // Class el_text
+// Extends elm
 
 editor.elm_text = function(element) {
     editor.elm.apply(this, arguments);
@@ -68,7 +69,7 @@ editor.elm_text.prototype.constructor = editor.elm_text;
 
 editor.elm_graphic = function(element) {
     if (element.nodeName == 'text')
-        var link_attributes = ['font-size', 'font-weight', 'fill'];
+        var link_attributes = ['font-size', 'font-family', 'fill'];
     else
         var link_attributes = ['title', 'stroke-width', 'stroke', 'fill'];
     link_attributes.push('data-keep-angle', 'x', 'y', 'opacity');
@@ -301,7 +302,7 @@ editor.elm_graphic.prototype._inherited_size_attr_get = function(attrName) {
     return parseFloat(this.element.getAttribute(attrName) || this.parent_element.getAttribute(attrName)) || '';
 }
 editor.elm_graphic.prototype._inherited_size_attr_set = function(attrName, val) {
-    if (!parseFloat(val)) {
+    if (isNaN(parseFloat(val))) {
         this.element.removeAttribute(attrName);
     } else
         this.element.setAttribute(attrName, parseFloat(val));
@@ -321,6 +322,41 @@ editor.elm_graphic.prototype.font_size_val = function () {
 };
 editor.elm_graphic.prototype.font_size_val.set = function(val) {
     return this._inherited_size_attr_set('font-size', val);
+};
+// font style
+editor.elm_graphic.prototype.font_style_ext = function () {
+    var style = [];
+    if (this.element.getAttribute('font-weight') == 'bold')
+        style.push('bold');
+    if (this.element.getAttribute('font-style') == 'italic')
+        style.push('italic');
+    if (!style.length && (this.element.getAttribute('font-weight') == 'normal') && (this.element.getAttribute('font-style') == 'normal'))
+        style.push('normal');
+    return style.join('_');
+};
+editor.elm_graphic.prototype.font_style_ext.set = function(val) {
+    switch (val) {
+        case 'normal':
+            this.element.setAttribute('font-weight', 'normal');
+            this.element.setAttribute('font-style', 'normal');
+            break;
+        case 'bold':
+            this.element.setAttribute('font-weight', 'bold');
+            this.element.setAttribute('font-style', 'normal');
+            break;
+        case 'italic':
+            this.element.setAttribute('font-weight', 'normal');
+            this.element.setAttribute('font-style', 'italic');
+            break;
+        case 'bold_italic':
+            this.element.setAttribute('font-weight', 'bold');
+            this.element.setAttribute('font-style', 'italic');
+            break;
+        default:
+            this.element.removeAttribute('font-weight');
+            this.element.removeAttribute('font-style');
+            break;
+    }
 };
 // stroke-width
 editor.elm_graphic.prototype.stroke_width_val = function () {
@@ -344,6 +380,13 @@ editor.elm_graphic.prototype.fill_val.set = function(val) {
     return this._inherited_str_attr_set('fill', val);
 };
 
+
+editor.elm_graphic.prototype.is_first = function () {
+    return !this.element.previousElementSibling;
+}
+editor.elm_graphic.prototype.is_last = function () {
+    return !this.element.nextElementSibling;
+}
 
 // Class elm_line
 // Extends elm_graphic
@@ -424,6 +467,45 @@ editor.elm_circle.prototype = Object.create(editor.elm_graphic.prototype);
 editor.elm_circle.prototype.constructor = editor.elm_circle;
 
 
+// Class elm_rect
+// Extends elm_graphic
+
+editor.elm_rect = function(element) {
+    this.link_attributes = ['width', 'height'];
+    // Parent constructor
+    editor.elm_graphic.apply(this, arguments);
+    $.observe(this, 'width', 'height', this.trigger_resize);
+}
+editor.elm_rect.prototype = Object.create(editor.elm_graphic.prototype);
+editor.elm_rect.prototype.constructor = editor.elm_rect;
+
+// Centering when resize
+editor.elm_rect.prototype.trigger_resize = function(ev, eventArgs) {
+//console.log()
+    var _this = ev.target;
+    var diff = parseFloat(eventArgs.oldValue) - parseFloat(eventArgs.value);
+    if (eventArgs.path == 'width') {
+        $.observable(_this).setProperty('x', editor.units_round(_this.x || 0, 2) + diff / 2);
+    }
+    if (eventArgs.path == 'height') {
+        $.observable(_this).setProperty('y', editor.units_round(_this.y || 0, 2) + diff / 2);
+    }
+};
+
+editor.elm_rect.prototype.corners_radius = function () {
+    return this.element.getAttribute('rx');
+};
+editor.elm_rect.prototype.corners_radius.set = function(val) {
+    if (isNaN(parseFloat(val)) || (val < 0)) {
+        this.element.removeAttribute('rx');
+        this.element.removeAttribute('ry');
+    } else {
+        this.element.setAttribute('rx', parseFloat(val));
+        this.element.setAttribute('ry', parseFloat(val));
+    }
+};
+
+
 // Class elm_image
 // Extends elm_graphic
 
@@ -436,8 +518,7 @@ editor.elm_image = function(element) {
 editor.elm_image.prototype = Object.create(editor.elm_graphic.prototype);
 editor.elm_image.prototype.constructor = editor.elm_image;
 
-
-// Preserve aspect ratio and centering on resize
+// Preserve aspect ratio and centering when resize
 editor.elm_image.prototype.trigger_resize = function(ev, eventArgs) {
 //console.log(ev, )
     var _this = ev.target;
@@ -517,7 +598,6 @@ editor.elm_arc.prototype.radius.set = function(r) {
     $.observable(this).setProperty('data_r', r || 0);
     this.update_path();
 };
-//editor.elm_arc.prototype.arc_angle.depends = ['data_r'];
 
 
 // Class elm_plate
@@ -668,7 +748,7 @@ editor.elm_div_group.prototype.update_data_length = function(ev, eventArgs) {
 // Extends elm_supervisor_group
 
 editor.elm_label_group = function(element) {
-    this.link_attributes = ['data-label-start', 'data-label-step', 'font-size', 'font-weight'];
+    this.link_attributes = ['data-label-start', 'data-label-step', 'font-size', 'font-family'];
     // Parent constructor
     editor.elm_supervisor_group.apply(this, arguments);
     $.observe(this, 'data_label_start', this.update_labels_text);    
@@ -720,3 +800,27 @@ editor.elm_label_group.prototype.get_label_text = function(idx) {
     }
     return (parseFloat(this.data_label_start) || 0) + idx * step;
 }
+
+
+// Class elm_circlecnt
+// Extends elm_path
+
+editor.elm_circlecnt = function(element) {
+    this.link_attributes = ['data-cx', 'data-cy', 'data-r'];
+    // Parent constructor
+    editor.elm_path.apply(this, arguments);
+    $.observe(this, 'data_cx', 'data_cy', 'data_r', this.update_path);
+}
+editor.elm_circlecnt.prototype = Object.create(editor.elm_path.prototype);
+editor.elm_circlecnt.prototype.constructor = editor.elm_circlecnt;
+
+// Plate path setter
+editor.elm_circlecnt.prototype.update_path = function(ev, eventArgs) {
+    var _this = ev.target;
+    var cx = _this.data_cx || 0;
+    var cy = _this.data_cy || 0;
+    var r = _this.data_r || 0;
+//    var d = 'M-10,0a10,10 0 1,0 20,0a10,10 0 1,0 -20,0M 0 -10 V 10 M-10 0 H 10 0';
+    var d = 'M'+(cx-r)+','+cy+'a'+r+','+r+' 0 1,0 '+r*2+',0a'+r+','+r+' 0 1,0 -'+r*2+',0M'+cx+' '+(cy-r)+' V'+(cy+r)+' M'+(cx-r)+' '+cy+' H'+(cx+r);
+    _this.element.setAttribute('d', d);
+};

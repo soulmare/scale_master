@@ -43,15 +43,8 @@
   </g>
   <text text-anchor="middle" font-weight="bold" font-size="11.3386" font-family="Arial" y="0" title="Center label" fill="#000000" class="label" dominant-baseline="central" transform="translate(0,-38) " stroke="none">V</text>
   <path stroke-width="1.1339" data-top-cut="24.5669" data-height="88.8189" data-width="120.9449" transform="translate(0,11.7165) " d="M0 0 H -60.4724 V -64.252 L -35.9055 -88.8189 H 35.9055 L 60.4724 -64.252 V 0 Z" stroke="#000000" title="Scale Plate" class="plate plate-rectangular-top"/>
-  <circle cy="0" cx="0" r="28.3465" title="Scale center" stroke="#000000" class="circle" stroke-width="1.1339"/>
-  <circle data-keep-angle="true" r="5.6693" title="Hole" stroke="#000000" class="circle" stroke-width="1.1339" transform="translate(-48.189,0) "/>
-  <circle r="5.6693" title="Hole" stroke="#000000" class="circle" stroke-width="1.1339" transform="translate(48.189,0) "/>
-  <g data-length="28.3465" data-r="0" data-angle="360" title="Centering" fill="none" stroke="#000000" stroke-width="0.7559" class="div">
-   <line transform="rotate(-180)" y2="-28.3465" x2="0" y1="0" x1="0"/>
-   <line transform="rotate(-90)" y2="-28.3465" x2="0" y1="0" x1="0"/>
-   <line y2="-28.3465" x2="0" y1="0" x1="0"/>
-   <line transform="rotate(90)" y2="-28.3465" x2="0" y1="0" x1="0"/>
-   <line visibility="hidden" transform="rotate(180)" y2="-28.3465" x2="0" y1="0" x1="0"/>
-  </g>
+  <path data-r="28.3465" data-cy="0" data-cx="0" title="center" d="M-28.3465,0a28.3465,28.3465 0 1,0 56.6929,0a28.3465,28.3465 0 1,0 -56.6929,0M0 -28.3465 V28.3465 M-28.3465 0 H28.3465" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
+  <path transform="translate(48.189,0) " data-r="5.6693" data-cy="0" data-cx="0" title="hole" d="M-5.6693,0a5.6693,5.6693 0 1,0 11.3386,0a5.6693,5.6693 0 1,0 -11.3386,0M0 -5.6693 V5.6693 M-5.6693 0 H5.6693" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
+  <path transform="translate(-48.189,0) " data-r="5.6693" data-cy="0" data-cx="0" title="hole" d="M-5.6693,0a5.6693,5.6693 0 1,0 11.3386,0a5.6693,5.6693 0 1,0 -11.3386,0M0 -5.6693 V5.6693 M-5.6693 0 H5.6693" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
  </g>
 </svg>

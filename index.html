@@ -26,7 +26,7 @@
     <script src="svgedit/math.js"></script>
     <script>
         APP_NAME = 'Scale Master';
-        APP_VERSION = '0.3.24';
+        APP_VERSION = '0.3.25';
         APP_VERSION_TYPE = 'beta';
         var app_style_names = ['main.css']
         for (var i in app_style_names)
@@ -117,12 +117,14 @@
             <li><a href="#" data-link="{on create_element} {i18n:'type_line_line_v'}" data-element-type="line.line.v"></a></li>
             <li><a href="#" data-link="{on create_element} {i18n:'type_path_arc'}" data-element-type="path.arc"></a></li>
             <li><a href="#" data-link="{on create_element} {i18n:'type_circle_circle'}" data-element-type="circle.circle"></a></li>
+            <li><a href="#" data-link="{on create_element} {i18n:'type_path_circlecnt'}" data-element-type="path.circlecnt"></a></li>
+            <li><a href="#" data-link="{on create_element} {i18n:'type_rect_rect'}" data-element-type="rect.rect"></a></li>
             <li><a href="#" data-link="{on create_element} {i18n:'scale_plate' 'Scale plate'}" data-element-type="path.plate.plate-rectangular-top.plate-top-cut"></a></li>
             <li><a href="#" onclick="editor.embed_image()" data-link="{i18n:'type_image_image'}"></a></li>
         </ul>
-        <button class="small" data-i18n-title="move_up" title="Move up" data-link="{on move_up} data-disabled{:1 && !selected_object}"><span class="icon ui-icon-arrowthick-1-n"></span></button>
-        <button class="small" data-i18n-title="move_down" title="Move down" data-link="{on move_down} data-disabled{:1 && !selected_object}"><span class="icon ui-icon-arrowthick-1-s"></span></button>
-        <button class="small" data-i18n-title="delete" title="Delete" data-link="{on delete} data-disabled{:1 && !selected_object}"><span class="icon ui-icon-trash"></span></button>
+        <button class="small" data-i18n-title="move_up" title="Move up" data-link="{on move_up} data-disabled{:!selected_object || selected_object^is_first()}"><span class="icon ui-icon-arrowthick-1-n"></span></button>
+        <button class="small" data-i18n-title="move_down" title="Move down" data-link="{on move_down} data-disabled{:!selected_object || selected_object^is_last()}"><span class="icon ui-icon-arrowthick-1-s"></span></button>
+        <button class="small" data-i18n-title="delete" title="Delete" data-link="{on delete} data-disabled{:!selected_object}"><span class="icon ui-icon-trash"></span></button>
     </div>
     <select name="main_objects" size="9999" data-link="selected_parent" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigget_objects_list_keydown(event)">
     {^{if display_parent_list}}
@@ -318,14 +320,32 @@
     </label>
     {{/if}}
 
-    {^{if selected_object^link_attributes.indexOf('font-weight')>-1}}
+    {^{if selected_object^type == 'label'}}
     <label class="ed">
-        <div class="l" data-link="{i18n:'font_weight' 'Font weight:'}"></div>
+        <div class="l" data-link="{i18n:'font' 'Font:'}"></div>
         <div class="i">
-            <select data-link="selected_object^font_weight">
+            <select data-link="selected_object^font_family">
                 <option></option>
-                <option value="normal" data-link="{i18n:'text_normal' 'normal'}">normal</option>
-                <option value="bold" data-link="{i18n:'text_bold' 'bold'}">bold</option>
+                <option value='Arial, Helvetica, sans-serif'>Arial</option>
+                <option value='"Comic Sans MS", cursive, sans-serif'>Comic Sans MS</option>
+                <option value='"Courier New", Courier, monospace'>Courier New</option>
+                <option value='Georgia, serif'>Georgia</option>
+                <option value='"Lucida Console", Monaco, monospace'>Lucida Console</option>
+                <option value='Tahoma, Geneva, sans-serif'>Tahoma</option>
+                <option value='"Times New Roman", Times, serif'>Times New Roman</option>
+                <option value='Verdana, Geneva, sans-serif'>Verdana</option>
+            </select>
+        </div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'font_style' 'Font style:'}"></div>
+        <div class="i">
+            <select data-link="selected_object^font_style_ext()">
+                <option></option>
+                <option value="normal" data-link="{i18n:'text_normal' 'normal'}"></option>
+                <option value="bold" data-link="{i18n:'text_bold' 'bold'}"></option>
+                <option value="italic" data-link="{i18n:'text_italic' 'italic'}"></option>
+                <option value="bold_italic" data-link="{i18n:'text_bold_italic' 'bold italic'}"></option>
             </select>
         </div>
     </label>
@@ -336,6 +356,9 @@
         <div class="l" data-link="{i18n:'preserve_aspect_ratio' 'Preserve aspect ratio:'}"></div>
         <div class="i"><input type="checkbox" data-link="selected_object^preserve_aspect_ratio()" value="1"></div>
     </label>
+    {{/if}}
+
+    {^{if (selected_object^type === 'image') || (selected_object^type === 'rect')}}
     <label class="ed">
         <div class="l" data-link="{i18n:'width' 'Width:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^width:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
@@ -343,6 +366,13 @@
     <label class="ed">
         <div class="l" data-link="{i18n:'height' 'Height:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^height:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    {{/if}}
+
+    {^{if selected_object^type == 'rect'}}
+    <label class="ed">
+        <div class="l" data-link="{i18n:'corners_radius' 'Corners radius:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^corners_radius():to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     {{/if}}
 
@@ -398,7 +428,6 @@
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'y' 'Y:'}"></div>
-
         <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^cy:y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     <label class="ed">
@@ -407,7 +436,22 @@
     </label>
     {{/if}}
 
-    {^{if (selected_object^tag == 'text') || (selected_object^tag == 'image')}}
+    {^{if selected_object^type == 'circlecnt'}}
+    <label class="ed">
+        <div class="l" data-link="{i18n:'x' 'X:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_cx:to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'y' 'Y:'}"></div>
+        <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^data_cy:y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'r' 'R:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_r:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    {{/if}}
+
+    {^{if (selected_object^tag == 'text') || (selected_object^tag == 'image') || (selected_object^tag == 'rect')}}
     <label class="ed">
         <div class="l">X:</div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^x:to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>

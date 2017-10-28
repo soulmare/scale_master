@@ -33,17 +33,24 @@ editor.calc = {};
     editor.calc.get_arc_path = function (x, y, radius, startAngle, endAngle){
 
         var after_zero = 5;
-        var start = editor.calc.polarToCartesian(x, y, radius, endAngle);
-        var end = editor.calc.polarToCartesian(x, y, radius, startAngle);
+        
+        if ((startAngle + 360 == endAngle) || (startAngle == endAngle + 360)) {
+            // Full circle
+            var d = 'M'+_.round(x-radius, after_zero)+','+_.round(y, after_zero)+'a'+_.round(radius, after_zero)+','+_.round(radius, after_zero)+' 0 1,0 '+_.round(radius*2, after_zero)+',0a'+_.round(radius, after_zero)+','+_.round(radius, after_zero)+' 0 1,0 -'+_.round(radius*2, after_zero)+',0';
+        } else {
+            // Arc
+            var start = editor.calc.polarToCartesian(x, y, radius, endAngle);
+            var end = editor.calc.polarToCartesian(x, y, radius, startAngle);
 
-        var arcSweep = endAngle - startAngle <= 180 ? "0" : "1";
+            var arcSweep = endAngle - startAngle <= 180 ? "0" : "1";
 
-        var d = [
-            "M", _.round(start.x, after_zero), _.round(start.y, after_zero), 
-            "A", _.round(radius, after_zero), _.round(radius, after_zero), 0, _.round(arcSweep, after_zero), 0, _.round(end.x, after_zero), _.round(end.y, after_zero),
-    //        "L", _.round(x, after_zero), _.round(y, after_zero),
-    //        "L", _.round(start.x, after_zero), _.round(start.y, after_zero)
-        ].join(" ");
+            var d = [
+                "M", _.round(start.x, after_zero), _.round(start.y, after_zero), 
+                "A", _.round(radius, after_zero), _.round(radius, after_zero), 0, _.round(arcSweep, after_zero), 0, _.round(end.x, after_zero), _.round(end.y, after_zero),
+        //        "L", _.round(x, after_zero), _.round(y, after_zero),
+        //        "L", _.round(start.x, after_zero), _.round(start.y, after_zero)
+            ].join(" ");
+        }
 
 
         return d;       

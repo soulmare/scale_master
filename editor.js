@@ -766,7 +766,8 @@ editor = {};
                 return;
             }
 
-            if (!editor.document.getElementById('scale_wrapper')) {
+            var scale_wrapper = editor.document.getElementById('scale_wrapper');
+            if (!scale_wrapper) {
                 var msg = $.i18n('msg_bad_file_format');
                 alert(msg == 'msg_bad_file_format' ? 'File format is not fully supported' : msg);
                 var scale_wrapper = document.createElementNS(editor.ns_svg, 'g');
@@ -774,8 +775,14 @@ editor = {};
                 editor.document.appendChild(scale_wrapper);
             }
             
+            
+            // Create temporary service elements
+            var service_grp = document.createElementNS(editor.ns_svg, 'g');
+            service_grp.setAttribute('id', '_ed_service_grp');
+            service_grp.setAttribute('class', '_ed_temp');
+            service_grp.setAttribute('transform', scale_wrapper.getAttribute('transform'));
+            
             // Add select box
-
             editor.select_box = document.createElementNS(editor.ns_svg, 'g');
             editor.select_box.setAttribute('id', '_ed_select_box');
             editor.select_box.setAttribute('visibility', 'hidden');
@@ -796,7 +803,8 @@ editor = {};
                 editor.select_box.appendChild(sel_margin);
                 margin_idx++;
             }
-            editor.document.getElementById('scale_wrapper').appendChild(editor.select_box);
+            service_grp.appendChild(editor.select_box);
+            editor.document.appendChild(service_grp);
             
             $(editor.document).attr('id', 'svg_doc');
             $(editor.document).attr('data-width', $(editor.document).width());
@@ -920,7 +928,7 @@ editor = {};
                         });
                     });
 */
-} else {
+                } else {
                     // Skip empty defs
                     if (elem.nodeName === 'defs' && !elem.firstChild) {return;}
                     
@@ -928,7 +936,8 @@ editor = {};
                     if (elem.className.baseVal && (elem.className.baseVal.indexOf('_ed_temp') >= 0)) {return;}
 
                     var moz_attrs = ['-moz-math-font-style', '_moz-math-font-style'];
-                    for (i = attrs.length - 1; i >= 0; i--) {
+//                    for (i = attrs.length - 1; i >= 0; i--) {
+                    for (i = 0; i <= attrs.length - 1; i++) {
                         attr = attrs.item(i);
                         var attrVal = toXml(attr.value);
                         //remove bogus attributes added by Gecko
@@ -1288,21 +1297,27 @@ editor = {};
             var obj = editor.vm.model.selected_object;
             
             if (obj) {
-                // Move select box node to the end, making it always on top
-                var scale_wrapper = editor.document.getElementById('scale_wrapper');
-                scale_wrapper.append(editor.select_box);
                 // Set select box position and size
                 editor.select_box.setAttribute('visibility', 'visible');
-//console.log()
                 var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
+                var obj_stroke_width = parseFloat(obj.element.getAttribute('stroke-width')) || 0;
                 var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
-//                var select_box_padding = Math.max(4, bb.width*0.03, bb.height*0.03);
-                var select_box_padding = bb.width + bb.height < 10 ? 4 : 0;
-                $('._ed_select_box_margin').attr('x', bb.x - select_box_padding - sb_stroke_width);
-                $('._ed_select_box_margin').attr('y', bb.y - select_box_padding - sb_stroke_width);
-                $('._ed_select_box_margin').attr('width', bb.width + select_box_padding*2 + sb_stroke_width*2);
-                $('._ed_select_box_margin').attr('height', bb.height + select_box_padding*2 + sb_stroke_width*2);
-                // Take in account parent group transform
+//console.log(obj.stroke_width_val(), obj.element.getAttribute('stroke-width'))
+                // Apply minimum constraints on bbox
+                var min_bbox_size = 2;
+                if (bb.width < min_bbox_size){
+                    bb.x -= (min_bbox_size-bb.width)/2;
+                    bb.width = min_bbox_size;
+                }
+                if (bb.height < min_bbox_size){
+                    bb.y -= (min_bbox_size-bb.height)/2;
+                    bb.height = min_bbox_size;
+                }
+                $('._ed_select_box_margin').attr('x', bb.x - sb_stroke_width - obj_stroke_width/2);
+                $('._ed_select_box_margin').attr('y', bb.y - sb_stroke_width - obj_stroke_width/2);
+                $('._ed_select_box_margin').attr('width', bb.width + sb_stroke_width*2 + obj_stroke_width);
+                $('._ed_select_box_margin').attr('height', bb.height + sb_stroke_width*2 + obj_stroke_width);
+                // Take into account parent group transform
                 if (obj.parent_obj && obj.parent_obj.element.getAttribute('transform'))
                     editor.select_box.setAttribute('transform', obj.parent_obj.element.getAttribute('transform'));
                 else

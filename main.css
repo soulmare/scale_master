@@ -217,6 +217,9 @@ body>#main {
 .panel label.ed textarea{
     margin-bottom: -3px;
     height:50px;
+}
+.panel label.ed textarea,
+.panel label.ed select{
     width: 96%;
 }
 .panel>.inner{
@@ -402,18 +405,20 @@ button:hover .icon-flag{
 #svg_doc line,
 #svg_doc text,
 #svg_doc circle,
+#svg_doc rect,
 #svg_doc ._ed_select_box_margin,
 #svg_doc path{
     cursor:pointer;
 }
 #svg_doc ._ed_select_box_margin{
-    opacity:0.5;
+    opacity:0.6;
 }
 #workspace:focus #svg_doc ._ed_select_box_margin{
-    opacity:1;
+    opacity:0.8;
 }
 #svg_doc line:hover,
 #svg_doc circle:hover,
+#svg_doc rect:hover,
 #svg_doc path:hover{
     stroke:#ff0000;
 }
@@ -421,7 +426,8 @@ button:hover .icon-flag{
     fill:#ff0000;
     stroke: none;
 }
-#page_bg{
+#svg_doc rect#background{
+    cursor:auto;
 /*    pointer-events: none;*/
 }
 #svg_doc{
