@@ -492,6 +492,19 @@ editor.elm_rect.prototype.trigger_resize = function(ev, eventArgs) {
     }
 };
 
+editor.elm_rect.prototype.corners_radius = function () {
+    return this.element.getAttribute('rx');
+};
+editor.elm_rect.prototype.corners_radius.set = function(val) {
+    if (isNaN(parseFloat(val)) || (val < 0)) {
+        this.element.removeAttribute('rx');
+        this.element.removeAttribute('ry');
+    } else {
+        this.element.setAttribute('rx', parseFloat(val));
+        this.element.setAttribute('ry', parseFloat(val));
+    }
+};
+
 
 // Class elm_image
 // Extends elm_graphic

@@ -369,6 +369,13 @@
     </label>
     {{/if}}
 
+    {^{if selected_object^type == 'rect'}}
+    <label class="ed">
+        <div class="l" data-link="{i18n:'corners_radius' 'Corners radius:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^corners_radius():to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    {{/if}}
+
     {^{if selected_object^type == 'arc'}}
     <label class="ed">
         <div class="l" data-link="{i18n:'radius' 'Radius:'}"></div>
@@ -442,9 +449,6 @@
         <div class="l" data-link="{i18n:'r' 'R:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^data_r:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
-    {{/if}}
-
-    {^{if selected_object^type == 'rect'}}
     {{/if}}
 
     {^{if (selected_object^tag == 'text') || (selected_object^tag == 'image') || (selected_object^tag == 'rect')}}

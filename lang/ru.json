@@ -65,6 +65,7 @@
     "font_style": "Стиль шрифта:",
     "width": "Ширина:",
     "height": "Высота:",
+    "corners_radius": "Радиус углов:",
     "top_cut": "Верх. срез:",
     "rotation": "Поворот:",
     "keep_angle": "Сохр. угол:",
