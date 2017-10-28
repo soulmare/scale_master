@@ -276,8 +276,8 @@ editor.vm = {};
                     if (sel_group.stroke_width_val())
                         editor.cfg.new_item.stroke_width = editor.px_to_units(sel_group.stroke_width_val());
                     if (sel_group.font_size)
-                        editor.cfg.new_item.font_size = editor.px_to_units(sel_group.font_size);
-//console.log(sel_group.font_size)
+                        editor.cfg.new_item.font_size = editor.px_to_units(sel_group.element.getAttribute('font-size'));
+console.log(sel_group.font_size)
                 }
                 // Prefer object over it's group
                 if (sel_obj) {
@@ -290,8 +290,8 @@ editor.vm = {};
                     if (sel_obj.stroke_width_val())
                         editor.cfg.new_item.stroke_width = editor.px_to_units(sel_obj.stroke_width_val());
                     if (sel_obj.font_size)
-                        editor.cfg.new_item.font_size = editor.px_to_units(sel_obj.font_size);
-//console.log(sel_obj.font_size)
+                        editor.cfg.new_item.font_size = editor.px_to_units(sel_obj.element.getAttribute('font-size'));
+console.log(sel_obj.font_size)
                 }
                 
                 // Request new item parameters
@@ -389,6 +389,7 @@ editor.vm = {};
                         element.setAttribute('stroke', 'none');
                         element.setAttribute('font-family', editor.cfg.styles.font_family);
                         element.innerText = text;
+console.log(editor.cfg.new_item.font_size)
                         element.setAttribute('font-size', editor.units_to_px(editor.cfg.new_item.font_size || editor.cfg.styles.font_size));
                         break;
                     case 'line':
