@@ -425,6 +425,32 @@ editor.elm_circle.prototype = Object.create(editor.elm_graphic.prototype);
 editor.elm_circle.prototype.constructor = editor.elm_circle;
 
 
+// Class elm_rect
+// Extends elm_graphic
+
+editor.elm_rect = function(element) {
+    this.link_attributes = ['width', 'height'];
+    // Parent constructor
+    editor.elm_graphic.apply(this, arguments);
+    $.observe(this, 'width', 'height', this.trigger_resize);
+}
+editor.elm_rect.prototype = Object.create(editor.elm_graphic.prototype);
+editor.elm_rect.prototype.constructor = editor.elm_rect;
+
+// Centering when resize
+editor.elm_rect.prototype.trigger_resize = function(ev, eventArgs) {
+//console.log()
+    var _this = ev.target;
+    var diff = parseFloat(eventArgs.oldValue) - parseFloat(eventArgs.value);
+    if (eventArgs.path == 'width') {
+        $.observable(_this).setProperty('x', editor.units_round(_this.x || 0, 2) + diff / 2);
+    }
+    if (eventArgs.path == 'height') {
+        $.observable(_this).setProperty('y', editor.units_round(_this.y || 0, 2) + diff / 2);
+    }
+};
+
+
 // Class elm_image
 // Extends elm_graphic
 
@@ -437,8 +463,7 @@ editor.elm_image = function(element) {
 editor.elm_image.prototype = Object.create(editor.elm_graphic.prototype);
 editor.elm_image.prototype.constructor = editor.elm_image;
 
-
-// Preserve aspect ratio and centering on resize
+// Preserve aspect ratio and centering when resize
 editor.elm_image.prototype.trigger_resize = function(ev, eventArgs) {
 //console.log(ev, )
     var _this = ev.target;

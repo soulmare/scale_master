@@ -16,7 +16,7 @@ editor.vm = {};
 (function(undef) {
     'use strict';
 
-    editor.vm.svg_elem_types = ['arc', 'axe', 'div', 'line', 'plate', 'hole', 'meta', 'label', 'circle', 'circlecnt', 'image'];
+    editor.vm.svg_elem_types = ['arc', 'axe', 'div', 'line', 'plate', 'hole', 'meta', 'label', 'circle', 'circlecnt', 'image', 'rect'];
         
     editor.vm.init = function () {
 
@@ -122,9 +122,9 @@ editor.vm = {};
                     $.link('text', obj.element, obj);
                 var dynamic_update_select_box = _.throttle(editor.update_select_box, 30);
                 $.observe(obj, "x", "y", "x1", "y1", "x2", "y2", "cx", "cy", "shift_x", "shift_y",
-                          "data_cx", "data_cy", "data_r",
+                          "stroke_width", "stroke_width_val", "data_cx", "data_cy", "data_r",
                           "data_width", "data_height", "width", "height", "text", "font_size_val",
-                          "angle", "arc_angle", "r", "radius", "stroke_width_val",
+                          "angle", "arc_angle", "r", "radius",
                           dynamic_update_select_box);
 /*
                 $.observe(obj, "x", "y", function () {
@@ -349,6 +349,13 @@ editor.vm = {};
                                 editor.cfg.new_item.r = radius;
                         }
                         break;
+                    case 'rect':
+                        var size = prompt($.i18n('msg_size'), editor.cfg.new_item.size || 0);
+                        if (size === null)
+                            return;
+                        else
+                            editor.cfg.new_item.size = size;
+                        break;
                 }
                 
                 
@@ -362,6 +369,7 @@ editor.vm = {};
                     case 'circle':
                     case 'circlecnt':
                     case 'path':
+                    case 'rect':
                         element.setAttribute('stroke-width', editor.units_to_px(editor.cfg.new_item.stroke_width || editor.cfg.styles.stroke_width));
                         element.setAttribute('stroke', this.obj_color());
                         element.setAttribute('fill', 'none');
@@ -406,6 +414,13 @@ editor.vm = {};
                         element.setAttribute('cx', 0);
                         element.setAttribute('cy', 0);
                         element.setAttribute('r', editor.units_to_px(radius));
+                        break;
+                    case 'rect':
+                        element.setAttribute('title', $.i18n('new_rect'));
+                        element.setAttribute('x', -editor.units_round(editor.units_to_px(size/2)));
+                        element.setAttribute('y', -editor.units_round(editor.units_to_px(size/2)));
+                        element.setAttribute('width', editor.units_round(editor.units_to_px(size/2)));
+                        element.setAttribute('height', editor.units_round(editor.units_to_px(size/2)));
                         break;
                     case 'path':
                         element.setAttribute('d', '');
@@ -757,6 +772,9 @@ editor.vm = {};
         
         if (element.nodeName == 'circle')
             return new editor.elm_circle(element);
+
+        if (element.nodeName == 'rect')
+            return new editor.elm_rect(element);
         
         return new editor.elm_graphic(element);
             

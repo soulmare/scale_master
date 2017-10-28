@@ -402,6 +402,7 @@ button:hover .icon-flag{
 #svg_doc line,
 #svg_doc text,
 #svg_doc circle,
+#svg_doc rect,
 #svg_doc ._ed_select_box_margin,
 #svg_doc path{
     cursor:pointer;
@@ -414,6 +415,7 @@ button:hover .icon-flag{
 }
 #svg_doc line:hover,
 #svg_doc circle:hover,
+#svg_doc rect:hover,
 #svg_doc path:hover{
     stroke:#ff0000;
 }
@@ -421,7 +423,8 @@ button:hover .icon-flag{
     fill:#ff0000;
     stroke: none;
 }
-#page_bg{
+#svg_doc rect#background{
+    cursor:auto;
 /*    pointer-events: none;*/
 }
 #svg_doc{

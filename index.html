@@ -26,8 +26,8 @@
     <script src="svgedit/math.js"></script>
     <script>
         APP_NAME = 'Scale Master';
-        APP_VERSION = '0.4.0';
-        APP_VERSION_TYPE = 'dev';
+        APP_VERSION = '0.3.25';
+        APP_VERSION_TYPE = 'beta';
         var app_style_names = ['main.css']
         for (var i in app_style_names)
             document.write('<link href="' + app_style_names[i] + '?v=' + APP_VERSION + '" rel="stylesheet"/>');
@@ -118,6 +118,7 @@
             <li><a href="#" data-link="{on create_element} {i18n:'type_path_arc'}" data-element-type="path.arc"></a></li>
             <li><a href="#" data-link="{on create_element} {i18n:'type_circle_circle'}" data-element-type="circle.circle"></a></li>
             <li><a href="#" data-link="{on create_element} {i18n:'type_path_circlecnt'}" data-element-type="path.circlecnt"></a></li>
+            <li><a href="#" data-link="{on create_element} {i18n:'type_rect_rect'}" data-element-type="rect.rect"></a></li>
             <li><a href="#" data-link="{on create_element} {i18n:'scale_plate' 'Scale plate'}" data-element-type="path.plate.plate-rectangular-top.plate-top-cut"></a></li>
             <li><a href="#" onclick="editor.embed_image()" data-link="{i18n:'type_image_image'}"></a></li>
         </ul>
@@ -337,6 +338,9 @@
         <div class="l" data-link="{i18n:'preserve_aspect_ratio' 'Preserve aspect ratio:'}"></div>
         <div class="i"><input type="checkbox" data-link="selected_object^preserve_aspect_ratio()" value="1"></div>
     </label>
+    {{/if}}
+
+    {^{if (selected_object^type === 'image') || (selected_object^type === 'rect')}}
     <label class="ed">
         <div class="l" data-link="{i18n:'width' 'Width:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^width:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
@@ -399,7 +403,6 @@
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'y' 'Y:'}"></div>
-
         <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^cy:y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     <label class="ed">
@@ -415,7 +418,6 @@
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'y' 'Y:'}"></div>
-
         <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^data_cy:y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     <label class="ed">
@@ -424,7 +426,10 @@
     </label>
     {{/if}}
 
-    {^{if (selected_object^tag == 'text') || (selected_object^tag == 'image')}}
+    {^{if selected_object^type == 'rect'}}
+    {{/if}}
+
+    {^{if (selected_object^tag == 'text') || (selected_object^tag == 'image') || (selected_object^tag == 'rect')}}
     <label class="ed">
         <div class="l">X:</div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^x:to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>

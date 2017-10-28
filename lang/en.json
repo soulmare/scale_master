@@ -10,6 +10,7 @@
     "type_line_line": "line",
     "type_line_line_h": "line horizontal",
     "type_line_line_v": "line vertical",
+    "type_rect_rect": "rectangle",
     "type_image_image": "image",
 
     "msg_divisions_count": "Divisions count:",
@@ -32,6 +33,7 @@
 	"new_labels_group": "New labels group",
 	"new_divisions_group": "New divisions group",
 	"new_line": "New line",
+	"new_rect": "Новый прямоугольник",
 
     "stub": "stub"
 }
