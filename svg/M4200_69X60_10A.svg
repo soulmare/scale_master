@@ -80,16 +80,9 @@
   </g>
   <text stroke="none" transform="translate(0,-100) " dominant-baseline="central" class="label" fill="#000000" title="Center label" y="0" font-family="Arial" font-size="37.7953" font-weight="normal" text-anchor="middle">A</text>
   <path class="plate plate-rectangular-top" title="Scale Plate" stroke="#000000" d="M0 0 H -130.3937 V -179.5276 L -83.1496 -226.7717 H 83.1496 L 130.3937 -179.5276 V 0 Z" transform="translate(0,13.228346824645996)" data-width="260.7874" data-height="226.7717" data-top-cut="47.2441" stroke-width="1.1339"/>
-  <circle stroke-width="1.1339" class="circle" stroke="#000000" title="Scale center" r="35.9055" cx="0" cy="0"/>
-  <circle transform="translate(-47,0) " stroke-width="1.1339" class="circle" stroke="#000000" title="Hole" r="5.6693"/>
-  <circle transform="translate(47,0) " stroke-width="1.1339" class="circle" stroke="#000000" title="Hole" r="5.6693"/>
   <text stroke="none" font-weight="bold" transform="translate(-102,31) " font-size="13.6063" font-family="Arial" fill="#000000" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0" class="label">М4200</text>
-  <g class="div" stroke-width="0.7559" stroke="#000000" fill="none" title="Centering" data-angle="360" data-r="0" data-length="35.9055">
-   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(-180)"/>
-   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(-90)"/>
-   <line x1="0" y1="0" x2="0" y2="-35.9055"/>
-   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(90)"/>
-   <line x1="0" y1="0" x2="0" y2="-35.9055" transform="rotate(180)" visibility="hidden"/>
-  </g>
+  <path data-r="35.9055" data-cy="0" data-cx="0" title="center" d="M-35.9055,0a35.9055,35.9055 0 1,0 71.811,0a35.9055,35.9055 0 1,0 -71.811,0M0 -35.9055 V35.9055 M-35.9055 0 H35.9055" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
+  <path transform="translate(-47.2441,0) " data-r="5.6693" data-cy="0" data-cx="0" title="hole" d="M-5.6693,0a5.6693,5.6693 0 1,0 11.3386,0a5.6693,5.6693 0 1,0 -11.3386,0M0 -5.6693 V5.6693 M-5.6693 0 H5.6693" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
+  <path transform="translate(47.2441,0) " data-r="5.6693" data-cy="0" data-cx="0" title="hole" d="M-5.6693,0a5.6693,5.6693 0 1,0 11.3386,0a5.6693,5.6693 0 1,0 -11.3386,0M0 -5.6693 V5.6693 M-5.6693 0 H5.6693" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
  </g>
 </svg>

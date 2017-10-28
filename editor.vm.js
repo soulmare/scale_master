@@ -35,6 +35,7 @@ editor.vm = {};
 //            },
 //            children_list: [
 //            ],
+            
             get: function(idx) {
                 if (typeof(idx) == 'undefined')
                     return;
@@ -67,6 +68,7 @@ editor.vm = {};
                     $.observable(this).setProperty("selected_child", null);
                 }
             },
+            
             get_new_idx: function() {
                 // Get max unused @idx
                 var idx = -1;
@@ -77,6 +79,7 @@ editor.vm = {};
                 }
                 return ++idx;
             },
+            
             add_element: function(element) {
                 var idx = this.get_new_idx();
 //                if (!element.hasAttribute('title'))
@@ -90,6 +93,7 @@ editor.vm = {};
                     $(element, editor.document).bind('click', this.trigger_element_click);
                 return obj.idx;
             },
+            
             register_object: function(obj, objects_list) {
                 if (typeof(objects_list) == 'undefined')
                     objects_list = this.objects;
@@ -128,6 +132,7 @@ editor.vm = {};
                 });
 */
             },
+            
             reset: function(elements) {
                 var objects = [];
                 if (typeof(elements) == 'object') {
@@ -148,6 +153,7 @@ editor.vm = {};
 //                        return parseInt(i);
 //                return -1;
 //            },
+            
             trigger_selection_change: function (ev, eventArgs) {
                 var _this = ev.target;
                 var obj = _this.selected_object;
@@ -156,6 +162,7 @@ editor.vm = {};
                     $(obj.element).addClass('_ed_sel');
                 editor.update_select_box();
             },
+            
             trigger_select: function (ev, eventArgs) {
                 if(eventArgs.value === null)
                     return;
