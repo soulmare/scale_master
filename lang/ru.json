@@ -96,6 +96,8 @@
 	"image_size": "Размер:",
 	"image_orientation": "Ориентация:",
 	"exponent": "Экспонента:",
+	"divs_level_2": "Уровень 2:",
+	"each_nth": "Каждое N-е деление:",
 	"portrait": "портретная",
 	"landscape": "пейзажная",
 	"image_title": "Название:",

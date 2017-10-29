@@ -222,6 +222,10 @@ body>#main {
 .panel label.ed select{
     width: 96%;
 }
+.panel label.wide.ed{
+    display: block;
+    margin: 18px 0 8px;
+}
 .panel>.inner{
     overflow-y: auto;
     overflow-x: hidden;

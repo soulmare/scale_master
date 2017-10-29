@@ -629,13 +629,13 @@ editor.elm_plate.prototype.update_path = function(ev, eventArgs) {
 // Abstract group, automatically creates and arranges it's children 
 
 editor.elm_supervisor_group = function(element) {
-    var link_attributes = ['data-r', 'data-angle', 'data-linearity-exponent', 'data-k'];
+    var link_attributes = ['data-r', 'data-angle', 'data-linearity-exponent'];
     // Merge with ancestor's @link_attributes if present
     this.link_attributes = this.link_attributes ? this.link_attributes.concat(link_attributes) : link_attributes;
     // Parent constructor
     editor.elm_graphic.apply(this, arguments);
     $.observe(this, 'data_r', this.update_data_r);    
-    $.observe(this, 'data_angle', 'data_linearity_exponent', 'data_k', this.update_data_angle);    
+    $.observe(this, 'data_angle', 'data_linearity_exponent', this.update_data_angle);    
     $.observe(this, 'data_keep_angle', this.update_keep_angle);
 }
 editor.elm_supervisor_group.prototype = Object.create(editor.elm_graphic.prototype);
@@ -699,6 +699,7 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
     }
 }
 
+
 //editor.vm.model.objects[11].update_data_angle({target:editor.vm.model.objects[11]})
 //editor.vm.model.selected_object.update_data_angle({target:editor.vm.model.selected_object})
 
@@ -707,10 +708,10 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
 // Extends elm_supervisor_group
 
 editor.elm_div_group = function(element) {
-    this.link_attributes = ['data-length'];
+    this.link_attributes = ['data-length', 'data_lev2_each', 'data_lev2_length', 'data_lev2_stroke_width'];
     // Parent constructor
     editor.elm_supervisor_group.apply(this, arguments);
-    $.observe(this, 'data_length', this.update_data_length);    
+    $.observe(this, 'data_length', 'data_lev2_each', 'data_lev2_length', 'data_lev2_stroke_width', this.update_child_divs);
 }
 editor.elm_div_group.prototype = Object.create(editor.elm_supervisor_group.prototype);
 editor.elm_div_group.prototype.constructor = editor.elm_div_group;
@@ -741,13 +742,29 @@ editor.elm_div_group.prototype.update_data_r = function(ev, eventArgs) {
     }
 }
 
-// Update @line_length for all group's children
-editor.elm_div_group.prototype.update_data_length = function(ev, eventArgs) {
+editor.elm_div_group.prototype.update_child_divs = function(ev, eventArgs) {
     var _this = ev.target;
+    var length = parseFloat(_this.data_length);
+    var lev2_each = parseInt(_this.data_lev2_each);
+    var lev2_length = parseFloat(_this.data_lev2_length);
+    var lev2_stroke_width = parseFloat(_this.data_lev2_stroke_width);
     for (var i in _this.children_objs) {
         var child = _this.children_objs[i];
-        var new_length = parseFloat(eventArgs.value);
-        $.observable(child).setProperty("line_length", new_length);
+        var div_length = length;
+        var div_stroke_width = null;
+        if (lev2_each && !(i % lev2_each)) {
+            // Level 2 div
+            if (lev2_length)
+                div_length = lev2_length;
+            if (lev2_stroke_width)
+                div_stroke_width = lev2_stroke_width;
+        }
+        if (div_stroke_width)
+            child.element.setAttribute('stroke-width', div_stroke_width);
+        else
+            child.element.removeAttribute('stroke-width', div_stroke_width);
+        $.observable(child).setProperty("line_length", div_length);
+console.log(i, div_stroke_width, div_length)
     }
 }
 

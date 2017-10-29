@@ -62,7 +62,8 @@ editor = {};
                     size: 100,
                     font_size: 4,
                     stroke_width: 0.3
-                }
+                },
+                store_last_document: true
             };
     
 //        editor.svg_observe_attrs = {
@@ -140,22 +141,28 @@ editor = {};
             editor.bind_listeners();
 
             editor.vm.init();
-
-            var svg_str_stored = localStorage.getItem('svg_doc');
-            if (svg_str_stored){
-//                console.log(svg_str_stored.length);
-//                svg_str_stored = '<sv'+svg_str_stored;
-                editor.vm.model.enable_templates(false);
-                if (!editor.load_svg_string(svg_str_stored))
-                    editor.open_url('svg/new_scale.svg');
-                editor.vm.model.enable_templates(true);
-            }else
-                editor.open_url('svg/new_scale.svg');
-            
             
 //            editor.open_url('svg/M4200_69X60_20V.svg');
 //            editor.open_url('svg/example_compass.svg');
 //            editor.open_url('svg/test_multiscale_2.svg');
+            var initial_document = 'svg/test_nonlinear.svg';
+//            var initial_document = 'svg/new_scale.svg';
+
+            if (editor.cfg.store_last_document) {
+                var svg_str_stored = localStorage.getItem('svg_doc');
+                if (svg_str_stored){
+    //                console.log(svg_str_stored.length);
+    //                svg_str_stored = '<sv'+svg_str_stored;
+                    editor.vm.model.enable_templates(false);
+                    if (!editor.load_svg_string(svg_str_stored))
+                        editor.open_url(initial_document);
+                    editor.vm.model.enable_templates(true);
+                }else
+                    editor.open_url(initial_document);
+            } else
+                editor.open_url(initial_document);
+            
+            
             
 //            editor.vm.load_svg();
             
