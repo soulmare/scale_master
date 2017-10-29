@@ -14,28 +14,28 @@
    <line x1="0" y1="-136.063" x2="0" y2="-158.7402" transform="rotate(18.9691,0,0)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-158.7402" transform="rotate(45,0,0)" class="0"/>
   </g>
-  <g id="scale1" class="div" stroke-width="1.1339" _stroke="#0000ff" fill="none" title="lev 2" data-angle="90" data-r="136.063" data-length="15.1181" data-linearity-exponent="1">
-   <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-45)"/>
+  <g id="scale1" class="div" stroke-width="1.1339" _stroke="#0000ff" fill="none" title="lev 2" data-angle="90" data-r="136.063" data-length="15.1181" data-linearity-exponent="1" data_lev2_each="5" data_lev2_length="26.4567" data_lev2_stroke_width="1.8898">
+   <line x1="0" y1="-136.063" x2="0" y2="-162.5197" transform="rotate(-45)" stroke-width="1.8898"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-40.5)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-36)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-31.5)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-27)"/>
-   <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-22.5)"/>
+   <line x1="0" y1="-136.063" x2="0" y2="-162.5197" transform="rotate(-22.5)" stroke-width="1.8898"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-18)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-13.5)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-9)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(-4.5)"/>
-   <line x1="0" y1="-136.063" x2="0" y2="-151.1811"/>
+   <line x1="0" y1="-136.063" x2="0" y2="-162.5197" stroke-width="1.8898"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(4.5)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(9)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(13.5)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(18)"/>
-   <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(22.5)"/>
+   <line x1="0" y1="-136.063" x2="0" y2="-162.5197" transform="rotate(22.5)" stroke-width="1.8898"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(27)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(31.5)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(36)"/>
    <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(40.5)"/>
-   <line x1="0" y1="-136.063" x2="0" y2="-151.1811" transform="rotate(45)"/>
+   <line x1="0" y1="-136.063" x2="0" y2="-162.5197" transform="rotate(45)" stroke-width="1.8898"/>
   </g>
  </g>
 

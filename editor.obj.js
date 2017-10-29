@@ -655,6 +655,9 @@ editor.elm_supervisor_group.prototype.count_children.set = function (val) {
 //            element.setAttribute('title', '#'+idx);
             children_count_delta++;
         }
+        if (this.update_child_divs)
+            this.update_child_divs({target:this});
+//            _.throttle(function () {this.update_child_divs({target:this})}, 30);
     } else if (this.children_objs.length > val) {
         // Remove children
         while (this.children_objs.length > val) {
@@ -763,8 +766,8 @@ editor.elm_div_group.prototype.update_child_divs = function(ev, eventArgs) {
             child.element.setAttribute('stroke-width', div_stroke_width);
         else
             child.element.removeAttribute('stroke-width', div_stroke_width);
-        $.observable(child).setProperty("line_length", div_length);
-console.log(i, div_stroke_width, div_length)
+        $.observable(child).setProperty('line_length', div_length);
+//console.log(i, div_stroke_width, div_length)
     }
 }
 
