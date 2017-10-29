@@ -629,14 +629,13 @@ editor.elm_plate.prototype.update_path = function(ev, eventArgs) {
 // Abstract group, automatically creates and arranges it's children 
 
 editor.elm_supervisor_group = function(element) {
-//    this.link_attributes = ['data-r', 'data-angle', 'data-length'];
-    var link_attributes = ['data-r', 'data-angle'];
+    var link_attributes = ['data-r', 'data-angle', 'data-linearity-exponent'];
     // Merge with ancestor's @link_attributes if present
     this.link_attributes = this.link_attributes ? this.link_attributes.concat(link_attributes) : link_attributes;
     // Parent constructor
     editor.elm_graphic.apply(this, arguments);
     $.observe(this, 'data_r', this.update_data_r);    
-    $.observe(this, 'data_angle', this.update_data_angle);    
+    $.observe(this, 'data_angle', 'data_linearity_exponent', this.update_data_angle);    
     $.observe(this, 'data_keep_angle', this.update_keep_angle);
 }
 editor.elm_supervisor_group.prototype = Object.create(editor.elm_graphic.prototype);
@@ -684,15 +683,23 @@ editor.elm_supervisor_group.prototype.update_keep_angle = function(ev, eventArgs
 
 editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs) {
     var _this = ev.target;
-    for (var i in _this.children_objs) {
+    var new_scale_angle = _this.data_angle;
+    var new_start_angle = - new_scale_angle/2;
+    var points_count = _this.children_objs.length - 1;
+    var exp = parseFloat(_this.data_linearity_exponent) || 1;
+//    var exp = 1;
+//console.log(exp)
+    var k = new_scale_angle / Math.pow(points_count, exp);
+    for (var i = 0; i <= points_count; i++) {
         var child = _this.children_objs[i];
-        var new_scale_angle = parseFloat(eventArgs.value);
-        var new_child_angle = i * (new_scale_angle / (_this.children_objs.length-1)) - new_scale_angle/2;
+        var new_child_angle = Math.pow(i, exp) * k + new_start_angle;
         $.observable(child).setProperty("angle", new_child_angle);
-//        $.observable(child).setProperty("data_keep_angle", _this.data_keep_angle || false);
-//console.log('update_data_angle', _this.data_keep_angle);
+//console.log(i, new_child_angle)
     }
 }
+
+//editor.vm.model.objects[11].update_data_angle({target:editor.vm.model.objects[11]})
+//editor.vm.model.selected_object.update_data_angle({target:editor.vm.model.selected_object})
 
 
 // Class elm_div_group

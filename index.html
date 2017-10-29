@@ -224,11 +224,9 @@
     <label class="ed">
         {^{if selected_object^type == 'div'}}
         <div class="l" data-link="{i18n:'divisions_count' 'Divisions count:'}"></div>
-
         {{/if}}
         {^{if selected_object^type == 'label'}}
         <div class="l" data-link="{i18n:'labels_count' 'Labels count:'}"></div>
-
         {{/if}}
         <div class="i"><input type="number" data-link="selected_object^count_children()" step="1" min="0" max="9999"></div>
     </label>
@@ -239,6 +237,10 @@
     <label class="ed">
         <div class="l" data-link="{i18n:'radius' 'Radius:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^data_r:to_px}" step="1" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'exponent' 'Exponent:'}"></div>
+        <div class="i"><input type="number" data-link="selected_object^data_linearity_exponent || 1" step="0.01"></div>
     </label>
     {{/if}}
 
