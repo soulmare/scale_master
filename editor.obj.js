@@ -629,13 +629,13 @@ editor.elm_plate.prototype.update_path = function(ev, eventArgs) {
 // Abstract group, automatically creates and arranges it's children 
 
 editor.elm_supervisor_group = function(element) {
-    var link_attributes = ['data-r', 'data-angle', 'data-linearity-exponent'];
+    var link_attributes = ['data-r', 'data-angle', 'data-linearity-exponent', 'data-k'];
     // Merge with ancestor's @link_attributes if present
     this.link_attributes = this.link_attributes ? this.link_attributes.concat(link_attributes) : link_attributes;
     // Parent constructor
     editor.elm_graphic.apply(this, arguments);
     $.observe(this, 'data_r', this.update_data_r);    
-    $.observe(this, 'data_angle', 'data_linearity_exponent', this.update_data_angle);    
+    $.observe(this, 'data_angle', 'data_linearity_exponent', 'data_k', this.update_data_angle);    
     $.observe(this, 'data_keep_angle', this.update_keep_angle);
 }
 editor.elm_supervisor_group.prototype = Object.create(editor.elm_graphic.prototype);
@@ -687,14 +687,15 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
     var new_start_angle = - new_scale_angle/2;
     var points_count = _this.children_objs.length - 1;
     var exp = parseFloat(_this.data_linearity_exponent) || 1;
-//    var exp = 1;
+//    var k = parseFloat(_this.data_k) || 0;
+    var k = 0;
 //console.log(exp)
-    var k = new_scale_angle / Math.pow(points_count, exp);
+    var k_angle = new_scale_angle / (Math.pow(points_count, exp) + k * points_count);
     for (var i = 0; i <= points_count; i++) {
         var child = _this.children_objs[i];
-        var new_child_angle = Math.pow(i, exp) * k + new_start_angle;
+        var new_child_angle = (Math.pow(i, exp) + k * i) * k_angle + new_start_angle;
         $.observable(child).setProperty("angle", new_child_angle);
-//console.log(i, new_child_angle)
+//console.log(i, new_child_angle-new_start_angle)
     }
 }
 
