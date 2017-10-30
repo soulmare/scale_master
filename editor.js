@@ -408,7 +408,7 @@ editor = {};
         }
 
         
-        editor.trigget_objects_list_keydown = function (event) {
+        editor.trigger_objects_list_keydown = function (event) {
 //console.log(event);return;
             switch (event.which) {
                 case 46:

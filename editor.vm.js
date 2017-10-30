@@ -246,9 +246,6 @@ editor.vm = {};
                     var pointer_pos = editor.coords_mouse_event_to_document(e);
                     if ((sel_obj.type == 'div') && (sel_obj.tag == 'line')) {
                         // Turn element
-//                        var element_pos = [editor.px_to_units(editor.vm.model.selected_object.shift_x() || 0), editor.px_to_units(editor.vm.model.selected_object.shift_y() || 0)];
-//                        var drag_point = [-element_pos[0] - pointer_pos[0], -element_pos[1] - pointer_pos[1]];
-//                        var drag_angle = Math.atan2(-drag_point[0], drag_point[1]) * 180.0 / Math.PI;
                         if (sel_obj.parent_obj) {
                             var drag_angle = Math.atan2(pointer_pos[0]-editor.px_to_units(sel_obj.parent_obj.shift_x() || 0), editor.px_to_units(sel_obj.parent_obj.shift_y() || 0)-pointer_pos[1]) * 180.0 / Math.PI;
                             $.observable(sel_obj).setProperty('angle_val', _.round(drag_angle, 1));

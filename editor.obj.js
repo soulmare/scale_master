@@ -932,7 +932,7 @@ editor.elm_label_group = function(element) {
     this.link_attributes = ['data-label-start', 'data-label-step', 'font-size', 'font-family'];
     // Parent constructor
     editor.elm_supervisor_group.apply(this, arguments);
-    $.observe(this, 'data_label_start', this.update_labels_text);    
+    $.observe(this, 'data_label_start', 'data_label_step', this.update_labels_text);    
 }
 editor.elm_label_group.prototype = Object.create(editor.elm_supervisor_group.prototype);
 editor.elm_label_group.prototype.constructor = editor.elm_label_group;

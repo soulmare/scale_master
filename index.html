@@ -128,7 +128,7 @@
         <button class="small" data-i18n-title="delete" title="Delete" data-link="{on delete} data-disabled{:!selected_object}"><span class="icon ui-icon-trash"></span></button>
     </div>
     
-    <select name="main_objects" size="9999" data-link="selected_parent" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigget_objects_list_keydown(event)">
+    <select name="main_objects" size="9999" data-link="selected_parent" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigger_objects_list_keydown(event)" ondblclick="$('#workspace').focus();">
     {^{if display_parent_list}}
         {^{for objects}}
             {{if id_parent===-1}}
@@ -140,7 +140,7 @@
     {{/if}}
     </select>
     
-    <select name="child_objects" size="9999" data-link="selected_child" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigget_objects_list_keydown(event)">
+    <select name="child_objects" size="9999" data-link="selected_child" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigger_objects_list_keydown(event)" ondblclick="$('#workspace').focus();">
         {^{if selected_parent!==null}}
             {^{for objects}}
                 {^{if ~root.selected_parent==id_parent}}
