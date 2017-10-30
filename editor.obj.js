@@ -180,7 +180,8 @@ editor.elm_graphic.prototype.angle = function () {
     var tr_list = this.get_transform();
     for (var i in tr_list)
         if (tr_list[i].fn == 'rotate')
-            return tr_list[i].args[0];
+            return _.round(tr_list[i].args[0], 4);
+//            return tr_list[i].args[0];
 };
 editor.elm_graphic.prototype.angle.set = function(val) {
     var tr_list = this.get_transform();

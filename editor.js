@@ -336,42 +336,73 @@ editor = {};
             // Workspace keyboard actions
             $('#workspace').bind('keydown', function (e) {
 //                console.log(e.which, e.ctrlKey, e.shiftKey);
+                var delta_deg = e.ctrlKey ? 1 : 0.1;
                 var delta = editor.units_to_px(e.ctrlKey ? 1 : 0.1);
+//                var arrow_keys = [37, 38, 39, 40];
+                var sel_obj = editor.vm.model.selected_object;
+                if (!sel_obj)
+                    return;
+
+                if ((sel_obj.tag == 'line') && (sel_obj.type == 'div') && sel_obj.parent_obj && sel_obj.parent_obj.is_group){
+                    // Move grouped divisions and labels
+                    switch (e.which) {
+                        case 37: // left
+                        case 40: // down
+                            $.observable(sel_obj).setProperty('angle_val', _.round((sel_obj.angle_val() || 0) - delta_deg, 1));
+                            e.preventDefault();
+                            break;
+                        case 38: // up
+                        case 39: // right
+                            $.observable(sel_obj).setProperty('angle_val', _.round((sel_obj.angle_val() || 0) + delta_deg, 1));
+                            e.preventDefault();
+                            break;
+                    }
+                } else {
+                    // Move common objects
+                    switch (e.which) {
+                        case 37:
+                            // left
+                            if (e.shiftKey) {
+                                if (sel_obj.angle !== undefined)
+                                    $.observable(sel_obj).setProperty('angle', _.round((sel_obj.angle() || 0) - delta, 1));
+                                e.preventDefault();
+                            } else {
+                                $.observable(sel_obj).setProperty('shift_x', editor.units_round(sel_obj.shift_x(), 1) - delta);
+                                e.preventDefault();
+                            }
+                            break;
+                        case 38:
+                            // up
+                            $.observable(sel_obj).setProperty('shift_y', editor.units_round(sel_obj.shift_y(), 1) - delta);
+                            e.preventDefault();
+                            break;
+                        case 39:
+                            // right
+                            if (e.shiftKey) {
+                                if (sel_obj.angle !== undefined)
+                                    $.observable(sel_obj).setProperty('angle', _.round((sel_obj.angle() || 0) + delta, 1));
+                                e.preventDefault();
+                            } else {
+                                $.observable(sel_obj).setProperty('shift_x', editor.units_round(sel_obj.shift_x(), 1) + delta);
+                                e.preventDefault();
+                            }
+                            break;
+                        case 40:
+                            // down
+                            $.observable(sel_obj).setProperty('shift_y', editor.units_round(sel_obj.shift_y(), 1) + delta);
+                            e.preventDefault();
+                            break;
+                    }
+                }
+
+                // Common actions
                 switch (e.which) {
-                    case 37:
-                        // left
-                        if (editor.vm.model.selected_object) {
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) - delta);
-                            e.preventDefault();
-                        }
-                        break;
-                    case 38:
-                        // up
-                        if (editor.vm.model.selected_object){
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) - delta);
-                            e.preventDefault();
-                        }
-                        break;
-                    case 39:
-                        // right
-                        if (editor.vm.model.selected_object){
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) + delta);
-                            e.preventDefault();
-                        }
-                        break;
-                    case 40:
-                        // down
-                        if (editor.vm.model.selected_object){
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) + delta);
-                            e.preventDefault();
-                        }
-                        break;
                     case 46:
                         // delete
-                        if (editor.vm.model.selected_object)
-                            editor.vm.model.delete(null, {change: 'click'});
+                        editor.vm.model.delete(null, {change: 'click'});
                         break;
                 }
+                
             });
             
         }
