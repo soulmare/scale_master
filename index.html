@@ -17,6 +17,7 @@
     <script src="lib/jsviews.min.js"></script>
     <script src="lib/jquery.i18n/jquery.i18n.js"></script>
     <script src="lib/jquery.i18n/jquery.i18n.messagestore.js"></script>
+    <script src="lib/Smooth-0.1.7.js"></script>
     <script src="svgedit/svgedit.js"></script>
     <script src="svgedit/pathseg.js"></script>
     <script src="svgedit/units.js"></script>
@@ -235,7 +236,7 @@
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'angle' 'Angle:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^data_angle" step="1" min="0" max="360"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        <div class="i"><input type="number" data-link="selected_object^data_angle" min="0" max="360" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'radius' 'Radius:'}"></div>
@@ -246,7 +247,18 @@
     {^{if (selected_object^tag == 'g') && (selected_object^type == 'div')}}
     <label class="ed">
         <div class="l" data-link="{i18n:'exponent' 'Exponent:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^data_linearity_exponent || 1" step="0.01"></div>
+        <div class="i"><input type="number" data-link="selected_object^data_linearity_exponent || 1" step="0.01" min="0"></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'interpolation' 'Interpolation:'}"></div>
+        <div class="i">
+            <select data-link="selected_object^data_interpolation_method">
+                <option value="" data-link="{i18n:'int_linear' 'Linear'}"></option>
+                <option value="cubic" data-link="{i18n:'int_cubic' 'Cubic Hermite spline'}"></option>
+                <option value="sinc" data-link="{i18n:'int_sinc' 'Sinc filter'}"></option>
+                <option value="lanczos" data-link="{i18n:'int_lanczos' 'Lanczos resampling'}"></option>
+            </select>
+        </div>
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'length' 'Length:'}"></div>
@@ -260,7 +272,7 @@
         <div class="i"><input type="number" data-link="{from_px:selected_object^line_length():to_px}" min="1"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     {{/if}}
-
+    
     {^{if (selected_object^tag == 'g') && (selected_object^type == 'label')}}
     <label class="ed">
         <div class="l" data-link="{i18n:'start_value' 'Start value:'}"></div>
@@ -388,7 +400,7 @@
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'angle' 'Angle:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^arc_angle()" min="0" max="360"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        <div class="i"><input type="number" data-link="selected_object^arc_angle()" min="0" max="360" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
     </label>
     {{/if}}
 
@@ -468,11 +480,22 @@
     {{/if}}
 
     <!-- Transformations -->
-    
+
+    {^{if (selected_object^tag == 'line') && (selected_object^type == 'div')}}
+    <label class="ed">
+        <div class="l" data-link="{i18n:'anchor_label' 'Anchor:'}"></div>
+        <div class="i"><input type="checkbox" data-link="selected_object^data_anchor" value="1"></div>
+    </label>
+    {{/if}}
+
     {^{if selected_object^angle}}
     <label class="ed">
         <div class="l" data-link="{i18n:'rotation' 'Rotation:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^angle()" min="-180" max="180"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        {^{if (selected_object^tag == 'line') && (selected_object^type == 'div')}}
+        <div class="i"><input type="number" data-link="selected_object^angle_val()" min="-180" max="180" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        {{else}}
+        <div class="i"><input type="number" data-link="selected_object^angle()" min="-180" max="180" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        {{/if}}
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'keep_angle' 'Keep angle:'}"></div>

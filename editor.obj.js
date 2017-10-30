@@ -40,10 +40,13 @@ editor.elm.prototype.ext_title = function () {
         name = this.text.toString();
     if (typeof(name) === 'undefined')
         name = '$' + this.idx; // :TODO: use parent's child index instead of @idx
-    return '[' + $.i18n('type_' + this.tag + '_' + this.type) + '] ' + name.substring(0, 100);
+    name = name.substring(0, 100);
+    if (this.data_anchor)
+        name = '[' + $.i18n('anchor') + '] ' + name;
+    return '[' + $.i18n('type_' + this.tag + '_' + this.type) + '] ' + name;
 //    return '[' + this.element.nodeName + '] ' + name.substring(0, 100);
 };
-editor.elm.prototype.ext_title.depends = ['title', 'text'];
+editor.elm.prototype.ext_title.depends = ['title', 'text', 'data_anchor'];
 
 editor.elm.prototype.count_children = function () {
     return this.children_objs.length;
@@ -392,11 +395,12 @@ editor.elm_graphic.prototype.is_last = function () {
 // Extends elm_graphic
 
 editor.elm_line = function(element) {
-    var link_attributes = ['x1', 'y1', 'x2', 'y2'];
+    var link_attributes = ['x1', 'y1', 'x2', 'y2', 'data-anchor'];
     // Merge with ancestor's @link_attributes if present
     this.link_attributes = this.link_attributes ? this.link_attributes.concat(link_attributes) : link_attributes;
     // Parent constructor
     editor.elm_graphic.apply(this, arguments);
+    $.observe(this, 'data_anchor', this.trigger_anchor);
 }
 
 editor.elm_line.prototype = Object.create(editor.elm_graphic.prototype);
@@ -439,7 +443,40 @@ editor.elm_line.prototype.line_length.set = function(val) {
 };
 editor.elm_line.prototype.line_length.depends = ['x1', 'y1', 'x2', 'y2'];
 
+editor.elm_line.prototype.angle_val = function() {
+    return this.angle();
+};
+editor.elm_line.prototype.angle_val.set = function(val) {
 
+    // Check angle for limits
+    var parent = this.parent_obj;
+    if (parent && parent.is_group && (parent.type == 'div')) {
+        var scale_angle = parseFloat(parent.data_angle);
+        var start_angle = - parseFloat(scale_angle)/2;
+        var end_angle = start_angle + scale_angle;
+        if ((val < start_angle) || (val > end_angle))
+            return false;
+    }
+
+    $.observable(this).setProperty("angle", val);
+    if (!this.data_anchor)
+        $.observable(this).setProperty('data_anchor', 'true');
+
+    // Re-arrange neighbour divs in current group
+    if (parent && parent.is_group && (parent.type == 'div'))
+        parent.update_data_angle({target:parent});
+
+};
+editor.elm_line.prototype.angle_val.depends = ['angle'];
+
+editor.elm_line.prototype.trigger_anchor = function(ev, eventArgs) {
+    var _this = ev.target;
+    // Re-arrange neighbour divs in current group
+    var parent = _this.parent_obj;
+    if (parent && parent.is_group && (parent.type == 'div'))
+        parent.update_data_angle({target:parent});
+};
+    
 // Class elm_path
 // Extends elm_graphic
 
@@ -629,13 +666,13 @@ editor.elm_plate.prototype.update_path = function(ev, eventArgs) {
 // Abstract group, automatically creates and arranges it's children 
 
 editor.elm_supervisor_group = function(element) {
-    var link_attributes = ['data-r', 'data-angle', 'data-linearity-exponent'];
+    var link_attributes = ['data-r', 'data-angle', 'data-linearity-exponent', 'data-interpolation-method'];
     // Merge with ancestor's @link_attributes if present
     this.link_attributes = this.link_attributes ? this.link_attributes.concat(link_attributes) : link_attributes;
     // Parent constructor
     editor.elm_graphic.apply(this, arguments);
     $.observe(this, 'data_r', this.update_data_r);    
-    $.observe(this, 'data_angle', 'data_linearity_exponent', this.update_data_angle);    
+    $.observe(this, 'data_angle', 'data_linearity_exponent', 'data_interpolation_method', this.update_data_angle);    
     $.observe(this, 'data_keep_angle', this.update_keep_angle);
 }
 editor.elm_supervisor_group.prototype = Object.create(editor.elm_graphic.prototype);
@@ -686,6 +723,120 @@ editor.elm_supervisor_group.prototype.update_keep_angle = function(ev, eventArgs
 
 editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs) {
     var _this = ev.target;
+    var new_scale_angle = parseFloat(_this.data_angle);
+    var new_start_angle = - parseFloat(new_scale_angle)/2;
+    var new_end_angle = new_start_angle + new_scale_angle;
+    var points_count = _this.children_objs.length - 1;
+
+    if (eventArgs && (eventArgs.path == 'data_linearity_exponent')) {
+        // Unfix any fixed divs if setting exponent
+        for (var i = 0; i <= points_count; i++) {
+            var child = _this.children_objs[i].element;
+            if (_this.children_objs[i].data_anchor)
+                $.observable(_this.children_objs[i]).setProperty("data_anchor");
+        }
+    }
+    
+    // Set first and last div's angle
+    if (_this.children_objs.length) {
+        $.observable(_this.children_objs[0]).setProperty("angle", new_start_angle);
+        $.observable(_this.children_objs[points_count]).setProperty("angle", new_end_angle);
+    }
+
+    
+    // Get "fixed" divs for interpolation
+    var fixed_divs_angles = [];
+    var fixed_divs_indexes = [];
+    for (var i = 0; i <= points_count; i++) {
+        var child = _this.children_objs[i];
+        // First and last div is always "fixed"
+        if (child.data_anchor || !i || (i == points_count)) {
+/*
+            if ((child.angle() > new_end_angle) || (child.angle() < new_start_angle)) {
+                // Unfix div if it is out of range
+                child.element.removeAttribute('data-anchor');
+            } else {
+                // ok, store fixed div in lists
+                fixed_divs_angles.push(child.angle() || 0);
+                fixed_divs_indexes.push(i);
+            }
+*/
+            fixed_divs_angles.push(child.angle() || 0);
+            fixed_divs_indexes.push(i);
+        }
+    }
+//console.log(fixed_divs_angles)
+//console.log(fixed_divs_indexes)
+    
+    // We need at least 3 points to interpolate
+    if (fixed_divs_angles.length >= 3) {
+        
+        var int_opts = {};
+        switch (_this.data_interpolation_method) {
+            case 'cubic':
+                int_opts.method = Smooth.METHOD_CUBIC;
+//                int_opts.cubicTension = Smooth.CUBIC_TENSION_CATMULL_ROM;
+//                int_opts.cubicTension = 0.1; // 0...1
+                break;
+            case 'sinc':
+                int_opts.method = Smooth.METHOD_SINC;
+                int_opts.sincFilterSize = 2;
+                int_opts.sincWindow = function(x) { return Math.exp(-x * x); };
+                break;
+            case 'lanczos':
+                int_opts.method = Smooth.METHOD_LANCZOS;
+                break;
+            case 'linear':
+            default:
+                int_opts.method = Smooth.METHOD_LINEAR;
+        }
+        
+        var fn_interpolate = Smooth(fixed_divs_angles, int_opts);
+        for (var i = 0; i <= points_count; i++)
+            // Interpolating all non-fixed divs
+            if (fixed_divs_indexes.indexOf(i) === -1) {
+                var child = _this.children_objs[i];
+                // Detect interpolation range for current div.
+                // Range is a pair of two closest fixed divs - one is before, and second is after our div.
+                var j = 0;
+                while ((j in fixed_divs_indexes) && (fixed_divs_indexes[j] < i))
+                    j++;
+                var range_left = fixed_divs_indexes[j-1];
+                var range_right = fixed_divs_indexes[j];
+                // Get div's relative position in this range
+                var pos = (i - range_left) / (range_right - range_left);
+                // Get interpolated angle
+                var new_child_angle = _.round(fn_interpolate(j - 1 + pos), 5);
+                // Check for getting out of bounds
+                new_child_angle = Math.min(new_child_angle, new_end_angle);
+                new_child_angle = Math.max(new_child_angle, new_start_angle);
+//                console.log(i, j, [range_left, range_right], pos, child.angle(), new_child_angle);
+                $.observable(child).setProperty("angle", new_child_angle);
+            }
+    } else {
+        
+        // No interpolation. Use auto angle arrange algorhytm
+
+        var exp = parseFloat(_this.data_linearity_exponent) || 1;
+    //    var k = parseFloat(_this.data_k) || 0;
+        var k = 0;
+    //console.log(exp)
+        var k_angle = new_scale_angle / (Math.pow(points_count, exp) + k * points_count);
+        for (var i = 0; i <= points_count; i++) {
+            var child = _this.children_objs[i];
+            var new_child_angle = (Math.pow(i, exp) + k * i) * k_angle + new_start_angle;
+            $.observable(child).setProperty("angle", new_child_angle);
+    //console.log(i, new_child_angle-new_start_angle)
+        }
+        
+    }
+    
+}
+
+
+/*
+editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs) {
+    var _this = ev.target;
     var new_scale_angle = _this.data_angle;
     var new_start_angle = - new_scale_angle/2;
     var points_count = _this.children_objs.length - 1;
@@ -701,6 +852,7 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
 //console.log(i, new_child_angle-new_start_angle)
     }
 }
+*/
 
 
 //editor.vm.model.objects[11].update_data_angle({target:editor.vm.model.objects[11]})

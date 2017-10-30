@@ -46,7 +46,7 @@
 	"object": "Объект:",
 	"zoom": "Масштаб:",
 	"properties": "Свойства",
-	"visible": "Видимый:",
+	"visible": "Видимый",
 	"opacity": "Прозрачность:",
 	"title": "Название:",
 	"divisions_count": "Количество делений:",
@@ -68,7 +68,9 @@
     "corners_radius": "Радиус углов:",
     "top_cut": "Верх. срез:",
     "rotation": "Поворот:",
-    "keep_angle": "Сохр. угол:",
+    "keep_angle": "Абсолютный угол",
+    "anchor": "якорь",
+    "anchor_label": "Якорь:",
     "x_shift": "Сдвиг по X:",
     "y_shift": "Сдвиг по Y:",
     "mm": "Экспонента:",
@@ -108,6 +110,11 @@
 	"get_code": "Исходный код",
 	"old_versions": "Старые версии:",
 	"example_template": "Шкала по фотошаблону",
+	"interpolation": "Интерполяция",
+	"int_linear": "Линейная",
+	"int_cubic": "Кубическая (эрмитов сплайн)",
+	"int_sinc": "Sinc-фильтр",
+	"int_lanczos": "Фильтр Ланцоша",
     
     "stub": "stub"
 }
