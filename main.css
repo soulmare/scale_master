@@ -420,10 +420,10 @@ button:hover .icon-flag{
 #workspace:focus #svg_doc ._ed_select_box_margin{
     opacity:0.8;
 }
-#svg_doc line:hover,
-#svg_doc circle:hover,
-#svg_doc rect:hover,
-#svg_doc path:hover{
+#svg_doc #scale_wrapper line:hover,
+#svg_doc #scale_wrapper circle:hover,
+#svg_doc #scale_wrapper rect:hover,
+#svg_doc #scale_wrapper path:hover{
     stroke:#ff0000;
 }
 #svg_doc text:hover{
@@ -435,7 +435,7 @@ button:hover .icon-flag{
 /*    pointer-events: none;*/
 }
 #svg_doc ._ed_sel{
-    cursor:move;
+    cursor:url('images/cur_move.png') move;
 }
 #svg_doc{
     position: absolute;
