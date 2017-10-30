@@ -31,7 +31,7 @@ editor = {};
                 },
                 // Mouse button, used for drag scrolling
                 // 0 - main button; 1 - wheel button; 2 - context menu button
-                drag_scroll_btn: 0,
+//                drag_scroll_btn: 0,
                 rulers: {
                     stroke_style: 'rgba(255,255,255,0.8)',
                     // Vertical ruler labels orientation
@@ -196,13 +196,13 @@ editor = {};
                     }
                 },
                 'mousedown': function(e) {
-                    if (e.button != editor.cfg.drag_scroll_btn) return; // ignore other buttons
+                    if (e.button != 1) return; // ignore other buttons
                     clicked = true;
                     clickY = e.clientY;
                     clickX = e.clientX;
                 },
                 'mouseup': function(e) {
-                    if (e.button != editor.cfg.drag_scroll_btn) return; // ignore other buttons
+                    if (e.button != 1) return; // ignore other buttons
                     clicked = false;
                     $('#workspace').css('cursor', 'auto');
                 },

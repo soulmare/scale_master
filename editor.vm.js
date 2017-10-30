@@ -17,6 +17,7 @@ editor.vm = {};
     'use strict';
 
     editor.vm.svg_elem_types = ['arc', 'axe', 'div', 'line', 'plate', 'hole', 'meta', 'label', 'circle', 'circlecnt', 'image', 'rect'];
+    editor.vm.clickable_elements = ['line', 'text', 'circle', 'path', 'rect', 'image'];
         
     editor.vm.init = function () {
 
@@ -89,8 +90,10 @@ editor.vm = {};
 //console.log('+'+obj.idx, this.objects.length);
                 this.register_object(obj, this.objects);
                 $.observable(this.objects).insert(obj);
-                if(obj.tag !== 'g')
+                if(editor.vm.clickable_elements.indexOf(obj.tag) >= 0) {
                     $(element, editor.document).bind('click', this.trigger_element_click);
+                    $(element, editor.document).bind('dblclick', this.trigger_element_dblclick);
+                }
                 return obj.idx;
             },
             
@@ -180,15 +183,22 @@ editor.vm = {};
                 }
             },
 
-            // Event fired by DOM element
             trigger_element_click: function (e) {
-                // Do not know how to get needed kind of @this here, so using global var :(
                 for (var i in editor.vm.model.objects)
                     if (editor.vm.model.objects[i].element == this) {
                         editor.vm.model.select(editor.vm.model.objects[i].idx);
                     }
             },
 
+            trigger_element_dblclick: function (e) {
+                for (var i in editor.vm.model.objects)
+                    if (editor.vm.model.objects[i].element == this) {
+                        var parent_obj = editor.vm.model.objects[i].parent_obj;
+                        if (parent_obj && parent_obj.is_group)
+                            setTimeout(function () {editor.vm.model.select(parent_obj.idx)}, 300);
+                    }
+            },
+            
             // Delete current selected object, or object specified in @delete_obj
             delete: function (event, eventArgs, delete_obj) {
                 if (typeof(delete_obj) == 'undefined')
@@ -704,7 +714,8 @@ console.log(editor.cfg.new_item.font_size)
         
         // Select object event listener
 //        $('.'+editor.vm.svg_elem_types.join(',.'), scale_wrapper).bind('click', editor.vm.model.trigger_element_click);
-        $('line,text,circle,path,rect,image', scale_wrapper).bind('click', editor.vm.model.trigger_element_click);
+        $(editor.vm.clickable_elements.join(','), scale_wrapper).bind('click', editor.vm.model.trigger_element_click);
+        $(editor.vm.clickable_elements.join(','), scale_wrapper).bind('dblclick', editor.vm.model.trigger_element_dblclick);
         // Background click
         $('rect#background', editor.document).bind('click', function () {editor.vm.model.select()});
 
