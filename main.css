@@ -434,6 +434,9 @@ button:hover .icon-flag{
     cursor:auto;
 /*    pointer-events: none;*/
 }
+#svg_doc ._ed_sel{
+    cursor:move;
+}
 #svg_doc{
     position: absolute;
 /*    background: #fff;*/

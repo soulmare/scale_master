@@ -30,6 +30,8 @@ editor.vm = {};
             display_parent_list: true,
             tpl_objects_enabled: true,
             tpl_context_enabled: true,
+            drag_point: null,
+            is_drag_click: false,
             objects: [
             ],
 //            parents_list:  function () {
@@ -37,11 +39,12 @@ editor.vm = {};
 //            children_list: [
 //            ],
             
-            get: function(idx) {
-                if (typeof(idx) == 'undefined')
+            // @search can be idx property, or SVG element
+            get: function(search) {
+                if (typeof(search) == 'undefined')
                     return;
                 for (var i in this.objects)
-                    if (this.objects[i].idx == idx)
+                    if ((this.objects[i].idx == search) || (this.objects[i].element == search))
                         return this.objects[i];
             },
 /*
@@ -184,19 +187,58 @@ editor.vm = {};
             },
 
             trigger_element_click: function (e) {
-                for (var i in editor.vm.model.objects)
-                    if (editor.vm.model.objects[i].element == this) {
-                        editor.vm.model.select(editor.vm.model.objects[i].idx);
-                    }
+                var obj = editor.vm.model.get(this);
+                if (obj && !editor.vm.model.is_drag_click)
+                    editor.vm.model.select(obj.idx);
             },
 
             trigger_element_dblclick: function (e) {
-                for (var i in editor.vm.model.objects)
-                    if (editor.vm.model.objects[i].element == this) {
-                        var parent_obj = editor.vm.model.objects[i].parent_obj;
-                        if (parent_obj && parent_obj.is_group)
-                            setTimeout(function () {editor.vm.model.select(parent_obj.idx)}, 300);
-                    }
+                var obj = editor.vm.model.get(this);
+                if (obj){
+                    var parent_obj = obj.parent_obj;
+                    if (parent_obj && parent_obj.is_group)
+                        setTimeout(function () {editor.vm.model.select(parent_obj.idx)}, 300);
+                }
+            },
+            
+            trigger_element_mousedown: function (e) {
+                var obj = editor.vm.model.get(this);
+                if ((obj === editor.vm.model.selected_object) || (editor.vm.model.selected_object && editor.vm.model.selected_object.children_objs && (editor.vm.model.selected_object.children_objs.indexOf(obj)>=0))) {
+console.log('+');
+//console.log(editor.coords_mouse_event_to_document(e));
+//                    editor.vm.model.drag_point = [e.offsetX, e.offsetY];
+                    var element_pos = [editor.px_to_units(editor.vm.model.selected_object.shift_x() || 0), editor.px_to_units(editor.vm.model.selected_object.shift_y() || 0)];
+                    var pointer_pos = editor.coords_mouse_event_to_document(e);
+//                    pointer_pos[0] = editor.units_to_px(pointer_pos[0]);
+//                    pointer_pos[1] = editor.units_to_px(pointer_pos[1]);
+//                    var pointer_pos = [e.offsetX, e.offsetY];
+                    // Drag point is fixed delta between pointer's position and element's position
+                    editor.vm.model.drag_point = [element_pos[0] - pointer_pos[0], element_pos[1] - pointer_pos[1]];
+//console.log(element_pos[0], pointer_pos[0], editor.vm.model.drag_point[0]);
+                }
+            },
+
+            trigger_element_mouseup: function (e) {
+//console.log('- elem');
+                editor.vm.model.drag_point = null;
+                setTimeout(function () {editor.vm.model.is_drag_click = false;}, 200);
+            },
+
+            trigger_document_mouseup: function (e) {
+//console.log('- doc');
+                editor.vm.model.drag_point = null;
+                setTimeout(function () {editor.vm.model.is_drag_click = false;}, 200);
+            },
+            
+            trigger_document_mousemove: function (e) {
+                var sel_obj = editor.vm.model.selected_object;
+                if (editor.vm.model.drag_point && sel_obj) {
+                    editor.vm.model.is_drag_click = true;
+                    var pointer_pos = editor.coords_mouse_event_to_document(e);
+//console.log(sel_obj.shift_x(), editor.vm.model.drag_point[0])
+                    $.observable(sel_obj).setProperty('shift_x', editor.units_round(editor.units_to_px(pointer_pos[0] + editor.vm.model.drag_point[0]), 1));
+                    $.observable(sel_obj).setProperty('shift_y', editor.units_round(editor.units_to_px(pointer_pos[1] + editor.vm.model.drag_point[1]), 1));
+                }
             },
             
             // Delete current selected object, or object specified in @delete_obj
@@ -714,10 +756,16 @@ console.log(editor.cfg.new_item.font_size)
         
         // Select object event listener
 //        $('.'+editor.vm.svg_elem_types.join(',.'), scale_wrapper).bind('click', editor.vm.model.trigger_element_click);
-        $(editor.vm.clickable_elements.join(','), scale_wrapper).bind('click', editor.vm.model.trigger_element_click);
-        $(editor.vm.clickable_elements.join(','), scale_wrapper).bind('dblclick', editor.vm.model.trigger_element_dblclick);
+        $(editor.vm.clickable_elements.join(','), scale_wrapper)
+                .bind('click', editor.vm.model.trigger_element_click)
+                .bind('dblclick', editor.vm.model.trigger_element_dblclick)
+                .bind('mousedown', editor.vm.model.trigger_element_mousedown)
+                .bind('mouseup', editor.vm.model.trigger_element_mouseup);
         // Background click
         $('rect#background', editor.document).bind('click', function () {editor.vm.model.select()});
+        $(editor.document)
+                .bind('mousemove', editor.vm.model.trigger_document_mousemove)
+                .bind('mouseup mouseleave', editor.vm.model.trigger_document_mouseup);
 
         var bg_elem = $('rect#background', editor.document)[0];
         if (bg_elem){
