@@ -72,7 +72,7 @@ editor.elm_text.prototype.constructor = editor.elm_text;
 
 editor.elm_graphic = function(element) {
     if (element.nodeName == 'text')
-        var link_attributes = ['font-size', 'font-family', 'fill'];
+        var link_attributes = ['font-size', 'font-family', 'fill', 'data-anchor'];
     else
         var link_attributes = ['title', 'stroke-width', 'stroke', 'fill'];
     link_attributes.push('data-keep-angle', 'x', 'y', 'opacity');
@@ -96,7 +96,7 @@ editor.elm_graphic = function(element) {
 //        _this.angle.set(_this.angle());
     }
     $.observe(this, 'data_keep_angle', 'x', 'y', this.rotation_recalc);
-
+    $.observe(this, 'data_anchor', this.trigger_anchor);
 }
 editor.elm_graphic.prototype = Object.create(editor.elm.prototype);
 editor.elm_graphic.prototype.constructor = editor.elm_graphic;
@@ -394,16 +394,70 @@ editor.elm_graphic.prototype.is_last = function () {
     return !this.element.nextElementSibling;
 }
 
+
+editor.elm_graphic.prototype.angle_val = function() {
+    return this.angle();
+};
+editor.elm_graphic.prototype.angle_val.set = function(val) {
+
+    $.observable(this).setProperty("angle", val);
+    
+    // Check if parent group angle was updated
+    var parent = this.parent_obj;
+    var parent_updated = false;
+    if (parent && parent.is_group && ((parent.type == 'div') || (parent.type == 'label'))) {
+        // Get angle from parent group parameters
+        var scale_angle = parseFloat(parent.data_angle);
+        var start_angle = - parseFloat(scale_angle)/2;
+        var end_angle = start_angle + scale_angle;
+        // Get the real angle as delta between first and last child divs
+        var real_start_angle = parent.children_objs[0].angle_val();
+        var real_end_angle = parent.children_objs[parent.children_objs.length-1].angle_val();
+        var real_angle = real_end_angle - real_start_angle;
+//console.log(real_angle, (real_start_angle + real_end_angle)/2, parent.angle())
+        // If group angle differs from edge children's real position
+        if (scale_angle != real_angle) {
+            // Group must be rotated?
+//            var rotation = _.round((real_start_angle + real_end_angle) / 2 - parseFloat(parent.angle()), 2);
+            var rotation = _.round((real_start_angle + real_end_angle) / 2 + (parent.angle() || 0), 2);
+//console.log('rotation', rotation)
+            $.observable(parent).setProperty('angle', rotation || undefined);
+            // Update group's angle value
+            $.observable(parent).setProperty('data_angle', real_angle);
+            parent_updated = true;
+        }
+//        if ((val < start_angle) || (val > end_angle))
+//            return false;
+        // Re-arrange neighbour divs in current group
+        if (!parent_updated)
+            parent.update_data_angle({target:parent});
+    }
+
+    if (!this.data_anchor)
+        $.observable(this).setProperty('data_anchor', 'true');
+
+};
+editor.elm_graphic.prototype.angle_val.depends = ['angle'];
+
+editor.elm_graphic.prototype.trigger_anchor = function(ev, eventArgs) {
+    var _this = ev.target;
+    // Re-arrange neighbour divs in current group
+    var parent = _this.parent_obj;
+    if (parent && parent.is_group)
+        parent.update_data_angle({target:parent});
+};
+
+
+
 // Class elm_line
 // Extends elm_graphic
 
 editor.elm_line = function(element) {
-    var link_attributes = ['x1', 'y1', 'x2', 'y2', 'data-anchor'];
+    var link_attributes = ['x1', 'y1', 'x2', 'y2'];
     // Merge with ancestor's @link_attributes if present
     this.link_attributes = this.link_attributes ? this.link_attributes.concat(link_attributes) : link_attributes;
     // Parent constructor
     editor.elm_graphic.apply(this, arguments);
-    $.observe(this, 'data_anchor', this.trigger_anchor);
 }
 
 editor.elm_line.prototype = Object.create(editor.elm_graphic.prototype);
@@ -446,57 +500,6 @@ editor.elm_line.prototype.line_length.set = function(val) {
 };
 editor.elm_line.prototype.line_length.depends = ['x1', 'y1', 'x2', 'y2'];
 
-editor.elm_line.prototype.angle_val = function() {
-    return this.angle();
-};
-editor.elm_line.prototype.angle_val.set = function(val) {
-
-    $.observable(this).setProperty("angle", val);
-    
-    // Check if parent group angle was updated
-    var parent = this.parent_obj;
-    var parent_updated = false;
-    if (parent && parent.is_group && (parent.type == 'div')) {
-        // Get angle from parent group parameters
-        var scale_angle = parseFloat(parent.data_angle);
-        var start_angle = - parseFloat(scale_angle)/2;
-        var end_angle = start_angle + scale_angle;
-        // Get the real angle as delta between first and last child divs
-        var real_start_angle = parent.children_objs[0].angle_val();
-        var real_end_angle = parent.children_objs[parent.children_objs.length-1].angle_val();
-        var real_angle = real_end_angle - real_start_angle;
-//console.log(real_angle, (real_start_angle + real_end_angle)/2, parent.angle())
-        // If group angle differs from edge children's real position
-        if (scale_angle != real_angle) {
-            // Group must be rotated?
-//            var rotation = _.round((real_start_angle + real_end_angle) / 2 - parseFloat(parent.angle()), 2);
-            var rotation = _.round((real_start_angle + real_end_angle) / 2 + (parent.angle() || 0), 2);
-//console.log('rotation', rotation)
-            $.observable(parent).setProperty('angle', rotation || undefined);
-            // Update group's angle value
-            $.observable(parent).setProperty('data_angle', real_angle);
-            parent_updated = true;
-        }
-//        if ((val < start_angle) || (val > end_angle))
-//            return false;
-        // Re-arrange neighbour divs in current group
-        if (!parent_updated)
-            parent.update_data_angle({target:parent});
-    }
-
-    if (!this.data_anchor)
-        $.observable(this).setProperty('data_anchor', 'true');
-
-};
-editor.elm_line.prototype.angle_val.depends = ['angle'];
-
-editor.elm_line.prototype.trigger_anchor = function(ev, eventArgs) {
-    var _this = ev.target;
-    // Re-arrange neighbour divs in current group
-    var parent = _this.parent_obj;
-    if (parent && parent.is_group && (parent.type == 'div'))
-        parent.update_data_angle({target:parent});
-};
     
 // Class elm_path
 // Extends elm_graphic

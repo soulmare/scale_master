@@ -253,7 +253,7 @@ editor.vm = {};
                 if (editor.vm.model.drag_point && sel_obj) {
                     editor.vm.model.is_drag_click = true;
                     var pointer_pos = editor.coords_mouse_event_to_document(e);
-                    if ((sel_obj.type == 'div') && (sel_obj.tag == 'line')) {
+                    if (((sel_obj.type == 'div') && (sel_obj.tag == 'line')) || ((sel_obj.type == 'label') && (sel_obj.tag == 'text'))) {
                         // Turn element
                         if (sel_obj.parent_obj) {
                             var dx = pointer_pos[0]-editor.px_to_units(sel_obj.parent_obj.shift_x() || 0);
