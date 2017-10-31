@@ -449,23 +449,41 @@ editor.elm_line.prototype.angle_val = function() {
 };
 editor.elm_line.prototype.angle_val.set = function(val) {
 
+    $.observable(this).setProperty("angle", val);
+    
     // Check if parent group angle was updated
     var parent = this.parent_obj;
+    var parent_updated = false;
     if (parent && parent.is_group && (parent.type == 'div')) {
+        // Get angle from parent group parameters
         var scale_angle = parseFloat(parent.data_angle);
         var start_angle = - parseFloat(scale_angle)/2;
         var end_angle = start_angle + scale_angle;
+        // Get the real angle as delta between first and last child divs
+        var real_start_angle = parent.children_objs[0].angle_val();
+        var real_end_angle = parent.children_objs[parent.children_objs.length-1].angle_val();
+        var real_angle = real_end_angle - real_start_angle;
+//console.log(real_angle, (real_start_angle + real_end_angle)/2, parent.angle())
+        // If group angle differs from edge children's real position
+        if (scale_angle != real_angle) {
+            // Group must be rotated?
+//            var rotation = _.round((real_start_angle + real_end_angle) / 2 - parseFloat(parent.angle()), 2);
+            var rotation = _.round((real_start_angle + real_end_angle) / 2 + (parent.angle() || 0), 2);
+//console.log('rotation', rotation)
+            $.observable(parent).setProperty('angle', rotation || undefined);
+            // Update group's angle value
+            $.observable(parent).setProperty('data_angle', real_angle);
+            parent_updated = true;
+        }
 //        if ((val < start_angle) || (val > end_angle))
 //            return false;
+        // Re-arrange neighbour divs in current group
+        if (!parent_updated)
+            parent.update_data_angle({target:parent});
     }
 
-    $.observable(this).setProperty("angle", val);
     if (!this.data_anchor)
         $.observable(this).setProperty('data_anchor', 'true');
-
-    // Re-arrange neighbour divs in current group
-    if (parent && parent.is_group && (parent.type == 'div'))
-        parent.update_data_angle({target:parent});
 
 };
 editor.elm_line.prototype.angle_val.depends = ['angle'];
@@ -833,6 +851,28 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
     }
     
 }
+
+
+editor.elm_supervisor_group.prototype.anchors_count = function() {
+    var count = 0;
+    for (var i in this.children_objs) {
+        var child = this.children_objs[i].element;
+        if (this.children_objs[i].data_anchor)
+            count++;
+    }
+    return count;
+}
+
+editor.elm_supervisor_group.prototype.reset_children_position = function(ev, eventArgs) {
+//console.log(ev, eventArgs, eventArgs.linkCtx.elem)
+    $(eventArgs.linkCtx.elem).hide();
+    for (var i in this.children_objs) {
+        var child = this.children_objs[i].element;
+        if (this.children_objs[i].data_anchor)
+            $.observable(this.children_objs[i]).setProperty("data_anchor");
+    }
+//    $.observable(this).setProperty("anchors_count", 0);
+};
 
 
 /*

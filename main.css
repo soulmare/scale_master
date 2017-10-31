@@ -327,6 +327,14 @@ button .icon-flag{
 button:hover .icon-flag{
     opacity: 1;
 }
+button.m{   
+    height: 24px;
+    padding: 0 8px;
+    margin: 8px 5px;
+}
+button.m .icon{
+    margin:0 2px 0 0;
+}   
 #languages_dropdown .icon-flag{
     margin-right:5px;
 }

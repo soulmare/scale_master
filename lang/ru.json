@@ -115,6 +115,7 @@
 	"int_cubic": "Кубическая (эрмитов сплайн)",
 	"int_sinc": "Sinc-фильтр",
 	"int_lanczos": "Фильтр Ланцоша",
+	"reset_anchors": "удалить якоря",
     
     "stub": "stub"
 }

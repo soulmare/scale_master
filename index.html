@@ -224,6 +224,13 @@
     </label>
     {{/if}}
 
+    {^{if (selected_object^tag == 'g') && (selected_object^type == 'div') && selected_object^anchors_count()}}
+    <button data-link="{on selected_object^reset_children_position}" class="m">
+            <span class="icon ui-icon-unlocked"></span>
+            <span><span data-link="{i18n:'reset_anchors' 'reset anchors'}"></span> (<span data-link="selected_object^anchors_count()"></span>)</span>
+    </button>
+    {{/if}}
+
     {^{if (selected_object^tag == 'g') && (selected_object^type == 'div' || selected_object^type == 'label')}}
     <label class="ed">
         {^{if selected_object^type == 'div'}}
