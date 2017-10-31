@@ -471,17 +471,22 @@ editor.elm_line.prototype.line_length = function () {
     this.x2 = parseFloat(this.x2);
     this.y2 = parseFloat(this.y2);
     var length = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
-    return editor.units_round(length);
+    var data_length = parseFloat(this.element.getAttribute('data-length')) || 0;
+    var sign = data_length >= 0 ? 1 : -1;
+    if (Math.abs(data_length) != length){
+        this.element.setAttribute('data-length', Math.abs(data_length)*sign);
+    }
+    return editor.units_round(length*sign);
 };
 editor.elm_line.prototype.line_length.set = function(val) {
-    val = parseFloat(val) || 1;
-//    if (val <= 0) {
-//        $.observable(this).setProperty("x2", this.x1);
-//        $.observable(this).setProperty("y2", this.y1);
-//        return;
-//    }
-    if (val <= 0)
-        val = 1;
+//console.log(val)
+    val = parseFloat(val) || 0;
+//    val = parseFloat(val) || 1;
+//    var invert = val > 0 ? 1 : -1;
+//    var invert2 = ((val > 0) && (this.line_length() < 0)) || ((val < 0) && (this.line_length() > 0)) ? -1 : 1;
+
+//    if (val <= 0)
+//        val = 1;
 
     this.x1 = parseFloat(this.x1);
     this.y1 = parseFloat(this.y1);
@@ -490,13 +495,29 @@ editor.elm_line.prototype.line_length.set = function(val) {
     var dist = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
     var cos = dist ? (this.x2 - this.x1) / dist : 0;
     var sin = dist ? (this.y2 - this.y1) / dist : 0;
-    if (!cos && !sin) {cos=1;sin=-1;}
-//    console.log(this.x1, this.y1, this.x2, this.y2, dist);
-    var new_x2 = this.x1 + cos * val;
-    var new_y2 = this.y1 + sin * val;
-//    console.log(new_x2, new_y2, editor.calc.distance(this.x1, this.y1, new_x2, new_y2));
-    $.observable(this).setProperty("x2", editor.units_round(new_x2, 2));
-    $.observable(this).setProperty("y2", editor.units_round(new_y2, 2));
+    if (!cos && !sin) {sin=-1;cos=0;}
+//console.log(val, sin, cos);
+    
+    if (val == 0) {
+        if (this.line_length() > 0) {
+            $.observable(this).setProperty("x2", this.x1);
+            $.observable(this).setProperty("y2", this.y1);
+        } else {
+            $.observable(this).setProperty("x1", this.x2);
+            $.observable(this).setProperty("y1", this.y2);
+        }
+    } else if (val > 0) {
+        var new_x2 = this.x1 + cos * Math.abs(val);
+        var new_y2 = this.y1 + sin * Math.abs(val);
+        $.observable(this).setProperty("x2", editor.units_round(new_x2, 2));
+        $.observable(this).setProperty("y2", editor.units_round(new_y2, 2));
+    } else {
+        var new_x1 = this.x2 - cos * Math.abs(val);
+        var new_y1 = this.y2 - sin * Math.abs(val);
+        $.observable(this).setProperty("x1", editor.units_round(new_x1, 2));
+        $.observable(this).setProperty("y1", editor.units_round(new_y1, 2));
+    }
+    this.element.setAttribute('data-length', val);
 };
 editor.elm_line.prototype.line_length.depends = ['x1', 'y1', 'x2', 'y2'];
 
@@ -909,7 +930,7 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
 // Extends elm_supervisor_group
 
 editor.elm_div_group = function(element) {
-    this.link_attributes = ['data-length', 'data_lev2_each', 'data_lev2_length', 'data_lev2_stroke_width'];
+    this.link_attributes = ['data-length', 'data-lev2-each', 'data-lev2-length', 'data-lev2-stroke-width'];
     // Parent constructor
     editor.elm_supervisor_group.apply(this, arguments);
     $.observe(this, 'data_length', 'data_lev2_each', 'data_lev2_length', 'data_lev2_stroke_width', this.update_child_divs);
@@ -929,13 +950,14 @@ editor.elm_div_group.prototype.new_child_element = function() {
 
 editor.elm_div_group.prototype.update_data_r = function(ev, eventArgs) {
     var _this = ev.target;
+    var r = parseFloat(eventArgs.value);
     for (var i in _this.children_objs) {
         var child = _this.children_objs[i];
-        var r = parseFloat(eventArgs.value);
         // y1, y2 coordinates are negative usually
         var y1 = parseFloat(child.y1);
         var y2 = parseFloat(child.y2);
         var dy = y1 + r;
+//        var dy = Math.min(y1, y2) + r;
         var new_y1 = y1 - dy;
         var new_y2 = y2 - dy;
         $.observable(child).setProperty("y1", new_y1);
@@ -955,9 +977,9 @@ editor.elm_div_group.prototype.update_child_divs = function(ev, eventArgs) {
         var div_stroke_width = null;
         if (lev2_each && !(i % lev2_each)) {
             // Level 2 div
-            if (lev2_length)
+            if (!isNaN(lev2_length))
                 div_length = lev2_length;
-            if (lev2_stroke_width)
+            if (!isNaN(lev2_stroke_width))
                 div_stroke_width = lev2_stroke_width;
         }
         if (div_stroke_width)
@@ -965,7 +987,7 @@ editor.elm_div_group.prototype.update_child_divs = function(ev, eventArgs) {
         else
             child.element.removeAttribute('stroke-width', div_stroke_width);
         $.observable(child).setProperty('line_length', div_length);
-//console.log(i, div_stroke_width, div_length)
+//console.log(div_length)
     }
 }
 

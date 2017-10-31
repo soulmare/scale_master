@@ -145,8 +145,8 @@ editor = {};
 //            editor.open_url('svg/M4200_69X60_20V.svg');
 //            editor.open_url('svg/example_compass.svg');
 //            editor.open_url('svg/test_multiscale_2.svg');
-//            var initial_document = 'svg/test_nonlinear.svg';
-            var initial_document = 'svg/new_scale.svg';
+            var initial_document = 'svg/test_negative_line_length2.svg';
+//            var initial_document = 'svg/new_scale.svg';
 
             if (editor.cfg.store_last_document) {
                 var svg_str_stored = localStorage.getItem('svg_doc');
