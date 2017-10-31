@@ -337,6 +337,7 @@ editor = {};
             $('#workspace').bind('keydown', function (e) {
 //                console.log(e.which, e.ctrlKey, e.shiftKey);
                 var delta_deg = e.ctrlKey ? 1 : 0.1;
+                var delta_deg2 = e.ctrlKey ? 1 : 0.5;
                 var delta = editor.units_to_px(e.ctrlKey ? 1 : 0.1);
 //                var arrow_keys = [37, 38, 39, 40];
                 var sel_obj = editor.vm.model.selected_object;
@@ -373,8 +374,16 @@ editor = {};
                             break;
                         case 38:
                             // up
-                            $.observable(sel_obj).setProperty('shift_y', editor.units_round(sel_obj.shift_y(), 1) - delta);
-                            e.preventDefault();
+                            if (e.shiftKey && (sel_obj.type == 'arc')) {
+                                $.observable(sel_obj).setProperty('arc_angle', _.round((parseFloat(sel_obj.arc_angle()) || 0) + delta_deg2, 1));
+                                e.preventDefault();
+                            } else if (e.shiftKey && ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label')))) {
+                                $.observable(sel_obj).setProperty('data_angle', _.round((parseFloat(sel_obj.data_angle) || 0) + delta_deg2, 1));
+                                e.preventDefault();
+                            } else {
+                                $.observable(sel_obj).setProperty('shift_y', editor.units_round(sel_obj.shift_y(), 1) - delta);
+                                e.preventDefault();
+                            }
                             break;
                         case 39:
                             // right
@@ -389,8 +398,16 @@ editor = {};
                             break;
                         case 40:
                             // down
-                            $.observable(sel_obj).setProperty('shift_y', editor.units_round(sel_obj.shift_y(), 1) + delta);
-                            e.preventDefault();
+                            if (e.shiftKey && (sel_obj.type == 'arc')) {
+                                $.observable(sel_obj).setProperty('arc_angle', _.round((parseFloat(sel_obj.arc_angle()) || 0) - delta_deg2, 1));
+                                e.preventDefault();
+                            } else if (e.shiftKey && ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label')))) {
+                                $.observable(sel_obj).setProperty('data_angle', _.round((parseFloat(sel_obj.data_angle) || 0) - delta_deg2, 1));
+                                e.preventDefault();
+                            } else {
+                                $.observable(sel_obj).setProperty('shift_y', editor.units_round(sel_obj.shift_y(), 1) + delta);
+                                e.preventDefault();
+                            }
                             break;
                     }
                 }
