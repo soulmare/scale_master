@@ -219,8 +219,17 @@ editor.vm = {};
                     editor.vm.model.drag_point = [element_pos[0] - pointer_pos[0], element_pos[1] - pointer_pos[1]];
 //                    editor.vm.model.drag_angle = Math.atan2(pointer_pos[0], -pointer_pos[1]) * 180.0 / Math.PI;
                     if (sel_obj.parent_obj) {
-                        editor.vm.model.drag_angle = Math.atan2(pointer_pos[0]-editor.px_to_units(sel_obj.parent_obj.shift_x() || 0), editor.px_to_units(sel_obj.parent_obj.shift_y() || 0)-pointer_pos[1]) * 180.0 / Math.PI;
-//console.log('+',editor.vm.model.drag_angle, [pointer_pos[0]-editor.px_to_units(sel_obj.parent_obj.shift_x() || 0), editor.px_to_units(sel_obj.parent_obj.shift_y() || 0)-pointer_pos[1]], [-editor.vm.model.drag_point[0], editor.vm.model.drag_point[1]]);
+                        var dx = pointer_pos[0] - editor.px_to_units(sel_obj.parent_obj.shift_x() || 0);
+                        var dy = editor.px_to_units(sel_obj.parent_obj.shift_y() || 0) - pointer_pos[1];
+                        var drag_angle = Math.atan2(dx, dy) * 180.0 / Math.PI - (sel_obj.parent_obj.angle() || 0);
+                        // Fix angle overing period
+                        if (Math.abs(drag_angle-sel_obj.parent_obj.angle()) > 360) {
+                            drag_angle = 360 % drag_angle;
+                            if (drag_angle-sel_obj.parent_obj.angle() > 0)
+                                drag_angle = -drag_angle;
+                        }
+//console.log('+',Math.atan2(dx, dy),Math.atan2(dx, dy) * 180.0 / Math.PI,drag_angle);
+                        editor.vm.model.drag_angle = drag_angle;
                     }
                 }
             },
@@ -247,7 +256,15 @@ editor.vm = {};
                     if ((sel_obj.type == 'div') && (sel_obj.tag == 'line')) {
                         // Turn element
                         if (sel_obj.parent_obj) {
-                            var drag_angle = Math.atan2(pointer_pos[0]-editor.px_to_units(sel_obj.parent_obj.shift_x() || 0), editor.px_to_units(sel_obj.parent_obj.shift_y() || 0)-pointer_pos[1]) * 180.0 / Math.PI;
+                            var dx = pointer_pos[0]-editor.px_to_units(sel_obj.parent_obj.shift_x() || 0);
+                            var dy = editor.px_to_units(sel_obj.parent_obj.shift_y() || 0)-pointer_pos[1];
+                            var drag_angle = Math.atan2(dx, dy) * 180.0 / Math.PI - (sel_obj.parent_obj.angle() || 0);
+                            // Fix angle overing period
+                            if (Math.abs(drag_angle-sel_obj.parent_obj.angle()) > 360) {
+                                drag_angle = 360 % drag_angle;
+                                if (drag_angle-sel_obj.parent_obj.angle() > 0)
+                                    drag_angle = -drag_angle;
+                            }
                             $.observable(sel_obj).setProperty('angle_val', _.round(drag_angle, 1));
 //console.log(drag_angle)
                         }

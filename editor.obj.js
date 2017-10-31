@@ -449,14 +449,14 @@ editor.elm_line.prototype.angle_val = function() {
 };
 editor.elm_line.prototype.angle_val.set = function(val) {
 
-    // Check angle for limits
+    // Check if parent group angle was updated
     var parent = this.parent_obj;
     if (parent && parent.is_group && (parent.type == 'div')) {
         var scale_angle = parseFloat(parent.data_angle);
         var start_angle = - parseFloat(scale_angle)/2;
         var end_angle = start_angle + scale_angle;
-        if ((val < start_angle) || (val > end_angle))
-            return false;
+//        if ((val < start_angle) || (val > end_angle))
+//            return false;
     }
 
     $.observable(this).setProperty("angle", val);
