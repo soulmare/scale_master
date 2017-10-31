@@ -225,7 +225,7 @@ editor.vm = {};
                     // Get radius of drag point
                     editor.vm.model.drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1])
                     
-console.log('+', editor.vm.model.drag_radius);
+//console.log('+', editor.vm.model.drag_radius);
                     
                     // Get angle of drag point (only for grouped elements)
                     if (sel_obj.parent_obj) {
@@ -262,11 +262,12 @@ console.log('+', editor.vm.model.drag_radius);
                 if (editor.vm.model.drag_point && sel_obj) {
                     editor.vm.model.is_drag_click = true;
                     var pointer_pos = editor.coords_mouse_event_to_document(e);
+                    var element_pos = [editor.px_to_units(sel_obj.shift_x() || 0), editor.px_to_units(sel_obj.shift_y() || 0)];
                     if (((sel_obj.type == 'div') && (sel_obj.tag == 'line')) || (sel_obj.parent_obj && (sel_obj.parent_obj.tag == 'g') && (sel_obj.tag == 'text'))) {
                         // Turn element
                         if (sel_obj.parent_obj) {
-                            var dx = pointer_pos[0]-editor.px_to_units(sel_obj.parent_obj.shift_x() || 0);
-                            var dy = editor.px_to_units(sel_obj.parent_obj.shift_y() || 0)-pointer_pos[1];
+                            var dx = pointer_pos[0]-element_pos[0];
+                            var dy = element_pos[1]-pointer_pos[1];
                             var drag_angle = Math.atan2(dx, dy) * 180.0 / Math.PI - (sel_obj.parent_obj.angle() || 0);
                             // Fix angle overing period
                             if (Math.abs(drag_angle-sel_obj.parent_obj.angle()) > 360) {
@@ -277,6 +278,14 @@ console.log('+', editor.vm.model.drag_radius);
                             $.observable(sel_obj).setProperty('angle_val', _.round(drag_angle, 1));
 //console.log(drag_angle)
                         }
+                    } else if ((sel_obj.type == 'arc') || ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label')))) {
+                        // Change radius
+console.log('Change radius');
+//console.log('M', editor.vm.model.drag_radius, editor.px_to_units(sel_obj.radius()), drag_radius);
+                        var drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1])
+//                        var new_radius
+                        var prop_name = sel_obj.type == 'arc' ? 'radius' : 'data_r';
+                        $.observable(sel_obj).setProperty(prop_name, editor.units_round(editor.units_to_px(drag_radius), 1));
                     } else {
                         // Move element
                         $.observable(sel_obj).setProperty('shift_x', editor.units_round(editor.units_to_px(pointer_pos[0] + editor.vm.model.drag_point[0]), 1));
