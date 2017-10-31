@@ -202,6 +202,8 @@ editor.elm_graphic.prototype.angle.set = function(val) {
             // If there's second rotation, it compensates previous one(for rotated-but-horizontal text labels).
             // So, must use -angle value in second rotation.
             invert = invert * -1;
+//console.log(this.data_keep_angle, this.data_keep_angle ? 1 : 0)
+            this.data_keep_angle = (this.data_keep_angle === true) || (this.data_keep_angle === 'true');
             if (!this.data_keep_angle && (updated_rotations > 1))
                 remove_rotation = i;
         }

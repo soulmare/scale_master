@@ -422,10 +422,10 @@ button.m .icon{
 #svg_doc path{
     cursor:pointer;
 }
-#svg_doc ._ed_select_box_margin{
+#svg_doc #_ed_select_box{
     opacity:0.6;
 }
-#workspace:focus #svg_doc ._ed_select_box_margin{
+#workspace:focus #svg_doc #_ed_select_box{
     opacity:0.8;
 }
 #svg_doc #scale_wrapper line:hover,

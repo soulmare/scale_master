@@ -826,6 +826,7 @@ editor = {};
             editor.select_box.setAttribute('visibility', 'hidden');
             editor.select_box.setAttribute('class', '_ed_temp');
             var ids = ['_ed_select_box_margin1', '_ed_select_box_margin2'];
+            var dash_colors = ['#FFFF00', '#0000FF'];
             var margin_idx = 0;
             for (var i in ids) {
                 var sel_margin = document.createElementNS(editor.ns_svg, 'rect');
@@ -834,15 +835,30 @@ editor = {};
                 sel_margin.setAttribute('fill', 'none');
 //                    sel_margin.setAttribute('opacity', '0.4');
                 sel_margin.setAttribute('stroke-width', 1.0);
-                sel_margin.setAttribute('stroke', margin_idx ? '#FFFF00' : '#0000FF');
+                sel_margin.setAttribute('stroke', margin_idx ? dash_colors[0] : dash_colors[1]);
                 if (margin_idx)
                     sel_margin.setAttribute('stroke-dasharray', '5,5');
 //                sel_margin.setAttribute('style', 'pointer-events:none');
                 editor.select_box.appendChild(sel_margin);
                 margin_idx++;
             }
+
+            // Selection axis
+            for (var i=1; i<=2; i++)
+                for (var j=1; j<=2; j++) {
+                    var sel_axe = document.createElementNS(editor.ns_svg, 'line');
+                    sel_axe.setAttribute('id', '_ed_select_axe_'+i+'_'+j);
+                    sel_axe.setAttribute('class', '_ed_select_axe');
+                    sel_axe.setAttribute('stroke-width', 1.0);
+                    sel_axe.setAttribute('stroke', j == 1 ? dash_colors[0] : dash_colors[1]);
+                    if (j == 2)
+                        sel_axe.setAttribute('stroke-dasharray', '5,5');
+                    editor.select_box.appendChild(sel_axe);
+                }
+
             service_grp.appendChild(editor.select_box);
             editor.document.appendChild(service_grp);
+            
             
             $(editor.document).attr('id', 'svg_doc');
             $(editor.document).attr('data-width', $(editor.document).width());
@@ -1335,12 +1351,12 @@ editor = {};
             var obj = editor.vm.model.selected_object;
             
             if (obj) {
-                // Set select box position and size
                 editor.select_box.setAttribute('visibility', 'visible');
+
+                // Set select box margins
                 var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
                 var obj_stroke_width = parseFloat(obj.element.getAttribute('stroke-width')) || 0;
                 var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
-//console.log(obj.stroke_width_val(), obj.element.getAttribute('stroke-width'))
                 // Apply minimum constraints on bbox
                 var min_bbox_size = 2;
                 if (bb.width < min_bbox_size){
@@ -1355,6 +1371,53 @@ editor = {};
                 $('._ed_select_box_margin').attr('y', bb.y - sb_stroke_width - obj_stroke_width/2);
                 $('._ed_select_box_margin').attr('width', bb.width + sb_stroke_width*2 + obj_stroke_width);
                 $('._ed_select_box_margin').attr('height', bb.height + sb_stroke_width*2 + obj_stroke_width);
+                
+                // Axis
+                $('._ed_select_axe').removeAttr('visibility').removeAttr('transform');
+                if ((obj.type == 'div') && (obj.tag == 'g')) {
+//console.log(obj.data_angle, obj.angle() || 0, obj.data_r);
+//                    var radius = obj.data_r || 0;
+                    var radius = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
+                    var p1 = editor.calc.polarToCartesian(obj.shift_x() || 0, obj.shift_y() || 0, radius, -(obj.data_angle || 0) / 2 + (obj.angle() || 0));
+                    var p2 = editor.calc.polarToCartesian(obj.shift_x() || 0, obj.shift_y() || 0, radius, (obj.data_angle || 0) / 2 + (obj.angle() || 0));
+//                    p1.x = editor.px_to_units(p1.x);
+//                    p1.y = editor.px_to_units(p1.y);
+//console.log(p1);
+                    $('#_ed_select_axe_1_1,#_ed_select_axe_1_2')
+                        .attr('x1', obj.shift_x() || 0)
+                        .attr('y1', obj.shift_y() || 0)
+                        .attr('x2', p1.x || 0)
+                        .attr('y2', p1.y || 0);
+                    $('#_ed_select_axe_2_1,#_ed_select_axe_2_2')
+                        .attr('x1', obj.shift_x() || 0)
+                        .attr('y1', obj.shift_y() || 0)
+                        .attr('x2', p2.x || 0)
+                        .attr('y2', p2.y || 0);
+//                } else if ((obj.type == 'image') || (obj.type == 'circle') || (obj.type == 'circlecnt') || (obj.type == 'rect') || (obj.type == 'plate')) {
+                } else if (obj.tag !== 'line') {
+                    var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
+                    $('#_ed_select_axe_1_1,#_ed_select_axe_1_2')
+                        .attr('x1', 0)
+                        .attr('y1', -size)
+                        .attr('x2', 0)
+                        .attr('y2', size);
+                    $('#_ed_select_axe_2_1,#_ed_select_axe_2_2')
+                        .attr('x1', -size)
+                        .attr('y1', 0)
+                        .attr('x2', size)
+                        .attr('y2', 0);
+                    $('._ed_select_axe').attr('transform', obj.element.getAttribute('transform'));
+/*
+                    $('#_ed_select_axe_1_1,#_ed_select_axe_1_2')
+                        .attr('x1', obj.shift_x() || 0)
+                        .attr('y1', -size)
+                        .attr('x2', obj.shift_x() || 0)
+                        .attr('y2', size)
+                        .attr('transform', 'rotate('+(obj.angle()||0)+')');
+*/
+                } else
+                    $('._ed_select_axe').attr('visibility', 'hidden');
+                
                 // Take into account parent group transform
                 if (obj.parent_obj && obj.parent_obj.element.getAttribute('transform'))
                     editor.select_box.setAttribute('transform', obj.parent_obj.element.getAttribute('transform'));
