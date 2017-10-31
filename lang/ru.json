@@ -104,6 +104,7 @@
 	"get_code": "Исходный код",
 	"old_versions": "Старые версии:",
 	"example_template": "Шкала по фотошаблону",
+	"example_multiscale": "Мультишкала",
     
     "stub": "stub"
 }
