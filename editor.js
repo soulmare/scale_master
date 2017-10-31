@@ -857,6 +857,14 @@ editor = {};
                     editor.select_box.appendChild(sel_axe);
                 }
 
+            var sel_marker = document.createElementNS(editor.ns_svg, 'circle');
+            sel_marker.setAttribute('id', '_ed_select_marker');
+            sel_marker.setAttribute('stroke-width', 1.0);
+            sel_marker.setAttribute('fill', '#ffff00');
+            sel_marker.setAttribute('stroke', '#ff0000');
+            sel_marker.setAttribute('r', 5);
+            editor.select_box.appendChild(sel_marker);
+            
             service_grp.appendChild(editor.select_box);
             editor.document.appendChild(service_grp);
             
@@ -1375,6 +1383,7 @@ editor = {};
                 
                 // Axis
                 $('._ed_select_axe').removeAttr('visibility').removeAttr('transform');
+                $('#_ed_select_marker').attr('visibility', 'hidden').removeAttr('transform');
                 if ((((obj.type == 'div') || (obj.type == 'label')) && (obj.tag == 'g')) || (obj.type == 'arc')) {
 //console.log(obj.data_angle, obj.angle() || 0, obj.data_r);
 //                    var radius = obj.data_r || 0;
@@ -1400,6 +1409,9 @@ editor = {};
                         .attr('y1', obj.shift_y() || 0)
                         .attr('x2', p_med.x || 0)
                         .attr('y2', p_med.y || 0);
+                    $('#_ed_select_marker')
+                            .removeAttr('visibility')
+                            .attr('transform', obj.element.getAttribute('transform'));
 //                } else if ((obj.type == 'image') || (obj.type == 'circle') || (obj.type == 'circlecnt') || (obj.type == 'rect') || (obj.type == 'plate')) {
                 } else if ((obj.tag !== 'line') && (obj.tag !== 'text')) {
                     var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);

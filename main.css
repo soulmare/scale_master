@@ -417,8 +417,8 @@ button.m .icon{
 #svg_doc line,
 #svg_doc text,
 #svg_doc circle,
-#svg_doc rect,
-#svg_doc ._ed_select_box_margin,
+#svg_doc rect.rect,
+/*#svg_doc ._ed_select_box_margin,*/
 #svg_doc path{
     cursor:pointer;
 }
@@ -448,8 +448,9 @@ button.m .icon{
     cursor:auto;
 /*    pointer-events: none;*/
 }
-#svg_doc ._ed_sel{
-    cursor:url('images/cur_move.png') move;
+#svg_doc ._ed_sel, #svg_doc ._ed_sel *, #svg_doc #_ed_select_marker{
+    cursor:move;
+    cursor:url('images/cur_move.png') 10 10, move;
 }
 #svg_doc{
     position: absolute;

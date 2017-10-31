@@ -34,6 +34,7 @@ editor.vm = {};
             drag_angle: null,
             drag_radius: null,
             is_drag_click: false,
+            is_drag_marker_click: false,
             objects: [
             ],
 //            parents_list:  function () {
@@ -191,14 +192,14 @@ editor.vm = {};
             },
 
             trigger_element_click: function (e) {
-                if (e.button !== 0) return;
+//                if (e.button !== 0) return;
                 var obj = editor.vm.model.get(this);
                 if (obj && !editor.vm.model.is_drag_click)
                     editor.vm.model.select(obj.idx);
             },
 
             trigger_element_dblclick: function (e) {
-                if (e.button !== 0) return;
+//                if (e.button !== 0) return;
                 var obj = editor.vm.model.get(this);
                 if (obj){
                     var parent_obj = obj.parent_obj;
@@ -208,10 +209,12 @@ editor.vm = {};
             },
             
             trigger_element_mousedown: function (e) {
-                if (e.button !== 0) return;
+//                if (e.button !== 0) return;
+//console.log();
                 var obj = editor.vm.model.get(this);
                 var sel_obj = editor.vm.model.selected_object;
-                if ((obj === sel_obj) || (sel_obj && sel_obj.children_objs && (sel_obj.children_objs.indexOf(obj) >= 0))) {
+                editor.vm.model.is_drag_marker_click = (this.getAttribute('id') == '_ed_select_marker');
+                if ((obj === sel_obj) || editor.vm.model.is_drag_marker_click || (sel_obj && sel_obj.children_objs && (sel_obj.children_objs.indexOf(obj) >= 0))) {
                     
                     // Get cartesian position of drag point
                     var element_pos = [editor.px_to_units(sel_obj.shift_x() || 0), editor.px_to_units(sel_obj.shift_y() || 0)];
@@ -224,8 +227,8 @@ editor.vm = {};
 
                     // Get radius of drag point
                     editor.vm.model.drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1])
-                    
-//console.log('+', editor.vm.model.drag_radius);
+//console.log(editor.vm.model.drag_point)
+                    //this.getAttribute('id') == '_ed_select_marker'
                     
                     // Get angle of drag point (only for grouped elements)
                     if (sel_obj.parent_obj) {
@@ -244,26 +247,46 @@ editor.vm = {};
             },
 
             trigger_element_mouseup: function (e) {
-                if (e.button !== 0) return;
+//                if (e.button !== 0) return;
 //console.log('- elem');
                 editor.vm.model.drag_point = null;
-                setTimeout(function () {editor.vm.model.is_drag_click = false;}, 200);
+                $('rect#background', editor.document).css({'cursor': ""});
+                setTimeout(function () {editor.vm.model.is_drag_click = false;editor.vm.model.is_drag_marker_click = false;}, 200);
             },
 
             trigger_document_mouseup: function (e) {
-                if (e.button !== 0) return;
+//                if (e.button !== 0) return;
 //console.log('- doc');
                 editor.vm.model.drag_point = null;
-                setTimeout(function () {editor.vm.model.is_drag_click = false;}, 200);
+                $('rect#background', editor.document).css({'cursor': ""});
+                setTimeout(function () {editor.vm.model.is_drag_click = false;editor.vm.model.is_drag_marker_click = false;}, 200);
             },
             
             trigger_document_mousemove: function (e) {
                 var sel_obj = editor.vm.model.selected_object;
+//console.log(editor.vm.model.drag_point,sel_obj)
                 if (editor.vm.model.drag_point && sel_obj) {
                     editor.vm.model.is_drag_click = true;
+                    $('rect#background', editor.document).css({'cursor': "url('images/cur_move.png') 10 10, move"});
                     var pointer_pos = editor.coords_mouse_event_to_document(e);
                     var element_pos = [editor.px_to_units(sel_obj.shift_x() || 0), editor.px_to_units(sel_obj.shift_y() || 0)];
-                    if (((sel_obj.type == 'div') && (sel_obj.tag == 'line')) || (sel_obj.parent_obj && (sel_obj.parent_obj.tag == 'g') && (sel_obj.tag == 'text'))) {
+
+                    if (editor.vm.model.is_drag_marker_click){
+
+//console.log(drag_range,shift_y,radius)
+/*
+                        var drag_range = element_pos[1] - pointer_pos[1];
+                        var shift_y = editor.units_round((sel_obj.shift_y() || 0) - editor.units_to_px(drag_range), 1);
+                        var radius = editor.units_round((sel_obj.radius() || 0) - editor.units_to_px(drag_range), 1);
+                        $.observable(sel_obj).setProperty('shift_y', shift_y);
+                        $.observable(sel_obj).setProperty('radius', radius);
+*/
+                        // Move element
+                        $.observable(sel_obj).setProperty('shift_x', editor.units_round(editor.units_to_px(pointer_pos[0] + editor.vm.model.drag_point[0]), 1));
+                        $.observable(sel_obj).setProperty('shift_y', editor.units_round(editor.units_to_px(pointer_pos[1] + editor.vm.model.drag_point[1]), 1));
+                    
+                    } else if (((sel_obj.type == 'div') && (sel_obj.tag == 'line')) || (sel_obj.parent_obj && (sel_obj.parent_obj.tag == 'g') && (sel_obj.tag == 'text'))) {
+
                         // Turn element
                         if (sel_obj.parent_obj) {
                             var dx = pointer_pos[0]-element_pos[0];
@@ -276,11 +299,11 @@ editor.vm = {};
                                     drag_angle = -drag_angle;
                             }
                             $.observable(sel_obj).setProperty('angle_val', _.round(drag_angle, 1));
-//console.log(drag_angle)
                         }
+
                     } else if ((sel_obj.type == 'arc') || ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label')))) {
                         // Change radius
-console.log('Change radius');
+//console.log('Change radius');
 //console.log('M', editor.vm.model.drag_radius, editor.px_to_units(sel_obj.radius()), drag_radius);
                         var drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1])
 //                        var new_radius
@@ -809,7 +832,7 @@ console.log(editor.cfg.new_item.font_size)
         
         // Select object event listener
 //        $('.'+editor.vm.svg_elem_types.join(',.'), scale_wrapper).bind('click', editor.vm.model.trigger_element_click);
-        $(editor.vm.clickable_elements.join(','), scale_wrapper)
+        $(editor.vm.clickable_elements.join(',') + ',#_ed_select_marker', editor.document)
                 .bind('click', editor.vm.model.trigger_element_click)
                 .bind('dblclick', editor.vm.model.trigger_element_dblclick)
                 .bind('mousedown', editor.vm.model.trigger_element_mousedown)
@@ -819,6 +842,7 @@ console.log(editor.cfg.new_item.font_size)
         $(editor.document)
                 .bind('mousemove', editor.vm.model.trigger_document_mousemove)
                 .bind('mouseup mouseleave', editor.vm.model.trigger_document_mouseup);
+//        $('#_ed_select_marker', editor.document).bind('click', function () {editor.vm.model.select()});
 
         var bg_elem = $('rect#background', editor.document)[0];
         if (bg_elem){
