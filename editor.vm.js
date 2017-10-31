@@ -213,6 +213,7 @@ editor.vm = {};
 //console.log();
                 var obj = editor.vm.model.get(this);
                 var sel_obj = editor.vm.model.selected_object;
+                if (!sel_obj) return;
                 editor.vm.model.is_drag_marker_click = (this.getAttribute('id') == '_ed_select_marker');
                 if ((obj === sel_obj) || editor.vm.model.is_drag_marker_click || (sel_obj && sel_obj.children_objs && (sel_obj.children_objs.indexOf(obj) >= 0))) {
                     
@@ -285,8 +286,9 @@ editor.vm = {};
                         $.observable(sel_obj).setProperty('shift_x', editor.units_round(editor.units_to_px(pointer_pos[0] + editor.vm.model.drag_point[0]), 1));
                         $.observable(sel_obj).setProperty('shift_y', editor.units_round(editor.units_to_px(pointer_pos[1] + editor.vm.model.drag_point[1]), 1));
                     
-                    } else if (((sel_obj.type == 'div') && (sel_obj.tag == 'line')) || (sel_obj.parent_obj && (sel_obj.parent_obj.tag == 'g') && (sel_obj.tag == 'text'))) {
-
+                    } else if (!e.ctrlKey && (((sel_obj.type == 'div') && (sel_obj.tag == 'line')) || (sel_obj.parent_obj && (sel_obj.parent_obj.tag == 'g') && (sel_obj.tag == 'text')))) {
+//console.log(e)
+                        
                         // Turn element
                         if (sel_obj.parent_obj) {
                             var dx = pointer_pos[0]-element_pos[0];
@@ -301,7 +303,7 @@ editor.vm = {};
                             $.observable(sel_obj).setProperty('angle_val', _.round(drag_angle, 1));
                         }
 
-                    } else if ((sel_obj.type == 'arc') || ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label')))) {
+                    } else if (!e.ctrlKey && ((sel_obj.type == 'arc') || ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label'))))) {
                         // Change radius
                         var cursor = 'cur_move_radial.png';
 //console.log('Change radius');

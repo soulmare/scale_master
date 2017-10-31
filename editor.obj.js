@@ -481,6 +481,7 @@ editor.elm_line.prototype.line_length = function () {
 editor.elm_line.prototype.line_length.set = function(val) {
 //console.log(val)
     val = parseFloat(val) || 0;
+    var radius = this.parent_obj && this.parent_obj.data_r ? parseFloat(this.parent_obj.data_r) : 0;
 //    val = parseFloat(val) || 1;
 //    var invert = val > 0 ? 1 : -1;
 //    var invert2 = ((val > 0) && (this.line_length() < 0)) || ((val < 0) && (this.line_length() > 0)) ? -1 : 1;
@@ -488,34 +489,41 @@ editor.elm_line.prototype.line_length.set = function(val) {
 //    if (val <= 0)
 //        val = 1;
 
-    this.x1 = parseFloat(this.x1);
-    this.y1 = parseFloat(this.y1);
-    this.x2 = parseFloat(this.x2);
-    this.y2 = parseFloat(this.y2);
-    var dist = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
-    var cos = dist ? (this.x2 - this.x1) / dist : 0;
-    var sin = dist ? (this.y2 - this.y1) / dist : 0;
-    if (!cos && !sin) {sin=-1;cos=0;}
-//console.log(val, sin, cos);
-    
-    if (val == 0) {
-        if (this.line_length() > 0) {
-            $.observable(this).setProperty("x2", this.x1);
-            $.observable(this).setProperty("y2", this.y1);
-        } else {
-            $.observable(this).setProperty("x1", this.x2);
-            $.observable(this).setProperty("y1", this.y2);
-        }
-    } else if (val > 0) {
-        var new_x2 = this.x1 + cos * Math.abs(val);
-        var new_y2 = this.y1 + sin * Math.abs(val);
-        $.observable(this).setProperty("x2", editor.units_round(new_x2, 2));
-        $.observable(this).setProperty("y2", editor.units_round(new_y2, 2));
+    if (radius) {
+        $.observable(this).setProperty("x1", 0);
+        $.observable(this).setProperty("x2", 0);
+        $.observable(this).setProperty("y1", -radius - val);
+        $.observable(this).setProperty("y2", -radius);
     } else {
-        var new_x1 = this.x2 - cos * Math.abs(val);
-        var new_y1 = this.y2 - sin * Math.abs(val);
-        $.observable(this).setProperty("x1", editor.units_round(new_x1, 2));
-        $.observable(this).setProperty("y1", editor.units_round(new_y1, 2));
+        this.x1 = parseFloat(this.x1);
+        this.y1 = parseFloat(this.y1);
+        this.x2 = parseFloat(this.x2);
+        this.y2 = parseFloat(this.y2);
+        var dist = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
+        var cos = dist ? (this.x2 - this.x1) / dist : 0;
+        var sin = dist ? (this.y2 - this.y1) / dist : 0;
+        if (!cos && !sin) {sin=-1;cos=0;}
+    //console.log(val, sin, cos);
+
+        if (val == 0) {
+            if (this.line_length() > 0) {
+                $.observable(this).setProperty("x2", this.x1);
+                $.observable(this).setProperty("y2", this.y1);
+            } else {
+                $.observable(this).setProperty("x1", this.x2);
+                $.observable(this).setProperty("y1", this.y2);
+            }
+        } else if (val > 0) {
+            var new_x2 = this.x1 + cos * Math.abs(val);
+            var new_y2 = this.y1 + sin * Math.abs(val);
+            $.observable(this).setProperty("x2", editor.units_round(new_x2, 2));
+            $.observable(this).setProperty("y2", editor.units_round(new_y2, 2));
+        } else {
+            var new_x1 = this.x2 - cos * Math.abs(val);
+            var new_y1 = this.y2 - sin * Math.abs(val);
+            $.observable(this).setProperty("x1", editor.units_round(new_x1, 2));
+            $.observable(this).setProperty("y1", editor.units_round(new_y1, 2));
+        }
     }
     this.element.setAttribute('data-length', val);
 };
@@ -987,6 +995,8 @@ editor.elm_div_group.prototype.update_child_divs = function(ev, eventArgs) {
         else
             child.element.removeAttribute('stroke-width', div_stroke_width);
         $.observable(child).setProperty('line_length', div_length);
+//        $.observable(child).setProperty('y2', -parseFloat(_this.data_r || 0));
+//        $.observable(child).setProperty('y1', -parseFloat(_this.data_r || 0) - div_length);
 //console.log(div_length)
     }
 }
