@@ -267,7 +267,7 @@ editor.vm = {};
 //console.log(editor.vm.model.drag_point,sel_obj)
                 if (editor.vm.model.drag_point && sel_obj) {
                     editor.vm.model.is_drag_click = true;
-                    $('rect#background', editor.document).css({'cursor': "url('images/cur_move.png') 10 10, move"});
+                    var cursor = 'cur_move.png';
                     var pointer_pos = editor.coords_mouse_event_to_document(e);
                     var element_pos = [editor.px_to_units(sel_obj.shift_x() || 0), editor.px_to_units(sel_obj.shift_y() || 0)];
 
@@ -303,6 +303,7 @@ editor.vm = {};
 
                     } else if ((sel_obj.type == 'arc') || ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label')))) {
                         // Change radius
+                        var cursor = 'cur_move_radial.png';
 //console.log('Change radius');
 //console.log('M', editor.vm.model.drag_radius, editor.px_to_units(sel_obj.radius()), drag_radius);
                         var drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1])
@@ -314,6 +315,7 @@ editor.vm = {};
                         $.observable(sel_obj).setProperty('shift_x', editor.units_round(editor.units_to_px(pointer_pos[0] + editor.vm.model.drag_point[0]), 1));
                         $.observable(sel_obj).setProperty('shift_y', editor.units_round(editor.units_to_px(pointer_pos[1] + editor.vm.model.drag_point[1]), 1));
                     }
+                    $('rect#background', editor.document).css({'cursor': "url('images/"+cursor+"') 10 10, move"});
                 }
             },
             

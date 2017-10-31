@@ -496,6 +496,11 @@ editor = {};
             // Redraw rulers
             editor.update_rulers();
 
+            // Change selector box elements sizes
+            $('#_ed_select_marker').attr('r', 3/editor.zoom+4);
+            $('#_ed_select_marker').attr('stroke-width', 1.5/editor.zoom);
+            $('._ed_select_helper_line').attr('stroke-width', 1.5/editor.zoom);
+            
         }
 
         
@@ -831,7 +836,7 @@ editor = {};
             for (var i in ids) {
                 var sel_margin = document.createElementNS(editor.ns_svg, 'rect');
                 sel_margin.setAttribute('id', ids[i]);
-                sel_margin.setAttribute('class', '_ed_select_box_margin');
+                sel_margin.setAttribute('class', '_ed_select_box_margin _ed_select_helper_line');
                 sel_margin.setAttribute('fill', 'none');
 //                    sel_margin.setAttribute('opacity', '0.4');
                 sel_margin.setAttribute('stroke-width', 1.0);
@@ -849,7 +854,7 @@ editor = {};
                 for (var j=1; j<=2; j++) {
                     var sel_axe = document.createElementNS(editor.ns_svg, 'line');
                     sel_axe.setAttribute('id', '_ed_select_axe_'+i+'_'+j);
-                    sel_axe.setAttribute('class', '_ed_select_axe');
+                    sel_axe.setAttribute('class', '_ed_select_axe _ed_select_helper_line');
                     sel_axe.setAttribute('stroke-width', 1.0);
                     sel_axe.setAttribute('stroke', j == 1 ? dash_colors[0] : dash_colors[1]);
                     if (j == 2)

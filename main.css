@@ -452,6 +452,10 @@ button.m .icon{
     cursor:move;
     cursor:url('images/cur_move.png') 10 10, move;
 }
+#svg_doc .arc._ed_sel,#svg_doc g.div._ed_sel *,#svg_doc g.label._ed_sel *{
+    cursor:move;
+    cursor:url('images/cur_move_radial.png') 10 10, move;
+}
 #svg_doc{
     position: absolute;
 /*    background: #fff;*/
