@@ -145,8 +145,8 @@ editor = {};
 //            editor.open_url('svg/M4200_69X60_20V.svg');
 //            editor.open_url('svg/example_compass.svg');
 //            editor.open_url('svg/test_multiscale_2.svg');
-            var initial_document = 'svg/test_nonlinear.svg';
-//            var initial_document = 'svg/new_scale.svg';
+//            var initial_document = 'svg/test_nonlinear.svg';
+            var initial_document = 'svg/new_scale.svg';
 
             if (editor.cfg.store_last_document) {
                 var svg_str_stored = localStorage.getItem('svg_doc');
@@ -1375,7 +1375,7 @@ editor = {};
                 
                 // Axis
                 $('._ed_select_axe').removeAttr('visibility').removeAttr('transform');
-                if (((obj.type == 'div') || (obj.type == 'label')) && (obj.tag == 'g')) {
+                if ((((obj.type == 'div') || (obj.type == 'label')) && (obj.tag == 'g')) || (obj.type == 'arc')) {
 //console.log(obj.data_angle, obj.angle() || 0, obj.data_r);
 //                    var radius = obj.data_r || 0;
                     var radius = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);

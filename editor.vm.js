@@ -32,6 +32,7 @@ editor.vm = {};
             tpl_context_enabled: true,
             drag_point: null,
             drag_angle: null,
+            drag_radius: null,
             is_drag_click: false,
             objects: [
             ],
@@ -211,6 +212,8 @@ editor.vm = {};
                 var obj = editor.vm.model.get(this);
                 var sel_obj = editor.vm.model.selected_object;
                 if ((obj === sel_obj) || (sel_obj && sel_obj.children_objs && (sel_obj.children_objs.indexOf(obj) >= 0))) {
+                    
+                    // Get cartesian position of drag point
                     var element_pos = [editor.px_to_units(sel_obj.shift_x() || 0), editor.px_to_units(sel_obj.shift_y() || 0)];
                     var pointer_pos = editor.coords_mouse_event_to_document(e);
                     //:TODO: make it correct with different document_origin_mode values
@@ -218,6 +221,13 @@ editor.vm = {};
                     // Drag point is fixed delta between pointer's position and element's position
                     editor.vm.model.drag_point = [element_pos[0] - pointer_pos[0], element_pos[1] - pointer_pos[1]];
 //                    editor.vm.model.drag_angle = Math.atan2(pointer_pos[0], -pointer_pos[1]) * 180.0 / Math.PI;
+
+                    // Get radius of drag point
+                    editor.vm.model.drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1])
+                    
+console.log('+', editor.vm.model.drag_radius);
+                    
+                    // Get angle of drag point (only for grouped elements)
                     if (sel_obj.parent_obj) {
                         var dx = pointer_pos[0] - editor.px_to_units(sel_obj.parent_obj.shift_x() || 0);
                         var dy = editor.px_to_units(sel_obj.parent_obj.shift_y() || 0) - pointer_pos[1];
@@ -228,7 +238,6 @@ editor.vm = {};
                             if (drag_angle-sel_obj.parent_obj.angle() > 0)
                                 drag_angle = -drag_angle;
                         }
-//console.log('+',Math.atan2(dx, dy),Math.atan2(dx, dy) * 180.0 / Math.PI,drag_angle);
                         editor.vm.model.drag_angle = drag_angle;
                     }
                 }
@@ -253,7 +262,7 @@ editor.vm = {};
                 if (editor.vm.model.drag_point && sel_obj) {
                     editor.vm.model.is_drag_click = true;
                     var pointer_pos = editor.coords_mouse_event_to_document(e);
-                    if (((sel_obj.type == 'div') && (sel_obj.tag == 'line')) || ((sel_obj.type == 'label') && (sel_obj.tag == 'text'))) {
+                    if (((sel_obj.type == 'div') && (sel_obj.tag == 'line')) || (sel_obj.parent_obj && (sel_obj.parent_obj.tag == 'g') && (sel_obj.tag == 'text'))) {
                         // Turn element
                         if (sel_obj.parent_obj) {
                             var dx = pointer_pos[0]-editor.px_to_units(sel_obj.parent_obj.shift_x() || 0);

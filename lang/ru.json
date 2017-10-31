@@ -110,6 +110,7 @@
 	"get_code": "Исходный код",
 	"old_versions": "Старые версии:",
 	"example_template": "Шкала по фотошаблону",
+    "example_multiscale": "Мультишкала",
 	"interpolation": "Интерполяция",
 	"int_linear": "Линейная",
 	"int_cubic": "Кубическая (эрмитов сплайн)",
