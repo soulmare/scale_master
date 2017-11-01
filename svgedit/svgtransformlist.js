@@ -127,8 +127,11 @@ svgedit.transformlist.SVGTransformList = function(elem) {
 				} else if (name == 'rotate' && values.length == 1) {
 					values.push(0, 0);
 				}
-				xform[fname].apply(xform, values);
-				this._list.appendItem(xform);
+                // :FIX: bug .appendItem causes error if rotating to +-360 deg
+                if (!((fname == 'setRotate') && (Math.abs(values[0]) == 360))) {
+                    xform[fname].apply(xform, values);
+				    this._list.appendItem(xform);
+                }
 			}
 		}
 	};

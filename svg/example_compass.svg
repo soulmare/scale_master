@@ -1,543 +1,421 @@
-<svg width="794" height="1123" data-generator-name="Scale Master" data-generator-version="0.4.0" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-size="A4">
+<svg width="794" height="1123" data-generator-name="Scale Master" data-generator-version="0.3.26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4">
  <!-- Created with Scale Master -->
- <g id="scale_meta">
-  <title class="meta" id="scale_title">Example: Compass</title>
-  <desc class="meta" id="scale_description">Sample scale created with Scale Master</desc>
- </g>
+ <title>Example: Compass</title>
+ <desc>Created with Scale Master</desc>
  <rect fill="#ffffff" height="100%" width="100%" id="background"/>
- <g transform="translate(397,562)" fill="none" id="scale_wrapper">
-  <g data-angle="360" data-length="20" data-r="100" stroke="#000000" fill="none" stroke-width="0.6" title="10 deg" class="div">
-   <line transform="rotate(-180)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-170)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-160)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-150)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-140)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-130)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-120)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-110)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-100)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-90)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-80)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-70)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-60)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-50)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-40)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-30)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-20)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-10)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(10)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(20)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(30)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(40)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(50)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(60)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(70)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(80)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(90)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(100)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(110)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(120)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(130)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(140)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(150)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(160)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(170)" y2="-120" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(180)" y2="-120" x2="0" y1="-100" x1="0"/>
+ <g stroke="#000000" transform="translate(397,562)" fill="none" id="scale_wrapper">
+  <circle class="circle" stroke-width="1.5118" stroke="#000000" fill="none" title="internal" cx="0" cy="0" r="99.7795"/>
+  <circle class="circle" stroke-width="1.1339" stroke="#000000" fill="none" title="external" cx="0" cy="0" r="139.8425"/>
+  <path class="circlecnt" stroke-width="1.1339" stroke="#000000" fill="none" d="M-11.3386,0a11.3386,11.3386 0 1,0 22.6772,0a11.3386,11.3386 0 1,0 -22.6772,0M0 -11.3386 V11.3386 M-11.3386 0 H11.3386" title="center" data-cx="0" data-cy="0" data-r="11.3386"/>
+  <g class="div" stroke-width="0.5669" stroke="#000000" fill="none" data-angle="360" data-r="100.1575" data-length="9.4488" data-lev2-each="5" data-lev2-length="13.2283" data-lev3-each="10" data-lev3-length="15.1181" data-lev3-stroke-width="1.1339">
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-180)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-179)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-178)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-177)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-176)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-175)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-174)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-173)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-172)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-171)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-170)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-169)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-168)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-167)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-166)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-165)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-164)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-163)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-162)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-161)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-160)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-159)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-158)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-157)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-156)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-155)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-154)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-153)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-152)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-151)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-150)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-149)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-148)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-147)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-146)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-145)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-144)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-143)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-142)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-141)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-140)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-139)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-138)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-137)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-136)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-135)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-134)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-133)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-132)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-131)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-130)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-129)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-128)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-127)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-126)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-125)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-124)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-123)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-122)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-121)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-120)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-119)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-118)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-117)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-116)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-115)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-114)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-113)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-112)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-111)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-110)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-109)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-108)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-107)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-106)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-105)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-104)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-103)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-102)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-101)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-100)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-99)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-98)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-97)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-96)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-95)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-94)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-93)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-92)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-91)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-90)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-89)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-88)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-87)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-86)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-85)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-84)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-83)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-82)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-81)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-80)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-79)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-78)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-77)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-76)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-75)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-74)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-73)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-72)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-71)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-70)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-69)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-68)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-67)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-66)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-65)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-64)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-63)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-62)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-61)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-60)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-59)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-58)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-57)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-56)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-55)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-54)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-53)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-52)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-51)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-50)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-49)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-48)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-47)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-46)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-45)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-44)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-43)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-42)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-41)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-40)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-39)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-38)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-37)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-36)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-35)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-34)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-33)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-32)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-31)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-30)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-29)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-28)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-27)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-26)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-25)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-24)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-23)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-22)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-21)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-20)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-19)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-18)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-17)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-16)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-15)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-14)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-13)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-12)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-11)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(-10)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-9)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-8)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-7)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-6)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(-5)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-4)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-3)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-2)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(-1)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(1)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(2)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(3)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(4)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(5)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(6)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(7)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(8)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(9)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(10)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(11)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(12)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(13)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(14)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(15)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(16)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(17)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(18)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(19)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(20)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(21)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(22)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(23)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(24)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(25)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(26)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(27)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(28)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(29)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(30)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(31)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(32)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(33)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(34)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(35)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(36)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(37)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(38)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(39)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(40)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(41)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(42)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(43)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(44)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(45)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(46)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(47)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(48)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(49)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(50)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(51)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(52)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(53)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(54)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(55)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(56)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(57)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(58)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(59)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(60)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(61)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(62)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(63)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(64)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(65)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(66)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(67)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(68)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(69)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(70)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(71)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(72)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(73)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(74)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(75)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(76)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(77)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(78)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(79)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(80)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(81)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(82)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(83)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(84)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(85)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(86)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(87)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(88)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(89)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(90)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(91)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(92)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(93)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(94)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(95)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(96)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(97)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(98)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(99)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(100)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(101)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(102)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(103)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(104)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(105)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(106)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(107)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(108)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(109)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(110)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(111)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(112)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(113)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(114)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(115)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(116)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(117)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(118)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(119)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(120)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(121)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(122)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(123)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(124)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(125)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(126)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(127)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(128)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(129)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(130)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(131)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(132)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(133)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(134)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(135)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(136)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(137)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(138)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(139)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(140)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(141)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(142)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(143)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(144)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(145)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(146)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(147)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(148)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(149)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(150)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(151)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(152)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(153)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(154)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(155)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(156)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(157)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(158)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(159)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(160)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(161)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(162)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(163)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(164)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(165)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(166)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(167)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(168)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(169)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(170)" stroke-width="1.1339"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(171)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(172)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(173)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(174)"/>
+   <line x1="0" y1="-113.3858" x2="0" y2="-100.1575" data-length="13.2283" transform="rotate(175)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(176)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(177)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(178)"/>
+   <line x1="0" y1="-109.6063" x2="0" y2="-100.1575" data-length="9.4488" transform="rotate(179)"/>
+   <line x1="0" y1="-115.2756" x2="0" y2="-100.1575" data-length="15.1181" transform="rotate(180 0,0) " visibility="hidden" stroke-width="1.1339"/>
   </g>
-  <g data-length="14" data-angle="360" data-r="100" stroke="#000000" fill="none" stroke-width="0.5" title="5 deg" class="div">
-   <line transform="rotate(-180)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-175)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-170)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-165)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-160)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-155)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-150)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-145)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-140)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-135)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-130)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-125)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-120)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-115)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-110)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-105)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-100)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-95)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-90)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-85)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-80)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-75)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-70)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-65)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-60)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-55)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-50)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-45)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-40)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-35)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-30)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-25)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-20)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-15)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-10)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-5)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(5)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(10)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(15)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(20)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(25)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(30)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(35)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(40)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(45)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(50)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(55)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(60)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(65)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(70)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(75)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(80)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(85)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(90)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(95)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(100)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(105)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(110)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(115)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(120)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(125)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(130)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(135)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(140)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(145)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(150)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(155)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(160)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(165)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(170)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(175)" y2="-114" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(180)" y2="-114" x2="0" y1="-100" x1="0"/>
+  <g class="label" title="degrees" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="9.0709" data-r="122.8346" data-angle="360" data-keep-angle="false" data-label-step="10" data-label-start="0" transform="rotate(180 0,0) ">
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-180 0,0) " font-weight="bold" font-style="normal" font-size="15.1181">0</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-170)">10</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-160)">20</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-150)">30</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-140)">40</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-130)">50</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-120)">60</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-110)">70</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-100)">80</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-90 0,0) " font-weight="bold" font-style="normal" font-size="15.1181">90</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-80)">100</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-70)">110</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-60)">120</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-50)">130</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-40)">140</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-30)">150</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-20)">160</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-10)">170</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" font-weight="bold" font-style="normal" font-size="15.1181">180</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(10)">190</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(20)">200</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(30)">210</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(40)">220</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(50)">230</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(60)">240</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(70)">250</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(80)">260</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(90 0,0) " font-weight="bold" font-style="normal" font-size="15.1181">270</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(100)">280</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(110)">290</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(120)">300</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(130)">310</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(140)">320</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(150)">330</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(160)">340</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(170)">350</text>
+   <text x="0" y="-122.8346" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(180,0,0)" visibility="hidden">360</text>
   </g>
-  <g data-angle="360" data-length="10" data-r="100" stroke="#000000" fill="none" stroke-width="0.5" title="1 deg" class="div">
-   <line transform="rotate(-180)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-179)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-178)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-177)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-176)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-175)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-174)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-173)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-172)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-171)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-170)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-169)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-168)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-167)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-166)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-165)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-164)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-163)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-162)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-161)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-160)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-159)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-158)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-157)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-156)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-155)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-154)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-153)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-152)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-151)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-150)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-149)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-148)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-147)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-146)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-145)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-144)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-143)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-142)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-141)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-140)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-139)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-138)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-137)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-136)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-135)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-134)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-133)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-132)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-131)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-130)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-129)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-128)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-127)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-126)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-125)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-124)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-123)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-122)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-121)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-120)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-119)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-118)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-117)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-116)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-115)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-114)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-113)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-112)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-111)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-110)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-109)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-108)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-107)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-106)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-105)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-104)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-103)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-102)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-101)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-100)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-99)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-98)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-97)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-96)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-95)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-94)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-93)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-92)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-91)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-90)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-89)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-88)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-87)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-86)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-85)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-84)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-83)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-82)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-81)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-80)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-79)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-78)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-77)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-76)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-75)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-74)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-73)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-72)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-71)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-70)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-69)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-68)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-67)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-66)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-65)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-64)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-63)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-62)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-61)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-60)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-59)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-58)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-57)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-56)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-55)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-54)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-53)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-52)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-51)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-50)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-49)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-48)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-47)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-46)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-45)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-44)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-43)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-42)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-41)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-40)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-39)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-38)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-37)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-36)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-35)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-34)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-33)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-32)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-31)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-30)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-29)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-28)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-27)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-26)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-25)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-24)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-23)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-22)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-21)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-20)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-19)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-18)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-17)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-16)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-15)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-14)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-13)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-12)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-11)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-10)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-9)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-8)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-7)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-6)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-5)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-4)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-3)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-2)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(-1)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(1)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(2)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(3)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(4)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(5)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(6)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(7)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(8)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(9)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(10)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(11)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(12)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(13)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(14)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(15)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(16)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(17)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(18)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(19)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(20)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(21)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(22)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(23)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(24)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(25)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(26)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(27)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(28)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(29)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(30)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(31)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(32)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(33)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(34)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(35)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(36)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(37)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(38)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(39)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(40)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(41)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(42)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(43)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(44)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(45)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(46)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(47)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(48)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(49)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(50)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(51)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(52)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(53)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(54)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(55)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(56)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(57)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(58)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(59)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(60)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(61)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(62)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(63)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(64)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(65)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(66)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(67)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(68)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(69)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(70)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(71)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(72)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(73)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(74)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(75)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(76)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(77)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(78)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(79)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(80)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(81)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(82)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(83)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(84)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(85)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(86)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(87)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(88)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(89)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(90)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(91)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(92)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(93)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(94)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(95)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(96)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(97)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(98)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(99)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(100)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(101)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(102)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(103)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(104)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(105)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(106)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(107)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(108)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(109)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(110)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(111)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(112)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(113)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(114)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(115)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(116)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(117)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(118)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(119)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(120)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(121)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(122)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(123)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(124)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(125)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(126)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(127)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(128)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(129)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(130)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(131)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(132)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(133)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(134)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(135)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(136)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(137)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(138)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(139)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(140)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(141)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(142)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(143)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(144)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(145)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(146)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(147)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(148)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(149)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(150)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(151)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(152)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(153)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(154)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(155)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(156)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(157)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(158)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(159)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(160)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(161)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(162)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(163)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(164)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(165)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(166)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(167)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(168)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(169)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(170)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(171)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(172)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(173)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(174)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(175)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(176)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(177)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(178)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(179)" y2="-110" x2="0" y1="-100" x1="0"/>
-   <line transform="rotate(180)" y2="-110" x2="0" y1="-100" x1="0"/>
+  <g class="label" title="cardinal directions" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="18.8976" data-r="83.1496" data-angle="360" data-keep-angle="true" data-label-step="1" data-label-start="0" font-weight="bold" font-style="normal">
+   <text x="0" y="-83.1496" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-180,0,0) rotate(180,0,-83.1496)">S</text>
+   <text x="0" y="-83.1496" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-90,0,0) rotate(90,0,-83.1496)">W</text>
+   <text x="0" y="-83.1496" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true">N</text>
+   <text x="0" y="-83.1496" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(90,0,0) rotate(-90,0,-83.1496)">E</text>
+   <text x="0" y="-83.1496" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(180,0,0) rotate(-180,0,-83.1496)" visibility="hidden">4</text>
   </g>
-  <g data-label-start="0" data-label-step="1" data-keep-angle="true" data-angle="360" data-r="86.9291" font-size="18.8976" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#000000" title="90 deg cardinal directions" class="label">
-   <text data-keep-angle="true" transform="rotate(-180) rotate(180,0,-86.9291)" y="-86.9291" x="0" dominant-baseline="central">S</text>
-   <text data-keep-angle="true" transform="rotate(-90) rotate(90,0,-86.9291)" y="-86.9291" x="0" dominant-baseline="central">W</text>
-   <text data-keep-angle="true" y="-86.9291" x="0" dominant-baseline="central">N</text>
-   <text data-keep-angle="true" transform="rotate(90) rotate(-90,0,-86.9291)" y="-86.9291" x="0" dominant-baseline="central">E</text>
-  </g>
-  <g font-weight="bold" transform="rotate(180)" data-label-step="90" fill="#000000" data-keep-angle="false" data-angle="360" data-r="128.5039" text-anchor="middle" font-size="13.6063" font-family="Arial" dominant-baseline="central" title="90 deg" class="label">
-   <text data-keep-angle="false" transform="rotate(-180)" y="-128.5039" x="0" dominant-baseline="central">0</text>
-   <text data-keep-angle="false" transform="rotate(-90)" y="-128.5039" x="0" dominant-baseline="central">90</text>
-   <text data-keep-angle="false" transform="rotate(0)" y="-128.5039" x="0" dominant-baseline="central">180</text>
-   <text data-keep-angle="false" transform="rotate(90)" y="-128.5039" x="0" dominant-baseline="central">270</text>
-   <text visibility="hidden" data-keep-angle="false" transform="rotate(180)" y="-128.5039" x="0" dominant-baseline="central">360</text>
-  </g>
-  <g transform="rotate(180)" data-label-start="0" data-label-step="10" data-keep-angle="false" data-angle="360" data-r="128.5039" font-size="9.0709" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#000000" title="10 deg" class="label">
-   <text visibility="hidden" data-keep-angle="false" transform="rotate(-180)" y="-128.5039" x="0" dominant-baseline="central">0</text>
-   <text data-keep-angle="false" transform="rotate(-170)" y="-128.5039" x="0" dominant-baseline="central">10</text>
-   <text data-keep-angle="false" transform="rotate(-160)" y="-128.5039" x="0" dominant-baseline="central">20</text>
-   <text data-keep-angle="false" transform="rotate(-150)" y="-128.5039" x="0" dominant-baseline="central">30</text>
-   <text data-keep-angle="false" transform="rotate(-140)" y="-128.5039" x="0" dominant-baseline="central">40</text>
-   <text data-keep-angle="false" transform="rotate(-130)" y="-128.5039" x="0" dominant-baseline="central">50</text>
-   <text data-keep-angle="false" transform="rotate(-120)" y="-128.5039" x="0" dominant-baseline="central">60</text>
-   <text data-keep-angle="false" transform="rotate(-110)" y="-128.5039" x="0" dominant-baseline="central">70</text>
-   <text data-keep-angle="false" transform="rotate(-100)" y="-128.5039" x="0" dominant-baseline="central">80</text>
-   <text visibility="hidden" data-keep-angle="false" transform="rotate(-90)" y="-128.5039" x="0" dominant-baseline="central">90</text>
-   <text data-keep-angle="false" transform="rotate(-80)" y="-128.5039" x="0" dominant-baseline="central">100</text>
-   <text data-keep-angle="false" transform="rotate(-70)" y="-128.5039" x="0" dominant-baseline="central">110</text>
-   <text data-keep-angle="false" transform="rotate(-60)" y="-128.5039" x="0" dominant-baseline="central">120</text>
-   <text data-keep-angle="false" transform="rotate(-50)" y="-128.5039" x="0" dominant-baseline="central">130</text>
-   <text data-keep-angle="false" transform="rotate(-40)" y="-128.5039" x="0" dominant-baseline="central">140</text>
-   <text data-keep-angle="false" transform="rotate(-30)" y="-128.5039" x="0" dominant-baseline="central">150</text>
-   <text data-keep-angle="false" transform="rotate(-20)" y="-128.5039" x="0" dominant-baseline="central">160</text>
-   <text data-keep-angle="false" transform="rotate(-10)" y="-128.5039" x="0" dominant-baseline="central">170</text>
-   <text visibility="hidden" data-keep-angle="false" transform="rotate(0)" y="-128.5039" x="0" dominant-baseline="central">180</text>
-   <text data-keep-angle="false" transform="rotate(10)" y="-128.5039" x="0" dominant-baseline="central">190</text>
-   <text data-keep-angle="false" transform="rotate(20)" y="-128.5039" x="0" dominant-baseline="central">200</text>
-   <text data-keep-angle="false" transform="rotate(30)" y="-128.5039" x="0" dominant-baseline="central">210</text>
-   <text data-keep-angle="false" transform="rotate(40)" y="-128.5039" x="0" dominant-baseline="central">220</text>
-   <text data-keep-angle="false" transform="rotate(50)" y="-128.5039" x="0" dominant-baseline="central">230</text>
-   <text data-keep-angle="false" transform="rotate(60)" y="-128.5039" x="0" dominant-baseline="central">240</text>
-   <text data-keep-angle="false" transform="rotate(70)" y="-128.5039" x="0" dominant-baseline="central">250</text>
-   <text data-keep-angle="false" transform="rotate(80)" y="-128.5039" x="0" dominant-baseline="central">260</text>
-   <text visibility="hidden" data-keep-angle="false" transform="rotate(90)" y="-128.5039" x="0" dominant-baseline="central">270</text>
-   <text data-keep-angle="false" transform="rotate(100)" y="-128.5039" x="0" dominant-baseline="central">280</text>
-   <text data-keep-angle="false" transform="rotate(110)" y="-128.5039" x="0" dominant-baseline="central">290</text>
-   <text data-keep-angle="false" transform="rotate(120)" y="-128.5039" x="0" dominant-baseline="central">300</text>
-   <text data-keep-angle="false" transform="rotate(130)" y="-128.5039" x="0" dominant-baseline="central">310</text>
-   <text data-keep-angle="false" transform="rotate(140)" y="-128.5039" x="0" dominant-baseline="central">320</text>
-   <text data-keep-angle="false" transform="rotate(150)" y="-128.5039" x="0" dominant-baseline="central">330</text>
-   <text data-keep-angle="false" transform="rotate(160)" y="-128.5039" x="0" dominant-baseline="central">340</text>
-   <text data-keep-angle="false" transform="rotate(170)" y="-128.5039" x="0" dominant-baseline="central">350</text>
-   <text visibility="hidden" data-keep-angle="false" transform="rotate(180)" y="-128.5039" x="0" dominant-baseline="central">360</text>
-  </g>
-  <circle r="99.7795" cy="0" cx="0" title="internal" stroke="#000000" stroke-width="1.5118" class="circle"/>
-  <circle r="139.8425" cy="0" cx="0" title="external" stroke="#000000" stroke-width="0.7559" class="circle"/>
-  <path data-r="11.3386" data-cy="0" data-cx="0" title="center" d="M-11.3386,0a11.3386,11.3386 0 1,0 22.6772,0a11.3386,11.3386 0 1,0 -22.6772,0M0 -11.3386 V11.3386 M-11.3386 0 H11.3386" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
-
  </g>
+
 </svg>

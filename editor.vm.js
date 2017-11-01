@@ -409,7 +409,7 @@ editor.vm = {};
                         editor.cfg.new_item.stroke_width = editor.px_to_units(sel_group.stroke_width_val());
                     if (sel_group.font_size)
                         editor.cfg.new_item.font_size = editor.px_to_units(sel_group.element.getAttribute('font-size'));
-console.log(sel_group.font_size)
+//console.log(sel_group.font_size)
                 }
                 // Prefer object over it's group
                 if (sel_obj) {
@@ -423,7 +423,7 @@ console.log(sel_group.font_size)
                         editor.cfg.new_item.stroke_width = editor.px_to_units(sel_obj.stroke_width_val());
                     if (sel_obj.font_size)
                         editor.cfg.new_item.font_size = editor.px_to_units(sel_obj.element.getAttribute('font-size'));
-console.log(sel_obj.font_size)
+//console.log(sel_obj.font_size)
                 }
                 
                 // Request new item parameters

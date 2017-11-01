@@ -134,13 +134,20 @@ editor.elm_graphic.prototype.set_transform = function(tr_list) {
         for (var i in tr_list) {
             var tr = tr_list[i];
             if ((tr.fn == 'translate') && ((tr.args[0] != 0) || (tr.args[1] != 0)))
-                fn_list_translate.push('translate(' + (tr.args[0] || 0) + ',' + (tr.args[1] || 0) + ')');
-            if ((tr.fn == 'rotate') && (tr.args[0] != 0)){
-                // Convert empty values to zeros
-                for (var j in tr.args)
-                    tr.args[j] = tr.args[j] || 0;
-                if (tr.args[0])
-                    fn_list_rotate.push('rotate(' + tr.args.join(',') + ')');
+                fn_list_translate.push('translate(' + parseFloat(tr.args[0] || 0) + ',' + parseFloat(tr.args[1] || 0) + ')');
+            if ((tr.fn == 'rotate') && parseFloat(tr.args[0])) {
+                // Remove period from angle
+if (tr.args[0] != (tr.args[0] % 360))
+    console.log(tr.args[0],tr.args[0] % 360);
+                tr.args[0] = tr.args[0] % 360;
+                if (tr.args[0] != 0) {
+//    console.log('+', tr.args[0])
+                    // Convert empty values to zeros
+                    for (var j in tr.args)
+                        tr.args[j] = tr.args[j] || 0;
+                    if (tr.args[0])
+                        fn_list_rotate.push('rotate(' + tr.args.join(',') + ')');
+                }
             }
         }
 /*
@@ -165,11 +172,10 @@ editor.elm_graphic.prototype.set_transform = function(tr_list) {
         } else
             tr = [fn_list_rotate.join(' '), fn_list_translate.join(' ')].join(' ');
 
-        if (tr.trim() !== '')
+        if (tr.trim() !== '') {
             this.element.setAttribute('transform', tr.trim());
-        else
+        }else
             this.element.removeAttribute('transform');
-//console.log(this.element.getAttribute('transform'));
     } else
        this.element.removeAttribute('transform'); 
 }
@@ -202,7 +208,6 @@ editor.elm_graphic.prototype.angle.set = function(val) {
             // If there's second rotation, it compensates previous one(for rotated-but-horizontal text labels).
             // So, must use -angle value in second rotation.
             invert = invert * -1;
-//console.log(this.data_keep_angle, this.data_keep_angle ? 1 : 0)
             this.data_keep_angle = (this.data_keep_angle === true) || (this.data_keep_angle === 'true');
             if (!this.data_keep_angle && (updated_rotations > 1))
                 remove_rotation = i;
@@ -211,15 +216,16 @@ editor.elm_graphic.prototype.angle.set = function(val) {
 //console.log(tr_list[0], tr_list[1]);
 //console.log(remove_rotation);
         tr_list.splice(remove_rotation, 1);
-//console.log(tr_list);
     }
     // If not updated existing - add as new
     if (!updated_rotations) {
         tr_list.push({fn:'rotate', args: [parseFloat(val)]});
     }
-    if (this.data_keep_angle && (updated_rotations < 2) && (this.tag !== 'g'))
+    if (this.data_keep_angle && (updated_rotations < 2) && (this.tag !== 'g')) {
         // Compensate rotation
-        tr_list.push({fn:'rotate', args: [-parseFloat(val), this.x || this.x1 || 0, this.y || this.y1 || 0]});
+        var tr_compensate = {fn:'rotate', args: [-parseFloat(val), parseFloat(this.x || this.x1) || 0, parseFloat(this.y || this.y1) || 0]};
+        tr_list.push(tr_compensate);
+    }
     this.set_transform(tr_list);
 };
 
@@ -399,7 +405,7 @@ editor.elm_graphic.prototype.angle_val = function() {
     return this.angle();
 };
 editor.elm_graphic.prototype.angle_val.set = function(val) {
-
+    
     $.observable(this).setProperty("angle", val);
     
     // Check if parent group angle was updated
@@ -420,8 +426,7 @@ editor.elm_graphic.prototype.angle_val.set = function(val) {
             // Group must be rotated?
 //            var rotation = _.round((real_start_angle + real_end_angle) / 2 - parseFloat(parent.angle()), 2);
             var rotation = _.round((real_start_angle + real_end_angle) / 2 + (parent.angle() || 0), 2);
-//console.log('rotation', rotation)
-            $.observable(parent).setProperty('angle', rotation || undefined);
+            $.observable(parent).setProperty('angle', rotation || 0);
             // Update group's angle value
             $.observable(parent).setProperty('data_angle', real_angle);
             parent_updated = true;
@@ -792,6 +797,7 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
     
     // Set first and last div's angle
     if (_this.children_objs.length) {
+//console.log(new_start_angle, new_end_angle)
         $.observable(_this.children_objs[0]).setProperty("angle", new_start_angle);
         $.observable(_this.children_objs[points_count]).setProperty("angle", new_end_angle);
     }

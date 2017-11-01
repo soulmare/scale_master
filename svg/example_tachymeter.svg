@@ -4,27 +4,28 @@
  <desc>Created with Scale Master</desc>
  <rect fill="#ffffff" height="100%" width="100%" id="background"/>
  <g stroke="#000000" transform="translate(397,562)" fill="none" id="scale_wrapper">
-  <circle class="circle" stroke-width="2.2677" stroke="#000000" fill="none" title="Новый круг" cx="0" cy="0" r="192.7559"/>
-  <path class="circlecnt" stroke-width="1.1339" stroke="#000000" fill="none" d="M-15.1181,0a15.1181,15.1181 0 1,0 30.2362,0a15.1181,15.1181 0 1,0 -30.2362,0M0 -15.1181 V15.1181 M-15.1181 0 H15.1181" title="Новое отверстие" data-cx="0" data-cy="0" data-r="15.1181"/>
-  <g class="div" stroke-width="2.6457" stroke="#000000" fill="none" title="Новая группа делений" data-angle="249.51" data-r="192.7559" data-length="-26.4567" data-lev2-each="1" data-lev2-stroke-width="4.5354">
+  <circle class="circle" stroke-width="2.2677" stroke="#000000" fill="none" title="main" cx="0" cy="0" r="192.7559"/>
+  <path class="circlecnt" stroke-width="1.1339" stroke="#000000" fill="none" d="M-15.1181,0a15.1181,15.1181 0 1,0 30.2362,0a15.1181,15.1181 0 1,0 -30.2362,0M0 -15.1181 V15.1181 M-15.1181 0 H15.1181" title="center" data-cx="0" data-cy="0" data-r="15.1181"/>
+  <g class="div" stroke-width="2.6457" stroke="#000000" fill="none" data-angle="249.51" data-r="192.7559" data-length="-26.4567" data-lev2-each="2" data-lev2-stroke-width="4.5354">
    <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-length="-26.4567" transform="rotate(-124.755)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-108.121)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-91.487)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-74.853)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-58.219)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-41.585)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-24.951)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-8.317)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(8.317)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(24.951)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(41.585 0,0) " stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(58.219)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(74.853)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(91.487)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(108.121)" stroke-width="4.5354"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(124.755)" stroke-width="4.5354"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-117.0775 0,0) " visibility="hidden"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-109.4 0,0) " stroke-width="4.5354"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-92.6746)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-75.9493)" stroke-width="4.5354"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-59.2239)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-42.4986)" stroke-width="4.5354"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(-25.7732)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" stroke-width="4.5354" transform="rotate(-9.0479)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(7.6775)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(24.4029,0,0)" stroke-width="4.5354"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(41.1282)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(57.8536)" stroke-width="4.5354"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(74.5789)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(91.3043)" stroke-width="4.5354"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-keep-angle="false" data-length="-26.4567" transform="rotate(108.0296)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-192.7559" data-length="-26.4567" stroke-width="4.5354" transform="rotate(124.755)"/>
   </g>
-  <g class="label" title="Новая группа меток" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="36.2835" data-r="132.2835" data-angle="250" data-keep-angle="true" data-label-step="10" data-label-start="0">
+  <g class="label" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="36.2835" data-r="132.2835" data-angle="250" data-keep-angle="true" data-label-step="10" data-label-start="0">
    <text x="0" y="-132.2835" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-125) rotate(125,0,-132.2835)">0</text>
    <text x="0" y="-132.2835" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-106.4,0,0) rotate(106.4,0,-132.2835)" data-anchor="true">10</text>
    <text x="0" y="-132.2835" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-74.5) rotate(74.5,0,-132.2835)">20</text>
@@ -39,9 +40,9 @@
   <line class="line v" stroke-width="4.5354" stroke="#ff0000" fill="none" title="red radius" x1="0" y1="0" x2="0" y2="-102.0472" data-length="102.0472" transform="rotate(58.5 0,0) "/>
   <path class="arc" stroke-width="4.5354" stroke="#ffd700" fill="none" d="M 20.2236 -158.9708 A 160.252 160.252 0 0 0 -20.2236 -158.9708" title="yellow" data-angle="14.5" data-r="160.252" transform="rotate(49.5 0,0) "/>
   <path class="arc" stroke-width="4.5354" stroke="#ff0000" fill="none" d="M 87.2795 -134.3986 A 160.252 160.252 0 0 0 -87.2795 -134.3986" title="red" data-angle="66" data-r="160.252" transform="rotate(91.5 0,0) "/>
-  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="26.0787" transform="translate(-3.7795,60.4724) ">min</text>
-  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="19.2756" transform="translate(26.0787,51.7795) ">-1</text>
-  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="18.8976" transform="translate(-2.6457,-63.874) ">x100</text>
+  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="26.0787" transform="translate(-3.7795,60.4724) " font-weight="bold" font-style="normal">min</text>
+  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="19.2756" transform="translate(27.9685,50.6457) " font-weight="bold" font-style="normal">-1</text>
+  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="18.8976" transform="translate(-2.6457,-63.874) " font-weight="bold" font-style="normal">x100</text>
  </g>
 
 </svg>
