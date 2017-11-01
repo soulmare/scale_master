@@ -4,12 +4,12 @@
  <desc>Измерительная головка М906 120х105 мм. 150А</desc>
  <rect fill="#ffffff" height="100%" width="100%" id="background"/>
  <g stroke="#000000" transform="translate(397,562)" fill="none" id="scale_wrapper">
-  <g class="label" title="values" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="18.8976" data-r="283.4646" data-angle="80" data-keep-angle="false" data-label-step="1" data-label-start="0">
+  <g class="label" title="values" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="18.8976" data-r="283.4646" data-angle="80" data-keep-angle="false" data-label-step="30" data-label-start="0">
    <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-40) rotate(40,0,-283.4646) translate(28.7244,41.5748)">0</text>
    <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-24)">30</text>
    <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-8)">60</text>
    <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(8)">90</text>
-   <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(24)">120</text>
+   <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(24 0,0) ">120</text>
    <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(40) rotate(-40,0,-283.4646) translate(-30.2362,41.5748)">150</text>
   </g>
   <g class="div" stroke-width="1.1339" stroke="#000000" fill="none" title="divs" data-angle="80" data-r="249.4488" data-length="11.3386" data-lev2-each="5" data-lev2-length="18.8976" data-lev2-stroke-width="1.7008">

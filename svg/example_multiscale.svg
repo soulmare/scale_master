@@ -1,4 +1,4 @@
-<svg width="794" height="1123" data-generator-name="Scale Master" data-generator-version="0.3.26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4">
+<svg width="794" height="1123" data-generator-name="Scale Master" data-generator-version="0.4.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4">
  <!-- Created with Scale Master -->
  <title>Example: multiscale</title>
  <desc>Created with Scale Master</desc>
@@ -69,16 +69,16 @@
   </g>
   <g class="div" stroke-width="2.2677" stroke="#0000ff" fill="none" title="Ohm" data-angle="120" data-r="181.4173" data-length="-15.1181">
    <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(-60)"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(-29.3)"/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(1.4 0,0) "/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(22 0,0) "/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(38.9 0,0) "/>
-   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(50.3 0,0) "/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(-29.6 0,0) " class="0" data-anchor="true"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(1.9 0,0) " data-anchor="true"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(22.4 0,0) " data-anchor="true"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(39.1 0,0) " data-anchor="true"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(50.9 0,0) " data-anchor="true"/>
    <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(60)"/>
   </g>
   <g class="label" title="Новая группа меток" fill="#0000ff" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="17.0079" data-r="154.9606" data-angle="120" data-keep-angle="true" data-label-step="1" data-label-start="0">
    <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-60 0,0) rotate(60 0,-154.9606) "/>
-   <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-29.2,0,0) rotate(29.2,0,-154.9606)">20K</text>
+   <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-29.2 0,0) rotate(29.2 0,-154.9606) ">20K</text>
    <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(1.6 0,0) rotate(-1.6 -2.2781e-12,-154.9606) " data-anchor="true">1K</text>
    <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(22.2 0,0) rotate(-22.2 0,-154.9606) " data-anchor="true">100</text>
    <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(38.9 0,0) rotate(-38.9 0,-154.9606) " data-anchor="true">50</text>
@@ -88,5 +88,8 @@
   <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#0000ff" stroke="none" font-family="Arial" font-size="17.0079" transform="translate(-135.685,-80.126) rotate(90 0,0) ">8</text>
   <path class="plate plate-rectangular-top plate-top-cut" stroke-width="1.1339" stroke="#000000" fill="none" d="M0 0 H -222.9921 V -219.2126 L -162.5197 -279.685 H 162.5197 L 222.9921 -219.2126 V 0 Z" title="Новая поверхность шкалы" data-width="445.9843" data-height="279.685" transform="translate(0,15.4961) " data-top-cut="60.4724"/>
   <path class="circlecnt" stroke-width="1.1339" stroke="#000000" fill="none" d="M-56.6929,0a56.6929,56.6929 0 1,0 113.3858,0a56.6929,56.6929 0 1,0 -113.3858,0M0 -56.6929 V56.6929 M-56.6929 0 H56.6929" title="Новое отверстие" data-cx="0" data-cy="0" data-r="56.6929"/>
-  </g>
+  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#ff0000" stroke="none" font-family="Arial" font-size="26.0787" transform="translate(-33.2598,-113.3858) ">V</text>
+  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#0000ff" stroke="none" font-family="Arial" font-size="26.0787" transform="translate(37.0394,-113.3858) ">Ohm</text>
+ </g>
+
 </svg>

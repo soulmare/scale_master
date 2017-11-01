@@ -72,10 +72,10 @@ editor.elm_text.prototype.constructor = editor.elm_text;
 
 editor.elm_graphic = function(element) {
     if (element.nodeName == 'text')
-        var link_attributes = ['font-size', 'font-family', 'fill', 'data-anchor'];
+        var link_attributes = ['font-size', 'font-family', 'fill'];
     else
         var link_attributes = ['title', 'stroke-width', 'stroke', 'fill'];
-    link_attributes.push('data-keep-angle', 'x', 'y', 'opacity');
+    link_attributes.push('data-keep-angle', 'x', 'y', 'opacity', 'data-anchor');
     // Merge with ancestor's @link_attributes if present
     this.link_attributes = this.link_attributes ? this.link_attributes.concat(link_attributes) : link_attributes;
     // Parent constructor
