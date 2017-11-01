@@ -497,7 +497,7 @@ editor.elm_line.prototype.line_length.set = function(val) {
         $.observable(this).setProperty("x2", 0);
         $.observable(this).setProperty("y1", -radius);
         $.observable(this).setProperty("y2", -radius - val);
-console.log(-radius, -radius - val)
+//console.log(-radius, -radius - val)
     } else {
         this.x1 = parseFloat(this.x1);
         this.y1 = parseFloat(this.y1);
@@ -977,12 +977,13 @@ editor.elm_div_group.prototype.update_data_r = function(ev, eventArgs) {
         // y1, y2 coordinates are negative usually
         var y1 = parseFloat(child.y1);
         var y2 = parseFloat(child.y2);
-        var dy = y2 - y1;
+//        var dy = y2 - y1;
 //        var dy = Math.min(y1, y2) + r;
         var new_y1 = -r;
         var new_y2 = -r - (child.line_length() || 0);
 //        $.observable(this).setProperty("y1", -radius);
 //        $.observable(this).setProperty("y2", -radius - val);
+//console.log(new_y1, new_y2, child.line_length());
         $.observable(child).setProperty("y1", new_y1);
         $.observable(child).setProperty("y2", new_y2);
     }
@@ -1020,7 +1021,7 @@ editor.elm_div_group.prototype.update_child_divs = function(ev, eventArgs) {
         }
 //console.log(levn_data)
 
-        if (child.line_length != div_length)
+        if (eventArgs && eventArgs.path.match(/length/) && (child.line_length != div_length))
             $.observable(child).setProperty('line_length', div_length);
 
         if (typeof(div_stroke_width) == 'number') {
