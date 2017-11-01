@@ -76,21 +76,21 @@
                 <li><a data-i18n="example_template" href="#" onclick="editor.open_url('svg/example_template.svg');return false;">Scale from template</a></li>
                 <li><a data-i18n="example_multiscale" href="#" onclick="editor.open_url('svg/example_multiscale.svg');return false;">Multiscale</a></li>
                 <li><a data-i18n="example_tachymeter" href="#" onclick="editor.open_url('svg/example_tachymeter.svg');return false;">Tachymeter</a></li>
-                <li><a data-i18n="example_speedometer" href="#" onclick="editor.open_url('svg/example_speedometer_180.svg');return false;">Speedometer</a></li>
                 <li><a data-i18n="example_compass" href="#" onclick="editor.open_url('svg/example_compass.svg');return false;">Compass</a></li>
                 <li><a data-i18n="example_protractor" href="#" onclick="editor.open_url('svg/example_protractor.svg');return false;">Protractor</a></li>
                 <li><a data-i18n="example_regulator" href="#" onclick="editor.open_url('svg/example_regulator.svg');return false;">Regulator</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_10A.svg');return false;">M4200 69X60mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_20V.svg');return false;">M4200 69X60mm 20V</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_10A.svg');return false;">M4203 32x23.5mm 10A</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_20V.svg');return false;">M4203 32x23.5mm 20V</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4206_40x40mm_500mA.svg');return false;">M4206 40x40mm 500mA</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M4205_50x40mm_10A.svg');return false;">M4205 50x40mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_20V.svg');return false;">M4200 69X60mm 20V</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_10A.svg');return false;">M4200 69X60mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4206_40x40mm_500mA.svg');return false;">M4206 40x40mm 500mA</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4213_40mV.svg');return false;">M4213 40mV</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_10A.svg');return false;">M42300 70x58.5mm 10A</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_30A.svg');return false;">M42300 70x58.5mm 30A</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_50A.svg');return false;">M42300 70x58.5mm 50A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M906_120x105mm_150A.svg');return false;">M906 120x105mm 150A</a></li>
                 <li><a href="#" onclick="editor.open_url('svg/M4264_120x120mm_200A.svg');return false;">M4264 120x120mm 200A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M906_120x105mm_150A.svg');return false;">M906 120x105mm 150A</a></li>
             </ul>
 
             <ul class="dropdown" id="languages_dropdown" style="display:none">
@@ -448,6 +448,7 @@
     {{/if}}
 
     {^{if selected_object^tag == 'circle'}}
+<!--
     <label class="ed">
         <div class="l" data-link="{i18n:'x' 'X:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^cx:to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
@@ -456,13 +457,15 @@
         <div class="l" data-link="{i18n:'y' 'Y:'}"></div>
         <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^cy:y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
+-->
     <label class="ed">
-        <div class="l" data-link="{i18n:'r' 'R:'}"></div>
+        <div class="l" data-link="{i18n:'radius' 'Radius:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^r:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     {{/if}}
 
     {^{if selected_object^type == 'circlecnt'}}
+<!--
     <label class="ed">
         <div class="l" data-link="{i18n:'x' 'X:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^data_cx:to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
@@ -471,12 +474,14 @@
         <div class="l" data-link="{i18n:'y' 'Y:'}"></div>
         <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^data_cy:y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
+-->
     <label class="ed">
-        <div class="l" data-link="{i18n:'r' 'R:'}"></div>
+        <div class="l" data-link="{i18n:'radius' 'Radius:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^data_r:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     {{/if}}
 
+<!--
     {^{if (selected_object^tag == 'text') || (selected_object^tag == 'image') || (selected_object^tag == 'rect')}}
     <label class="ed">
         <div class="l">X:</div>
@@ -488,7 +493,67 @@
     </label>
     {{/if}}
 
-    <!-- Transformations -->
+-->
+
+    {^{if (selected_object^tag == 'g') && (selected_object^type == 'div')}}
+
+    <div class="block">
+        <a href="#" data-link="{i18n:'divs_level_2' 'Divisions level 2'}" class="toggle" onclick="editor.toggle_block(event)"></a>
+        <div class="block_contents"{{if !selected_object^data_lev2_each}} style="display:none"{{/if}}>
+
+    <label class="ed">
+        <div class="l" data-link="{i18n:'each_nth' 'Each n-th div:'}"></div>
+        <div class="i"><input type="number" data-link="selected_object^data_lev2_each" min="0" step="1"></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'length' 'Length:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev2_length:to_px}" step="1"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'line_width' 'Line width:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev2_stroke_width:to_px}" min="0" step="0.1"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'stroke_color' 'Stroke color:'}"></div>
+        <div class="i"><input type="color" data-link="selected_object^data_lev2_stroke" list="data_colors"\></div>
+    </label>
+
+        </div><!-- /.block_contents -->
+    </div><!-- /.block -->
+
+
+    <div class="block">
+        <a href="#" data-link="{i18n:'divs_level_3' 'Divisions level 3'}" class="toggle" onclick="editor.toggle_block(event)"></a>
+        <div class="block_contents"{{if !selected_object^data_lev3_each}} style="display:none"{{/if}}>
+
+    <label class="ed">
+        <div class="l" data-link="{i18n:'each_nth' 'Each n-th div:'}"></div>
+        <div class="i"><input type="number" data-link="selected_object^data_lev3_each" min="0" step="1"></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'length' 'Length:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev3_length:to_px}" step="1"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'line_width' 'Line width:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev3_stroke_width:to_px}" min="0" step="0.1"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'stroke_color' 'Stroke color:'}"></div>
+        <div class="i"><input type="color" data-link="selected_object^data_lev3_stroke" list="data_colors"\></div>
+    </label>
+
+        </div><!-- /.block_contents -->
+    </div><!-- /.block -->
+
+    {{/if}}
+
+
+    <div class="block">
+    
+        <a href="#" data-link="{i18n:'position' 'Position'}" class="toggle" onclick="editor.toggle_block(event)"></a>
+
+        <div class="block_contents">
 
     {^{if (selected_object^tag == 'line') && (selected_object^type == 'div')}}
     <label class="ed">
@@ -525,47 +590,10 @@
     </label>
     {{/if}}
 
-    <!-- Div Levels -->
-    
-    {^{if (selected_object^tag == 'g') && (selected_object^type == 'div')}}
+        </div><!-- /.block_contents -->
+        
+    </div><!-- /.block -->
 
-    <label data-link="{i18n:'divs_level_2' 'Level 2:'}" class="ed wide"></label>
-    <label class="ed">
-        <div class="l" data-link="{i18n:'each_nth' 'Each n-th div:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^data_lev2_each" min="0" step="1"></div>
-    </label>
-    <label class="ed">
-        <div class="l" data-link="{i18n:'length' 'Length:'}"></div>
-        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev2_length:to_px}" step="1"><span class="u" data-link="{i18n:'mm'}"></span></div>
-    </label>
-    <label class="ed">
-        <div class="l" data-link="{i18n:'line_width' 'Line width:'}"></div>
-        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev2_stroke_width:to_px}" min="0" step="0.1"><span class="u" data-link="{i18n:'mm'}"></span></div>
-    </label>
-    <label class="ed">
-        <div class="l" data-link="{i18n:'stroke_color' 'Stroke color:'}"></div>
-        <div class="i"><input type="color" data-link="selected_object^data_lev2_stroke" list="data_colors"\></div>
-    </label>
-
-    <label data-link="{i18n:'divs_level_3' 'Level 3:'}" class="ed wide"></label>
-    <label class="ed">
-        <div class="l" data-link="{i18n:'each_nth' 'Each n-th div:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^data_lev3_each" min="0" step="1"></div>
-    </label>
-    <label class="ed">
-        <div class="l" data-link="{i18n:'length' 'Length:'}"></div>
-        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev3_length:to_px}" step="1"><span class="u" data-link="{i18n:'mm'}"></span></div>
-    </label>
-    <label class="ed">
-        <div class="l" data-link="{i18n:'line_width' 'Line width:'}"></div>
-        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev3_stroke_width:to_px}" min="0" step="0.1"><span class="u" data-link="{i18n:'mm'}"></span></div>
-    </label>
-    <label class="ed">
-        <div class="l" data-link="{i18n:'stroke_color' 'Stroke color:'}"></div>
-        <div class="i"><input type="color" data-link="selected_object^data_lev3_stroke" list="data_colors"\></div>
-    </label>
-
-    {{/if}}
 
 {{else}}
 
