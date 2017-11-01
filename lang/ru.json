@@ -119,6 +119,7 @@
 	"int_sinc": "Sinc-фильтр",
 	"int_lanczos": "Фильтр Ланцоша",
 	"reset_anchors": "удалить якоря",
+	"example_multiscale": "Мультишкала",
     
     "stub": "stub"
 }
