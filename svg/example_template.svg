@@ -41,7 +41,7 @@
    <line x1="0" y1="-65.0079" x2="0" y2="-70.6772" data-length="-5.6693" transform="rotate(39.965)"/>
    <line x1="0" y1="-59.3386" x2="0" y2="-70.6772" data-length="-11.3386" transform="rotate(43.25)" stroke-width="1.8898"/>
   </g>
-  <g class="label" title="Новая группа меток" fill="#ff0000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="8.6929" data-r="54.0472" data-angle="87.3681" data-keep-angle="false" data-label-step="100" data-label-start="0" transform="rotate(0.27 0,0) ">
+  <g class="label" fill="#ff0000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="8.6929" data-r="54.0472" data-angle="87.3681" data-keep-angle="false" data-label-step="100" data-label-start="0" transform="rotate(0.27 0,0) ">
    <text x="0" y="-54.0472" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-43.6841 0,0) rotate(43.6841 0,-54.0472) translate(-4.5354,1.5118) " data-anchor="true">0</text>
    <text x="0" y="-54.0472" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-25.1 0,0) " data-anchor="true">100</text>
    <text x="0" y="-54.0472" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-8)">200</text>

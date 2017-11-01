@@ -938,10 +938,18 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
 // Extends elm_supervisor_group
 
 editor.elm_div_group = function(element) {
-    this.link_attributes = ['data-length', 'data-lev2-each', 'data-lev2-length', 'data-lev2-stroke-width'];
+    this.link_attributes = ['data-length'];
+    for (var i = 2; i<=editor.cfg.div_levels_count; i++) {
+        this.link_attributes.push('data-lev'+i+'-each');
+        this.link_attributes.push('data-lev'+i+'-length');
+        this.link_attributes.push('data-lev'+i+'-stroke-width');
+        this.link_attributes.push('data-lev'+i+'-stroke');
+    }
     // Parent constructor
     editor.elm_supervisor_group.apply(this, arguments);
-    $.observe(this, 'data_length', 'data_lev2_each', 'data_lev2_length', 'data_lev2_stroke_width', this.update_child_divs);
+    $.observe(this, 'data_length', this.update_child_divs);
+    for (var i = 2; i<=editor.cfg.div_levels_count; i++)
+        $.observe(this, 'data_lev'+i+'_each', 'data_lev'+i+'_length', 'data_lev'+i+'_stroke_width', 'data_lev'+i+'_stroke', this.update_child_divs);
 }
 editor.elm_div_group.prototype = Object.create(editor.elm_supervisor_group.prototype);
 editor.elm_div_group.prototype.constructor = editor.elm_div_group;
@@ -976,25 +984,50 @@ editor.elm_div_group.prototype.update_data_r = function(ev, eventArgs) {
 editor.elm_div_group.prototype.update_child_divs = function(ev, eventArgs) {
     var _this = ev.target;
     var length = parseFloat(_this.data_length);
-    var lev2_each = parseInt(_this.data_lev2_each);
-    var lev2_length = parseFloat(_this.data_lev2_length);
-    var lev2_stroke_width = parseFloat(_this.data_lev2_stroke_width);
+
+    var levn_data = [];
+    for (var j = 2; j<=editor.cfg.div_levels_count; j++) {
+        levn_data[j] = {
+                each: parseInt(_this['data_lev'+j+'_each']),
+                length: parseFloat(_this['data_lev'+j+'_length']),
+                stroke_width: parseFloat(_this['data_lev'+j+'_stroke_width']),
+                stroke: _this['data_lev'+j+'_stroke']
+            };
+    }
+    
     for (var i in _this.children_objs) {
         var child = _this.children_objs[i];
         var div_length = length;
         var div_stroke_width = null;
-        if (lev2_each && !(i % lev2_each)) {
-            // Level 2 div
-            if (!isNaN(lev2_length))
-                div_length = lev2_length;
-            if (!isNaN(lev2_stroke_width))
-                div_stroke_width = lev2_stroke_width;
+        var div_stroke = null;
+        for (var j = 2; j<=editor.cfg.div_levels_count; j++) {
+            if (levn_data[j].each && !(i % levn_data[j].each)) {
+                // Level 2 div
+                if (!isNaN(levn_data[j].length))
+                    div_length = levn_data[j].length;
+                if (!isNaN(levn_data[j].stroke_width))
+                    div_stroke_width = levn_data[j].stroke_width;
+                if (levn_data[j].stroke)
+                    div_stroke = levn_data[j].stroke;
+            }
         }
-        if (div_stroke_width)
-            child.element.setAttribute('stroke-width', div_stroke_width);
-        else
-            child.element.removeAttribute('stroke-width', div_stroke_width);
-        $.observable(child).setProperty('line_length', div_length);
+//console.log(levn_data)
+
+        if (child.line_length != div_length)
+            $.observable(child).setProperty('line_length', div_length);
+
+        if (typeof(div_stroke_width) == 'number') {
+            if (child.element.getAttribute('stroke-width') != div_stroke_width)
+                child.element.setAttribute('stroke-width', div_stroke_width);
+        } else
+            child.element.removeAttribute('stroke-width');
+
+        if (div_stroke) {
+            if (child.element.getAttribute('stroke') != div_stroke)
+                child.element.setAttribute('stroke', div_stroke);
+        } else
+            child.element.removeAttribute('stroke');
+        
 //        $.observable(child).setProperty('y2', -parseFloat(_this.data_r || 0));
 //        $.observable(child).setProperty('y1', -parseFloat(_this.data_r || 0) - div_length);
 //console.log(div_length)

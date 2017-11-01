@@ -63,7 +63,8 @@ editor = {};
                     font_size: 4,
                     stroke_width: 0.3
                 },
-                store_last_document: true
+                store_last_document: true,
+                div_levels_count: 3
             };
     
 //        editor.svg_observe_attrs = {

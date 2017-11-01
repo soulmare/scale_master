@@ -1,114 +1,93 @@
-<svg width="794" height="1123" data-generator-name="Scale Master" data-generator-version="0.3.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4">
+<svg width="794" height="1123" data-generator-name="Scale Master" data-generator-version="0.3.26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4">
  <!-- Created with Scale Master -->
- <g id="scale_meta">
-  <title id="scale_title">Example: multiscale</title>
-  <desc id="scale_description">Created with Scale Master</desc>
- </g>
+ <title>Example: multiscale</title>
+ <desc>Created with Scale Master</desc>
  <rect fill="#ffffff" height="100%" width="100%" id="background"/>
- <g transform="translate(397,562)" fill="none" id="scale_wrapper">
-  <!--<image xlink:href="data:image/png;base64,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" height="400" width="400" y="-188.9764" x="-188.9764" class="image"/>-->
-  <g data-length="26.4567" data-r="188.9764" data-angle="120" title="volt 1" stroke="#000000" stroke-width="3.0236" class="div">
-   <line data-keep-angle="false" transform="rotate(-60) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-54) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-48) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-42) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-36) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-30) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-24) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-18) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-12) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-6) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(0) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(6) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(12) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(18) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(24) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(30) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(36) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(42) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(48) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(54) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(60) " y2="-215.4331" x2="0" y1="-188.9764" x1="0"/>
+ <g stroke="#000000" transform="translate(397,562)" fill="none" id="scale_wrapper">
+  <path class="arc" stroke-width="2.2677" stroke="#ff0000" fill="none" d="M 163.6583 -94.4882 A 188.9764 188.9764 0 0 0 -163.6583 -94.4882" title="V" data-angle="120" data-r="188.9764"/>
+  <path class="arc" stroke-width="2.2677" stroke="#0000ff" fill="none" d="M 157.112 -90.7087 A 181.4173 181.4173 0 0 0 -157.112 -90.7087" title="Ohm" data-angle="120" data-r="181.4173"/>
+  <g class="div" stroke-width="1.1339" stroke="#ff0000" fill="none" title="V" data-angle="120" data-r="188.9764" data-length="11.3386" data-lev2-each="5" data-lev2-length="22.6772" data-lev2-stroke-width="2.2677">
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" data-length="22.6772" transform="rotate(-60)" stroke-width="2.2677"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-57.6)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-55.2)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-52.8)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-50.4)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" data-length="22.6772" transform="rotate(-48)" stroke-width="2.2677"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-45.6)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-43.2)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-40.8)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-38.4)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" data-length="22.6772" transform="rotate(-36)" stroke-width="2.2677"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-33.6)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-31.2)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-28.8)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-26.4)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" data-length="22.6772" transform="rotate(-24)" stroke-width="2.2677"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-21.6)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-19.2)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-16.8)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-14.4)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" data-length="22.6772" stroke-width="2.2677" transform="rotate(-12)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-9.6)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-7.2)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-4.8)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(-2.4)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" data-length="22.6772" stroke-width="2.2677"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(2.4)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(4.8)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(7.2)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(9.6)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" data-length="22.6772" transform="rotate(12)" stroke-width="2.2677"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(14.4)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(16.8)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(19.2)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(21.6)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" data-length="22.6772" transform="rotate(24,0,0)" stroke-width="2.2677"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(26.4)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(28.8)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(31.2)"/>
+   <line x1="0" y1="-200.315" x2="0" y2="-188.9764" data-length="11.3386" transform="rotate(33.6)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" data-length="22.6772" transform="rotate(36)" stroke-width="2.2677"/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-length="0" transform="rotate(38.4)"/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-length="0" transform="rotate(40.8)"/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-length="0" transform="rotate(43.2)"/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-length="0" transform="rotate(45.6)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" stroke-width="2.2677" data-length="22.6772" transform="rotate(48)"/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-length="0" transform="rotate(50.4)"/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-length="0" transform="rotate(52.8)"/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-length="0" transform="rotate(55.2)"/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-length="0" transform="rotate(57.6)"/>
+   <line x1="0" y1="-211.6535" x2="0" y2="-188.9764" stroke-width="2.2677" data-length="22.6772" transform="rotate(60)"/>
   </g>
-  <g data-length="15.1181" data-r="188.9764" data-angle="120" title="volt 2" stroke="#000000" stroke-width="2.2677" class="div">
-   <line data-keep-angle="false" transform="rotate(-60) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-57) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-54) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-51) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-48) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-45) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-42) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-39) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-36) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-33) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-30) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-27) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-24) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-21) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-18) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-15) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-12) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-9) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-6) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-3) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(0) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(3) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(6) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(9) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(12) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(15) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(18) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(21) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(24) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(27) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(30) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(33) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(36) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(39) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(42) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(45) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(48) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(51) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(54) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(57) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(60) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
+  <g class="label" title="V" fill="#ff0000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="18.8976" data-r="226.7717" data-angle="120" data-keep-angle="true" data-label-step="2" data-label-start="0" font-weight="bold" font-style="normal">
+   <text x="0" y="-226.7717" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-60) rotate(60,0,-226.7717)">0</text>
+   <text x="0" y="-226.7717" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-36) rotate(36,0,-226.7717)">2</text>
+   <text x="0" y="-226.7717" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-12) rotate(12,0,-226.7717)">4</text>
+   <text x="0" y="-226.7717" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(12) rotate(-12,0,-226.7717)">6</text>
+   <text x="0" y="-226.7717" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(36) rotate(-36,0,-226.7717)">8</text>
+   <text x="0" y="-226.7717" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(60) rotate(-60,0,-226.7717)">10</text>
   </g>
-  <g data-label-start="0" data-label-step="2" data-keep-angle="true" data-angle="120" data-r="234.3307" font-size="19.2756" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#000000" title="volt" class="label">
-   <text font-size="26.0787" font-weight="bold" data-keep-angle="true" transform="rotate(-60) rotate(60,0,-234.3307) " y="-234.3307" x="0">0</text>
-   <text data-keep-angle="true" transform="rotate(-48) rotate(48,0,-234.3307) " y="-234.3307" x="0">2</text>
-   <text data-keep-angle="true" transform="rotate(-36) rotate(36,0,-234.3307) " y="-234.3307" x="0">4</text>
-   <text data-keep-angle="true" transform="rotate(-24) rotate(24,0,-234.3307) " y="-234.3307" x="0">6</text>
-   <text data-keep-angle="true" transform="rotate(-12) rotate(12,0,-234.3307) " y="-234.3307" x="0">8</text>
-   <text font-size="26.0787" font-weight="bold" data-keep-angle="true" transform="rotate(0) rotate(0,0,-234.3307) " y="-234.3307" x="0">10</text>
-   <text data-keep-angle="true" transform="rotate(12) rotate(-12,0,-234.3307) " y="-234.3307" x="0">12</text>
-   <text data-keep-angle="true" transform="rotate(24) rotate(-24,0,-234.3307) " y="-234.3307" x="0">14</text>
-   <text data-keep-angle="true" transform="rotate(36) rotate(-36,0,-234.3307) " y="-234.3307" x="0">16</text>
-   <text data-keep-angle="true" transform="rotate(48) rotate(-48,0,-234.3307) " y="-234.3307" x="0">18</text>
-   <text font-size="26.0787" font-weight="bold" data-keep-angle="true" transform="rotate(60) rotate(-60,0,-234.3307) " y="-234.3307" x="0">20</text>
+  <g class="div" stroke-width="2.2677" stroke="#0000ff" fill="none" title="Ohm" data-angle="120" data-r="181.4173" data-length="-15.1181">
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(-60)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(-29.3)"/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(1.4 0,0) "/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(22 0,0) "/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(38.9 0,0) "/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(50.3 0,0) "/>
+   <line x1="0" y1="-166.2992" x2="0" y2="-181.4173" data-length="-15.1181" transform="rotate(60)"/>
   </g>
-  <text transform="translate(-18.8976,-1.5118) " font-weight="bold" font-size="24.9449" font-family="Arial" fill="#000000" dominant-baseline="central" text-anchor="middle" y="-102.0472" x="0" class="label">V</text>
-  <path data-top-cut="75.5906" transform="translate(0,30.2362) " data-height="302.3622" data-width="468.6614" title="New scale plate" d="M0 0 H -234.3307 V -226.7717 L -158.7402 -302.3622 H 158.7402 L 234.3307 -226.7717 V 0 Z" stroke="#000000" stroke-width="1.5118" class="plate plate-rectangular-top plate-top-cut"/>
-  <path data-r="181.4173" data-angle="121" title="New arc" d="M 157.8976 -89.3342 A 181.4173 181.4173 0 0 0 -157.8976 -89.3342" stroke="#0000ff" stroke-width="2.2677" class="arc"/>
-  <g data-length="11.3386" data-r="170.0787" data-angle="120" title="ohm" stroke="#0000ff" stroke-width="1.5118" class="div">
-   <line data-keep-angle="false" transform="rotate(-60) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(-16) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(7) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(26) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(40) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(50) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
-   <line data-keep-angle="false" transform="rotate(60) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
+  <g class="label" title="Новая группа меток" fill="#0000ff" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="17.0079" data-r="154.9606" data-angle="120" data-keep-angle="true" data-label-step="1" data-label-start="0">
+   <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-60 0,0) rotate(60 0,-154.9606) "/>
+   <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(-29.2,0,0) rotate(29.2,0,-154.9606)">20K</text>
+   <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(1.6 0,0) rotate(-1.6 -2.2781e-12,-154.9606) " data-anchor="true">1K</text>
+   <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(22.2 0,0) rotate(-22.2 0,-154.9606) " data-anchor="true">100</text>
+   <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(38.9 0,0) rotate(-38.9 0,-154.9606) " data-anchor="true">50</text>
+   <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(50.2 0,0) rotate(-50.2 0,-154.9606) " data-anchor="true">10</text>
+   <text x="0" y="-154.9606" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="true" transform="rotate(60 0,0) rotate(-60 0,-154.9606) ">0</text>
   </g>
-  <g data-label-start="0" data-label-step="1" data-keep-angle="true" data-angle="120" data-r="160.6299" font-size="15.1181" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#0000ff" title="ohm" class="label">
-   <text data-keep-angle="true" transform="rotate(-60 0,0) rotate(60 0,-160.6299) " y="-160.6299" x="0">~</text>
-   <text class="0" data-keep-angle="true" transform="rotate(-16 0,0) rotate(16 -7.3368e-13,-160.6299) " y="-160.6299" x="0">100K</text>
-   <text data-keep-angle="true" transform="rotate(7 0,0) rotate(-7 0,-160.6299) " y="-160.6299" x="0">10K</text>
-   <text data-keep-angle="true" transform="rotate(26 0,0) rotate(-26 1.4042e-13,-160.6299) " y="-160.6299" x="0">100</text>
-   <text data-keep-angle="true" transform="rotate(40 0,0) rotate(-40 0,-160.6299) " y="-160.6299" x="0">50</text>
-   <text data-keep-angle="true" transform="rotate(50 0,0) rotate(-50 3.9783e-14,-160.6299) " y="-160.6299" x="0">10</text>
-   <text data-keep-angle="true" transform="rotate(60 0,0) rotate(-60 0,-160.6299) " y="-160.6299" x="0">0</text>
-  </g>
-  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#0000ff" stroke="none" font-family="Arial" font-size="21.5433" transform="translate(34.0157,-102.0472) ">Ohm</text>
-  <path class="circlecnt" stroke-width="1.1339" stroke="#000000" fill="none" d="M-37.7953,0a37.7953,37.7953 0 1,0 75.5906,0a37.7953,37.7953 0 1,0 -75.5906,0M0 -37.7953 V37.7953 M-37.7953 0 H37.7953" title="center" data-cx="0" data-cy="0" data-r="37.7953"/>
+  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#0000ff" stroke="none" font-family="Arial" font-size="17.0079" transform="translate(-135.685,-80.126) rotate(90 0,0) ">8</text>
+  <path class="plate plate-rectangular-top plate-top-cut" stroke-width="1.1339" stroke="#000000" fill="none" d="M0 0 H -222.9921 V -219.2126 L -162.5197 -279.685 H 162.5197 L 222.9921 -219.2126 V 0 Z" title="Новая поверхность шкалы" data-width="445.9843" data-height="279.685" transform="translate(0,15.4961) " data-top-cut="60.4724"/>
+  <path class="circlecnt" stroke-width="1.1339" stroke="#000000" fill="none" d="M-56.6929,0a56.6929,56.6929 0 1,0 113.3858,0a56.6929,56.6929 0 1,0 -113.3858,0M0 -56.6929 V56.6929 M-56.6929 0 H56.6929" title="Новое отверстие" data-cx="0" data-cy="0" data-r="56.6929"/>
  </g>
 
 </svg>
