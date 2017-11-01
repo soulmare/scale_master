@@ -474,7 +474,7 @@ editor.elm_line.prototype.line_length = function () {
         this.x2 = parseFloat(this.x2);
         this.y2 = parseFloat(this.y2);
         var length = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
-        if (this.y1 < this.y1)
+        if (this.y1 < this.y2)
             length = -length;
         $.observable(this).setProperty("data_length", length);
     }
@@ -966,6 +966,8 @@ editor.elm_div_group.prototype.new_child_element = function() {
     element.setAttribute('y1', -parseFloat(this.data_r));
     element.setAttribute('x2', 0);
     element.setAttribute('y2', -(parseFloat(this.data_r) + parseFloat(this.data_length)));
+    element.setAttribute('data-length', parseFloat(this.data_length));
+console.log(element.getAttribute('data-length'))
     return element;
 }
 
@@ -974,11 +976,6 @@ editor.elm_div_group.prototype.update_data_r = function(ev, eventArgs) {
     var r = parseFloat(eventArgs.value);
     for (var i in _this.children_objs) {
         var child = _this.children_objs[i];
-        // y1, y2 coordinates are negative usually
-        var y1 = parseFloat(child.y1);
-        var y2 = parseFloat(child.y2);
-//        var dy = y2 - y1;
-//        var dy = Math.min(y1, y2) + r;
         var new_y1 = -r;
         var new_y2 = -r - (child.line_length() || 0);
 //        $.observable(this).setProperty("y1", -radius);
