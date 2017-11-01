@@ -87,7 +87,7 @@ svgedit.transformlist.SVGTransformList = function(elem) {
 			var xform = this._list.getItem(i);
 			tstr += transformToString(xform) + ' ';
 		}
-		this._elem.setAttribute('transform', tstr);
+//		this._elem.setAttribute('transform', tstr);
 	};
 	this._list = this;
 	this._init = function() {
