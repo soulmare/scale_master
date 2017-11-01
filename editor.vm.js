@@ -711,6 +711,10 @@ editor.vm = {};
                 $.observable(editor.vm.model).setProperty('tpl_objects_enabled', true);
                 $.observable(editor.vm.model).setProperty('tpl_context_enabled', true);
 */
+            },
+            
+            insert_symbol: function (event, e) {
+                $.observable(this.selected_object).setProperty('text', this.selected_object.text + $(event.target).html());
             }
             
         };

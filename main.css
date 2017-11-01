@@ -420,6 +420,14 @@ button.m .icon{
     background: radial-gradient(ellipse at center, #b5bdc8 0%,#828c95 50%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+#symbols_dropdown a {
+    display: inline-block;
+    border: none;
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    font-size: 16px;
+}
 #svg_doc *{
 /*    pointer-events: visible;*/
 }

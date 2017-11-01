@@ -74,6 +74,7 @@
 
             <ul class="dropdown" id="examples_dropdown" style="display:none">
                 <li><a data-i18n="example_template" href="#" onclick="editor.open_url('svg/example_template.svg');return false;">Scale from template</a></li>
+                <li><a data-i18n="example_multimeter_c4353" href="#" onclick="editor.open_url('svg/C4353.svg');return false;">Multimeter C4353</a></li>
                 <li><a data-i18n="example_multiscale" href="#" onclick="editor.open_url('svg/example_multiscale.svg');return false;">Multiscale</a></li>
                 <li><a data-i18n="example_tachymeter" href="#" onclick="editor.open_url('svg/example_tachymeter.svg');return false;">Tachymeter</a></li>
                 <li><a data-i18n="example_compass" href="#" onclick="editor.open_url('svg/example_compass.svg');return false;">Compass</a></li>
@@ -295,7 +296,58 @@
 
     {^{if selected_object^is_text_node && (selected_object^tag != 'g')}}
     <label class="ed">
-        <div class="l" data-link="{i18n:'text' 'Text:'}"></div>
+        <div class="l">
+            <span class="l_text" data-link="{i18n:'text' 'Text:'}"></span>
+            <button class="m" data-dropdown="symbols_dropdown" onclick="editor.dropdown_toggle(event)">
+                <span data-link="{i18n:'symbols' 'symbols'}"></span>
+            </button>
+            <ul class="dropdown" id="symbols_dropdown" style="display:none">
+                <li>
+                    <a data-link="{on insert_symbol}">Å</a>
+                    <a data-link="{on insert_symbol}">Δ</a>
+                    <a data-link="{on insert_symbol}">Φ</a>
+                    <a data-link="{on insert_symbol}">Σ</a>
+                    <a data-link="{on insert_symbol}">Θ</a>
+                    <a data-link="{on insert_symbol}">Ω</a>
+                    <a data-link="{on insert_symbol}">℧</a>
+                    <a data-link="{on insert_symbol}">α</a>
+                    <a data-link="{on insert_symbol}">β</a>
+                    <a data-link="{on insert_symbol}">γ</a>
+                    <a data-link="{on insert_symbol}">δ</a>
+                    <a data-link="{on insert_symbol}">ε</a>
+                    <a data-link="{on insert_symbol}">η</a>
+                    <a data-link="{on insert_symbol}">θ</a>
+                    <a data-link="{on insert_symbol}">λ</a>
+                    <a data-link="{on insert_symbol}">μ</a>
+                    <a data-link="{on insert_symbol}">ρ</a>
+                    <a data-link="{on insert_symbol}">υ</a>
+                    <a data-link="{on insert_symbol}">φ</a>
+                    <a data-link="{on insert_symbol}">ω</a>
+                    <a data-link="{on insert_symbol}">∞</a>
+                    <a data-link="{on insert_symbol}">—</a>
+                    <a data-link="{on insert_symbol}">±</a>
+                    <a data-link="{on insert_symbol}">·</a>
+                    <a data-link="{on insert_symbol}">×</a>
+                    <a data-link="{on insert_symbol}">÷</a>
+                    <a data-link="{on insert_symbol}">≈</a>
+                    <a data-link="{on insert_symbol}">∝</a>
+                    <a data-link="{on insert_symbol}">≠</a>
+                    <a data-link="{on insert_symbol}">~</a>
+                    <a data-link="{on insert_symbol}">≤</a>
+                    <a data-link="{on insert_symbol}">≥</a>
+                    <a data-link="{on insert_symbol}">…</a>
+                    <a data-link="{on insert_symbol}">∴</a>
+                    <a data-link="{on insert_symbol}">√</a>
+                    <a data-link="{on insert_symbol}">∛</a>
+                    <a data-link="{on insert_symbol}">∫</a>
+                    <a data-link="{on insert_symbol}">℃</a>
+                    <a data-link="{on insert_symbol}">℉</a>
+                    <a data-link="{on insert_symbol}">♭</a>
+                    <a data-link="{on insert_symbol}">♮</a>
+                    <a data-link="{on insert_symbol}">♯</a>
+                </li>
+            </ul>
+        </div>
         <div class="i"><textarea data-link="selected_object^text"></textarea></div>
     </label>
     {{/if}}

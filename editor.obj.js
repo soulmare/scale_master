@@ -967,7 +967,7 @@ editor.elm_div_group.prototype.new_child_element = function() {
     element.setAttribute('x2', 0);
     element.setAttribute('y2', -(parseFloat(this.data_r) + parseFloat(this.data_length)));
     element.setAttribute('data-length', parseFloat(this.data_length));
-console.log(element.getAttribute('data-length'))
+//console.log(element.getAttribute('data-length'))
     return element;
 }
 

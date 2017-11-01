@@ -95,6 +95,7 @@
 	"example_compass": "Компас",
 	"example_protractor": "Транспортир",
 	"example_regulator": "Регулятор",
+	"example_multimeter_c4353": "Прибор Ц4353 (мультиметр)",
 	"image_parameters": "Параметры изображения",
 	"image_size": "Размер:",
 	"image_orientation": "Ориентация:",
@@ -112,14 +113,13 @@
 	"get_code": "Исходный код",
 	"old_versions": "Старые версии:",
 	"example_template": "Шкала по фотошаблону",
-    "example_multiscale": "Мультишкала",
+    "example_multiscale": "Мультишкала (V и Ohm)",
 	"interpolation": "Интерполяция",
 	"int_linear": "Линейная",
 	"int_cubic": "Кубическая (эрмитов сплайн)",
 	"int_sinc": "Sinc-фильтр",
 	"int_lanczos": "Фильтр Ланцоша",
 	"reset_anchors": "удалить якоря",
-	"example_multiscale": "Мультишкала",
 	"position": "Позиция",
     
     "stub": "stub"

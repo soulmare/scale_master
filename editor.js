@@ -145,9 +145,9 @@ editor = {};
             
 //            editor.open_url('svg/M4200_69X60_20V.svg');
 //            editor.open_url('svg/example_compass.svg');
-//            editor.open_url('svg/test_multiscale_2.svg');
+            var initial_document = 'svg/example_multiscale.svg';
 //            var initial_document = 'svg/test_negative_line_length2.svg';
-            var initial_document = 'svg/test.svg';
+//            var initial_document = 'svg/test.svg';
 //            var initial_document = 'svg/new_scale.svg';
 
             if (editor.cfg.store_last_document) {
@@ -1429,14 +1429,19 @@ editor = {};
     
     
         editor.init_dropdowns = function() {
-            $('[data-dropdown]').bind('click', function (event) {
-                $('.dropdown:visible:not(#'+$(this).attr('data-dropdown')+')').hide();
-                var dd = $('#'+$(this).attr('data-dropdown'));
-                dd.toggle().css({left:this.offsetLeft+'px',top:(this.clientHeight-this.offsetTop)+'px','min-width':this.clientWidth+'px'});
-                event.stopPropagation();
-            })
+            $('[data-dropdown]').bind('click', editor.dropdown_toggle);
         };
+
     
+        editor.dropdown_toggle = function(event) {
+            var _this = $(event.target).closest('button')[0];
+            var dropdown = $(this).attr('data-dropdown') || $(_this).attr('data-dropdown');
+            $('.dropdown:visible:not(#'+dropdown+')').hide();
+            var dd = $('#'+dropdown);
+            dd.toggle().css({left:_this.offsetLeft+'px',top:(_this.clientHeight > _this.offsetTop ? _this.clientHeight-_this.offsetTop : _this.offsetTop+_this.clientHeight/2)+'px','min-width':_this.clientWidth+'px'});
+            event.stopPropagation();
+        };
+                
             
         editor.update_select_box = function() {
             
