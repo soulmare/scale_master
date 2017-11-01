@@ -137,8 +137,6 @@ editor.elm_graphic.prototype.set_transform = function(tr_list) {
                 fn_list_translate.push('translate(' + parseFloat(tr.args[0] || 0) + ',' + parseFloat(tr.args[1] || 0) + ')');
             if ((tr.fn == 'rotate') && parseFloat(tr.args[0])) {
                 // Remove period from angle
-if (tr.args[0] != (tr.args[0] % 360))
-    console.log(tr.args[0],tr.args[0] % 360);
                 tr.args[0] = tr.args[0] % 360;
                 if (tr.args[0] != 0) {
 //    console.log('+', tr.args[0])
@@ -497,8 +495,8 @@ editor.elm_line.prototype.line_length.set = function(val) {
     if (radius) {
         $.observable(this).setProperty("x1", 0);
         $.observable(this).setProperty("x2", 0);
-        $.observable(this).setProperty("y1", -radius - val);
-        $.observable(this).setProperty("y2", -radius);
+        $.observable(this).setProperty("y2", -radius - val);
+        $.observable(this).setProperty("y1", -radius);
     } else {
         this.x1 = parseFloat(this.x1);
         this.y1 = parseFloat(this.y1);
