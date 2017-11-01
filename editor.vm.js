@@ -300,7 +300,7 @@ editor.vm = {};
                                 if (drag_angle-sel_obj.parent_obj.angle() > 0)
                                     drag_angle = -drag_angle;
                             }
-console.log(pointer_pos[0], element_pos[0], drag_angle)
+//console.log(pointer_pos[0], element_pos[0], drag_angle)
                             $.observable(sel_obj).setProperty('angle_val', _.round(drag_angle, 1));
                         }
 
@@ -522,7 +522,7 @@ console.log(pointer_pos[0], element_pos[0], drag_angle)
                         element.setAttribute('stroke', 'none');
                         element.setAttribute('font-family', editor.cfg.styles.font_family);
                         element.innerText = text;
-console.log(editor.cfg.new_item.font_size)
+//console.log(editor.cfg.new_item.font_size)
                         element.setAttribute('font-size', editor.units_to_px(editor.cfg.new_item.font_size || editor.cfg.styles.font_size));
                         break;
                     case 'line':
