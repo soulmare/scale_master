@@ -169,9 +169,9 @@ editor.vm = {};
             trigger_selection_change: function (ev, eventArgs) {
                 var _this = ev.target;
                 var obj = _this.selected_object;
-                $('._ed_sel', editor.document).removeClass('_ed_sel');
-                if (obj)
-                    $(obj.element).addClass('_ed_sel');
+//                $('._ed_sel', editor.document).removeClass('_ed_sel');
+//                if (obj)
+//                    $(obj.element).addClass('_ed_sel');
                 editor.update_select_box();
             },
             

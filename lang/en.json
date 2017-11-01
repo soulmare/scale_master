@@ -23,7 +23,7 @@
     "msg_label_text": "Enter label text:",
     "msg_file_type_not_supported": "File type not supported",
     "msg_bad_file_format": "File format not recognized. Please open only filed created in this application.",
-    "msg_create_new_warning": "All changes in current image will be lost. Continue?",
+    "msg_lost_edits_warning": "All changes in current image will be lost. Continue?",
 
     "new_label": "New label",
 	"new_circle": "New circle",

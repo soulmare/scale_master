@@ -89,7 +89,7 @@ editor = {};
         editor.ns_svg = 'http://www.w3.org/2000/svg';
 
     
-        editor.init = function () {
+        editor.init = function () {            
             
             // Load stored configuration
             var cfg = localStorage.getItem("cfg");
@@ -773,7 +773,11 @@ editor = {};
         }
         
         
-        editor.open_url = function (url, callback) {
+        editor.open_url = function (url, callback, no_warning) {
+
+            if(editor.modified && !no_warning && !confirm($.i18n('msg_lost_edits_warning')))
+                return;
+
             $(editor.document).hide();
             $('#hdr_buttons button').attr('disabled', 'disabled');
             editor.vm.model.enable_templates(false);
@@ -801,6 +805,8 @@ editor = {};
         
             
         editor.load_svg_string = function (xmlString, callback) {
+            
+            document.title = APP_NAME;
 /*
             $(editor.document).remove();
             $(editor.workspace).append(str);
@@ -935,6 +941,17 @@ editor = {};
             
             editor.vm.create_image_model();
 
+            // Listen to changes in SVG document
+            MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+            var observer = new MutationObserver(editor.doc_observer);
+            observer.observe(editor.document.getElementById('scale_wrapper'), {
+              subtree: true,
+              attributes: true,
+//              attributeOldValue: true,
+              characterData: true
+            });
+            editor.modified = false;
+            
             if (callback)
                callback(true);
             
@@ -942,6 +959,16 @@ editor = {};
         }
 
         
+        editor.doc_observer = function (mutations, observer) {
+            // fired when a mutation occurs
+//            console.log(mutations, observer);
+            if (!editor.modified) {
+                editor.modified = true;
+                document.title += '*';
+            }
+        };
+        
+            
         // Returns @px value converted to current units, then rounded to enough precision and converted back to pixels
         editor.units_round = function (px, after_zero) {
             after_zero = after_zero || 0;
@@ -1248,6 +1275,7 @@ editor = {};
 //                alert('ERROR: Direct download is not supported by your browser.');
 
             $('#hdr_buttons button').removeAttr('disabled');
+            editor.modified = false;
         };
 
     
