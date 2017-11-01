@@ -222,9 +222,18 @@ body>#main {
 .panel label.ed select{
     width: 96%;
 }
-.panel label.wide.ed{
-    display: block;
+.panel a.toggle{
+    font-weight: normal;
+    text-decoration: none;
+    display: inline-block;
     margin: 18px 0 8px;
+    font-size: 16px;
+    border: dashed #999;
+    border-width: 0 0 1px;
+}
+.panel a.toggle:after{
+    content: '\25BC';/*&#9660;*/
+    color:#999;
 }
 .panel>.inner{
     overflow-y: auto;
@@ -428,7 +437,7 @@ button.m .icon{
 #workspace:focus #svg_doc ._ed_select_box_margin{
     opacity:0.8;
 }
-#svg_doc ._ed_select_axe{
+#svg_doc ._ed_select_axe,#svg_doc ._ed_doc_axe{
     opacity:0.3;
 }
 #workspace:focus #svg_doc ._ed_select_axe{
@@ -459,5 +468,7 @@ button.m .icon{
 #svg_doc{
     position: absolute;
 /*    background: #fff;*/
-/*    pointer-events: none;*/
+}
+#svg_doc ._ed_helper_line{
+    pointer-events: none;
 }

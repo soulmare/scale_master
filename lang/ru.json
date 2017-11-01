@@ -99,8 +99,8 @@
 	"image_size": "Размер:",
 	"image_orientation": "Ориентация:",
 	"exponent": "Экспонента:",
-	"divs_level_2": "Уровень 2:",
-	"divs_level_3": "Уровень 3:",
+	"divs_level_2": "Деления уровня 2",
+	"divs_level_3": "Деления уровня 3",
 	"each_nth": "Каждое N-е деление:",
 	"portrait": "портретная",
 	"landscape": "пейзажная",
@@ -120,6 +120,7 @@
 	"int_lanczos": "Фильтр Ланцоша",
 	"reset_anchors": "удалить якоря",
 	"example_multiscale": "Мультишкала",
+	"position": "Позиция",
     
     "stub": "stub"
 }

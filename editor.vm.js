@@ -805,11 +805,18 @@ editor.vm = {};
         $.observe(editor.vm.model, "selected_object", editor.vm.model.trigger_selection_change);
         $.observe(editor.vm.model, "selected_parent", "selected_child", editor.vm.model.trigger_select);
 
+        // Update page title
         $.observe(editor.vm.model, "title", function (ev, eventArgs) {
             document.title = APP_NAME;
             if (eventArgs.value != '')
                 document.title += ' - ' + eventArgs.value;
         });
+        
+/*
+        $.observe(editor.vm.model, '**', function (ev, eventArgs) {
+            console.log(eventArgs)
+        });
+*/
         
     }
     

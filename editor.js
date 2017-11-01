@@ -518,7 +518,7 @@ editor = {};
             // Change selector box elements sizes
             $('#_ed_select_marker').attr('r', 3/editor.zoom+4);
             $('#_ed_select_marker').attr('stroke-width', 1.5/editor.zoom);
-            $('._ed_select_helper_line').attr('stroke-width', 1.5/editor.zoom);
+            $('._ed_helper_line').attr('stroke-width', 1.5/editor.zoom);
             
         }
 
@@ -855,7 +855,7 @@ editor = {};
             for (var i in ids) {
                 var sel_margin = document.createElementNS(editor.ns_svg, 'rect');
                 sel_margin.setAttribute('id', ids[i]);
-                sel_margin.setAttribute('class', '_ed_select_box_margin _ed_select_helper_line');
+                sel_margin.setAttribute('class', '_ed_select_box_margin _ed_helper_line');
                 sel_margin.setAttribute('fill', 'none');
 //                    sel_margin.setAttribute('opacity', '0.4');
                 sel_margin.setAttribute('stroke-width', 1.0);
@@ -873,7 +873,7 @@ editor = {};
                 for (var j=1; j<=2; j++) {
                     var sel_axe = document.createElementNS(editor.ns_svg, 'line');
                     sel_axe.setAttribute('id', '_ed_select_axe_'+i+'_'+j);
-                    sel_axe.setAttribute('class', '_ed_select_axe _ed_select_helper_line');
+                    sel_axe.setAttribute('class', '_ed_select_axe _ed_helper_line');
                     sel_axe.setAttribute('stroke-width', 1.0);
                     sel_axe.setAttribute('stroke', j == 1 ? dash_colors[0] : dash_colors[1]);
                     if (j == 2)
@@ -890,6 +890,37 @@ editor = {};
             editor.select_box.appendChild(sel_marker);
             
             service_grp.appendChild(editor.select_box);
+
+            // Document median axis
+            var dash_colors = ['#FFFFFF', '#0000ff'];
+            var doc_size = [$(editor.document).width(), $(editor.document).height()];
+            for (var i=1; i<=2; i++)
+                for (var j=1; j<=2; j++) {
+                    var class_name = '_ed_doc_axe _ed_helper_line';
+                    var line = document.createElementNS(editor.ns_svg, 'line');
+                    line.setAttribute('id', '_ed_doc_axe_'+i+'_'+j);
+                    line.setAttribute('stroke-width', 1.0);
+                    line.setAttribute('stroke', j == 1 ? dash_colors[0] : dash_colors[1]);
+                    if (j == 2)
+                        line.setAttribute('stroke-dasharray', '2,2');
+                    if (i == 1) {
+                        // X axe
+                        class_name += ' _ed_doc_axe_x'
+                        line.setAttribute('x1', -doc_size[0]/2);
+                        line.setAttribute('y1', 0);
+                        line.setAttribute('x2', doc_size[0]/2);
+                        line.setAttribute('y2', 0);
+                    } else {
+                        class_name += ' _ed_doc_axe_y'
+                        line.setAttribute('x1', 0);
+                        line.setAttribute('y1', -doc_size[1]/2);
+                        line.setAttribute('x2', 0);
+                        line.setAttribute('y2', doc_size[1]/2);
+                    }
+                    line.setAttribute('class', class_name);
+                    service_grp.appendChild(line);
+                }
+
             editor.document.appendChild(service_grp);
             
             
@@ -1405,7 +1436,7 @@ editor = {};
                 $('._ed_select_box_margin').attr('height', bb.height + sb_stroke_width*2 + obj_stroke_width);
                 
                 // Axis
-                $('._ed_select_axe').removeAttr('visibility').removeAttr('transform');
+                $('._ed_select_axe').attr('visibility', 'hidden').removeAttr('transform');
                 $('#_ed_select_marker').attr('visibility', 'hidden').removeAttr('transform');
                 if ((((obj.type == 'div') || (obj.type == 'label')) && (obj.tag == 'g')) || (obj.type == 'arc')) {
 //console.log(obj.data_angle, obj.angle() || 0, obj.data_r);
@@ -1417,21 +1448,27 @@ editor = {};
 //                    p1.x = editor.px_to_units(p1.x);
 //                    p1.y = editor.px_to_units(p1.y);
 //console.log(p1);
+                    // left angle
                     $('#_ed_select_axe_1_1,#_ed_select_axe_1_2')
                         .attr('x1', obj.shift_x() || 0)
                         .attr('y1', obj.shift_y() || 0)
                         .attr('x2', p1.x || 0)
-                        .attr('y2', p1.y || 0);
+                        .attr('y2', p1.y || 0)
+                        .removeAttr('visibility');
+                    // right angle
                     $('#_ed_select_axe_2_1,#_ed_select_axe_2_2')
                         .attr('x1', obj.shift_x() || 0)
                         .attr('y1', obj.shift_y() || 0)
                         .attr('x2', p2.x || 0)
-                        .attr('y2', p2.y || 0);
+                        .attr('y2', p2.y || 0)
+                        .removeAttr('visibility');
+                    // median angle
                     $('#_ed_select_axe_3_1,#_ed_select_axe_3_2')
                         .attr('x1', obj.shift_x() || 0)
                         .attr('y1', obj.shift_y() || 0)
                         .attr('x2', p_med.x || 0)
-                        .attr('y2', p_med.y || 0);
+                        .attr('y2', p_med.y || 0)
+                        .removeAttr('visibility');
                     $('#_ed_select_marker')
                             .removeAttr('visibility')
                             .attr('transform', obj.element.getAttribute('transform'));
@@ -1442,12 +1479,14 @@ editor = {};
                         .attr('x1', 0)
                         .attr('y1', -size)
                         .attr('x2', 0)
-                        .attr('y2', size);
+                        .attr('y2', size)
+                        .removeAttr('visibility');
                     $('#_ed_select_axe_2_1,#_ed_select_axe_2_2')
                         .attr('x1', -size)
                         .attr('y1', 0)
                         .attr('x2', size)
-                        .attr('y2', 0);
+                        .attr('y2', 0)
+                        .removeAttr('visibility');
                     $('._ed_select_axe').attr('transform', obj.element.getAttribute('transform'));
 /*
                     $('#_ed_select_axe_1_1,#_ed_select_axe_1_2')
@@ -1457,8 +1496,7 @@ editor = {};
                         .attr('y2', size)
                         .attr('transform', 'rotate('+(obj.angle()||0)+')');
 */
-                } else
-                    $('._ed_select_axe').attr('visibility', 'hidden');
+                }
                 
                 // Take into account parent group transform
                 if (obj.parent_obj && obj.parent_obj.element.getAttribute('transform'))
@@ -1531,6 +1569,11 @@ editor = {};
 //                $('#workspace').focus();
             }
 //                editor.vm.model.select($(this).val());
+        };
+    
+        editor.toggle_block = function (e) {
+//            console.log()
+            $('.block_contents', $(e.target).closest('.block')).slideToggle();
         };
     
     

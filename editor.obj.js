@@ -36,7 +36,7 @@ editor.elm = function(element) {
 
 editor.elm.prototype.ext_title = function () {
     var name = this.title;
-    if (((name === '') || (typeof(name) === 'undefined')) && this.is_text_node)
+    if (((name === '') || (typeof(name) === 'undefined')) && this.is_text_node && (typeof(this.text) !== 'undefined'))
         name = this.text.toString();
     if (typeof(name) === 'undefined')
         name = '$' + this.idx; // :TODO: use parent's child index instead of @idx
@@ -495,8 +495,9 @@ editor.elm_line.prototype.line_length.set = function(val) {
     if (radius) {
         $.observable(this).setProperty("x1", 0);
         $.observable(this).setProperty("x2", 0);
-        $.observable(this).setProperty("y2", -radius - val);
         $.observable(this).setProperty("y1", -radius);
+        $.observable(this).setProperty("y2", -radius - val);
+console.log(-radius, -radius - val)
     } else {
         this.x1 = parseFloat(this.x1);
         this.y1 = parseFloat(this.y1);
@@ -976,10 +977,12 @@ editor.elm_div_group.prototype.update_data_r = function(ev, eventArgs) {
         // y1, y2 coordinates are negative usually
         var y1 = parseFloat(child.y1);
         var y2 = parseFloat(child.y2);
-        var dy = y1 + r;
+        var dy = y2 - y1;
 //        var dy = Math.min(y1, y2) + r;
-        var new_y1 = y1 - dy;
-        var new_y2 = y2 - dy;
+        var new_y1 = -r;
+        var new_y2 = -r - (child.line_length() || 0);
+//        $.observable(this).setProperty("y1", -radius);
+//        $.observable(this).setProperty("y2", -radius - val);
         $.observable(child).setProperty("y1", new_y1);
         $.observable(child).setProperty("y2", new_y2);
     }

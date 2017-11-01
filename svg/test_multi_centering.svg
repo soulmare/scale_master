@@ -10,8 +10,25 @@
   <path class="circlecnt" stroke-width="1.1339" stroke="#0000ff" fill="none" d="M-3.7795,0a3.7795,3.7795 0 1,0 7.5591,0a3.7795,3.7795 0 1,0 -7.5591,0M0 -3.7795 V3.7795 M-3.7795 0 H3.7795" title="Новое отверстие" data-cx="0" data-cy="0" data-r="3.7795" transform="translate(85.4173,0) "/>
   <line class="line v" stroke-width="1.1339" stroke="#0000ff" fill="none" title="rad right" x1="0" y1="0" x2="0" y2="-151.1811" data-length="151.1811" transform="translate(0,32.8819) rotate(41 0,0) "/>
   <line class="line v" stroke-width="1.1339" stroke="#0000ff" fill="none" title="rad left" x1="0" y1="0" x2="0" y2="-151.1811" data-length="151.1811" transform="translate(0,32.8819) rotate(-41 0,0) "/>
-  <path class="arc" stroke-width="1.1339" stroke="#0000ff" fill="none" d="M 83.7419 -173.6149 A 192.7559 192.7559 0 0 0 -83.7419 -173.6149" title="base" data-angle="51.5" data-r="192.7559" transform="translate(-1.5118,109.6063) "/>
+  <path class="arc" stroke-width="1.1339" stroke="#0000ff" fill="none" d="M 83.7419 -173.6149 A 192.7559 192.7559 0 0 0 -83.7419 -173.6149" title="base" data-angle="51.5" data-r="192.7559" transform="translate(0,109.6063) "/>
   <rect class="rect" stroke-width="1.1339" stroke="#0000ff" fill="none" title="Новый прямоугольник" x="-109.6063" y="-81.2598" width="215.4331" height="158.7402" transform="translate(0,-52.9134) "/>
+  <path class="arc" stroke-width="7.937" stroke="#0000ff" fill="none" d="M 53.2288 -191.937 A 199.1811 199.1811 0 0 0 -53.2288 -191.937" title="black" data-angle="31" data-r="199.1811" transform="translate(0,109.6063) rotate(-3.5 0,0) "/>
+  <path class="circlecnt" stroke-width="0.7559" stroke="#ff0000" fill="none" d="M-7.5591,0a7.5591,7.5591 0 1,0 15.1181,0a7.5591,7.5591 0 1,0 -15.1181,0M0 -7.5591 V7.5591 M-7.5591 0 H7.5591" title="arc center" data-cx="0" data-cy="0" data-r="7.5591" transform="translate(0,109.6063) "/>
+  <path class="arc" stroke-width="7.937" stroke="#0000ff" fill="none" d="M 12.1597 -198.8096 A 199.1811 199.1811 0 0 0 -12.1597 -198.8096" title="red" data-angle="7" data-r="199.1811" transform="translate(0,109.6063) rotate(19 0,0) "/>
+  <g class="div" stroke-width="1.8898" stroke="#ff0000" fill="none" title="top black" data-angle="81.5" data-r="128.5039" data-length="15.1181" transform="translate(0,32.8819) ">
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(-40.75)"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(-32.6,0,0)"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(-24.45)"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(-16.3)"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(-8.15)"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(8.15,0,0)"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(16.3)"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(24.45)"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(32.6)"/>
+   <line x1="0" y1="-128.5039" x2="0" y2="-143.622" data-length="0" transform="rotate(40.75)"/>
+  </g>
+  <path class="circlecnt" stroke-width="0.7559" stroke="#ff0000" fill="none" d="M-7.5591,0a7.5591,7.5591 0 1,0 15.1181,0a7.5591,7.5591 0 1,0 -15.1181,0M0 -7.5591 V7.5591 M-7.5591 0 H7.5591" title="divs center" data-cx="0" data-cy="0" data-r="7.5591" transform="translate(0,32.8819) "/>
  </g>
 
 </svg>
