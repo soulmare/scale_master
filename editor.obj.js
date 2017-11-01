@@ -468,18 +468,17 @@ editor.elm_line.prototype.constructor = editor.elm_line;
 
 // Length (if changed, updates [x2,y2] point position)
 editor.elm_line.prototype.line_length = function () {
-//    console.log(this.x1, this.y1, this.x2, this.y2);
-    this.x1 = parseFloat(this.x1);
-    this.y1 = parseFloat(this.y1);
-    this.x2 = parseFloat(this.x2);
-    this.y2 = parseFloat(this.y2);
-    var length = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
-    var data_length = parseFloat(this.element.getAttribute('data-length')) || 0;
-    var sign = data_length >= 0 ? 1 : -1;
-    if (Math.abs(data_length) != length){
-        this.element.setAttribute('data-length', Math.abs(data_length)*sign);
+    if (!this.data_length) {
+        this.x1 = parseFloat(this.x1);
+        this.y1 = parseFloat(this.y1);
+        this.x2 = parseFloat(this.x2);
+        this.y2 = parseFloat(this.y2);
+        var length = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
+        if (this.y1 < this.y1)
+            length = -length;
+        $.observable(this).setProperty("data_length", length);
     }
-    return editor.units_round(length*sign);
+    return this.data_length;
 };
 editor.elm_line.prototype.line_length.set = function(val) {
 //console.log(val)
@@ -529,7 +528,8 @@ editor.elm_line.prototype.line_length.set = function(val) {
             $.observable(this).setProperty("y1", editor.units_round(new_y1, 2));
         }
     }
-    this.element.setAttribute('data-length', val);
+//    this.element.setAttribute('data-length', val);
+    $.observable(this).setProperty("data_length", val);
 };
 editor.elm_line.prototype.line_length.depends = ['x1', 'y1', 'x2', 'y2'];
 
@@ -1019,9 +1019,9 @@ editor.elm_div_group.prototype.update_child_divs = function(ev, eventArgs) {
                     div_stroke = levn_data[j].stroke;
             }
         }
-//console.log(levn_data)
 
-        if (eventArgs && eventArgs.path.match(/length/) && (child.line_length != div_length))
+//console.log(child.line_length(), div_length)
+        if (eventArgs && eventArgs.path.match(/length/) && (child.line_length() != div_length))
             $.observable(child).setProperty('line_length', div_length);
 
         if (typeof(div_stroke_width) == 'number') {

@@ -126,6 +126,19 @@
    <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(28.3)" data-anchor="true">100</text>
    <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(39.5)">300</text>
   </g>
+  <path class="arc" stroke-width="1.1339" stroke="#0000ff" fill="none" d="M 90.5832 -113.8787 A 145.5118 145.5118 0 0 0 -90.5832 -113.8787" title="Новая дуга" data-angle="77" data-r="145.5118" transform="rotate(4.3)"/>
+  <g class="div" stroke-width="1.1339" stroke="#0000ff" fill="none" title="Новая группа делений" data-angle="85.9" data-r="145.8898" data-length="-5.6693" transform="rotate(0.05)">
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(-42.95)" data-length="-5.6693" data-anchor="true"/>
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(-33.4056)" data-length="-5.6693"/>
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(-23.8611)" data-length="-5.6693"/>
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(-14.3167)" data-length="-5.6693"/>
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(-4.7722)" data-length="-5.6693"/>
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(4.7722)" data-length="-5.6693"/>
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(14.3167)" data-length="-5.6693"/>
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(23.8611)" data-length="-5.6693"/>
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(33.4056)" data-length="-5.6693"/>
+   <line x1="0" y1="-145.8898" x2="0" y2="-142.1102" transform="rotate(42.95)" data-length="-5.6693"/>
+  </g>
  </g>
 
 </svg>
