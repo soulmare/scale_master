@@ -228,7 +228,6 @@ editor.vm = {};
 
                     // Get radius of drag point
                     editor.vm.model.drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1])
-//console.log(editor.vm.model.drag_point)
                     //this.getAttribute('id') == '_ed_select_marker'
                     
                     // Get angle of drag point (only for grouped elements)
@@ -291,6 +290,7 @@ editor.vm = {};
                         
                         // Turn element
                         if (sel_obj.parent_obj) {
+                            var element_pos = [editor.px_to_units(sel_obj.parent_obj.shift_x() || 0), editor.px_to_units(sel_obj.parent_obj.shift_y() || 0)];
                             var dx = pointer_pos[0]-element_pos[0];
                             var dy = element_pos[1]-pointer_pos[1];
                             var drag_angle = Math.atan2(dx, dy) * 180.0 / Math.PI - (sel_obj.parent_obj.angle() || 0);
@@ -300,6 +300,7 @@ editor.vm = {};
                                 if (drag_angle-sel_obj.parent_obj.angle() > 0)
                                     drag_angle = -drag_angle;
                             }
+console.log(pointer_pos[0], element_pos[0], drag_angle)
                             $.observable(sel_obj).setProperty('angle_val', _.round(drag_angle, 1));
                         }
 
