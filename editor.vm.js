@@ -227,7 +227,11 @@ editor.vm = {};
 //                    editor.vm.model.drag_angle = Math.atan2(pointer_pos[0], -pointer_pos[1]) * 180.0 / Math.PI;
 
                     // Get radius of drag point
-                    editor.vm.model.drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1])
+                    var elem_radius = sel_obj.type == 'arc' ? sel_obj.radius() || 0 : sel_obj.data_r || 0;
+                    editor.vm.model.drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1]) - editor.px_to_units(elem_radius);
+//                    var radius_delta = editor.vm.model.drag_radius - drag_radius;
+//console.log('M', editor.vm.model.drag_radius, radius_delta, sel_obj[prop_name]);
+//console.log('fix',editor.vm.model.drag_radius,elem_radius)
                     //this.getAttribute('id') == '_ed_select_marker'
                     
                     // Get angle of drag point (only for grouped elements)
@@ -250,7 +254,7 @@ editor.vm = {};
 //                if (e.button !== 0) return;
 //console.log('- elem');
                 editor.vm.model.drag_point = null;
-                $('rect#background', editor.document).css({'cursor': ""});
+//                $('rect#background', editor.document).css({'cursor': ""});
                 setTimeout(function () {editor.vm.model.is_drag_click = false;editor.vm.model.is_drag_marker_click = false;}, 200);
             },
 
@@ -258,7 +262,7 @@ editor.vm = {};
 //                if (e.button !== 0) return;
 //console.log('- doc');
                 editor.vm.model.drag_point = null;
-                $('rect#background', editor.document).css({'cursor': ""});
+//                $('rect#background', editor.document).css({'cursor': ""});
                 setTimeout(function () {editor.vm.model.is_drag_click = false;editor.vm.model.is_drag_marker_click = false;}, 200);
             },
             
@@ -267,7 +271,7 @@ editor.vm = {};
 //console.log(editor.vm.model.drag_point,sel_obj)
                 if (editor.vm.model.drag_point && sel_obj) {
                     editor.vm.model.is_drag_click = true;
-                    var cursor = 'cur_move.png';
+//                    var cursor = 'cur_move.png';
                     var pointer_pos = editor.coords_mouse_event_to_document(e);
                     var element_pos = [editor.px_to_units(sel_obj.shift_x() || 0), editor.px_to_units(sel_obj.shift_y() || 0)];
 
@@ -306,19 +310,20 @@ editor.vm = {};
 
                     } else if (!e.ctrlKey && ((sel_obj.type == 'arc') || ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label'))))) {
                         // Change radius
-                        var cursor = 'cur_move_radial.png';
+//                        var cursor = 'cur_move_radial.png';
 //console.log('Change radius');
-//console.log('M', editor.vm.model.drag_radius, editor.px_to_units(sel_obj.radius()), drag_radius);
-                        var drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1])
-//                        var new_radius
+                        var drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1]);
+//                        var radius_delta = editor.vm.model.drag_radius - drag_radius;
                         var prop_name = sel_obj.type == 'arc' ? 'radius' : 'data_r';
-                        $.observable(sel_obj).setProperty(prop_name, editor.units_round(editor.units_to_px(drag_radius), 1));
+console.log('M', drag_radius, editor.vm.model.drag_radius, sel_obj[prop_name]);
+//                        $.observable(sel_obj).setProperty(prop_name, editor.units_round(editor.units_to_px(drag_radius), 1));
+                        $.observable(sel_obj).setProperty(prop_name, editor.units_round(editor.units_to_px(drag_radius - editor.vm.model.drag_radius), 1));
                     } else {
                         // Move element
                         $.observable(sel_obj).setProperty('shift_x', editor.units_round(editor.units_to_px(pointer_pos[0] + editor.vm.model.drag_point[0]), 1));
                         $.observable(sel_obj).setProperty('shift_y', editor.units_round(editor.units_to_px(pointer_pos[1] + editor.vm.model.drag_point[1]), 1));
                     }
-                    $('rect#background', editor.document).css({'cursor': "url('images/"+cursor+"') 10 10, move"});
+//                    $('rect#background', editor.document).css({'cursor': "url('images/"+cursor+"') 10 10, move"});
                 }
             },
             

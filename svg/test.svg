@@ -5,9 +5,9 @@
  <rect fill="#ffffff" height="100%" width="100%" id="background"/>
  <g stroke="#000000" transform="translate(397,562)" fill="none" id="scale_wrapper">
   <path class="arc" stroke-width="1.1339" stroke="#000000" fill="none" d="M 24.0408 -29.1638 A 37.7953 37.7953 0 0 0 -24.0408 -29.1638" title="Новая дуга" data-angle="79" data-r="37.7953"/>
-  <g class="div" stroke-width="1.1339" stroke="#000000" fill="none" title="Новая группа делений" data-angle="79" data-r="37.7953" data-length="-18.8976">
-   <line x1="0" y1="-37.7953" x2="0" y2="-18.8976" data-length="37.7953" transform="rotate(-39.5)"/>
-   <line x1="0" y1="-37.7953" x2="0" y2="-18.8976" data-length="37.7953" transform="rotate(39.5)"/>
+  <g class="div" stroke-width="1.1339" stroke="#000000" fill="none" title="Новая группа делений" data-angle="79" data-r="37.7953" data-length="18.8976">
+   <line x1="0" y1="-37.7953" x2="0" y2="-56.6929" data-length="37.7953" transform="rotate(-39.5)"/>
+   <line x1="0" y1="-37.7953" x2="0" y2="-56.6929" data-length="37.7953" transform="rotate(39.5)"/>
   </g>
  </g>
 

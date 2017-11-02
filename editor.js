@@ -145,9 +145,9 @@ editor = {};
             
 //            editor.open_url('svg/M4200_69X60_20V.svg');
 //            editor.open_url('svg/example_compass.svg');
-            var initial_document = 'svg/example_multiscale.svg';
+//            var initial_document = 'svg/example_multiscale.svg';
 //            var initial_document = 'svg/test_negative_line_length2.svg';
-//            var initial_document = 'svg/test.svg';
+            var initial_document = 'svg/test.svg';
 //            var initial_document = 'svg/new_scale.svg';
 
             if (editor.cfg.store_last_document) {
@@ -423,7 +423,12 @@ editor = {};
                 }
                 
             });
-            
+
+            // URL hash processing
+            $(window).bind('hashchange', function() {
+                console.log(location.hash);
+            });
+
         }
 
         
@@ -516,7 +521,7 @@ editor = {};
             editor.update_rulers();
 
             // Change selector box elements sizes
-            $('#_ed_select_marker').attr('r', 3/editor.zoom+4);
+            $('#_ed_select_marker').attr('r', 3/editor.zoom+0.3);
             $('#_ed_select_marker').attr('stroke-width', 1.5/editor.zoom);
             $('._ed_helper_line').attr('stroke-width', 1.5/editor.zoom);
             
@@ -855,9 +860,11 @@ editor = {};
             editor.select_box.setAttribute('id', '_ed_select_box');
             editor.select_box.setAttribute('visibility', 'hidden');
             editor.select_box.setAttribute('class', '_ed_temp');
+            
+            // Add select box margin
             var ids = ['_ed_select_box_margin1', '_ed_select_box_margin2'];
             var margin_idx = 0;
-            var dash_colors = ['#FF0000', '#ffff00'];
+            var dash_colors_margins = ['#FF0000', '#ffff00'];
             for (var i in ids) {
                 var sel_margin = document.createElementNS(editor.ns_svg, 'rect');
                 sel_margin.setAttribute('id', ids[i]);
@@ -865,7 +872,7 @@ editor = {};
                 sel_margin.setAttribute('fill', 'none');
 //                    sel_margin.setAttribute('opacity', '0.4');
                 sel_margin.setAttribute('stroke-width', 1.0);
-                sel_margin.setAttribute('stroke', margin_idx ? dash_colors[0] : dash_colors[1]);
+                sel_margin.setAttribute('stroke', margin_idx ? dash_colors_margins[0] : dash_colors_margins[1]);
                 if (margin_idx)
                     sel_margin.setAttribute('stroke-dasharray', '3,3');
 //                sel_margin.setAttribute('style', 'pointer-events:none');
@@ -873,20 +880,35 @@ editor = {};
                 margin_idx++;
             }
 
-            // Selection axis
-            var dash_colors = ['#FFFFFF', '#000000'];
+            // Select box helper circles
+            for (var i=1; i<=2; i++)
+                for (var j=1; j<=2; j++) {
+                    var elem = document.createElementNS(editor.ns_svg, 'circle');
+                    elem.setAttribute('id', '_ed_select_circle_'+i+'_'+j);
+                    elem.setAttribute('class', '_ed_select_circle _ed_select_circle_'+i+' _ed_helper_line');
+                    elem.setAttribute('stroke-width', 1.0);
+                    elem.setAttribute('fill', 'none');
+                    elem.setAttribute('stroke', j == 1 ? dash_colors_margins[0] : dash_colors_margins[1]);
+                    if (j == 2)
+                        elem.setAttribute('stroke-dasharray', '2,2');
+                    editor.select_box.appendChild(elem);
+                }
+            
+            // Select box axis
+            var dash_colors_axis = ['#FFFFFF', '#000000'];
             for (var i=1; i<=3; i++)
                 for (var j=1; j<=2; j++) {
                     var sel_axe = document.createElementNS(editor.ns_svg, 'line');
                     sel_axe.setAttribute('id', '_ed_select_axe_'+i+'_'+j);
-                    sel_axe.setAttribute('class', '_ed_select_axe _ed_helper_line');
+                    sel_axe.setAttribute('class', '_ed_select_axe _ed_select_axe_'+i+' _ed_helper_line');
                     sel_axe.setAttribute('stroke-width', 1.0);
-                    sel_axe.setAttribute('stroke', j == 1 ? dash_colors[0] : dash_colors[1]);
+                    sel_axe.setAttribute('stroke', j == 1 ? dash_colors_axis[0] : dash_colors_axis[1]);
                     if (j == 2)
                         sel_axe.setAttribute('stroke-dasharray', '2,2');
                     editor.select_box.appendChild(sel_axe);
                 }
 
+            // Select box marker
             var sel_marker = document.createElementNS(editor.ns_svg, 'circle');
             sel_marker.setAttribute('id', '_ed_select_marker');
             sel_marker.setAttribute('stroke-width', 1.0);
@@ -897,6 +919,7 @@ editor = {};
             
             service_grp.appendChild(editor.select_box);
 
+            
             // Document median axis
             var dash_colors = ['#FFFFFF', '#0000ff'];
             var doc_size = [$(editor.document).width(), $(editor.document).height()];
@@ -1450,28 +1473,8 @@ editor = {};
             if (obj) {
                 editor.select_box.setAttribute('visibility', 'visible');
 
-                // Set select box margins
-                var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
-                var obj_stroke_width = parseFloat(obj.element.getAttribute('stroke-width')) || 0;
-                var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
-                // Apply minimum constraints on bbox
-                var min_bbox_size = 2;
-                if (bb.width < min_bbox_size){
-                    bb.x -= (min_bbox_size-bb.width)/2;
-                    bb.width = min_bbox_size;
-                }
-                if (bb.height < min_bbox_size){
-                    bb.y -= (min_bbox_size-bb.height)/2;
-                    bb.height = min_bbox_size;
-                }
-                $('._ed_select_box_margin').attr('x', bb.x - sb_stroke_width - obj_stroke_width/2);
-                $('._ed_select_box_margin').attr('y', bb.y - sb_stroke_width - obj_stroke_width/2);
-                $('._ed_select_box_margin').attr('width', bb.width + sb_stroke_width*2 + obj_stroke_width);
-                $('._ed_select_box_margin').attr('height', bb.height + sb_stroke_width*2 + obj_stroke_width);
-                
-                // Axis
-                $('._ed_select_axe').attr('visibility', 'hidden').removeAttr('transform');
-                $('#_ed_select_marker').attr('visibility', 'hidden').removeAttr('transform');
+                $('#_ed_select_marker,._ed_select_box_margin,._ed_select_axe,._ed_select_circle').attr('visibility', 'hidden').removeAttr('transform');
+
                 if ((((obj.type == 'div') || (obj.type == 'label')) && (obj.tag == 'g')) || (obj.type == 'arc')) {
 //console.log(obj.data_angle, obj.angle() || 0, obj.data_r);
 //                    var radius = obj.data_r || 0;
@@ -1483,21 +1486,21 @@ editor = {};
 //                    p1.y = editor.px_to_units(p1.y);
 //console.log(p1);
                     // left angle
-                    $('#_ed_select_axe_1_1,#_ed_select_axe_1_2')
+                    $('._ed_select_axe_1')
                         .attr('x1', obj.shift_x() || 0)
                         .attr('y1', obj.shift_y() || 0)
                         .attr('x2', p1.x || 0)
                         .attr('y2', p1.y || 0)
                         .removeAttr('visibility');
                     // right angle
-                    $('#_ed_select_axe_2_1,#_ed_select_axe_2_2')
+                    $('._ed_select_axe_2')
                         .attr('x1', obj.shift_x() || 0)
                         .attr('y1', obj.shift_y() || 0)
                         .attr('x2', p2.x || 0)
                         .attr('y2', p2.y || 0)
                         .removeAttr('visibility');
                     // median angle
-                    $('#_ed_select_axe_3_1,#_ed_select_axe_3_2')
+                    $('._ed_select_axe_3')
                         .attr('x1', obj.shift_x() || 0)
                         .attr('y1', obj.shift_y() || 0)
                         .attr('x2', p_med.x || 0)
@@ -1506,30 +1509,67 @@ editor = {};
                     $('#_ed_select_marker')
                             .removeAttr('visibility')
                             .attr('transform', obj.element.getAttribute('transform'));
+                    
+                    // Circular helpers
+                    var radius = obj.type == 'arc' ? parseFloat(obj.radius() || 0) : parseFloat(obj.data_r || 0);
+                    if (radius>0) {
+                        $('._ed_select_circle').attr('transform', obj.element.getAttribute('transform'))
+                        $('._ed_select_circle_1')
+                                .removeAttr('visibility')
+                                .attr('r', radius);
+                        if (obj.type == 'div') {
+                            var r2 = radius + parseFloat(obj.data_length || 0);
+                            if (r2 > 0)
+                                $('._ed_select_circle_2')
+                                        .removeAttr('visibility')
+                                        .attr('r', r2);
+                        }
+                    }
 //                } else if ((obj.type == 'image') || (obj.type == 'circle') || (obj.type == 'circlecnt') || (obj.type == 'rect') || (obj.type == 'plate')) {
-                } else if ((obj.tag !== 'line') && (obj.tag !== 'text')) {
-                    var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
-                    $('#_ed_select_axe_1_1,#_ed_select_axe_1_2')
-                        .attr('x1', 0)
-                        .attr('y1', -size)
-                        .attr('x2', 0)
-                        .attr('y2', size)
-                        .removeAttr('visibility');
-                    $('#_ed_select_axe_2_1,#_ed_select_axe_2_2')
-                        .attr('x1', -size)
-                        .attr('y1', 0)
-                        .attr('x2', size)
-                        .attr('y2', 0)
-                        .removeAttr('visibility');
-                    $('._ed_select_axe').attr('transform', obj.element.getAttribute('transform'));
-/*
-                    $('#_ed_select_axe_1_1,#_ed_select_axe_1_2')
-                        .attr('x1', obj.shift_x() || 0)
-                        .attr('y1', -size)
-                        .attr('x2', obj.shift_x() || 0)
-                        .attr('y2', size)
-                        .attr('transform', 'rotate('+(obj.angle()||0)+')');
-*/
+                } else {
+
+//                    if ((obj.tag !== 'line') && (obj.tag !== 'text')) {
+                    // Select box crosschair axis
+                    // Not for non-grouped lines
+                    if ((obj.tag !== 'line') || (obj.parent_obj && (obj.parent_obj.tag == 'g'))) {
+                        var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
+                        $('._ed_select_axe_1')
+                            .attr('x1', 0)
+                            .attr('y1', -size)
+                            .attr('x2', 0)
+                            .attr('y2', size)
+                            .removeAttr('visibility');
+                        $('._ed_select_axe_2')
+                            .attr('x1', -size)
+                            .attr('y1', 0)
+                            .attr('x2', size)
+                            .attr('y2', 0)
+                            .removeAttr('visibility');
+                        $('._ed_select_axe').attr('transform', obj.element.getAttribute('transform'));
+                    }
+
+                    // Set select box rectangle-type margins
+                    
+                    var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
+                    var obj_stroke_width = parseFloat(obj.element.getAttribute('stroke-width')) || 0;
+                    var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
+                    // Apply minimum constraints on bbox
+                    var min_bbox_size = 2;
+                    if (bb.width < min_bbox_size){
+                        bb.x -= (min_bbox_size-bb.width)/2;
+                        bb.width = min_bbox_size;
+                    }
+                    if (bb.height < min_bbox_size){
+                        bb.y -= (min_bbox_size-bb.height)/2;
+                        bb.height = min_bbox_size;
+                    }
+                    $('._ed_select_box_margin')
+                            .attr('x', bb.x - sb_stroke_width - obj_stroke_width/2)
+                            .attr('y', bb.y - sb_stroke_width - obj_stroke_width/2)
+                            .attr('width', bb.width + sb_stroke_width*2 + obj_stroke_width)
+                            .attr('height', bb.height + sb_stroke_width*2 + obj_stroke_width)
+                            .removeAttr('visibility');
+                                        
                 }
                 
                 // Take into account parent group transform
