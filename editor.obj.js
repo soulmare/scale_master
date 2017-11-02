@@ -740,6 +740,7 @@ editor.elm_supervisor_group.prototype.count_children.set = function (val) {
     if (val < 0) val = 0;
     if (this.children_objs.length < val) {
         // Append new children
+        var old_last_child = this.children_objs[this.children_objs.length-1];
         while (this.children_objs.length < val) {
             // add_element() must be defined in ancestor class, as it creates different element types
             var idx = editor.vm.model.add_element(this.new_child_element());
@@ -749,9 +750,13 @@ editor.elm_supervisor_group.prototype.count_children.set = function (val) {
 //            element.setAttribute('title', '#'+idx);
             children_count_delta++;
         }
-        if (this.update_child_divs)
-            this.update_child_divs({target:this});
-//            _.throttle(function () {this.update_child_divs({target:this})}, 30);
+        if (children_count_delta && old_last_child && old_last_child.data_anchor) {
+            $.observable(old_last_child).setProperty('data_anchor', false);
+//console.log('unanc')
+        }
+        if (this.update_child_objs)
+            this.update_child_objs({target:this});
+//            _.throttle(function () {this.update_child_objs({target:this})}, 30);
     } else if (this.children_objs.length > val) {
         // Remove children
         while (this.children_objs.length > val) {
@@ -952,9 +957,9 @@ editor.elm_div_group = function(element) {
     }
     // Parent constructor
     editor.elm_supervisor_group.apply(this, arguments);
-    $.observe(this, 'data_length', this.update_child_divs);
+    $.observe(this, 'data_length', this.update_child_objs);
     for (var i = 2; i<=editor.cfg.div_levels_count; i++)
-        $.observe(this, 'data_lev'+i+'_each', 'data_lev'+i+'_length', 'data_lev'+i+'_stroke_width', 'data_lev'+i+'_stroke', this.update_child_divs);
+        $.observe(this, 'data_lev'+i+'_each', 'data_lev'+i+'_length', 'data_lev'+i+'_stroke_width', 'data_lev'+i+'_stroke', this.update_child_objs);
 }
 editor.elm_div_group.prototype = Object.create(editor.elm_supervisor_group.prototype);
 editor.elm_div_group.prototype.constructor = editor.elm_div_group;
@@ -986,7 +991,7 @@ editor.elm_div_group.prototype.update_data_r = function(ev, eventArgs) {
     }
 }
 
-editor.elm_div_group.prototype.update_child_divs = function(ev, eventArgs) {
+editor.elm_div_group.prototype.update_child_objs = function(ev, eventArgs) {
     var _this = ev.target;
     var length = parseFloat(_this.data_length);
 

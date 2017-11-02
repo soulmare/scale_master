@@ -315,7 +315,7 @@ editor.vm = {};
                         var drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1]);
 //                        var radius_delta = editor.vm.model.drag_radius - drag_radius;
                         var prop_name = sel_obj.type == 'arc' ? 'radius' : 'data_r';
-console.log('M', drag_radius, editor.vm.model.drag_radius, sel_obj[prop_name]);
+//console.log('M', drag_radius, editor.vm.model.drag_radius, sel_obj[prop_name]);
 //                        $.observable(sel_obj).setProperty(prop_name, editor.units_round(editor.units_to_px(drag_radius), 1));
                         $.observable(sel_obj).setProperty(prop_name, editor.units_round(editor.units_to_px(drag_radius - editor.vm.model.drag_radius), 1));
                     } else {
