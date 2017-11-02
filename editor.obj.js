@@ -745,15 +745,15 @@ editor.elm_supervisor_group.prototype.count_children.set = function (val) {
             // add_element() must be defined in ancestor class, as it creates different element types
             var idx = editor.vm.model.add_element(this.new_child_element());
             var new_obj = editor.vm.model.get(idx);
+            new_obj.element.setAttribute('data-is-new', 'true');
             $.observable(new_obj).setProperty('data_keep_angle', this.data_keep_angle);
 //            $.observable(new_obj).setProperty('angle');
 //            element.setAttribute('title', '#'+idx);
             children_count_delta++;
         }
-        if (children_count_delta && old_last_child && old_last_child.data_anchor) {
+        // Old last div is not edge any more, so remove it's anchor
+        if (children_count_delta && old_last_child && old_last_child.data_anchor)
             $.observable(old_last_child).setProperty('data_anchor', false);
-//console.log('unanc')
-        }
         if (this.update_child_objs)
             this.update_child_objs({target:this});
 //            _.throttle(function () {this.update_child_objs({target:this})}, 30);
@@ -762,12 +762,13 @@ editor.elm_supervisor_group.prototype.count_children.set = function (val) {
         while (this.children_objs.length > val) {
             var obj = this.children_objs.pop();
 //console.log('-child');
-//            obj.element.remove();
-//            editor.vm.model.remove(obj.idx);
             editor.vm.model.delete(null, null, obj);
             children_count_delta--;
         }
     }
+    
+    for (var i in this.children_objs)
+         this.children_objs[i].element.removeAttribute('data-is-new');
 
     if (children_count_delta)
         // Re-arrange children according to new count
@@ -807,7 +808,7 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
     }
 
     
-    // Get "fixed" divs for interpolation
+    // Get anchored divs for interpolation
     var fixed_divs_angles = [];
     var fixed_divs_indexes = [];
     for (var i = 0; i <= points_count; i++) {
@@ -1023,7 +1024,9 @@ editor.elm_div_group.prototype.update_child_objs = function(ev, eventArgs) {
         }
 
 //console.log(child.line_length(), div_length)
-        if (eventArgs && eventArgs.path.match(/length/) && (child.line_length() != div_length))
+        var set_length_all = eventArgs && eventArgs.path.match(/length/);
+        var set_length_current = child.element.getAttribute('data-is-new');
+        if ((set_length_all || set_length_current) && (child.line_length() != div_length))
             $.observable(child).setProperty('line_length', div_length);
 
         if (typeof(div_stroke_width) == 'number') {

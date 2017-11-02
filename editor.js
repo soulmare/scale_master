@@ -1531,7 +1531,8 @@ editor = {};
 //                    if ((obj.tag !== 'line') && (obj.tag !== 'text')) {
                     // Select box crosschair axis
                     // Not for non-grouped lines
-                    if ((obj.tag !== 'line') || (obj.parent_obj && (obj.parent_obj.tag == 'g'))) {
+                    var is_group_member = obj.parent_obj && (obj.parent_obj.tag == 'g');
+                    if ((obj.tag !== 'line') || is_group_member) {
                         var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
                         $('._ed_select_axe_1')
                             .attr('x1', 0)
@@ -1539,12 +1540,13 @@ editor = {};
                             .attr('x2', 0)
                             .attr('y2', size)
                             .removeAttr('visibility');
-                        $('._ed_select_axe_2')
-                            .attr('x1', -size)
-                            .attr('y1', 0)
-                            .attr('x2', size)
-                            .attr('y2', 0)
-                            .removeAttr('visibility');
+                        if (!is_group_member)
+                            $('._ed_select_axe_2')
+                                .attr('x1', -size)
+                                .attr('y1', 0)
+                                .attr('x2', size)
+                                .attr('y2', 0)
+                                .removeAttr('visibility');
                         $('._ed_select_axe').attr('transform', obj.element.getAttribute('transform'));
                     }
 
