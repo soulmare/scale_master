@@ -38,14 +38,14 @@
    <line x1="0" y1="-209.7638" x2="0" y2="-215.4331" data-length="5.6693" transform="rotate(39.56)"/>
    <line x1="0" y1="-209.7638" x2="0" y2="-219.2126" data-length="9.4488" transform="rotate(43)"/>
   </g>
-  <g class="label" title="~ V, A" fill="#ff0000" stroke="none" dominant-baseline="central" text-anchor="middle" font-size="10.5827" data-r="225.6378" data-angle="86" data-keep-angle="false" data-label-step="5" data-label-start="0" font-weight="bold" font-style="normal">
-   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-43)">0</text>
-   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-35.6)" data-anchor="true">5</text>
-   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-21.3)" data-anchor="true">10</text>
-   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-6.1)" data-anchor="true">15</text>
-   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(10)" data-anchor="true">20</text>
-   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(25.8)" data-anchor="true">25</text>
-   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(43)">30</text>
+  <g class="label" title="~ V, A" fill="#ff0000" stroke="none" dominant-baseline="central" text-anchor="middle" font-size="10.5827" data-r="225.6378" data-angle="86" data-keep-angle="" data-label-step="5" data-label-start="0" font-weight="bold" font-style="normal">
+   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-43)">0</text>
+   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-35.6)" data-anchor="true">5</text>
+   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-21.3)" data-anchor="true">10</text>
+   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-6.1)" data-anchor="true">15</text>
+   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(10)" data-anchor="true">20</text>
+   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(25.8)" data-anchor="true">25</text>
+   <text x="0" y="-225.6378" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(43)">30</text>
   </g>
   <g class="div" stroke-width="1.1339" stroke="#000000" fill="none" title="- V, A" data-angle="86" data-r="190.8661" data-length="-5.6693" data-linearity-exponent="1" data-lev2-each="5" data-lev2-length="-9.4488">
    <line x1="0" y1="-190.8661" x2="0" y2="-181.4173" data-length="-9.4488" transform="rotate(-43)"/>
@@ -80,14 +80,14 @@
    <line x1="0" y1="-190.8661" x2="0" y2="-185.1969" data-length="-5.6693" transform="rotate(40.1333)"/>
    <line x1="0" y1="-190.8661" x2="0" y2="-181.4173" data-length="-9.4488" transform="rotate(43)"/>
   </g>
-  <g class="label" title="- V, A" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="10.5827" data-r="175.748" data-angle="86" data-keep-angle="false" data-label-step="5" data-label-start="0">
-   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-43)">0</text>
-   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-28.6667)">5</text>
-   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-14.3333)">10</text>
-   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false">15</text>
-   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(14.3333)">20</text>
-   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(28.6667)">25</text>
-   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(43)">30</text>
+  <g class="label" title="- V, A" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="10.5827" data-r="175.748" data-angle="86" data-keep-angle="" data-label-step="5" data-label-start="0">
+   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-43)">0</text>
+   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-28.6667)">5</text>
+   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-14.3333)">10</text>
+   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="">15</text>
+   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(14.3333)">20</text>
+   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(28.6667)">25</text>
+   <text x="0" y="-175.748" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(43)">30</text>
   </g>
   <path class="arc" stroke-width="1.1339" stroke="#000000" fill="none" d="M 94.961 -115.1969 A 149.2913 149.2913 0 0 0 -94.961 -115.1969" title="Ohm" data-angle="79" data-r="149.2913" transform="rotate(-3.7)"/>
   <g class="div" stroke-width="1.1339" stroke="#000000" fill="none" title="Ohm" data-angle="86.0938" data-r="149.6693" data-length="5.6693" transform="rotate(-0.16)">
@@ -117,14 +117,14 @@
    <line x1="0" y1="-149.6693" x2="0" y2="-158.3622" data-length="8.6929" transform="rotate(35.9)" data-anchor="true"/>
    <line x1="0" y1="-149.6693" x2="0" y2="-158.3622" data-length="8.6929" transform="rotate(43.0469)" data-anchor="true"/>
   </g>
-  <g class="label" title="Ohm" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="7.937" data-r="162.5197" data-angle="79" data-keep-angle="false" data-label-step="10" data-label-start="0" transform="rotate(-3.7)">
-   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-39.5)">0</text>
-   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-17)" data-anchor="true">10</text>
-   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-3.8)" data-anchor="true">20</text>
-   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(5)" data-anchor="true">30</text>
-   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(15.5)" data-anchor="true">50</text>
-   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(28.3)" data-anchor="true">100</text>
-   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(39.5)">300</text>
+  <g class="label" title="Ohm" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="7.937" data-r="162.5197" data-angle="79" data-keep-angle="" data-label-step="10" data-label-start="0" transform="rotate(-3.7)">
+   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-39.5)">0</text>
+   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-17)" data-anchor="true">10</text>
+   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-3.8)" data-anchor="true">20</text>
+   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(5)" data-anchor="true">30</text>
+   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(15.5)" data-anchor="true">50</text>
+   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(28.3)" data-anchor="true">100</text>
+   <text x="0" y="-162.5197" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(39.5)">300</text>
   </g>
   <path class="arc" stroke-width="1.1339" stroke="#000000" fill="none" d="M 90.8185 -114.1745 A 145.8898 145.8898 0 0 0 -90.8185 -114.1745" title="kOhm, pF" data-angle="77" data-r="145.8898" transform="rotate(4.3)"/>
   <g class="div" stroke-width="1.1339" stroke="#000000" fill="none" title="kOhm, pF" data-angle="85.9" data-r="145.8898" data-length="-5.6693" transform="rotate(0.05)">
@@ -160,15 +160,15 @@
    <line x1="0" y1="-145.8898" x2="0" y2="-140.2205" transform="rotate(39.8)" data-anchor="true"/>
    <line x1="0" y1="-145.8898" x2="0" y2="-136.441" transform="rotate(42.95)"/>
   </g>
-  <g class="label" title="kOhm, pF" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="7.937" data-r="131.5276" data-angle="77.3888" data-keep-angle="false" data-label-step="-10" data-label-start="80" transform="rotate(4.48)">
-   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-38.6944)" data-anchor="true">500</text>
-   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-28.2)" data-anchor="true">200</text>
-   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-16)" data-anchor="true">100</text>
-   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-1.2)" data-anchor="true">50</text>
-   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(9.4)" data-anchor="true">30</text>
-   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(16.9)" data-anchor="true">20</text>
-   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(26.2)" data-anchor="true">10</text>
-   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(38.6944)" data-anchor="true">0</text>
+  <g class="label" title="kOhm, pF" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="7.937" data-r="131.5276" data-angle="77.3888" data-keep-angle="" data-label-step="-10" data-label-start="80" transform="rotate(4.48)">
+   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-38.6944)" data-anchor="true">500</text>
+   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-28.2)" data-anchor="true">200</text>
+   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-16)" data-anchor="true">100</text>
+   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-1.2)" data-anchor="true">50</text>
+   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(9.4)" data-anchor="true">30</text>
+   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(16.9)" data-anchor="true">20</text>
+   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(26.2)" data-anchor="true">10</text>
+   <text x="0" y="-131.5276" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(38.6944)" data-anchor="true">0</text>
   </g>
   <path class="arc" stroke-width="1.1339" stroke="#ff0000" fill="none" d="M 85.459 -90.8456 A 124.7244 124.7244 0 0 0 -85.459 -90.8456" title="dB" data-angle="86.5" data-r="124.7244" transform="rotate(2.2)"/>
   <g class="div" stroke-width="1.1339" stroke="#ff0000" fill="none" title="dB" data-angle="86.618" data-r="124.7244" data-length="-5.6693" transform="rotate(2.2)">
@@ -193,13 +193,13 @@
    <line x1="0" y1="-124.7244" x2="0" y2="-119.0551" data-length="15.1181" transform="rotate(38.2045)"/>
    <line x1="0" y1="-124.7244" x2="0" y2="-115.2756" data-length="15.1181" transform="rotate(43.309)"/>
   </g>
-  <g class="label" title="dB" fill="#ff0000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="7.937" data-r="110.3622" data-angle="88.4344" data-keep-angle="false" data-label-step="1" data-label-start="0" transform="rotate(1.38)" font-weight="bold" font-style="normal">
-   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="translate(-1.5118,-0.7559) rotate(-44.2172)" data-anchor="true">-10</text>
-   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-38.4)" data-anchor="true">-5</text>
-   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-30.5)" data-anchor="true">0</text>
-   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-11.3)" data-anchor="true">+5</text>
-   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(23.3)" data-anchor="true">+10</text>
-   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(44.2172)" data-anchor="true">+12</text>
+  <g class="label" title="dB" fill="#ff0000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="7.937" data-r="110.3622" data-angle="88.4344" data-keep-angle="" data-label-step="1" data-label-start="0" transform="rotate(1.38)" font-weight="bold" font-style="normal">
+   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="translate(-1.5118,-0.7559) rotate(-44.2172)" data-anchor="true">-10</text>
+   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-38.4)" data-anchor="true">-5</text>
+   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-30.5)" data-anchor="true">0</text>
+   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-11.3)" data-anchor="true">+5</text>
+   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(23.3)" data-anchor="true">+10</text>
+   <text x="0" y="-110.3622" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(44.2172)" data-anchor="true">+12</text>
   </g>
   <path class="arc" stroke-width="7.5591" stroke="#808080" fill="none" d="M 145.3033 -137.8877 A 200.315 200.315 0 0 0 -145.3033 -137.8877" title="mirror" data-angle="93" data-r="200.315" transform="rotate(-0.5)"/>
   <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="10.5827" transform="translate(-91.0866,-97.5118) rotate(-37)">∞</text>

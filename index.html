@@ -76,6 +76,7 @@
                 <li><a data-i18n="example_template" href="#" onclick="editor.open_url('svg/example_template.svg');return false;">Scale from template</a></li>
                 <li><a data-i18n="example_multimeter_c4353" href="#" onclick="editor.open_url('svg/C4353.svg');return false;">Multimeter C4353</a></li>
                 <li><a data-i18n="example_multiscale" href="#" onclick="editor.open_url('svg/example_multiscale.svg');return false;">Multiscale</a></li>
+                <li><a data-i18n="example_nonlinear" href="#" onclick="editor.open_url('svg/example_nonlinear.svg');return false;">Non-linear distributed divisions</a></li>
                 <li><a data-i18n="example_tachymeter" href="#" onclick="editor.open_url('svg/example_tachymeter.svg');return false;">Tachymeter</a></li>
                 <li><a data-i18n="example_compass" href="#" onclick="editor.open_url('svg/example_compass.svg');return false;">Compass</a></li>
                 <li><a data-i18n="example_protractor" href="#" onclick="editor.open_url('svg/example_protractor.svg');return false;">Protractor</a></li>
@@ -257,7 +258,7 @@
     {^{if (selected_object^tag == 'g') && (selected_object^type == 'div')}}
     <label class="ed">
         <div class="l" data-link="{i18n:'exponent' 'Exponent:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^data_linearity_exponent || 1" step="0.1" min="0"></div>
+        <div class="i"><input type="number" data-link="selected_object^data_linearity_exponent || 1" step="0.05" min="0"></div>
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'interpolation' 'Interpolation:'}"></div>
@@ -617,7 +618,7 @@
     {^{if selected_object^angle}}
     <label class="ed">
         <div class="l" data-link="{i18n:'rotation' 'Rotation:'}"></div>
-        {^{if (selected_object^tag == 'line') && (selected_object^type == 'div')}}
+        {^{if selected_object^parent_obj && ((selected_object^parent_obj.type == 'div') || (selected_object^parent_obj.type == 'label'))}}
         <div class="i"><input type="number" data-link="selected_object^angle_val()" min="-180" max="180" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
         {{else}}
         <div class="i"><input type="number" data-link="selected_object^angle()" min="-180" max="180" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
@@ -625,7 +626,13 @@
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'keep_angle' 'Keep angle:'}"></div>
-        <div class="i"><input type="checkbox" data-link="selected_object^data_keep_angle" value="1"></div>
+        <div class="i">
+            <select data-link="selected_object^data_keep_angle">
+                <option value="" data-link="{i18n:'keep_angle_none' 'none'}"></option>
+                <option value="absolute" data-link="{i18n:'keep_angle_absolute' 'absolute'}"></option>
+                <option value="relative" data-link="{i18n:'keep_angle_relative' 'relative'}"></option>
+            </select>
+        </div>
     </label>
     {{/if}}
 

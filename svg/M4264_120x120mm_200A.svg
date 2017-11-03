@@ -4,12 +4,12 @@
  <desc>Измерительная головка М4264 120х120 200А</desc>
  <rect id="background" width="100%" height="100%" fill="#ffffff"/>
  <g id="scale_wrapper" fill="none" transform="translate(397,562)" stroke="#000000">
-  <g data-label-start="0" data-label-step="50" data-keep-angle="true" data-angle="85" data-r="291.0236" font-size="27.5906" font-family="Arial" text-anchor="middle" dominant-baseline="central" stroke="none" fill="#000000" title="values" class="label">
-   <text transform="rotate(-42.5 0,0) rotate(42.5 0,-291.0236) translate(44.2205,41.5748) " data-keep-angle="true" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">0</text>
-   <text transform="rotate(-21.25) rotate(21.25,0,-291.0236)" data-keep-angle="true" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">50</text>
-   <text data-keep-angle="true" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">100</text>
-   <text transform="rotate(21.25) rotate(-21.25,0,-291.0236)" data-keep-angle="true" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">150</text>
-   <text transform="rotate(42.5 0,0) rotate(-42.5 0,-291.0236) translate(-56.6929,41.5748) " data-keep-angle="true" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">200</text>
+  <g data-label-start="0" data-label-step="50" data-keep-angle="absolute" data-angle="85" data-r="291.0236" font-size="27.5906" font-family="Arial" text-anchor="middle" dominant-baseline="central" stroke="none" fill="#000000" title="values" class="label">
+   <text transform="rotate(-42.5 0,0) rotate(42.5 0,-291.0236) translate(44.2205,41.5748) " data-keep-angle="absolute" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">0</text>
+   <text transform="rotate(-21.25) rotate(21.25,0,-291.0236)" data-keep-angle="absolute" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">50</text>
+   <text data-keep-angle="absolute" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">100</text>
+   <text transform="rotate(21.25) rotate(-21.25,0,-291.0236)" data-keep-angle="absolute" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">150</text>
+   <text transform="rotate(42.5 0,0) rotate(-42.5 0,-291.0236) translate(-56.6929,41.5748) " data-keep-angle="absolute" stroke="none" dominant-baseline="central" text-anchor="middle" y="-291.0236" x="0">200</text>
   </g>
   <g data-length="9.4488" data-r="249.4488" data-angle="81" title="divs" fill="none" stroke="#000000" stroke-width="1.5118" class="div" data-lev2-each="2" data-lev2-length="15.1181" data-lev3-each="10" data-lev3-length="18.8976" data-lev3-stroke-width="2.6457">
    <line transform="rotate(-40.5)" y2="-268.3464" x2="0" y1="-249.4488" x1="0" data-length="18.8976" stroke-width="2.6457"/>

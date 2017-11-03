@@ -57,13 +57,13 @@
    <line x1="0" y1="-158.7402" x2="0" y2="-170.0788" data-length="11.3386" transform="rotate(40.8)"/>
    <line x1="0" y1="-158.7402" x2="0" y2="-175.7481" data-length="17.0079" stroke-width="1.5118" transform="rotate(42.5)"/>
   </g>
-  <g data-label-start="0" fill="#000000" stroke="none" class="label" title="Value labels" dominant-baseline="central" font-family="Arial" font-size="18.8976" text-anchor="middle" data-r="187.4646" data-angle="85" data-keep-angle="false" data-label-step="2">
-   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-42.5 0,0) rotate(42.5 5.4091e-14,-187.4646) translate(22.6772,34.0157) ">0</text>
-   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-25.5) rotate(25.5,0,-187.4646)">2</text>
-   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(-8.5) rotate(8.5,0,-187.4646)">4</text>
-   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(8.5) rotate(-8.5,0,-187.4646)">6</text>
-   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(25.5 0,0) rotate(-25.5 0,-187.4646) ">8</text>
-   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="false" transform="rotate(42.5 0,0) rotate(-42.5 -5.4091e-14,-187.4646) translate(-26.4567,34.0157) ">10</text>
+  <g data-label-start="0" fill="#000000" stroke="none" class="label" title="Value labels" dominant-baseline="central" font-family="Arial" font-size="18.8976" text-anchor="middle" data-r="187.4646" data-angle="85" data-keep-angle="absolute" data-label-step="2">
+   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="absolute" transform="rotate(-42.5 0,0) rotate(42.5 5.4091e-14,-187.4646) translate(22.6772,34.0157) ">0</text>
+   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="absolute" transform="rotate(-25.5) rotate(25.5,0,-187.4646)">2</text>
+   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="absolute" transform="rotate(-8.5) rotate(8.5,0,-187.4646)">4</text>
+   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="absolute" transform="rotate(8.5) rotate(-8.5,0,-187.4646)">6</text>
+   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="absolute" transform="rotate(25.5 0,0) rotate(-25.5 0,-187.4646) ">8</text>
+   <text x="0" y="-187.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="absolute" transform="rotate(42.5 0,0) rotate(-42.5 -5.4091e-14,-187.4646) translate(-26.4567,34.0157) ">10</text>
   </g>
   <text stroke="none" transform="translate(0,-100) " dominant-baseline="central" class="label" fill="#000000" title="Center label" y="0" font-family="Arial" font-size="37.7953" font-weight="normal" text-anchor="middle">A</text>
   <path class="plate plate-rectangular-top" title="Scale Plate" stroke="#000000" d="M0 0 H -130.3937 V -179.5276 L -83.1496 -226.7717 H 83.1496 L 130.3937 -179.5276 V 0 Z" transform="translate(0,13.2283)" data-width="260.7874" data-height="226.7717" data-top-cut="47.2441" stroke-width="1.1339"/>

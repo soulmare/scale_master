@@ -37,7 +37,7 @@
    <line x1="0" y1="-260.7874" x2="0" y2="-268.3465" transform="rotate(34.6042)"/>
    <line x1="0" y1="-260.7874" x2="0" y2="-268.3465" transform="rotate(37.3906)"/>
    <line x1="0" y1="-260.7874" x2="0" y2="-268.3465" transform="rotate(40.1769,0,0)"/>
-   <line x1="0" y1="-260.7874" x2="0" y2="-272.126" data-keep-angle="false" transform="rotate(42.9632)"/>
+   <line x1="0" y1="-260.7874" x2="0" y2="-272.126" data-keep-angle="" transform="rotate(42.9632)"/>
   </g>
   <g class="div" stroke-width="1.5118" stroke="#0000ff" fill="none" title="Новая группа делений" data-angle="85.746" data-r="230.5512" data-length="7.5591" transform="translate(-0.7559,0.7559) rotate(-0.29 0,0) ">
    <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" transform="rotate(-42.873 0,0) "/>
@@ -60,19 +60,19 @@
    <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" transform="rotate(3.2 0,0) "/>
    <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" transform="rotate(5.8)"/>
    <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" transform="rotate(8.4,0,0)"/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(11 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(14.25)"/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(17.5 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(19.4 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(21.2 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(23.3 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(25.5 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(27.9 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(30.5 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(33.1 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(36.2 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(39.3 0,0) "/>
-   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="false" transform="rotate(42.873)"/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(11 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(14.25)"/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(17.5 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(19.4 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(21.2 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(23.3 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(25.5 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(27.9 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(30.5 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(33.1 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(36.2 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(39.3 0,0) "/>
+   <line x1="0" y1="-230.5512" x2="0" y2="-238.1102" data-keep-angle="" transform="rotate(42.873)"/>
   </g>
   <path class="arc" stroke-width="1.5118" stroke="#0000ff" fill="none" d="M 153.0543 -182.403 A 238.1102 238.1102 0 0 0 -153.0543 -182.403" title="Новая дуга" data-angle="80" data-r="238.1102" transform="rotate(2.5 0,0) "/>
   <g class="div" stroke-width="1.8898" stroke="#0000ff" fill="none" title="Новая группа делений" data-angle="85.7176" data-r="188.9764" data-length="7.5591" transform="rotate(-0.61 0,0) ">
@@ -96,9 +96,9 @@
    <line x1="0" y1="-188.9764" x2="0" y2="-196.5354" transform="rotate(18.9 0,0) "/>
    <line x1="0" y1="-188.9764" x2="0" y2="-196.5354" transform="rotate(22.8 0,0) "/>
    <line x1="0" y1="-188.9764" x2="0" y2="-196.5354" transform="rotate(26.6 0,0) "/>
-   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-keep-angle="false" transform="rotate(30.3 0,0) "/>
-   <line x1="0" y1="-188.9764" x2="0" y2="-196.5354" data-keep-angle="false" transform="rotate(38.8 0,0) "/>
-   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-keep-angle="false" transform="rotate(42.8588 0,0) "/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-keep-angle="" transform="rotate(30.3 0,0) "/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-196.5354" data-keep-angle="" transform="rotate(38.8 0,0) "/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-200.315" data-keep-angle="" transform="rotate(42.8588 0,0) "/>
   </g>
  </g>
 
