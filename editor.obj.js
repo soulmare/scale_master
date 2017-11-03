@@ -139,7 +139,6 @@ editor.elm_graphic.prototype.set_transform = function(tr_list) {
                 // Remove period from angle
                 tr.args[0] = tr.args[0] % 360;
                 if (tr.args[0] != 0) {
-//    console.log('+', tr.args[0])
                     // Convert empty values to zeros
                     for (var j in tr.args)
                         tr.args[j] = tr.args[j] || 0;
@@ -183,49 +182,45 @@ editor.elm_graphic.prototype.set_transform = function(tr_list) {
 editor.elm_graphic.prototype.angle = function () {
     var tr_list = this.get_transform();
     for (var i in tr_list)
-        if (tr_list[i].fn == 'rotate')
+        if ((tr_list[i].fn == 'rotate') && ((tr_list[i].args.length == 1) || (!tr_list[i].args[1] && !tr_list[i].args[2])))
             return _.round(tr_list[i].args[0], 4);
 //            return tr_list[i].args[0];
 };
-editor.elm_graphic.prototype.angle.set = function(val) {
-    var tr_list = this.get_transform();
-//console.log(tr_list[0],tr_list[1]);
-    // Update transform function if exists
-    var invert = 1;
-    var updated_rotations = 0;
-    var remove_rotation = -1;
+editor.elm_graphic.prototype.angle.set = function(val, _this) {
+    if (!_this)
+        _this = this;
+    var tr_list = _this.get_transform();
+
+    // Remove current rotations if any
+    var new_tr_list = [];
     for (var i in tr_list)
-        if (tr_list[i].fn == 'rotate') {
-            tr_list[i].args[0] = parseFloat(val) * invert;
-            // Non-first rotation is compensative one, so update it's center
-            if ((tr_list[i].args.length > 1) && updated_rotations) {
-                tr_list[i].args[1] = this.x || this.x1 || 0;
-                tr_list[i].args[2] = this.y || this.y1 || 0;
-            }
-            updated_rotations++;
-            // If there's second rotation, it compensates previous one(for rotated-but-horizontal text labels).
-            // So, must use -angle value in second rotation.
-            invert = invert * -1;
-            this.data_keep_angle = (this.data_keep_angle === true) || (this.data_keep_angle === 'true');
-            if (!this.data_keep_angle && (updated_rotations > 1))
-                remove_rotation = i;
-        }
-    if (remove_rotation > 0) {
-//console.log(tr_list[0], tr_list[1]);
-//console.log(remove_rotation);
-        tr_list.splice(remove_rotation, 1);
+        if (tr_list[i].fn !== 'rotate')
+            new_tr_list.push(tr_list[i]);
+
+    // Set up new rotation(s)
+    var angle = _.round(parseFloat(val) || 0, 4);
+    var parent_angle = _this.parent_obj && _this.parent_obj.angle() ? _.round(parseFloat(_this.parent_obj.angle()) || 0, 4) : 0;
+    var x = parseFloat(_this.x || _this.x1) || 0;
+    var y = parseFloat(_this.y || _this.y1) || 0;
+    if (angle) {
+        // Add strict rotation
+        new_tr_list.push({fn:'rotate', args: [angle]});
+        // Add compensate rotation
+        if ((_this.data_keep_angle == 'relative') && (_this.tag !== 'g'))
+            new_tr_list.push({fn:'rotate', args: [-angle, x, y]});
     }
-    // If not updated existing - add as new
-    if (!updated_rotations) {
-        tr_list.push({fn:'rotate', args: [parseFloat(val)]});
-    }
-    if (this.data_keep_angle && (updated_rotations < 2) && (this.tag !== 'g')) {
-        // Compensate rotation
-        var tr_compensate = {fn:'rotate', args: [-parseFloat(val), parseFloat(this.x || this.x1) || 0, parseFloat(this.y || this.y1) || 0]};
-        tr_list.push(tr_compensate);
-    }
-    this.set_transform(tr_list);
+    
+    if ((_this.data_keep_angle == 'absolute') && (parent_angle || angle) && (_this.tag !== 'g'))
+        new_tr_list.push({fn:'rotate', args: [-parent_angle - angle, x, y]});
+     
+    _this.set_transform(new_tr_list);
+
+    if (_this.tag === 'g')
+        for (var i in _this.children_objs)
+            _this.children_objs[i].angle.set(_this.children_objs[i].angle(), _this.children_objs[i]);
+
 };
+
 
 // Shift transformation
 editor.elm_graphic.prototype.get_shift = function () {
@@ -415,9 +410,10 @@ editor.elm_graphic.prototype.angle_val.set = function(val) {
         var start_angle = - parseFloat(scale_angle)/2;
         var end_angle = start_angle + scale_angle;
         // Get the real angle as delta between first and last child divs
-        var real_start_angle = parent.children_objs[0].angle_val();
-        var real_end_angle = parent.children_objs[parent.children_objs.length-1].angle_val();
+        var real_start_angle = parent.children_objs[0].angle_val() || 0;
+        var real_end_angle = parent.children_objs[parent.children_objs.length-1].angle_val() || 0;
         var real_angle = real_end_angle - real_start_angle;
+//        var real_angle = Math.abs(real_end_angle - real_start_angle);
 //console.log(real_angle, (real_start_angle + real_end_angle)/2, parent.angle())
         // If group angle differs from edge children's real position
         if (scale_angle != real_angle) {

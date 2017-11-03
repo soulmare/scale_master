@@ -594,7 +594,7 @@ editor.vm = {};
                             element.setAttribute('font-size', editor.units_to_px(editor.cfg.new_item.font_size || editor.cfg.styles.font_size));
                             element.setAttribute('data-r', editor.units_to_px(editor.cfg.new_item.r*1.2));
                             element.setAttribute('data-angle', editor.cfg.new_item.angle);
-                            element.setAttribute('data-keep-angle', 'true');
+//                            element.setAttribute('data-keep-angle', 'true');
                             element.setAttribute('data-label-step', '1');
                             element.setAttribute('data-label-start', '0');
                         } else {

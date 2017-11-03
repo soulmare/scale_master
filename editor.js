@@ -1474,6 +1474,7 @@ editor = {};
                 editor.select_box.setAttribute('visibility', 'visible');
 
                 $('#_ed_select_marker,._ed_select_box_margin,._ed_select_axe,._ed_select_circle').attr('visibility', 'hidden').removeAttr('transform');
+//                console.log(obj.element.getAttribute('transform'))
 
                 if ((((obj.type == 'div') || (obj.type == 'label')) && (obj.tag == 'g')) || (obj.type == 'arc')) {
 //console.log(obj.data_angle, obj.angle() || 0, obj.data_r);
@@ -1547,7 +1548,9 @@ editor = {};
                                 .attr('x2', size)
                                 .attr('y2', 0)
                                 .removeAttr('visibility');
-                        $('._ed_select_axe').attr('transform', obj.element.getAttribute('transform'));
+                        var transform = obj.element.getAttribute('transform');
+                        if (transform)
+                        $('._ed_select_axe').attr('transform', transform.replace(/\srotate\([^)]+[,\s][^)]+[,\s][^)]+\)/, ''));
                     }
 
                     // Set select box rectangle-type margins
