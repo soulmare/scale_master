@@ -65,7 +65,8 @@ editor = {};
                 },
                 store_last_document: true,
                 div_levels_count: 3,
-                initial_image: 'svg/new_scale.svg'
+                initial_image: 'svg/new_scale.svg',
+                export_cutoff_empty_space: true
             };
     
 //        editor.svg_observe_attrs = {
@@ -986,8 +987,8 @@ editor = {};
         
         editor.doc_observer = function (mutations, observer) {
             // fired when a mutation occurs
-//            console.log(mutations, observer);
-            if (!editor.modified) {
+            if (!editor.modified && !editor.ignore_modify) {
+                console.log(mutations);
                 editor.modified = true;
                 document.title += '*';
             }
@@ -1326,7 +1327,8 @@ editor = {};
                 $('<canvas>', {id: 'export_canvas'}).hide().appendTo('body');
 //                $('<canvas>', {id: 'export_canvas'}).appendTo('body').css('position','absolute');
             }
-            c = $('#export_canvas')[0];
+            
+            var c = $('#export_canvas')[0];
 
             c.width = Math.round($(this.document).attr('data-width') * ppi / 96);
             c.height = Math.round($(this.document).attr('data-height') * ppi / 96);
@@ -1351,20 +1353,56 @@ editor = {};
                         $('#hdr_buttons button').removeAttr('disabled');
                     }
                 };
-                if (ppi != 96) {
-                    canvg_params.ignoreDimensions = true;
-                    canvg_params.ignoreDimensions = true;
-                    canvg_params.scaleWidth = c.width;
-                    canvg_params.scaleHeight = c.height;
-                }
 
 //canvg_params.log = true;
 //canvg_params.ignoreMouse = true;
 //canvg_params.ignoreAnimation = true;
 //canvg_params.ignoreClear = true;
 //canvg_params.useCORS = true;
+                
+                var c = $('#export_canvas')[0];
 
-                canvg(c, editor.svgToString(), canvg_params);
+                // Cut off empty space
+                if (editor.cfg.export_cutoff_empty_space) {
+                    editor.ignore_modify = true;
+                    var scale_wrapper = editor.document.getElementById('scale_wrapper');
+                    var bb = svgedit.utilities.getBBox(scale_wrapper);
+                    var padding = [bb.width*0.2, bb.height*0.2];
+                    var orig_doc_size = _.map([editor.document.getAttribute('data-width'), editor.document.getAttribute('data-height')], parseFloat);
+                    var orig_transform = scale_wrapper.getAttribute('transform');
+                    if (orig_doc_size[0] <= bb.width + padding[0])
+                        padding[0] = 0;
+                    if (orig_doc_size[1] <= bb.height + padding[1])
+                        padding[1] = 0;
+                    var new_width = bb.width + padding[0]*2;
+                    var new_height = bb.height + padding[1]*2;
+                    editor.document.setAttribute('data-width', new_width);
+                    editor.document.setAttribute('data-height', new_height);
+                    scale_wrapper.setAttribute('transform', 'translate(' + (-bb.x+padding[0]) + ',' + (-bb.y+padding[1]) + ')');
+                    c.width = Math.round(new_width * ppi / 96);
+                    c.height = Math.round(new_height * ppi / 96);
+                    var svg_str = editor.svgToString();
+                    // Restore dimensions
+                    editor.document.setAttribute('data-width', orig_doc_size[0]);
+                    editor.document.setAttribute('data-height', orig_doc_size[1]);
+                    scale_wrapper.setAttribute('transform', orig_transform);
+                    setTimeout(function (){editor.ignore_modify = false;}, 100);
+    //console.log(bb)
+    //console.log(editor.svgToString())
+    /*
+    console.log(viewBox)
+    console.log(newViewBox)
+    */
+                } else
+                    var svg_str = editor.svgToString();
+
+                if (ppi != 96) {
+                    canvg_params.ignoreDimensions = true;
+                    canvg_params.scaleWidth = c.width;
+                    canvg_params.scaleHeight = c.height;
+                }
+                
+                canvg(c, svg_str, canvg_params);
             })();
         };
     
