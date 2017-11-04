@@ -301,14 +301,17 @@ editor.vm = {};
                             var dx = pointer_pos[0]-element_pos[0];
                             var dy = element_pos[1]-pointer_pos[1];
                             var drag_angle = Math.atan2(dx, dy) * 180.0 / Math.PI - (sel_obj.parent_obj.angle() || 0) - editor.vm.model.drag_angle;
-console.log('m',[dx, dy],Math.atan2(dx, dy),drag_angle)
+//console.log('m',[dx, dy],Math.atan2(dx, dy),drag_angle,sel_obj.parent_obj.angle())
                             // Fix angle overing period
                             if (Math.abs(drag_angle-sel_obj.parent_obj.angle()) > 360) {
                                 drag_angle = 360 % drag_angle;
                                 if (drag_angle-sel_obj.parent_obj.angle() > 0)
                                     drag_angle = -drag_angle;
+//console.log('fix')
                             }
-//console.log(pointer_pos[0], element_pos[0], drag_angle)
+                            // Fix jumping around near 3/4 rotation
+                            if (Math.abs(drag_angle) > 180)
+                                drag_angle = drag_angle > 0 ? drag_angle - 360 : drag_angle + 360;
                             $.observable(sel_obj).setProperty('angle_val', _.round(drag_angle, 1));
                         }
 

@@ -414,7 +414,6 @@ editor.elm_graphic.prototype.angle_val.set = function(val) {
         var real_end_angle = parent.children_objs[parent.children_objs.length-1].angle_val() || 0;
         var real_angle = real_end_angle - real_start_angle;
 //        var real_angle = Math.abs(real_end_angle - real_start_angle);
-//console.log(real_angle, (real_start_angle + real_end_angle)/2, parent.angle())
         // If group angle differs from edge children's real position
         if (scale_angle != real_angle) {
             // Group must be rotated?

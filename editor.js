@@ -1539,9 +1539,9 @@ editor = {};
                         var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
                         $('._ed_select_axe_1')
                             .attr('x1', 0)
-                            .attr('y1', -size)
+                            .attr('y1', 0)
                             .attr('x2', 0)
-                            .attr('y2', size)
+                            .attr('y2', -size)
                             .removeAttr('visibility');
                         if (!is_group_member)
                             $('._ed_select_axe_2')
