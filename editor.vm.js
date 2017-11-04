@@ -228,6 +228,7 @@ editor.vm = {};
 
                     // Get radius of drag point
                     var elem_radius = sel_obj.type == 'arc' ? sel_obj.radius() || 0 : sel_obj.data_r || 0;
+                    // Get delta between element radius and pointer radius
                     editor.vm.model.drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1]) - editor.px_to_units(elem_radius);
 //                    var radius_delta = editor.vm.model.drag_radius - drag_radius;
 //console.log('M', editor.vm.model.drag_radius, radius_delta, sel_obj[prop_name]);
@@ -245,7 +246,9 @@ editor.vm = {};
                             if (drag_angle-sel_obj.parent_obj.angle() > 0)
                                 drag_angle = -drag_angle;
                         }
-                        editor.vm.model.drag_angle = drag_angle;
+                        // Get delta between element angle and pointer angle
+                        editor.vm.model.drag_angle = drag_angle - (sel_obj.angle_val() || 0);
+//console.log('fix',drag_angle,editor.vm.model.drag_angle)
                     }
                 }
             },
@@ -297,7 +300,8 @@ editor.vm = {};
                             var element_pos = [editor.px_to_units(sel_obj.parent_obj.shift_x() || 0), editor.px_to_units(sel_obj.parent_obj.shift_y() || 0)];
                             var dx = pointer_pos[0]-element_pos[0];
                             var dy = element_pos[1]-pointer_pos[1];
-                            var drag_angle = Math.atan2(dx, dy) * 180.0 / Math.PI - (sel_obj.parent_obj.angle() || 0);
+                            var drag_angle = Math.atan2(dx, dy) * 180.0 / Math.PI - (sel_obj.parent_obj.angle() || 0) - editor.vm.model.drag_angle;
+console.log('m',[dx, dy],Math.atan2(dx, dy),drag_angle)
                             // Fix angle overing period
                             if (Math.abs(drag_angle-sel_obj.parent_obj.angle()) > 360) {
                                 drag_angle = 360 % drag_angle;
@@ -719,7 +723,7 @@ editor.vm = {};
             },
             
             insert_symbol: function (event, e) {
-                $.observable(this.selected_object).setProperty('text', this.selected_object.text + $(event.target).html());
+                $.observable(this.selected_object).setProperty('text', (this.selected_object.text || '') + $(event.target).html());
             }
             
         };

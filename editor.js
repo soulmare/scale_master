@@ -64,7 +64,8 @@ editor = {};
                     stroke_width: 0.3
                 },
                 store_last_document: true,
-                div_levels_count: 3
+                div_levels_count: 3,
+                initial_image: 'svg/new_scale.svg'
             };
     
 //        editor.svg_observe_attrs = {
@@ -143,12 +144,12 @@ editor = {};
 
             editor.vm.init();
             
-//            editor.open_url('svg/M4200_69X60_20V.svg');
-//            editor.open_url('svg/example_compass.svg');
+            if (!editor.cfg.initial_image)
+                editor.cfg.initial_image = defaultConfig.initial_image;
+            
 //            var initial_document = 'svg/example_multiscale.svg';
 //            var initial_document = 'svg/test_negative_line_length2.svg';
-            var initial_document = 'svg/test.svg';
-//            var initial_document = 'svg/new_scale.svg';
+//            var initial_document = 'svg/test.svg';
 
             if (editor.cfg.store_last_document) {
                 var svg_str_stored = localStorage.getItem('svg_doc');
@@ -157,12 +158,12 @@ editor = {};
     //                svg_str_stored = '<sv'+svg_str_stored;
                     editor.vm.model.enable_templates(false);
                     if (!editor.load_svg_string(svg_str_stored))
-                        editor.open_url(initial_document);
+                        editor.open_url(editor.cfg.initial_image);
                     editor.vm.model.enable_templates(true);
                 }else
-                    editor.open_url(initial_document);
+                    editor.open_url(editor.cfg.initial_image);
             } else
-                editor.open_url(initial_document);
+                editor.open_url(editor.cfg.initial_image);
             
             
             
@@ -970,6 +971,7 @@ editor = {};
             observer.observe(editor.document.getElementById('scale_wrapper'), {
               subtree: true,
               attributes: true,
+              childList: true,
 //              attributeOldValue: true,
               characterData: true
             });
@@ -1368,7 +1370,7 @@ editor = {};
     
 
         editor.new_image = function() {
-            this.open_url('svg/new_scale.svg');
+            this.open_url(document.cfg.initial_image);
         };
     
     
@@ -1549,8 +1551,18 @@ editor = {};
                                 .attr('y2', 0)
                                 .removeAttr('visibility');
                         var transform = obj.element.getAttribute('transform');
-                        if (transform)
-                        $('._ed_select_axe').attr('transform', transform.replace(/\srotate\([^)]+[,\s][^)]+[,\s][^)]+\)/, ''));
+                        if (transform){
+//                            $('._ed_select_axe').attr('transform', transform.replace(/\srotate\([^)]+[,\s][^)]+[,\s][^)]+\)/, ''));
+                            // Get only rotation with default center 
+                            var m1 = transform.match(/rotate\(\s*\-?\s*[\d\.]+\s*\)/);
+                            var m2 = transform.match(/rotate\(\s*\-?\s*[\d\.]+[\s,]+\-?\s*0[\.0]*[\s,]+-?\s*0[\.0]*\s*\)/);
+//                            console.log(transform);
+                            if (m1)
+                                $('._ed_select_axe').attr('transform', m1[0]);
+                            else if (m2)
+                                $('._ed_select_axe').attr('transform', m2[0]);
+//                            console.log($('._ed_select_axe').attr('transform'));
+                        }
                     }
 
                     // Set select box rectangle-type margins

@@ -99,11 +99,11 @@
   </g>
   <g data-label-start="0" data-label-step="1" data-keep-angle="absolute" data-angle="120" data-r="160.6299" font-size="15.1181" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#0000ff" title="ohm" class="label">
    <text data-keep-angle="absolute" transform="rotate(-60 0,0) rotate(60 0,-160.6299) " y="-160.6299" x="0">~</text>
-   <text class="0" data-keep-angle="absolute" transform="rotate(-16 0,0) rotate(16 -7.3368e-13,-160.6299) " y="-160.6299" x="0">100K</text>
+   <text class="0" data-keep-angle="absolute" transform="rotate(-16 0,0) rotate(16 -0,-160.6299) " y="-160.6299" x="0">100K</text>
    <text data-keep-angle="absolute" transform="rotate(7 0,0) rotate(-7 0,-160.6299) " y="-160.6299" x="0">10K</text>
-   <text data-keep-angle="absolute" transform="rotate(26 0,0) rotate(-26 1.4042e-13,-160.6299) " y="-160.6299" x="0">100</text>
+   <text data-keep-angle="absolute" transform="rotate(26 0,0) rotate(-26 0,-160.6299) " y="-160.6299" x="0">100</text>
    <text data-keep-angle="absolute" transform="rotate(40 0,0) rotate(-40 0,-160.6299) " y="-160.6299" x="0">50</text>
-   <text data-keep-angle="absolute" transform="rotate(50 0,0) rotate(-50 3.9783e-14,-160.6299) " y="-160.6299" x="0">10</text>
+   <text data-keep-angle="absolute" transform="rotate(50 0,0) rotate(-50 0,-160.6299) " y="-160.6299" x="0">10</text>
    <text data-keep-angle="absolute" transform="rotate(60 0,0) rotate(-60 0,-160.6299) " y="-160.6299" x="0">0</text>
   </g>
   <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#0000ff" stroke="none" font-family="Arial" font-size="21.5433" transform="translate(34.0157,-102.0472) ">Ohm</text>

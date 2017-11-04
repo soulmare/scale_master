@@ -22,7 +22,8 @@ $replace = Array(
 foreach ($files as $file)
     if ($file[0] !== '.') {
         $data = file_get_contents("$dir/$file");
-        $data = str_replace(array_keys($replace), array_values($replace), $data);
+//        $data = str_replace(array_keys($replace), array_values($replace), $data);
+        $data = preg_replace('![\d\.]+e\-\d+!', '0', $data);
         file_put_contents("{$dir}.mod/$file", $data);
     }
 

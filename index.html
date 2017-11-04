@@ -60,6 +60,10 @@
                 <span class="icon ui-icon-star"></span>
                 <span data-i18n="examples">Examples</span>
             </button>
+            <button data-dropdown="scales_library">
+                <span class="icon ui-icon-newwin"></span>
+                <span data-i18n="scales_library">Scales library</span>
+            </button>
             <button id="set-language" data-dropdown="languages_dropdown">
                 <span class="icon icon-flag icon-flag-en"></span>
                 <span class="language-name-orig">English</span>
@@ -73,29 +77,33 @@
             </ul>
 
             <ul class="dropdown" id="examples_dropdown" style="display:none">
+                <li><a data-i18n="example_divion_groups" href="#" onclick="editor.open_url('svg/example_divion_groups.svg');return false;">Howto: divion groups</a></li>
                 <li><a data-i18n="example_template" href="#" onclick="editor.open_url('svg/example_template.svg');return false;">Scale from template</a></li>
                 <li><a data-i18n="example_nonlinear" href="#" onclick="editor.open_url('svg/example_nonlinear.svg');return false;">Rotated scale</a></li>
                 <li><a data-i18n="example_multiscale" href="#" onclick="editor.open_url('svg/example_multiscale.svg');return false;">Multiscale</a></li>
                 <li><a data-i18n="example_exponent" href="#" onclick="editor.open_url('svg/example_exponent.svg');return false;">Exponent non-linear scale</a></li>
-                <li><a data-i18n="example_multimeter_c4353" href="#" onclick="editor.open_url('svg/C4353.svg');return false;">Multimeter C4353</a></li>
                 <li><a data-i18n="example_tachymeter" href="#" onclick="editor.open_url('svg/example_tachymeter.svg');return false;">Tachymeter</a></li>
                 <li><a data-i18n="example_compass" href="#" onclick="editor.open_url('svg/example_compass.svg');return false;">Compass</a></li>
                 <li><a data-i18n="example_protractor" href="#" onclick="editor.open_url('svg/example_protractor.svg');return false;">Protractor</a></li>
                 <li><a data-i18n="example_regulator" href="#" onclick="editor.open_url('svg/example_regulator.svg');return false;">Regulator</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_10A.svg');return false;">M4200 69X60mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_20V.svg');return false;">M4200 69X60mm 20V</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_10A.svg');return false;">M4203 32x23.5mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_20V.svg');return false;">M4203 32x23.5mm 20V</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4205_50x40mm_10A.svg');return false;">M4205 50x40mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4206_40x40mm_500mA.svg');return false;">M4206 40x40mm 500mA</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4213_40mV.svg');return false;">M4213 40mV</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_10A.svg');return false;">M42300 70x58.5mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_30A.svg');return false;">M42300 70x58.5mm 30A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_50A.svg');return false;">M42300 70x58.5mm 50A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4264_120x120mm_200A.svg');return false;">M4264 120x120mm 200A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M906_120x105mm_150A.svg');return false;">M906 120x105mm 150A</a></li>
             </ul>
 
+            <ul class="dropdown" id="scales_library" style="display:none">
+                <li><a href="#" onclick="editor.open_url('svg/C4353.svg');return false;"><b>Ц4353</b> - прибор электроизмерительный комбинированный</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_10A.svg');return false;">Изм. головка <b>M4200</b> 69X60mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_20V.svg');return false;">Изм. головка <b>M4200</b> 69X60mm 20V</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_10A.svg');return false;">Изм. головка <b>M4203</b> 32x23.5mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_20V.svg');return false;">Изм. головка <b>M4203</b> 32x23.5mm 20V</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4205_50x40mm_10A.svg');return false;">Изм. головка <b>M4205</b> 50x40mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4206_40x40mm_500mA.svg');return false;">Изм. головка <b>M4206</b> 40x40mm 500mA</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4213_40mV.svg');return false;">Изм. головка <b>M4213</b> 40mV</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_10A.svg');return false;">Изм. головка <b>M42300</b> 70x58.5mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_30A.svg');return false;">Изм. головка <b>M42300</b> 70x58.5mm 30A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_50A.svg');return false;">Изм. головка <b>M42300</b> 70x58.5mm 50A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4264_120x120mm_200A.svg');return false;">Изм. головка <b>M4264</b> 120x120mm 200A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M906_120x105mm_150A.svg');return false;">Изм. головка <b>M906</b> 120x105mm 150A</a></li>
+            </ul>
+            
             <ul class="dropdown" id="languages_dropdown" style="display:none">
                 <li class="set-language set-language-en"><a href="#" onclick="editor.localize('en');return false;"><span class="icon icon-flag icon-flag-en"></span><span class="language-name-orig">English</span></a></li>
                 <li class="set-language set-language-ru"><a href="#" onclick="editor.localize('ru');return false;"><span class="icon icon-flag icon-flag-ru"></span><span class="language-name-orig">Русский</span></a></li>
@@ -325,6 +333,8 @@
                     <a data-link="{on insert_symbol}">υ</a>
                     <a data-link="{on insert_symbol}">φ</a>
                     <a data-link="{on insert_symbol}">ω</a>
+                    <a data-link="{on insert_symbol}">⅀</a>
+                    <a data-link="{on insert_symbol}">ℿ</a>
                     <a data-link="{on insert_symbol}">∞</a>
                     <a data-link="{on insert_symbol}">—</a>
                     <a data-link="{on insert_symbol}">±</a>
@@ -336,6 +346,7 @@
                     <a data-link="{on insert_symbol}">~</a>
                     <a data-link="{on insert_symbol}">≤</a>
                     <a data-link="{on insert_symbol}">≥</a>
+                    <a data-link="{on insert_symbol}">∠</a>
                     <a data-link="{on insert_symbol}">…</a>
                     <a data-link="{on insert_symbol}">·</a>
                     <a data-link="{on insert_symbol}">•</a>
@@ -344,8 +355,10 @@
                     <a data-link="{on insert_symbol}">√</a>
                     <a data-link="{on insert_symbol}">∛</a>
                     <a data-link="{on insert_symbol}">∫</a>
+                    <a data-link="{on insert_symbol}">Æ</a>
                     <a data-link="{on insert_symbol}">℃</a>
                     <a data-link="{on insert_symbol}">℉</a>
+                    <a data-link="{on insert_symbol}">№</a>
                     <a data-link="{on insert_symbol}">♭</a>
                     <a data-link="{on insert_symbol}">♮</a>
                     <a data-link="{on insert_symbol}">♯</a>
@@ -353,10 +366,17 @@
                     <a data-link="{on insert_symbol}">→</a>
                     <a data-link="{on insert_symbol}">↑</a>
                     <a data-link="{on insert_symbol}">↓</a>
+                    <a data-link="{on insert_symbol}">↔</a>
+                    <a data-link="{on insert_symbol}">↕</a>
                     <a data-link="{on insert_symbol}">⇐</a>
                     <a data-link="{on insert_symbol}">⇒</a>
                     <a data-link="{on insert_symbol}">⇑</a>
                     <a data-link="{on insert_symbol}">⇓</a>
+                    <a data-link="{on insert_symbol}">⇦</a>
+                    <a data-link="{on insert_symbol}">⇨</a>
+                    <a data-link="{on insert_symbol}">⇧</a>
+                    <a data-link="{on insert_symbol}">⇩</a>
+                    <a data-link="{on insert_symbol}">⇳</a>
                 </li>
             </ul>
         </div>
