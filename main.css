@@ -1,3 +1,4 @@
+/*
 :root {
 
   --main-bg-color: #111315;
@@ -11,6 +12,7 @@
     
   --panel-padding: 10px;
 }
+*/
 html,body{
     height:100vh;
     width: 100vw;
@@ -19,8 +21,8 @@ html,body{
     margin: 0;
     font-size:14px;
     font-family:Arial,Helvetica;
-    background-color: var(--main-bg-color);
-    color: var(--main-text-color);
+    background-color: #111315;
+    color: #bebebe;
     
 /* No text selection highlighting */
   -webkit-touch-callout: none; /* iOS Safari */
@@ -74,18 +76,18 @@ a:hover{
     bottom: 44px;
     max-height: 300px;
     position: absolute;
-    left: var(--panel-padding);
-    right: var(--panel-padding);
-    top: var(--panel-padding);
+    left: 10px;
+    right: 10px;
+    top: 10px;
 }
 #objects select{
     position: absolute;
     width: 100%;
+    height: 90px;
 }
 #objects select[name="main_objects"]{
     top: 56px;
     margin-bottom:9px;
-    height: 90px;
 }
 #objects select[name="main_objects"] option{
 }
@@ -106,7 +108,7 @@ a:hover{
 }
 option[disabled]{
     font-style: italic;
-    color:var(--input-inactive-text-color);
+    color:#666;
 }
 h1{
     font-size: 18px;
@@ -161,6 +163,8 @@ body>#main {
     min-height: 200px;
     display: flex;
     flex-direction: row;
+    display: -ms-flexbox;
+    -ms-flex-direction: row;
 }
 #hdr_buttons{
     position: relative;
@@ -174,11 +178,12 @@ body>#main {
 }
 .panel{
     position: relative;
-    background-color: var(--panel-bg-color);
+    background-color: #1e2123;
     border:#000 solid;
     border-width:0 1px;
-    padding:var(--panel-padding);
+    padding:10px;
     flex: 0 25%;
+    -ms-flex: 0 25%;
     min-width: 150px;
     max-width: 280px;
     -webkit-box-shadow: inset 0px 0px 8px 4px rgba(95, 95, 95, 0.15);
@@ -271,13 +276,14 @@ body>#main>#context_pan{
 body>#main>#content{
     position:relative;
     flex: 1;
+    -ms-flex: 1;
     padding: 20px 0 0 20px;
 }
 input,textarea,select{
-    background: var(--input-bg-color);
+    background: #c6cccf;
 }
 input:focus, textarea:focus, select:focus{
-    background: var(--input-active-bg-color);
+    background: #f0f0f0;
 }
 input[type="number"],
 input[type="range"]{
@@ -355,7 +361,7 @@ button.m .icon{
     left: 28px;
     top: -6px;
     z-index: 100;
-    background: var(--panel-bg-color);
+    background: #1e2123;
     list-style-type: none;
     padding: 0;
     text-align: left;
@@ -373,15 +379,15 @@ button.m .icon{
     border-width: 1px 0px 0;
 }
 .dropdown a:hover{
-    background: var(--main-bg-color);
+    background: #111315;
 }
 .ruler{
     position:absolute;
     overflow: hidden;
     top: 0px;
     left: 0px;
-    background-color: var(--panel-bg-color);
-    color: var(--main-text-color);
+    background-color: #1e2123;
+    color: #bebebe;
 }
 .ruler canvas{
     display: block;

@@ -91,7 +91,7 @@ editor = {};
         editor.ns_svg = 'http://www.w3.org/2000/svg';
 
     
-        editor.init = function () {            
+        editor.init = function () {
             
             // Load stored configuration
             var cfg = localStorage.getItem("cfg");
@@ -196,11 +196,13 @@ editor = {};
                         $('#editor_viewport').scrollTop($('#editor_viewport').scrollTop() + (clickY - e.clientY));
                         clickY = e.clientY;
                         $('#editor_viewport').scrollLeft($('#editor_viewport').scrollLeft() + (clickX - e.clientX));
-                        clickX = e.clientX;                        
+                        clickX = e.clientX;
+                        e.preventDefault();
                     }
                 },
                 'mousedown': function(e) {
                     if (e.button != 1) return; // ignore other buttons
+                    e.preventDefault();
                     clicked = true;
                     clickY = e.clientY;
                     clickX = e.clientX;
@@ -248,6 +250,7 @@ editor = {};
             // Zoom change events
             
             set_zoom_debounced = _.debounce(function (new_zoom, center_point) {editor.set_zoom(new_zoom, center_point)}, 100, {leading: true, maxWait:100});
+//            set_zoom_debounced = editor.set_zoom;
             
             // Dispatch zoom input
             $('input[type=number][name=zoom]').bind('input', function (e) {
@@ -462,6 +465,7 @@ editor = {};
         editor.set_zoom = function (new_zoom, zoom_center_point) {
             if ('undefined' === typeof (new_zoom))
                 new_zoom = editor.zoom;
+//console.log('zoom')
 
             var real_width = parseFloat($(editor.document).attr('data-width'));
             var real_height = parseFloat($(editor.document).attr('data-height'));
@@ -484,20 +488,24 @@ editor = {};
             $('input[type=number][name=zoom]').val(_.round(editor.zoom*100,2));
 //console.log('ZOOM', editor.zoom, zoom_center_point)
 
-            // Resize page
             var display_width = real_width * editor.zoom;
             var display_height = real_height * editor.zoom;
+            var workspace_width = display_width * 1.5;
+            var workspace_height = display_height * 1.5;
+
+            // Resize workspace
+            $(editor.workspace).width(workspace_width);
+            $(editor.workspace).height(workspace_height);
+
+            // Resize page
             $(editor.document).attr('width', display_width);
             $(editor.document).attr('height', display_height);
             $(editor.document).attr('viewBox', [0, 0, real_width, real_height].join(' '));
 
-            // Resize workspace
-            $(editor.workspace).width($(editor.document).width() * 1.5);
-            $(editor.workspace).height($(editor.document).height() * 1.5);
-
             // Center page on workspace
-            $(editor.document).css('left', $('#workspace').width()/2-$(editor.document).width()/2);
-            $(editor.document).css('top', $('#workspace').height()/2-$(editor.document).height()/2);
+            $(editor.document).css('left', workspace_width/2-display_width/2);
+            $(editor.document).css('top', workspace_height/2-display_height/2);
+            
 //            $(editor.document).attr('x', $('#workspace').width()/2-$(editor.document).width()/2);
 //            $(editor.document).attr('y', $('#workspace').height()/2-$(editor.document).height()/2);
 
@@ -968,14 +976,17 @@ editor = {};
 
             // Listen to changes in SVG document
             MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-            var observer = new MutationObserver(editor.doc_observer);
-            observer.observe(editor.document.getElementById('scale_wrapper'), {
-              subtree: true,
-              attributes: true,
-              childList: true,
-//              attributeOldValue: true,
-              characterData: true
-            });
+//console.log(MutationObserver, typeof(MutationObserver))
+            if (MutationObserver) {
+                var observer = new MutationObserver(editor.doc_observer);
+                observer.observe(editor.document.getElementById('scale_wrapper'), {
+                  subtree: true,
+                  attributes: true,
+                  childList: true,
+    //              attributeOldValue: true,
+                  characterData: true
+                });
+            }
             editor.modified = false;
             
             if (callback)
@@ -1280,9 +1291,24 @@ editor = {};
                 var blob = new Blob(byteArrays, {type: contentType});
             }
             
-            var blobUrl = URL.createObjectURL(blob);
-            a = $('<a>hidden</a>').attr({download: filename || 'file', href: blobUrl}).css('display', 'none').appendTo('body');
-            a[0].click();
+            
+            if (window.navigator.msSaveBlob)
+                // IE
+                //window.navigator.msSaveBlob || window.navigator.msSaveOrOpenBlob
+                window.navigator.msSaveBlob(blob, filename);
+            else {
+                // Normal browsers
+                var blobUrl = URL.createObjectURL(blob);
+                var a = $('<a>hidden</a>').attr({download: filename || 'file', href: blobUrl}).css('display', 'none').appendTo('body');
+                a[0].click();
+            }
+            
+//            var b = $('<a>hidden</a>').attr({_download: filename || 'file', href: '#blobUrl'}).css('display', 'block').appendTo('body');
+/*
+console.log(a)
+console.log(a[0])
+console.log(a[0].click)
+*/
             return true;
 		};
     
@@ -1573,7 +1599,7 @@ editor = {};
                     // Select box crosschair axis
                     // Not for non-grouped lines
                     var is_group_member = obj.parent_obj && (obj.parent_obj.tag == 'g');
-                    if ((obj.tag !== 'line') || is_group_member) {
+                    if (is_group_member) {
                         var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
                         $('._ed_select_axe_1')
                             .attr('x1', 0)
@@ -1581,13 +1607,6 @@ editor = {};
                             .attr('x2', 0)
                             .attr('y2', -size)
                             .removeAttr('visibility');
-                        if (!is_group_member)
-                            $('._ed_select_axe_2')
-                                .attr('x1', -size)
-                                .attr('y1', 0)
-                                .attr('x2', size)
-                                .attr('y2', 0)
-                                .removeAttr('visibility');
                         var transform = obj.element.getAttribute('transform');
                         if (transform){
 //                            $('._ed_select_axe').attr('transform', transform.replace(/\srotate\([^)]+[,\s][^)]+[,\s][^)]+\)/, ''));
@@ -1601,6 +1620,21 @@ editor = {};
                                 $('._ed_select_axe').attr('transform', m2[0]);
 //                            console.log($('._ed_select_axe').attr('transform'));
                         }
+                    } else if (obj.tag !== 'line') {
+                        var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
+                        $('._ed_select_axe_1')
+                            .attr('x1', 0)
+                            .attr('y1', -size)
+                            .attr('x2', 0)
+                            .attr('y2', size)
+                            .removeAttr('visibility');
+                        $('._ed_select_axe_2')
+                            .attr('x1', -size)
+                            .attr('y1', 0)
+                            .attr('x2', size)
+                            .attr('y2', 0)
+                            .removeAttr('visibility');
+                        $('._ed_select_axe').attr('transform', obj.element.getAttribute('transform'));
                     }
 
                     // Set select box rectangle-type margins
@@ -1686,6 +1720,10 @@ editor = {};
                 $('.set-language-' + lang).hide();
                 $('button#set-language .icon').attr('class', 'icon icon-flag icon-flag-' + lang);
                 $('button#set-language .language-name-orig').text($('.set-language-' + lang + ' .language-name-orig').text());
+
+                // Check browser support
+                if (editor.ie_version())
+                    alert($.i18n('msg_browser_not_supported'))
                 
             }); // end i18n.load()
             
@@ -1704,7 +1742,12 @@ editor = {};
 //            console.log()
             $('.block_contents', $(e.target).closest('.block')).slideToggle();
         };
+
     
+        editor.ie_version = function () {
+            var match = navigator.userAgent.match(/(?:MSIE |Trident\/.*; rv:)([\d\.]+)/);
+            return match ? parseFloat(match[1]) : undefined;
+        }
     
 		return editor;
 }(jQuery));
