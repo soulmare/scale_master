@@ -988,7 +988,7 @@ editor = {};
         editor.doc_observer = function (mutations, observer) {
             // fired when a mutation occurs
             if (!editor.modified && !editor.ignore_modify) {
-                console.log(mutations);
+//                console.log(mutations);
                 editor.modified = true;
                 document.title += '*';
             }
@@ -1408,7 +1408,7 @@ editor = {};
     
 
         editor.new_image = function() {
-            this.open_url(document.cfg.initial_image);
+            this.open_url(editor.cfg.initial_image);
         };
     
     
