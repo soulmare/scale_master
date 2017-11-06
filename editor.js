@@ -420,9 +420,30 @@ editor = {};
             $('input[type=number][name=zoom]').val(_.round(editor.zoom*100,2));
 //console.log('ZOOM', editor.zoom, zoom_center_point)
 
+/*
+            var display_width = real_width * editor.zoom;
+            var display_height = real_height * editor.zoom;
+            var workspace_width = display_width * 1.5;
+            var workspace_height = display_height * 1.5;
+
+            // Resize page
+            $(editor.document).attr('width', display_width);
+            $(editor.document).attr('height', display_height);
+            $(editor.document).attr('viewBox', [0, 0, real_width, real_height].join(' '));
+
+            // Resize workspace
+            $(editor.workspace).width(workspace_width);
+            $(editor.workspace).height(workspace_height);
+
+            // Center page on workspace
+            $(editor.document).css('left', workspace_width/2-display_width/2);
+            $(editor.document).css('top', workspace_height/2-display_height/2);
+*/
+            
             // Resize page
             var display_width = real_width * editor.zoom;
             var display_height = real_height * editor.zoom;
+
             $(editor.document).attr('width', display_width);
             $(editor.document).attr('height', display_height);
             $(editor.document).attr('viewBox', [0, 0, real_width, real_height].join(' '));
@@ -437,6 +458,7 @@ editor = {};
 //            $(editor.document).attr('x', $('#workspace').width()/2-$(editor.document).width()/2);
 //            $(editor.document).attr('y', $('#workspace').height()/2-$(editor.document).height()/2);
 
+            
             if (editor.document) {
                 if (!editor.cfg.document_origin_mode) {
                     // Set workspace origin to page's top left corner
