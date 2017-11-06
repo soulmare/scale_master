@@ -1,0 +1,14 @@
+<svg width="794" height="1123" data-generator-name="Scale Master" data-generator-version="0.3.26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4">
+ <!-- Created with Scale Master -->
+ <title>New scale</title>
+ <desc>Created with Scale Master</desc>
+ <rect fill="#ffffff" height="100%" width="100%" id="background"/>
+ <g stroke="#000000" transform="translate(397,562)" fill="none" id="scale_wrapper">
+  <path class="arc" stroke-width="1.8898" stroke="#FF0000" fill="none" d="M 134.7875 -132.4553 A 188.9764 188.9764 0 0 0 -134.7875 -132.4553" title="Новая дуга" data-angle="91" data-r="188.9764"/>
+  <g class="div" stroke-width="1.8898" stroke="#000000" fill="none" title="Новая группа делений" data-angle="91" data-r="188.9764" data-length="7.5591" data-lev2-each="5" data-lev2-length="15.1181">
+   <line x1="0" y1="-188.9764" x2="0" y2="-204.0945" data-length="15.1181" transform="rotate(-45.5)"/>
+   <line x1="0" y1="-188.9764" x2="0" y2="-196.5354" data-length="7.5591" transform="rotate(-42.4667)"/>
+  </g>
+ </g>
+
+</svg>

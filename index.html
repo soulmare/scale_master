@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="cache-control" content="no-cache" />
     <meta http-equiv="expires" content="0" />
     <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
@@ -17,6 +16,7 @@
     <script src="lib/jsviews.min.js"></script>
     <script src="lib/jquery.i18n/jquery.i18n.js"></script>
     <script src="lib/jquery.i18n/jquery.i18n.messagestore.js"></script>
+    <script src="lib/Smooth-0.1.7.js"></script>
     <script src="svgedit/svgedit.js"></script>
     <script src="svgedit/pathseg.js"></script>
     <script src="svgedit/units.js"></script>
@@ -26,7 +26,7 @@
     <script src="svgedit/math.js"></script>
     <script>
         APP_NAME = 'Scale Master';
-        APP_VERSION = '0.3.25';
+        APP_VERSION = '0.4.0';
         APP_VERSION_TYPE = 'beta';
         var app_style_names = ['main.css']
         for (var i in app_style_names)
@@ -43,7 +43,7 @@
         <h1 class="app_name">Scale Master<span class="type"></span></h1>
         <div id="hdr_buttons">
             
-            <button onclick="if(confirm($.i18n('msg_create_new_warning'))) editor.new_image()">
+            <button onclick="editor.new_image()">
                 <span class="icon ui-icon-document"></span>
                 <span data-i18n="create_new">New image</span>
             </button>
@@ -59,6 +59,10 @@
                 <span class="icon ui-icon-star"></span>
                 <span data-i18n="examples">Examples</span>
             </button>
+            <button data-dropdown="scales_library">
+                <span class="icon ui-icon-newwin"></span>
+                <span data-i18n="scales_library">Scales library</span>
+            </button>
             <button id="set-language" data-dropdown="languages_dropdown">
                 <span class="icon icon-flag icon-flag-en"></span>
                 <span class="language-name-orig">English</span>
@@ -72,30 +76,39 @@
             </ul>
 
             <ul class="dropdown" id="examples_dropdown" style="display:none">
+                <li><a data-i18n="example_divion_groups" href="#" onclick="editor.open_url('svg/example_divion_groups.svg');return false;">Howto: divion groups</a></li>
                 <li><a data-i18n="example_template" href="#" onclick="editor.open_url('svg/example_template.svg');return false;">Scale from template</a></li>
-                <li><a data-i18n="example_speedometer" href="#" onclick="editor.open_url('svg/example_speedometer_180.svg');return false;">Speedometer</a></li>
+                <li><a data-i18n="example_nonlinear" href="#" onclick="editor.open_url('svg/example_nonlinear.svg');return false;">Rotated scale</a></li>
+                <li><a data-i18n="example_multiscale" href="#" onclick="editor.open_url('svg/example_multiscale.svg');return false;">Multiscale</a></li>
+                <li><a data-i18n="example_exponent" href="#" onclick="editor.open_url('svg/example_exponent.svg');return false;">Exponent non-linear scale</a></li>
+                <li><a data-i18n="example_tachymeter" href="#" onclick="editor.open_url('svg/example_tachymeter.svg');return false;">Tachymeter</a></li>
                 <li><a data-i18n="example_compass" href="#" onclick="editor.open_url('svg/example_compass.svg');return false;">Compass</a></li>
                 <li><a data-i18n="example_protractor" href="#" onclick="editor.open_url('svg/example_protractor.svg');return false;">Protractor</a></li>
-                <li><a data-i18n="example_regulator" href="#" onclick="editor.open_url('svg/Example_Regulator.svg');return false;">Regulator</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_10A.svg');return false;">M4203 32x23.5mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_20V.svg');return false;">M4203 32x23.5mm 20V</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4206_40x40mm_500mA.svg');return false;">M4206 40x40mm 500mA</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4205_50x40mm_10A.svg');return false;">M4205 50x40mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_20V.svg');return false;">M4200 69X60mm 20V</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_10A.svg');return false;">M4200 69X60mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_10A.svg');return false;">M42300 70x58.5mm 10A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_30A.svg');return false;">M42300 70x58.5mm 30A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_50A.svg');return false;">M42300 70x58.5mm 50A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M906_120x105mm_150A.svg');return false;">M906 120x105mm 150A</a></li>
-                <li><a href="#" onclick="editor.open_url('svg/M4264_120x120mm_200A.svg');return false;">M4264 120x120mm 200A</a></li>
+                <li><a data-i18n="example_regulator" href="#" onclick="editor.open_url('svg/example_regulator.svg');return false;">Regulator</a></li>
             </ul>
 
+            <ul class="dropdown" id="scales_library" style="display:none">
+                <li><a href="#" onclick="editor.open_url('svg/C4353.svg');return false;"><b>Ц4353</b> - прибор электроизмерительный комбинированный</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_10A.svg');return false;">Изм. головка <b>M4200</b> 69X60mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4200_69X60_20V.svg');return false;">Изм. головка <b>M4200</b> 69X60mm 20V</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_10A.svg');return false;">Изм. головка <b>M4203</b> 32x23.5mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4203_32x23.5mm_20V.svg');return false;">Изм. головка <b>M4203</b> 32x23.5mm 20V</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4205_50x40mm_10A.svg');return false;">Изм. головка <b>M4205</b> 50x40mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4206_40x40mm_500mA.svg');return false;">Изм. головка <b>M4206</b> 40x40mm 500mA</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4213_40mV.svg');return false;">Изм. головка <b>M4213</b> 40mV</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_10A.svg');return false;">Изм. головка <b>M42300</b> 70x58.5mm 10A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_30A.svg');return false;">Изм. головка <b>M42300</b> 70x58.5mm 30A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M42300_70x58.5mm_50A.svg');return false;">Изм. головка <b>M42300</b> 70x58.5mm 50A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M4264_120x120mm_200A.svg');return false;">Изм. головка <b>M4264</b> 120x120mm 200A</a></li>
+                <li><a href="#" onclick="editor.open_url('svg/M906_120x105mm_150A.svg');return false;">Изм. головка <b>M906</b> 120x105mm 150A</a></li>
+            </ul>
+            
             <ul class="dropdown" id="languages_dropdown" style="display:none">
                 <li class="set-language set-language-en"><a href="#" onclick="editor.localize('en');return false;"><span class="icon icon-flag icon-flag-en"></span><span class="language-name-orig">English</span></a></li>
                 <li class="set-language set-language-ru"><a href="#" onclick="editor.localize('ru');return false;"><span class="icon icon-flag icon-flag-ru"></span><span class="language-name-orig">Русский</span></a></li>
             </ul>
             
-        <div>
+        </div>
     </header>
     
     <section id="main">
@@ -126,7 +139,8 @@
         <button class="small" data-i18n-title="move_down" title="Move down" data-link="{on move_down} data-disabled{:!selected_object || selected_object^is_last()}"><span class="icon ui-icon-arrowthick-1-s"></span></button>
         <button class="small" data-i18n-title="delete" title="Delete" data-link="{on delete} data-disabled{:!selected_object}"><span class="icon ui-icon-trash"></span></button>
     </div>
-    <select name="main_objects" size="9999" data-link="selected_parent" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigget_objects_list_keydown(event)">
+    
+    <select name="main_objects" size="9999" data-link="selected_parent" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigger_objects_list_keydown(event)" ondblclick="$('#workspace').focus();">
     {^{if display_parent_list}}
         {^{for objects}}
             {{if id_parent===-1}}
@@ -137,7 +151,8 @@
         {{/for}}
     {{/if}}
     </select>
-    <select name="child_objects" size="9999" data-link="selected_child" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigget_objects_list_keydown(event)">
+    
+    <select name="child_objects" size="9999" data-link="selected_child" onfocus="editor.trigger_sel_object_focus(this)" onkeydown="editor.trigger_objects_list_keydown(event)" ondblclick="$('#workspace').focus();">
         {^{if selected_parent!==null}}
             {^{for objects}}
                 {^{if ~root.selected_parent==id_parent}}
@@ -148,6 +163,7 @@
             <option disabled data-link="{i18n:'parent_not_selected' 'parent object not selected'}"></option>
         {{/if}}
     </select>
+    
 {{/if}}
 </script>
             </div>
@@ -185,6 +201,18 @@
                 </label>
             </div>
         </aside>
+
+        
+        <section id="content">
+            <div id="ruler_x" class="ruler"><canvas id="ruler_x_canvas"></canvas></div>
+            <div id="ruler_y" class="ruler"><canvas id="ruler_y_canvas"></canvas></div>
+            <div id="editor_viewport">
+                <div id="workspace" tabindex="0">
+
+                </div>
+            </div>
+        </section>
+        
         
         <aside id="context_pan" class="panel">
             <div class="inner">
@@ -220,21 +248,26 @@
     </label>
     {{/if}}
 
+    {^{if (selected_object^tag == 'g') && ((selected_object^type == 'div') || (selected_object^type == 'label')) && selected_object^anchors_count()}}
+    <button data-link="{on selected_object^reset_children_position}" class="m">
+            <span class="icon ui-icon-unlocked"></span>
+            <span><span data-link="{i18n:'reset_anchors' 'reset anchors'}"></span> (<span data-link="selected_object^anchors_count()"></span>)</span>
+    </button>
+    {{/if}}
+
     {^{if (selected_object^tag == 'g') && (selected_object^type == 'div' || selected_object^type == 'label')}}
     <label class="ed">
         {^{if selected_object^type == 'div'}}
         <div class="l" data-link="{i18n:'divisions_count' 'Divisions count:'}"></div>
-
         {{/if}}
         {^{if selected_object^type == 'label'}}
         <div class="l" data-link="{i18n:'labels_count' 'Labels count:'}"></div>
-
         {{/if}}
         <div class="i"><input type="number" data-link="selected_object^count_children()" step="1" min="0" max="9999"></div>
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'angle' 'Angle:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^data_angle" step="1" min="0" max="360"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        <div class="i"><input type="number" data-link="selected_object^data_angle" min="0" max="360" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'radius' 'Radius:'}"></div>
@@ -244,6 +277,21 @@
 
     {^{if (selected_object^tag == 'g') && (selected_object^type == 'div')}}
     <label class="ed">
+        <div class="l" data-link="{i18n:'exponent' 'Exponent:'}"></div>
+        <div class="i"><input type="number" data-link="selected_object^data_linearity_exponent || 1" step="0.05" min="0"></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'interpolation' 'Interpolation:'}"></div>
+        <div class="i">
+            <select data-link="selected_object^data_interpolation_method">
+                <option value="" data-link="{i18n:'int_linear' 'Linear'}"></option>
+                <option value="cubic" data-link="{i18n:'int_cubic' 'Cubic Hermite spline'}"></option>
+                <option value="sinc" data-link="{i18n:'int_sinc' 'Sinc filter'}"></option>
+                <option value="lanczos" data-link="{i18n:'int_lanczos' 'Lanczos resampling'}"></option>
+            </select>
+        </div>
+    </label>
+    <label class="ed">
         <div class="l" data-link="{i18n:'length' 'Length:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^data_length:to_px}" step="1"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
@@ -252,10 +300,10 @@
     {^{if selected_object^tag == 'line'}}
     <label class="ed">
         <div class="l" data-link="{i18n:'length' 'Length:'}"></div>
-        <div class="i"><input type="number" data-link="{from_px:selected_object^line_length():to_px}" min="1"><span class="u" data-link="{i18n:'mm'}"></span></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^line_length():to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     {{/if}}
-
+    
     {^{if (selected_object^tag == 'g') && (selected_object^type == 'label')}}
     <label class="ed">
         <div class="l" data-link="{i18n:'start_value' 'Start value:'}"></div>
@@ -269,7 +317,80 @@
 
     {^{if selected_object^is_text_node && (selected_object^tag != 'g')}}
     <label class="ed">
-        <div class="l" data-link="{i18n:'text' 'Text:'}"></div>
+        <div class="l">
+            <span class="l_text" data-link="{i18n:'text' 'Text:'}"></span>
+            <button class="m" data-dropdown="symbols_dropdown" onclick="editor.dropdown_toggle(event)">
+                <span data-link="{i18n:'symbols' 'symbols'}"></span>
+            </button>
+            <ul class="dropdown" id="symbols_dropdown" style="display:none">
+                <li>
+                    <a data-link="{on insert_symbol}" href="#">Å</a>
+                    <a data-link="{on insert_symbol}" href="#">Δ</a>
+                    <a data-link="{on insert_symbol}" href="#">Φ</a>
+                    <a data-link="{on insert_symbol}" href="#">Σ</a>
+                    <a data-link="{on insert_symbol}" href="#">Θ</a>
+                    <a data-link="{on insert_symbol}" href="#">Ω</a>
+                    <a data-link="{on insert_symbol}" href="#">℧</a>
+                    <a data-link="{on insert_symbol}" href="#">α</a>
+                    <a data-link="{on insert_symbol}" href="#">β</a>
+                    <a data-link="{on insert_symbol}" href="#">γ</a>
+                    <a data-link="{on insert_symbol}" href="#">δ</a>
+                    <a data-link="{on insert_symbol}" href="#">ε</a>
+                    <a data-link="{on insert_symbol}" href="#">η</a>
+                    <a data-link="{on insert_symbol}" href="#">θ</a>
+                    <a data-link="{on insert_symbol}" href="#">λ</a>
+                    <a data-link="{on insert_symbol}" href="#">μ</a>
+                    <a data-link="{on insert_symbol}" href="#">ρ</a>
+                    <a data-link="{on insert_symbol}" href="#">υ</a>
+                    <a data-link="{on insert_symbol}" href="#">φ</a>
+                    <a data-link="{on insert_symbol}" href="#">ω</a>
+                    <a data-link="{on insert_symbol}" href="#">⅀</a>
+                    <a data-link="{on insert_symbol}" href="#">ℿ</a>
+                    <a data-link="{on insert_symbol}" href="#">∞</a>
+                    <a data-link="{on insert_symbol}" href="#">—</a>
+                    <a data-link="{on insert_symbol}" href="#">±</a>
+                    <a data-link="{on insert_symbol}" href="#">×</a>
+                    <a data-link="{on insert_symbol}" href="#">÷</a>
+                    <a data-link="{on insert_symbol}" href="#">≈</a>
+                    <a data-link="{on insert_symbol}" href="#">∝</a>
+                    <a data-link="{on insert_symbol}" href="#">≠</a>
+                    <a data-link="{on insert_symbol}" href="#">~</a>
+                    <a data-link="{on insert_symbol}" href="#">≤</a>
+                    <a data-link="{on insert_symbol}" href="#">≥</a>
+                    <a data-link="{on insert_symbol}" href="#">∠</a>
+                    <a data-link="{on insert_symbol}" href="#">…</a>
+                    <a data-link="{on insert_symbol}" href="#">·</a>
+                    <a data-link="{on insert_symbol}" href="#">•</a>
+                    <a data-link="{on insert_symbol}" href="#">●</a>
+                    <a data-link="{on insert_symbol}" href="#">∴</a>
+                    <a data-link="{on insert_symbol}" href="#">√</a>
+                    <a data-link="{on insert_symbol}" href="#">∛</a>
+                    <a data-link="{on insert_symbol}" href="#">∫</a>
+                    <a data-link="{on insert_symbol}" href="#">Æ</a>
+                    <a data-link="{on insert_symbol}" href="#">℃</a>
+                    <a data-link="{on insert_symbol}" href="#">℉</a>
+                    <a data-link="{on insert_symbol}" href="#">№</a>
+                    <a data-link="{on insert_symbol}" href="#">♭</a>
+                    <a data-link="{on insert_symbol}" href="#">♮</a>
+                    <a data-link="{on insert_symbol}" href="#">♯</a>
+                    <a data-link="{on insert_symbol}" href="#">←</a>
+                    <a data-link="{on insert_symbol}" href="#">→</a>
+                    <a data-link="{on insert_symbol}" href="#">↑</a>
+                    <a data-link="{on insert_symbol}" href="#">↓</a>
+                    <a data-link="{on insert_symbol}" href="#">↔</a>
+                    <a data-link="{on insert_symbol}" href="#">↕</a>
+                    <a data-link="{on insert_symbol}" href="#">⇐</a>
+                    <a data-link="{on insert_symbol}" href="#">⇒</a>
+                    <a data-link="{on insert_symbol}" href="#">⇑</a>
+                    <a data-link="{on insert_symbol}" href="#">⇓</a>
+                    <a data-link="{on insert_symbol}" href="#">⇦</a>
+                    <a data-link="{on insert_symbol}" href="#">⇨</a>
+                    <a data-link="{on insert_symbol}" href="#">⇧</a>
+                    <a data-link="{on insert_symbol}" href="#">⇩</a>
+                    <a data-link="{on insert_symbol}" href="#">⇳</a>
+                </li>
+            </ul>
+        </div>
         <div class="i"><textarea data-link="selected_object^text"></textarea></div>
     </label>
     {{/if}}
@@ -383,7 +504,7 @@
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'angle' 'Angle:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^arc_angle()" min="0" max="360"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        <div class="i"><input type="number" data-link="selected_object^arc_angle()" min="0" max="360" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
     </label>
     {{/if}}
 
@@ -422,6 +543,7 @@
     {{/if}}
 
     {^{if selected_object^tag == 'circle'}}
+<!--
     <label class="ed">
         <div class="l" data-link="{i18n:'x' 'X:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^cx:to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
@@ -430,13 +552,15 @@
         <div class="l" data-link="{i18n:'y' 'Y:'}"></div>
         <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^cy:y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
+-->
     <label class="ed">
-        <div class="l" data-link="{i18n:'r' 'R:'}"></div>
+        <div class="l" data-link="{i18n:'radius' 'Radius:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^r:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     {{/if}}
 
     {^{if selected_object^type == 'circlecnt'}}
+<!--
     <label class="ed">
         <div class="l" data-link="{i18n:'x' 'X:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^data_cx:to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
@@ -445,12 +569,14 @@
         <div class="l" data-link="{i18n:'y' 'Y:'}"></div>
         <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^data_cy:y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
+-->
     <label class="ed">
-        <div class="l" data-link="{i18n:'r' 'R:'}"></div>
+        <div class="l" data-link="{i18n:'radius' 'Radius:'}"></div>
         <div class="i"><input type="number" data-link="{from_px:selected_object^data_r:to_px}" min="0"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     {{/if}}
 
+<!--
     {^{if (selected_object^tag == 'text') || (selected_object^tag == 'image') || (selected_object^tag == 'rect')}}
     <label class="ed">
         <div class="l">X:</div>
@@ -462,16 +588,93 @@
     </label>
     {{/if}}
 
-    <!-- Transformations -->
+-->
+
+    {^{if (selected_object^tag == 'g') && (selected_object^type == 'div')}}
+
+    <div class="block">
+        <a href="#" data-link="{i18n:'divs_level_2' 'Divisions level 2'}" class="toggle" onclick="editor.toggle_block(event)"></a>
+        <div class="block_contents"{{if !selected_object^data_lev2_each}} style="display:none"{{/if}}>
+
+    <label class="ed">
+        <div class="l" data-link="{i18n:'each_nth' 'Each n-th div:'}"></div>
+        <div class="i"><input type="number" data-link="selected_object^data_lev2_each" min="0" step="1"></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'length' 'Length:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev2_length:to_px}" step="1"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'line_width' 'Line width:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev2_stroke_width:to_px}" min="0" step="0.1"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'stroke_color' 'Stroke color:'}"></div>
+        <div class="i"><input type="color" data-link="selected_object^data_lev2_stroke" list="data_colors"\></div>
+    </label>
+
+        </div><!-- /.block_contents -->
+    </div><!-- /.block -->
+
+
+    <div class="block">
+        <a href="#" data-link="{i18n:'divs_level_3' 'Divisions level 3'}" class="toggle" onclick="editor.toggle_block(event)"></a>
+        <div class="block_contents"{{if !selected_object^data_lev3_each}} style="display:none"{{/if}}>
+
+    <label class="ed">
+        <div class="l" data-link="{i18n:'each_nth' 'Each n-th div:'}"></div>
+        <div class="i"><input type="number" data-link="selected_object^data_lev3_each" min="0" step="1"></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'length' 'Length:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev3_length:to_px}" step="1"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'line_width' 'Line width:'}"></div>
+        <div class="i"><input type="number" data-link="{from_px:selected_object^data_lev3_stroke_width:to_px}" min="0" step="0.1"><span class="u" data-link="{i18n:'mm'}"></span></div>
+    </label>
+    <label class="ed">
+        <div class="l" data-link="{i18n:'stroke_color' 'Stroke color:'}"></div>
+        <div class="i"><input type="color" data-link="selected_object^data_lev3_stroke" list="data_colors"\></div>
+    </label>
+
+        </div><!-- /.block_contents -->
+    </div><!-- /.block -->
+
+    {{/if}}
+
+
+    <div class="block">
     
+        <a href="#" data-link="{i18n:'position' 'Position'}" class="toggle" onclick="editor.toggle_block(event)"></a>
+
+        <div class="block_contents">
+
+    {^{if selected_object^parent_obj && (selected_object^parent_obj.tag == 'g') && ((selected_object^parent_obj^type == 'div') || (selected_object^parent_obj^type == 'label'))}}
+    <label class="ed">
+        <div class="l" data-link="{i18n:'anchor_label' 'Anchor:'}"></div>
+        <div class="i"><input type="checkbox" data-link="selected_object^data_anchor" value="1"></div>
+    </label>
+    {{/if}}
+
     {^{if selected_object^angle}}
     <label class="ed">
         <div class="l" data-link="{i18n:'rotation' 'Rotation:'}"></div>
-        <div class="i"><input type="number" data-link="selected_object^angle()" min="-180" max="180"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        {^{if selected_object^parent_obj && ((selected_object^parent_obj.type == 'div') || (selected_object^parent_obj.type == 'label'))}}
+        <div class="i"><input type="number" data-link="selected_object^angle_val()" min="-180" max="180" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        {{else}}
+        <div class="i"><input type="number" data-link="selected_object^angle()" min="-180" max="180" step="0.5"><span class="u" data-link="{i18n:'deg'}"></span></div>
+        {{/if}}
     </label>
     <label class="ed">
         <div class="l" data-link="{i18n:'keep_angle' 'Keep angle:'}"></div>
-        <div class="i"><input type="checkbox" data-link="selected_object^data_keep_angle" value="1"></div>
+        <div class="i">
+            <select data-link="selected_object^data_keep_angle">
+                <option value="" data-link="{i18n:'keep_angle_none' 'none'}"></option>
+                <option value="absolute" data-link="{i18n:'keep_angle_absolute' 'absolute'}"></option>
+                <option value="relative" data-link="{i18n:'keep_angle_relative' 'relative'}"></option>
+            </select>
+        </div>
     </label>
     {{/if}}
 
@@ -487,6 +690,11 @@
         <div class="i"><input type="number" data-link="{y_axe_from_px:selected_object^shift_y():y_axe_to_px}"><span class="u" data-link="{i18n:'mm'}"></span></div>
     </label>
     {{/if}}
+
+        </div><!-- /.block_contents -->
+        
+    </div><!-- /.block -->
+
 
 {{else}}
 
@@ -542,16 +750,6 @@
 </script>
             </div>
         </aside>
-    
-        <section id="content">
-            <div id="ruler_x" class="ruler"><canvas id="ruler_x_canvas"></canvas></div>
-            <div id="ruler_y" class="ruler"><canvas id="ruler_y_canvas"></canvas></div>
-            <div id="editor_viewport">
-                <div id="workspace" tabindex="0">
-
-                </div>
-            </div>
-        </section>
     
     </section>
     

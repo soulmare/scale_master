@@ -1,3 +1,4 @@
+/*
 :root {
 
   --main-bg-color: #111315;
@@ -11,6 +12,7 @@
     
   --panel-padding: 10px;
 }
+*/
 html,body{
     height:100vh;
     width: 100vw;
@@ -19,8 +21,8 @@ html,body{
     margin: 0;
     font-size:14px;
     font-family:Arial,Helvetica;
-    background-color: var(--main-bg-color);
-    color: var(--main-text-color);
+    background-color: #111315;
+    color: #bebebe;
     
 /* No text selection highlighting */
   -webkit-touch-callout: none; /* iOS Safari */
@@ -74,18 +76,18 @@ a:hover{
     bottom: 44px;
     max-height: 300px;
     position: absolute;
-    left: var(--panel-padding);
-    right: var(--panel-padding);
-    top: var(--panel-padding);
+    left: 10px;
+    right: 10px;
+    top: 10px;
 }
 #objects select{
     position: absolute;
     width: 100%;
+    height: 90px;
 }
 #objects select[name="main_objects"]{
     top: 56px;
     margin-bottom:9px;
-    height: 90px;
 }
 #objects select[name="main_objects"] option{
 }
@@ -106,7 +108,7 @@ a:hover{
 }
 option[disabled]{
     font-style: italic;
-    color:var(--input-inactive-text-color);
+    color:#666;
 }
 h1{
     font-size: 18px;
@@ -161,6 +163,8 @@ body>#main {
     min-height: 200px;
     display: flex;
     flex-direction: row;
+    display: -ms-flexbox;
+    -ms-flex-direction: row;
 }
 #hdr_buttons{
     position: relative;
@@ -170,15 +174,17 @@ body>#main {
 #hdr_buttons button{
     min-width: 100px;
     height: 28px;
+    line-height: 17px;
     text-align: left;
 }
 .panel{
     position: relative;
-    background-color: var(--panel-bg-color);
+    background-color: #1e2123;
     border:#000 solid;
     border-width:0 1px;
-    padding:var(--panel-padding);
+    padding:10px;
     flex: 0 25%;
+    -ms-flex: 0 25%;
     min-width: 150px;
     max-width: 280px;
     -webkit-box-shadow: inset 0px 0px 8px 4px rgba(95, 95, 95, 0.15);
@@ -222,6 +228,19 @@ body>#main {
 .panel label.ed select{
     width: 96%;
 }
+.panel a.toggle{
+    font-weight: normal;
+    text-decoration: none;
+    display: inline-block;
+    margin: 18px 0 8px;
+    font-size: 16px;
+    border: dashed #999;
+    border-width: 0 0 1px;
+}
+.panel a.toggle:after{
+    content: '\25BC';/*&#9660;*/
+    color:#999;
+}
 .panel>.inner{
     overflow-y: auto;
     overflow-x: hidden;
@@ -258,13 +277,15 @@ body>#main>#context_pan{
 body>#main>#content{
     position:relative;
     flex: 1;
+    -ms-flex: 1;
     padding: 20px 0 0 20px;
 }
 input,textarea,select{
-    background: var(--input-bg-color);
+    background: #c6cccf;
+    font-size:12px;
 }
 input:focus, textarea:focus, select:focus{
-    background: var(--input-active-bg-color);
+    background: #f0f0f0;
 }
 input[type="number"],
 input[type="range"]{
@@ -323,6 +344,14 @@ button .icon-flag{
 button:hover .icon-flag{
     opacity: 1;
 }
+button.m{   
+    height: 24px;
+    padding: 0 8px;
+    margin: 8px 5px;
+}
+button.m .icon{
+    margin:0 2px 0 0;
+}   
 #languages_dropdown .icon-flag{
     margin-right:5px;
 }
@@ -334,7 +363,7 @@ button:hover .icon-flag{
     left: 28px;
     top: -6px;
     z-index: 100;
-    background: var(--panel-bg-color);
+    background: #1e2123;
     list-style-type: none;
     padding: 0;
     text-align: left;
@@ -352,15 +381,15 @@ button:hover .icon-flag{
     border-width: 1px 0px 0;
 }
 .dropdown a:hover{
-    background: var(--main-bg-color);
+    background: #111315;
 }
 .ruler{
     position:absolute;
     overflow: hidden;
     top: 0px;
     left: 0px;
-    background-color: var(--panel-bg-color);
-    color: var(--main-text-color);
+    background-color: #1e2123;
+    color: #bebebe;
 }
 .ruler canvas{
     display: block;
@@ -399,27 +428,41 @@ button:hover .icon-flag{
     background: radial-gradient(ellipse at center, #b5bdc8 0%,#828c95 50%,#28343b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+#symbols_dropdown a {
+    display: inline-block;
+    border: none;
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    font-size: 16px;
+}
 #svg_doc *{
 /*    pointer-events: visible;*/
 }
 #svg_doc line,
 #svg_doc text,
 #svg_doc circle,
-#svg_doc rect,
-#svg_doc ._ed_select_box_margin,
+#svg_doc rect.rect,
+/*#svg_doc ._ed_select_box_margin,*/
 #svg_doc path{
     cursor:pointer;
 }
-#svg_doc ._ed_select_box_margin{
+#svg_doc ._ed_select_box_margin,#svg_doc ._ed_select_circle{
     opacity:0.6;
 }
-#workspace:focus #svg_doc ._ed_select_box_margin{
+#workspace:focus #svg_doc ._ed_select_box_margin,#workspace:focus #svg_doc ._ed_select_circle{
     opacity:0.8;
 }
-#svg_doc line:hover,
-#svg_doc circle:hover,
-#svg_doc rect:hover,
-#svg_doc path:hover{
+#svg_doc ._ed_select_axe,#svg_doc ._ed_doc_axe{
+    opacity:0.3;
+}
+#workspace:focus #svg_doc ._ed_select_axe{
+    opacity:0.5;
+}
+#svg_doc #scale_wrapper line:hover,
+#svg_doc #scale_wrapper circle:hover,
+#svg_doc #scale_wrapper rect:hover,
+#svg_doc #scale_wrapper path:hover{
     stroke:#ff0000;
 }
 #svg_doc text:hover{
@@ -430,8 +473,18 @@ button:hover .icon-flag{
     cursor:auto;
 /*    pointer-events: none;*/
 }
+#svg_doc ._ed_sel, #svg_doc ._ed_sel *, #svg_doc #_ed_select_marker{
+    cursor:move;
+    cursor:url('images/cur_move.png') 10 10, move;
+}
+#svg_doc .arc._ed_sel,#svg_doc g.div._ed_sel *,#svg_doc g.label._ed_sel *{
+    cursor:move;
+    cursor:url('images/cur_move_radial.png') 10 10, move;
+}
 #svg_doc{
     position: absolute;
 /*    background: #fff;*/
-/*    pointer-events: none;*/
+}
+#svg_doc ._ed_helper_line{
+    pointer-events: none;
 }
