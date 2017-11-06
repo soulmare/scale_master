@@ -1,4 +1,4 @@
-{
+editor.languages.ru = {
     "type_g_div": "группа делений",
     "type_g_label": "группа меток",
     "type_text_label": "метка",
@@ -132,4 +132,4 @@
 	"symbols": "символы",
     
     "stub": "stub"
-}
+};

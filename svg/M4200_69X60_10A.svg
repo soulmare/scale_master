@@ -65,9 +65,9 @@
    <text x="0" y="-187.4646" text-anchor="middle" dy="0.3em" stroke="none" data-keep-angle="absolute" transform="rotate(25.5 0,0) rotate(-25.5 0,-187.4646) ">8</text>
    <text x="0" y="-187.4646" text-anchor="middle" dy="0.3em" stroke="none" data-keep-angle="absolute" transform="rotate(42.5 0,0) rotate(-42.5 -0,-187.4646) translate(-26.4567,34.0157) ">10</text>
   </g>
-  <text stroke="none" transform="translate(0,-100) " dy="-.4em" class="label" fill="#000000" title="Center label" y="0" font-family="Arial" font-size="37.7953" font-weight="normal" text-anchor="middle">A</text>
+  <text stroke="none" transform="translate(0,-100) " dy="0.3em" class="label" fill="#000000" title="Center label" y="0" font-family="Arial" font-size="37.7953" font-weight="normal" text-anchor="middle">A</text>
   <path class="plate plate-rectangular-top" title="Scale Plate" stroke="#000000" d="M0 0 H -130.3937 V -179.5276 L -83.1496 -226.7717 H 83.1496 L 130.3937 -179.5276 V 0 Z" transform="translate(0,13.2283)" data-width="260.7874" data-height="226.7717" data-top-cut="47.2441" stroke-width="1.1339"/>
-  <text stroke="none" font-weight="bold" transform="translate(-100.9134,-44.9764)" font-size="13.6063" font-family="Arial" fill="#000000" dy="-.4em" text-anchor="middle" class="label">М4200</text>
+  <text stroke="none" font-weight="bold" transform="translate(-100.9134,-44.9764)" font-size="13.6063" font-family="Arial" fill="#000000" dy="0.3em" text-anchor="middle" class="label">М4200</text>
   <path data-r="35.9055" data-cy="0" data-cx="0" title="center" d="M-35.9055,0a35.9055,35.9055 0 1,0 71.811,0a35.9055,35.9055 0 1,0 -71.811,0M0 -35.9055 V35.9055 M-35.9055 0 H35.9055" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
   <path transform="translate(-47.2441,0) " data-r="5.6693" data-cy="0" data-cx="0" title="hole" d="M-5.6693,0a5.6693,5.6693 0 1,0 11.3386,0a5.6693,5.6693 0 1,0 -11.3386,0M0 -5.6693 V5.6693 M-5.6693 0 H5.6693" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
   <path transform="translate(47.2441,0) " data-r="5.6693" data-cy="0" data-cx="0" title="hole" d="M-5.6693,0a5.6693,5.6693 0 1,0 11.3386,0a5.6693,5.6693 0 1,0 -11.3386,0M0 -5.6693 V5.6693 M-5.6693 0 H5.6693" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>

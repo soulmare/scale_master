@@ -16,10 +16,10 @@ editor = {};
 (function() {
 
         // Editor default configuration
-		var defaultConfig = {
+		editor.defaultConfig = {
 				zoom: {
                     initial: 1.0,
-                    min: 0.1,
+                    min: 0.2,
                     max: 10,
                     delta: 0.2,
                 },
@@ -87,8 +87,10 @@ editor = {};
             'A7': [280,397]
         };
     
-    
         editor.ns_svg = 'http://www.w3.org/2000/svg';
+    
+        editor.languages = {};
+    
 
     
         editor.init = function () {
@@ -99,14 +101,14 @@ editor = {};
                 try {
                     editor.cfg = JSON.parse(cfg);
                     // Populate stored configuration with non existing fields
-                    for (var field in defaultConfig)
+                    for (var field in editor.defaultConfig)
                         if (editor.cfg[field] === undefined)
-                            editor.cfg[field] = defaultConfig[field];
+                            editor.cfg[field] = editor.defaultConfig[field];
                 } catch(e) {
-                    editor.cfg = defaultConfig;
+                    editor.cfg = editor.defaultConfig;
                 }
             } else {
-                editor.cfg = defaultConfig;
+                editor.cfg = editor.defaultConfig;
                 // Auto-detect language on user's first visit
                 var language = navigator.language || navigator.userLanguage || '';
                 if (language) {
@@ -144,28 +146,37 @@ editor = {};
             editor.bind_listeners();
 
             editor.vm.init();
-            
-            if (!editor.cfg.initial_image)
-                editor.cfg.initial_image = defaultConfig.initial_image;
-            
-//            var initial_document = 'svg/example_multiscale.svg';
-//            var initial_document = 'svg/test_negative_line_length2.svg';
-//            var initial_document = 'svg/test.svg';
 
-            if (editor.cfg.store_last_document) {
-                var svg_str_stored = localStorage.getItem('svg_doc');
-                if (svg_str_stored){
-    //                console.log(svg_str_stored.length);
-    //                svg_str_stored = '<sv'+svg_str_stored;
-                    editor.vm.model.enable_templates(false);
-                    if (!editor.load_svg_string(svg_str_stored))
+            if (!editor.is_offline()) {
+
+                if (!editor.cfg.initial_image)
+                    editor.cfg.initial_image = editor.defaultConfig.initial_image;
+
+    //            var initial_document = 'svg/example_multiscale.svg';
+    //            var initial_document = 'svg/test_negative_line_length2.svg';
+    //            var initial_document = 'svg/test.svg';
+
+                if (editor.cfg.store_last_document) {
+                    var svg_str_stored = localStorage.getItem('svg_doc');
+                    if (svg_str_stored){
+        //                console.log(svg_str_stored.length);
+        //                svg_str_stored = '<sv'+svg_str_stored;
+                        editor.vm.model.enable_templates(false);
+                        if (!editor.load_svg_string(svg_str_stored))
+                            editor.open_url(editor.cfg.initial_image);
+                        editor.vm.model.enable_templates(true);
+                    }else
                         editor.open_url(editor.cfg.initial_image);
-                    editor.vm.model.enable_templates(true);
-                }else
+                } else
                     editor.open_url(editor.cfg.initial_image);
-            } else
-                editor.open_url(editor.cfg.initial_image);
+                
+            } else {
+                editor.initial_svg_string = editor.workspace.innerHTML;
+                editor.load_svg_string(editor.initial_svg_string);
+            }
             
+            if (editor.is_offline())
+                $('button[data-dropdown="examples_dropdown"],button[data-dropdown="scales_library"]').attr('disabled', 'disabled').attr('data-disabled-permanently', 'true');
             
             
 //            editor.vm.load_svg();
@@ -467,8 +478,8 @@ editor = {};
                 new_zoom = editor.zoom;
 //console.log('zoom')
 
-            var real_width = parseFloat($(editor.document).attr('data-width'));
-            var real_height = parseFloat($(editor.document).attr('data-height'));
+            var real_width = parseFloat($(editor.document).attr('data-width') || $(editor.document).attr('width'));
+            var real_height = parseFloat($(editor.document).attr('data-height') || $(editor.document).attr('height'));
 
             var old_zoom = editor.zoom;
             if (!zoom_center_point) {
@@ -483,7 +494,7 @@ editor = {};
             var old_scroll_top = $('#editor_viewport').scrollTop();
 
             // Apply constraints on new zoom value
-            editor.zoom = Math.min(editor.cfg.zoom.max, Math.max(editor.cfg.zoom.min, new_zoom));
+            editor.zoom = Math.min(editor.defaultConfig.zoom.max, Math.max(editor.defaultConfig.zoom.min, new_zoom));
             
             $('input[type=number][name=zoom]').val(_.round(editor.zoom*100,2));
 //console.log('ZOOM', editor.zoom, zoom_center_point)
@@ -803,7 +814,7 @@ editor = {};
                 new_point.push(point[i] * zoom_level * editor.cfg.units.conversion_k + editor.document_origin[i]);
             }
             return new_point;
-        }
+        };
         
         
         editor.open_url = function (url, callback, no_warning) {
@@ -819,7 +830,7 @@ editor = {};
                 dataType: 'text',
                 cache: false,
                 complete: function() {
-                    $('#hdr_buttons button').removeAttr('disabled');
+                    $('#hdr_buttons button').not('[data-disabled-permanently]').removeAttr('disabled');
                     editor.vm.model.enable_templates(true);
                 },
                 success: function(str) {
@@ -827,14 +838,9 @@ editor = {};
                 },
                 error: function(xhr, stat, err) {
                     alert('Failed loading URL: \n' + err);
-//                    if (xhr.status != 404 && xhr.responseText) {
-//                        loadSvgString(xhr.responseText, cb);
-//                    } else {
-//                        $.alert(uiStrings.notification.URLloadFail + ': \n' + err, cb);
-//                    }
                 }
             });
-        },
+        };
         
             
         editor.load_svg_string = function (xmlString, callback) {
@@ -1344,7 +1350,7 @@ console.log(a[0].click)
 //            if (!this.client_download_datauri(this.get_filename(), '.svg', 'data:image/svg+xml;charset=UTF-8;base64,' + svgedit.utilities.encode64(svg)))
 //                alert('ERROR: Direct download is not supported by your browser.');
 
-            $('#hdr_buttons button').removeAttr('disabled');
+            $('#hdr_buttons button').not('[data-disabled-permanently]').removeAttr('disabled');
             editor.modified = false;
             document.title = document.title.substr(0, document.title.length-1);
         };
@@ -1394,7 +1400,7 @@ console.log(a[0].click)
 
                         editor.client_download_blob(editor.get_filename() + ' ' + ppi + 'ppi.png', 'image/png', modified_src);
                         
-                        $('#hdr_buttons button').removeAttr('disabled');
+                        $('#hdr_buttons button').not('[data-disabled-permanently]').removeAttr('disabled');
                     }
                 };
 
@@ -1452,7 +1458,12 @@ console.log(a[0].click)
     
 
         editor.new_image = function() {
-            this.open_url(editor.cfg.initial_image);
+            if (editor.is_offline()) {
+                if(editor.modified && !confirm($.i18n('msg_lost_edits_warning')))
+                    return;
+                editor.load_svg_string(editor.initial_svg_string);
+            } else
+                this.open_url(editor.cfg.initial_image);
         };
     
     
@@ -1470,7 +1481,7 @@ console.log(a[0].click)
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     var datauri = e.target.result;
-                    $('#hdr_buttons button').removeAttr('disabled');
+                    $('#hdr_buttons button').not('[data-disabled-permanently]').removeAttr('disabled');
                     editor.vm.model.enable_templates(true);
                     var img = new Image();
                     img.onload = function(){
@@ -1511,7 +1522,7 @@ console.log(a[0].click)
                 reader.onload = function(e) {
                     var contents = e.target.result;
                     editor.load_svg_string(contents);
-                    $('#hdr_buttons button').removeAttr('disabled');
+                    $('#hdr_buttons button').not('[data-disabled-permanently]').removeAttr('disabled');
                     editor.vm.model.enable_templates(true);
                 };
                 reader.readAsText(file);
@@ -1712,7 +1723,7 @@ console.log(a[0].click)
             var i18n = $.i18n();
             i18n.locale = lang;
             
-            i18n.load( 'lang/' + i18n.locale + '.json?v=' + APP_VERSION, i18n.locale ).done(function () {
+            i18n.load( editor.languages ).done(function () {
                 
                 // Inner text
                 $('[data-i18n]').i18n();
@@ -1767,7 +1778,13 @@ console.log(a[0].click)
             var match = navigator.userAgent.match(/(?:MSIE |Trident\/.*; rv:)([\d\.]+)/);
             return match ? parseFloat(match[1]) : undefined;
         }
-    
+
+        
+        editor.is_offline = function (e) {
+            return location.href.match('(.*)://')[1].toLowerCase() === 'file';
+        };
+        
+        
 		return editor;
 }(jQuery));
 

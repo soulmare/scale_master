@@ -31,7 +31,16 @@
         var app_style_names = ['main.css']
         for (var i in app_style_names)
             document.write('<link href="' + app_style_names[i] + '?v=' + APP_VERSION + '" rel="stylesheet"/>');
-        var app_script_names = ['editor.js', 'editor.calc.js', 'editor.obj.js', 'editor.vm.js']
+        var app_script_names = [
+            'editor.js',
+            'editor.calc.js',
+            'editor.obj.js',
+            'editor.vm.js',
+            'lang/en.js',
+            'lang/ru.js'
+        ]
+        if (location.href.match('(.*)://')[1].toLowerCase() === 'file')
+            app_script_names.push('lib/canvg.js', 'lib/rgbcolor.js');
         for (var i in app_script_names)
             document.write('<script src="' + app_script_names[i] + '?v=' + APP_VERSION + '"><'+'/script>');
     </script>
@@ -209,6 +218,15 @@
             <div id="editor_viewport">
                 <div id="workspace" tabindex="0">
 
+                    <svg id="svg_doc" width="794" height="1123" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-image-orientation="portrait" data-image-size="A4">
+                     <!-- Created with Scale Master -->
+                     <title>New scale</title>
+                     <desc>Created with Scale Master</desc>
+                     <rect fill="#ffffff" height="100%" width="100%" id="background"/>
+                     <g stroke="#000000" transform="translate(397,562)" fill="none" id="scale_wrapper">
+                     </g>
+                    </svg>
+                    
                 </div>
             </div>
         </section>

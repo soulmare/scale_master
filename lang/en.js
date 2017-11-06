@@ -1,4 +1,4 @@
-{
+editor.languages.en = {
     "type_g_div": "divisions group",
     "type_g_label": "labels group",
     "type_text_label": "label",
@@ -38,4 +38,4 @@
 	"new_rect": "Новый прямоугольник",
 
     "stub": "stub"
-}
+};
