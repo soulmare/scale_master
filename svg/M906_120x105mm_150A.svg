@@ -4,13 +4,13 @@
  <desc>Измерительная головка М906 120х105 мм. 150А</desc>
  <rect fill="#ffffff" height="100%" width="100%" id="background"/>
  <g stroke="#000000" transform="translate(397,562)" fill="none" id="scale_wrapper">
-  <g class="label" title="values" fill="#000000" stroke="none" dominant-baseline="central" text-anchor="middle" font-family="Arial" font-size="18.8976" data-r="283.4646" data-angle="80" data-keep-angle="" data-label-step="30" data-label-start="0">
-   <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="absolute" transform="rotate(-40) rotate(40,0,-283.4646) translate(28.7244,41.5748)">0</text>
-   <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-24)">30</text>
-   <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(-8)">60</text>
-   <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(8)">90</text>
-   <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="" transform="rotate(24 0,0) ">120</text>
-   <text x="0" y="-283.4646" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="absolute" transform="rotate(40) rotate(-40,0,-283.4646) translate(-30.2362,41.5748)">150</text>
+  <g class="label" title="values" fill="#000000" stroke="none" text-anchor="middle" font-family="Arial" font-size="18.8976" data-r="283.4646" data-angle="80" data-keep-angle="" data-label-step="30" data-label-start="0">
+   <text x="0" y="-283.4646" text-anchor="middle" dy="0.3em" stroke="none" data-keep-angle="absolute" transform="rotate(-40) rotate(40,0,-283.4646) translate(28.7244,41.5748)">0</text>
+   <text x="0" y="-283.4646" text-anchor="middle" dy="0.3em" stroke="none" data-keep-angle="" transform="rotate(-24)">30</text>
+   <text x="0" y="-283.4646" text-anchor="middle" dy="0.3em" stroke="none" data-keep-angle="" transform="rotate(-8)">60</text>
+   <text x="0" y="-283.4646" text-anchor="middle" dy="0.3em" stroke="none" data-keep-angle="" transform="rotate(8)">90</text>
+   <text x="0" y="-283.4646" text-anchor="middle" dy="0.3em" stroke="none" data-keep-angle="" transform="rotate(24 0,0) ">120</text>
+   <text x="0" y="-283.4646" text-anchor="middle" dy="0.3em" stroke="none" data-keep-angle="absolute" transform="rotate(40) rotate(-40,0,-283.4646) translate(-30.2362,41.5748)">150</text>
   </g>
   <g class="div" stroke-width="1.1339" stroke="#000000" fill="none" title="divs" data-angle="80" data-r="249.4488" data-length="11.3386" data-lev2-each="5" data-lev2-length="18.8976" data-lev2-stroke-width="1.7008">
    <line x1="0" y1="-249.4488" x2="0" y2="-268.3464" transform="rotate(-40)" data-length="18.8976" stroke-width="1.7008"/>
@@ -92,7 +92,7 @@
   </g>
   <path class="plate plate-rectangular-top plate-top-cut" stroke-width="1.1339" stroke="#000000" fill="none" d="M0 0 H -207.874 V -359.0551 L -188.9764 -377.9528 H 188.9764 L 207.874 -359.0551 V 0 Z" title="edge" data-width="415.7481" data-height="377.9528" transform="translate(0,34.0158) " data-top-cut="18.8976"/>
   <path class="arc" stroke-width="1.7008" stroke="#000000" fill="none" d="M 160.3426 -191.0889 A 249.4488 249.4488 0 0 0 -160.3426 -191.0889" title="main" data-angle="80" data-r="249.4488"/>
-  <text class="label" x="0" y="-75.5906" text-anchor="middle" dominant-baseline="central" fill="#000000" stroke="none" font-family="Arial" font-size="48" transform="translate(0,-97.5118)">A</text>
+  <text class="label" x="0" y="-75.5906" text-anchor="middle" dy="0.3em" fill="#000000" stroke="none" font-family="Arial" font-size="48" transform="translate(0,-97.5118)">A</text>
   <path data-r="79.3701" data-cy="0" data-cx="0" title="center" d="M-79.3701,0a79.3701,79.3701 0 1,0 158.7402,0a79.3701,79.3701 0 1,0 -158.7402,0M0 -79.3701 V79.3701 M-79.3701 0 H79.3701" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
  </g>
 

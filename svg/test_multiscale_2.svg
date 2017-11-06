@@ -171,7 +171,7 @@ iC5pehM3CXef+B9KEC3MYWYlIQAAAABJRU5ErkJggg=="></image>
    <line data-keep-angle="" transform="rotate(57) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
    <line data-keep-angle="" transform="rotate(60) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
   </g>
-  <g data-label-start="0" data-label-step="2" data-keep-angle="absolute" data-angle="120" data-r="234.3307" font-size="19.2756" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#000000" title="New labels group" class="label">
+  <g data-label-start="0" data-label-step="2" data-keep-angle="absolute" data-angle="120" data-r="234.3307" font-size="19.2756" font-family="Arial" text-anchor="middle" fill="#000000" title="New labels group" class="label">
    <text font-size="26.0787" font-weight="bold" data-keep-angle="absolute" transform="rotate(-60) rotate(60,0,-234.3307) " y="-234.3307" x="0">0</text>
    <text data-keep-angle="absolute" transform="rotate(-48) rotate(48,0,-234.3307) " y="-234.3307" x="0">2</text>
    <text data-keep-angle="absolute" transform="rotate(-36) rotate(36,0,-234.3307) " y="-234.3307" x="0">4</text>
@@ -184,7 +184,7 @@ iC5pehM3CXef+B9KEC3MYWYlIQAAAABJRU5ErkJggg=="></image>
    <text data-keep-angle="absolute" transform="rotate(48) rotate(-48,0,-234.3307) " y="-234.3307" x="0">18</text>
    <text font-size="26.0787" font-weight="bold" data-keep-angle="absolute" transform="rotate(60) rotate(-60,0,-234.3307) " y="-234.3307" x="0">20</text>
   </g>
-  <text transform="rotate(0) " font-weight="bold" font-size="45.7323" font-family="Arial" fill="#000000" dominant-baseline="central" text-anchor="middle" y="-102.0472" x="0" class="label">A</text>
+  <text transform="rotate(0) " font-weight="bold" font-size="45.7323" font-family="Arial" fill="#000000" dy="0.3em" text-anchor="middle" y="-102.0472" x="0" class="label">A</text>
   <circle r="1.5118" cy="0" cx="0" title="New circle" stroke="#000000" stroke-width="1.5118" class="circle"/>
   <circle r="60.4724" cy="0" cx="0" title="New circle" stroke="#000000" stroke-width="1.5118" class="circle"/>
   <path data-top-cut="75.5906" transform=" translate(0,30.2362)" data-height="302.3622" data-width="468.6614" title="New scale plate" d="M0 0 H -234.3307 V -226.7717 L -158.7402 -302.3622 H 158.7402 L 234.3307 -226.7717 V 0 Z" stroke="#000000" stroke-width="1.5118" class="plate plate-rectangular-top plate-top-cut"/>
@@ -198,7 +198,7 @@ iC5pehM3CXef+B9KEC3MYWYlIQAAAABJRU5ErkJggg=="></image>
    <line data-keep-angle="" transform="rotate(50) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
    <line data-keep-angle="" transform="rotate(60) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
   </g>
-  <g data-label-start="0" data-label-step="1" data-keep-angle="absolute" data-angle="120" data-r="160.6299" font-size="15.1181" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#000000" title="New labels group" class="label">
+  <g data-label-start="0" data-label-step="1" data-keep-angle="absolute" data-angle="120" data-r="160.6299" font-size="15.1181" font-family="Arial" text-anchor="middle" fill="#000000" title="New labels group" class="label">
    <text data-keep-angle="absolute" transform="rotate(-60) rotate(60,0,-160.6299) " y="-160.6299" x="0">0</text>
    <text class="0" data-keep-angle="absolute" transform="rotate(-16) rotate(16,0,-160.6299) " y="-160.6299" x="0">1</text>
    <text data-keep-angle="absolute" transform="rotate(7) rotate(-7,0,-160.6299) " y="-160.6299" x="0">2</text>

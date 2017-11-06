@@ -189,26 +189,26 @@
    <line transform="rotate(89)" y2="-177.6378" x2="0" y1="-188.9764" x1="0" data-length="-11.3386"/>
    <line transform="rotate(90)" y2="-170.0788" x2="0" y1="-188.9764" x1="0" data-length="-18.8976" stroke-width="1.1339"/>
   </g>
-  <g stroke="none" fill="#000000" data-label-step="10" data-label-start="0" data-keep-angle="absolute" data-angle="180" data-r="162.5197" text-anchor="middle" font-size="12.0945" font-family="Arial" dominant-baseline="central" title="labels" class="label">
-   <text transform="rotate(-90)" y="-162.5197" x="0" dominant-baseline="central" visibility="hidden">0</text>
-   <text transform="rotate(-80)" y="-162.5197" x="0" dominant-baseline="central">10</text>
-   <text transform="rotate(-70)" y="-162.5197" x="0" dominant-baseline="central">20</text>
-   <text transform="rotate(-60)" y="-162.5197" x="0" dominant-baseline="central">30</text>
-   <text transform="rotate(-50)" y="-162.5197" x="0" dominant-baseline="central">40</text>
-   <text transform="rotate(-40 0,0) " y="-162.5197" x="0" dominant-baseline="central">50</text>
-   <text transform="rotate(-30)" y="-162.5197" x="0" dominant-baseline="central">60</text>
-   <text transform="rotate(-20)" y="-162.5197" x="0" dominant-baseline="central">70</text>
-   <text transform="rotate(-10)" y="-162.5197" x="0" dominant-baseline="central">80</text>
-   <text font-weight="bold" font-size="13.2283" y="-162.5197" x="0" dominant-baseline="central">90</text>
-   <text transform="rotate(10)" y="-162.5197" x="0" dominant-baseline="central">100</text>
-   <text transform="rotate(20)" y="-162.5197" x="0" dominant-baseline="central">110</text>
-   <text transform="rotate(30)" y="-162.5197" x="0" dominant-baseline="central">120</text>
-   <text transform="rotate(40)" y="-162.5197" x="0" dominant-baseline="central">130</text>
-   <text transform="rotate(50)" y="-162.5197" x="0" dominant-baseline="central">140</text>
-   <text transform="rotate(60)" y="-162.5197" x="0" dominant-baseline="central">150</text>
-   <text transform="rotate(70)" y="-162.5197" x="0" dominant-baseline="central">160</text>
-   <text transform="rotate(80)" y="-162.5197" x="0" dominant-baseline="central">170</text>
-   <text transform="rotate(90)" y="-162.5197" x="0" dominant-baseline="central" visibility="hidden">180</text>
+  <g stroke="none" fill="#000000" data-label-step="10" data-label-start="0" data-keep-angle="absolute" data-angle="180" data-r="162.5197" text-anchor="middle" font-size="12.0945" font-family="Arial" title="labels" class="label">
+   <text transform="rotate(-90)" y="-162.5197" x="0" dy="0.3em" visibility="hidden">0</text>
+   <text transform="rotate(-80)" y="-162.5197" x="0" dy="0.3em">10</text>
+   <text transform="rotate(-70)" y="-162.5197" x="0" dy="0.3em">20</text>
+   <text transform="rotate(-60)" y="-162.5197" x="0" dy="0.3em">30</text>
+   <text transform="rotate(-50)" y="-162.5197" x="0" dy="0.3em">40</text>
+   <text transform="rotate(-40 0,0) " y="-162.5197" x="0" dy="0.3em">50</text>
+   <text transform="rotate(-30)" y="-162.5197" x="0" dy="0.3em">60</text>
+   <text transform="rotate(-20)" y="-162.5197" x="0" dy="0.3em">70</text>
+   <text transform="rotate(-10)" y="-162.5197" x="0" dy="0.3em">80</text>
+   <text font-weight="bold" font-size="13.2283" y="-162.5197" x="0" dy="0.3em">90</text>
+   <text transform="rotate(10)" y="-162.5197" x="0" dy="0.3em">100</text>
+   <text transform="rotate(20)" y="-162.5197" x="0" dy="0.3em">110</text>
+   <text transform="rotate(30)" y="-162.5197" x="0" dy="0.3em">120</text>
+   <text transform="rotate(40)" y="-162.5197" x="0" dy="0.3em">130</text>
+   <text transform="rotate(50)" y="-162.5197" x="0" dy="0.3em">140</text>
+   <text transform="rotate(60)" y="-162.5197" x="0" dy="0.3em">150</text>
+   <text transform="rotate(70)" y="-162.5197" x="0" dy="0.3em">160</text>
+   <text transform="rotate(80)" y="-162.5197" x="0" dy="0.3em">170</text>
+   <text transform="rotate(90)" y="-162.5197" x="0" dy="0.3em" visibility="hidden">180</text>
   </g>
   <g class="div" stroke-width="1.1339" stroke="#000000" fill="none" title="radiuses 10 deg" data-angle="180" data-r="26.4567" data-length="124.7244">
    <line x1="0" y1="-26.4567" x2="0" y2="-151.1811" transform="rotate(-90)"/>

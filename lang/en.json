@@ -25,7 +25,7 @@
     "msg_bad_file_format": "File format not recognized. Please open only filed created in this application.",
     "msg_lost_edits_warning": "All changes in current image will be lost. Continue?",
     "msg_old_browser": "Your browser is not supported. Please update your browser to newer version.",
-    "msg_browser_not_supported": "Your browser is not supported. Please use Chrome or Firefox instead.",
+    "msg_browser_not_supported": "Your browser is not supported. Please use Chrome, Firefox or Opera instead.",
 
     "new_label": "New label",
 	"new_circle": "New circle",

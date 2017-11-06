@@ -1723,7 +1723,8 @@ console.log(a[0].click)
 
                 // Check browser support
                 if (editor.ie_version())
-                    alert($.i18n('msg_browser_not_supported'))
+                    alert($.i18n('msg_browser_not_supported'));
+//                    setTimeout(function(){alert($.i18n('msg_browser_not_supported'))}, 1000);
                 
             }); // end i18n.load()
             

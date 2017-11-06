@@ -1061,7 +1061,8 @@ editor.elm_label_group.prototype.new_child_element = function() {
     element.setAttribute('x', 0);
     element.setAttribute('y', -parseFloat(this.data_r));
     element.setAttribute('text-anchor', 'middle');
-    element.setAttribute('dominant-baseline', 'central');
+//    element.setAttribute('dominant-baseline', 'central');
+    element.setAttribute('dy', '0.3em');
     element.setAttribute('stroke', 'none');
     element.setAttribute('data-keep-angle', this.data_keep_angle);
     element.innerText = this.get_label_text(this.children_objs.length);

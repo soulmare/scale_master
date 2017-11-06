@@ -8,14 +8,14 @@
   <path class="arc" stroke-width="8.6929" stroke="#ffd700" fill="none" d="M 18.2937 -51.6597 A 54.8032 54.8032 0 0 0 -18.2937 -51.6597" title="yellow zone" data-angle="39" data-r="54.8031" transform="rotate(80 0,0) "/>
   <path class="arc" stroke-width="8.6929" stroke="#9acd32" fill="none" d="M 47.22 -27.8147 A 54.8032 54.8032 0 0 0 -47.22 -27.8147" title="green zone" data-angle="119" data-r="54.8031"/>
   <path class="arc" stroke-width="8.6929" stroke="#0000ff" fill="none" d="M 26.5691 -47.9319 A 54.8032 54.8032 0 0 0 -26.5691 -47.9319" title="blue zone" data-angle="58" data-r="54.8031" transform="rotate(-90 0,0) "/>
-  <g font-weight="bold" data-label-start="0" data-label-step="2" data-keep-angle="absolute" data-angle="240" data-r="75.5906" font-size="18.8976" font-family="Arial" text-anchor="middle" dominant-baseline="central" stroke="none" fill="#000000" title="labels" class="label">
-   <text data-keep-angle="absolute" transform="rotate(-120) rotate(120,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">0</text>
-   <text data-keep-angle="absolute" transform="rotate(-80) rotate(80,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">2</text>
-   <text data-keep-angle="absolute" transform="rotate(-40) rotate(40,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">4</text>
-   <text data-keep-angle="absolute" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">6</text>
-   <text data-keep-angle="absolute" transform="rotate(40 0,0) rotate(-40 0,-75.5906) " stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">8</text>
-   <text data-keep-angle="absolute" transform="rotate(80) rotate(-80,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">10</text>
-   <text data-keep-angle="absolute" transform="rotate(120) rotate(-120,0,-75.5906)" stroke="none" dominant-baseline="central" text-anchor="middle" y="-75.5906" x="0">12</text>
+  <g font-weight="bold" data-label-start="0" data-label-step="2" data-keep-angle="absolute" data-angle="240" data-r="75.5906" font-size="18.8976" font-family="Arial" text-anchor="middle" stroke="none" fill="#000000" title="labels" class="label">
+   <text data-keep-angle="absolute" transform="rotate(-120) rotate(120,0,-75.5906)" stroke="none" dy="0.3em" text-anchor="middle" y="-75.5906" x="0">0</text>
+   <text data-keep-angle="absolute" transform="rotate(-80) rotate(80,0,-75.5906)" stroke="none" dy="0.3em" text-anchor="middle" y="-75.5906" x="0">2</text>
+   <text data-keep-angle="absolute" transform="rotate(-40) rotate(40,0,-75.5906)" stroke="none" dy="0.3em" text-anchor="middle" y="-75.5906" x="0">4</text>
+   <text data-keep-angle="absolute" stroke="none" dy="0.3em" text-anchor="middle" y="-75.5906" x="0">6</text>
+   <text data-keep-angle="absolute" transform="rotate(40 0,0) rotate(-40 0,-75.5906) " stroke="none" dy="0.3em" text-anchor="middle" y="-75.5906" x="0">8</text>
+   <text data-keep-angle="absolute" transform="rotate(80) rotate(-80,0,-75.5906)" stroke="none" dy="0.3em" text-anchor="middle" y="-75.5906" x="0">10</text>
+   <text data-keep-angle="absolute" transform="rotate(120) rotate(-120,0,-75.5906)" stroke="none" dy="0.3em" text-anchor="middle" y="-75.5906" x="0">12</text>
   </g>
   <g data-length="11.3386" data-r="49.1339" data-angle="240" title="divs" fill="none" stroke="#000000" stroke-width="1.1339" class="div" data-lev2-each="2" data-lev2-stroke-width="3.7795">
    <line transform="rotate(-120)" y2="-60.4725" x2="0" y1="-49.1339" x1="0" data-length="11.3386" stroke-width="3.7795"/>

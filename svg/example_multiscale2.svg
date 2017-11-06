@@ -72,7 +72,7 @@
    <line data-keep-angle="" transform="rotate(57) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
    <line data-keep-angle="" transform="rotate(60) " y2="-204.0945" x2="0" y1="-188.9764" x1="0"/>
   </g>
-  <g data-label-start="0" data-label-step="2" data-keep-angle="absolute" data-angle="120" data-r="234.3307" font-size="19.2756" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#000000" title="volt" class="label">
+  <g data-label-start="0" data-label-step="2" data-keep-angle="absolute" data-angle="120" data-r="234.3307" font-size="19.2756" font-family="Arial" text-anchor="middle" fill="#000000" title="volt" class="label">
    <text font-size="26.0787" font-weight="bold" data-keep-angle="absolute" transform="rotate(-60) rotate(60,0,-234.3307) " y="-234.3307" x="0">0</text>
    <text data-keep-angle="absolute" transform="rotate(-48) rotate(48,0,-234.3307) " y="-234.3307" x="0">2</text>
    <text data-keep-angle="absolute" transform="rotate(-36) rotate(36,0,-234.3307) " y="-234.3307" x="0">4</text>
@@ -85,7 +85,7 @@
    <text data-keep-angle="absolute" transform="rotate(48) rotate(-48,0,-234.3307) " y="-234.3307" x="0">18</text>
    <text font-size="26.0787" font-weight="bold" data-keep-angle="absolute" transform="rotate(60) rotate(-60,0,-234.3307) " y="-234.3307" x="0">20</text>
   </g>
-  <text transform="translate(-18.8976,-1.5118) " font-weight="bold" font-size="24.9449" font-family="Arial" fill="#000000" dominant-baseline="central" text-anchor="middle" y="-102.0472" x="0" class="label">V</text>
+  <text transform="translate(-18.8976,-1.5118) " font-weight="bold" font-size="24.9449" font-family="Arial" fill="#000000" dy="0.3em" text-anchor="middle" y="-102.0472" x="0" class="label">V</text>
   <path data-top-cut="75.5906" transform="translate(0,30.2362) " data-height="302.3622" data-width="468.6614" title="New scale plate" d="M0 0 H -234.3307 V -226.7717 L -158.7402 -302.3622 H 158.7402 L 234.3307 -226.7717 V 0 Z" stroke="#000000" stroke-width="1.5118" class="plate plate-rectangular-top plate-top-cut"/>
   <path data-r="181.4173" data-angle="121" title="New arc" d="M 157.8976 -89.3342 A 181.4173 181.4173 0 0 0 -157.8976 -89.3342" stroke="#0000ff" stroke-width="2.2677" class="arc"/>
   <g data-length="11.3386" data-r="170.0787" data-angle="120" title="ohm" stroke="#0000ff" stroke-width="1.5118" class="div">
@@ -97,7 +97,7 @@
    <line data-keep-angle="" transform="rotate(50) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
    <line data-keep-angle="" transform="rotate(60) " y2="-181.4173" x2="0" y1="-170.0787" x1="0"/>
   </g>
-  <g data-label-start="0" data-label-step="1" data-keep-angle="absolute" data-angle="120" data-r="160.6299" font-size="15.1181" font-family="Arial" text-anchor="middle" dominant-baseline="central" fill="#0000ff" title="ohm" class="label">
+  <g data-label-start="0" data-label-step="1" data-keep-angle="absolute" data-angle="120" data-r="160.6299" font-size="15.1181" font-family="Arial" text-anchor="middle" fill="#0000ff" title="ohm" class="label">
    <text data-keep-angle="absolute" transform="rotate(-60 0,0) rotate(60 0,-160.6299) " y="-160.6299" x="0">~</text>
    <text class="0" data-keep-angle="absolute" transform="rotate(-16 0,0) rotate(16 -0,-160.6299) " y="-160.6299" x="0">100K</text>
    <text data-keep-angle="absolute" transform="rotate(7 0,0) rotate(-7 0,-160.6299) " y="-160.6299" x="0">10K</text>
@@ -106,7 +106,7 @@
    <text data-keep-angle="absolute" transform="rotate(50 0,0) rotate(-50 0,-160.6299) " y="-160.6299" x="0">10</text>
    <text data-keep-angle="absolute" transform="rotate(60 0,0) rotate(-60 0,-160.6299) " y="-160.6299" x="0">0</text>
   </g>
-  <text class="label" x="0" y="0" text-anchor="middle" dominant-baseline="central" fill="#0000ff" stroke="none" font-family="Arial" font-size="21.5433" transform="translate(34.0157,-102.0472) ">Ohm</text>
+  <text class="label" x="0" y="0" text-anchor="middle" dy="0.3em" fill="#0000ff" stroke="none" font-family="Arial" font-size="21.5433" transform="translate(34.0157,-102.0472) ">Ohm</text>
   <path class="circlecnt" stroke-width="1.1339" stroke="#000000" fill="none" d="M-37.7953,0a37.7953,37.7953 0 1,0 75.5906,0a37.7953,37.7953 0 1,0 -75.5906,0M0 -37.7953 V37.7953 M-37.7953 0 H37.7953" title="center" data-cx="0" data-cy="0" data-r="37.7953"/>
  </g>
 </svg>

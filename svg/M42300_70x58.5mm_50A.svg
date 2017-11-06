@@ -32,15 +32,15 @@
    <line x1="0" y1="-139.8425" x2="0" y2="-151.1811" transform="rotate(40.664)" data-length="11.3386"/>
    <line x1="0" y1="-139.8425" x2="0" y2="-156.8504" transform="rotate(44.2)" data-length="17.0079" stroke-width="1.5118"/>
   </g>
-  <g data-label-step="10" data-keep-angle="" data-angle="85" data-r="170.0787" text-anchor="middle" font-size="18.8976" font-family="Arial" dominant-baseline="central" title="Value labels" class="label" stroke="none" fill="#000000" data-label-start="0">
-   <text data-keep-angle="absolute" transform="rotate(-42.5 0,0) rotate(42.5 -0,-170.0787) translate(24.5669,35.9055) " y="-170.0787" dominant-baseline="central" stroke="none">0</text>
-   <text transform="rotate(-25.5) rotate(25.5,0,-170.0787)" x="0" y="-170.0787" text-anchor="middle" dominant-baseline="central" stroke="none" data-keep-angle="">10</text>
-   <text transform="rotate(-8.5) rotate(8.5,0,-170.0787)" data-keep-angle="" stroke="none" dominant-baseline="central" text-anchor="middle" y="-170.0787" x="0">20</text>
-   <text transform="rotate(8.5) rotate(-8.5,0,-170.0787)" data-keep-angle="" stroke="none" dominant-baseline="central" text-anchor="middle" y="-170.0787" x="0">30</text>
-   <text transform="rotate(25.5) rotate(-25.5,0,-170.0787)" data-keep-angle="" stroke="none" dominant-baseline="central" text-anchor="middle" y="-170.0787" x="0">40</text>
-   <text transform="rotate(42.5 0,0) rotate(-42.5 0,-170.0787) translate(-24.189,35.9055) " data-keep-angle="" stroke="none" dominant-baseline="central" text-anchor="middle" y="-170.0787" x="0">50</text>
+  <g data-label-step="10" data-keep-angle="" data-angle="85" data-r="170.0787" text-anchor="middle" font-size="18.8976" font-family="Arial" title="Value labels" class="label" stroke="none" fill="#000000" data-label-start="0">
+   <text data-keep-angle="absolute" transform="rotate(-42.5 0,0) rotate(42.5 -0,-170.0787) translate(24.5669,35.9055) " y="-170.0787" dy="0.3em" stroke="none">0</text>
+   <text transform="rotate(-25.5) rotate(25.5,0,-170.0787)" x="0" y="-170.0787" text-anchor="middle" dy="0.3em" stroke="none" data-keep-angle="">10</text>
+   <text transform="rotate(-8.5) rotate(8.5,0,-170.0787)" data-keep-angle="" stroke="none" dy="0.3em" text-anchor="middle" y="-170.0787" x="0">20</text>
+   <text transform="rotate(8.5) rotate(-8.5,0,-170.0787)" data-keep-angle="" stroke="none" dy="0.3em" text-anchor="middle" y="-170.0787" x="0">30</text>
+   <text transform="rotate(25.5) rotate(-25.5,0,-170.0787)" data-keep-angle="" stroke="none" dy="0.3em" text-anchor="middle" y="-170.0787" x="0">40</text>
+   <text transform="rotate(42.5 0,0) rotate(-42.5 0,-170.0787) translate(-24.189,35.9055) " data-keep-angle="" stroke="none" dy="0.3em" text-anchor="middle" y="-170.0787" x="0">50</text>
   </g>
-  <text text-anchor="middle" font-weight="normal" font-size="37.7953" font-family="Arial" y="0" title="Center label" fill="#000000" class="label" dominant-baseline="central" transform="translate(0,-100) " stroke="none">A</text>
+  <text text-anchor="middle" font-weight="normal" font-size="37.7953" font-family="Arial" y="0" title="Center label" fill="#000000" class="label" dy="0.3em" transform="translate(0,-100) " stroke="none">A</text>
   <path stroke-width="1.1339" data-top-cut="7.5591" data-height="221.1024" data-width="264.5669" transform="translate(0,13.2283) " d="M0 0 H -132.2835 V -213.5433 L -124.7244 -221.1024 H 124.7244 L 132.2835 -213.5433 V 0 Z" stroke="#000000" title="Scale Plate" class="plate plate-rectangular-top"/>
   <path data-r="35.9055" data-cy="0" data-cx="0" title="center" d="M-35.9055,0a35.9055,35.9055 0 1,0 71.811,0a35.9055,35.9055 0 1,0 -71.811,0M0 -35.9055 V35.9055 M-35.9055 0 H35.9055" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
   <path transform="translate(47.2441,0) " data-r="5.6693" data-cy="0" data-cx="0" title="hole" d="M-5.6693,0a5.6693,5.6693 0 1,0 11.3386,0a5.6693,5.6693 0 1,0 -11.3386,0M0 -5.6693 V5.6693 M-5.6693 0 H5.6693" fill="none" stroke="#000000" stroke-width="1.1339" class="circlecnt"/>
