@@ -17,6 +17,7 @@ editor.vm = {};
     'use strict';
 
     editor.vm.svg_elem_types = ['arc', 'axe', 'div', 'line', 'plate', 'hole', 'meta', 'label', 'circle', 'circlecnt', 'image', 'rect'];
+    editor.vm.clickable_elements = ['line', 'text', 'circle', 'path', 'rect', 'image'];
         
     editor.vm.init = function () {
 
@@ -29,6 +30,11 @@ editor.vm = {};
             display_parent_list: true,
             tpl_objects_enabled: true,
             tpl_context_enabled: true,
+            drag_point: null,
+            drag_angle: null,
+            drag_radius: null,
+            is_drag_click: false,
+            is_drag_marker_click: false,
             objects: [
             ],
 //            parents_list:  function () {
@@ -36,11 +42,12 @@ editor.vm = {};
 //            children_list: [
 //            ],
             
-            get: function(idx) {
-                if (typeof(idx) == 'undefined')
+            // @search can be idx property, or SVG element
+            get: function(search) {
+                if (typeof(search) == 'undefined')
                     return;
                 for (var i in this.objects)
-                    if (this.objects[i].idx == idx)
+                    if ((this.objects[i].idx == search) || (this.objects[i].element == search))
                         return this.objects[i];
             },
 /*
@@ -89,8 +96,12 @@ editor.vm = {};
 //console.log('+'+obj.idx, this.objects.length);
                 this.register_object(obj, this.objects);
                 $.observable(this.objects).insert(obj);
-                if(obj.tag !== 'g')
-                    $(element, editor.document).bind('click', this.trigger_element_click);
+                if(editor.vm.clickable_elements.indexOf(obj.tag) >= 0) {
+                    $(element, editor.document).bind('click', this.trigger_element_click)
+                            .bind('dblclick', this.trigger_element_dblclick)
+                            .bind('mousedown', this.trigger_element_mousedown)
+                            .bind('mouseup', this.trigger_element_mouseup);
+                }
                 return obj.idx;
             },
             
@@ -158,9 +169,9 @@ editor.vm = {};
             trigger_selection_change: function (ev, eventArgs) {
                 var _this = ev.target;
                 var obj = _this.selected_object;
-                $('._ed_sel', editor.document).removeClass('_ed_sel');
-                if (obj)
-                    $(obj.element).addClass('_ed_sel');
+//                $('._ed_sel', editor.document).removeClass('_ed_sel');
+//                if (obj)
+//                    $(obj.element).addClass('_ed_sel');
                 editor.update_select_box();
             },
             
@@ -180,15 +191,149 @@ editor.vm = {};
                 }
             },
 
-            // Event fired by DOM element
             trigger_element_click: function (e) {
-                // Do not know how to get needed kind of @this here, so using global var :(
-                for (var i in editor.vm.model.objects)
-                    if (editor.vm.model.objects[i].element == this) {
-                        editor.vm.model.select(editor.vm.model.objects[i].idx);
-                    }
+//                if (e.button !== 0) return;
+                var obj = editor.vm.model.get(this);
+                if (obj && !editor.vm.model.is_drag_click)
+                    editor.vm.model.select(obj.idx);
             },
 
+            trigger_element_dblclick: function (e) {
+//                if (e.button !== 0) return;
+                var obj = editor.vm.model.get(this);
+                if (obj){
+                    var parent_obj = obj.parent_obj;
+                    if (parent_obj && parent_obj.is_group)
+                        setTimeout(function () {editor.vm.model.select(parent_obj.idx)}, 300);
+                }
+            },
+            
+            trigger_element_mousedown: function (e) {
+//                if (e.button !== 0) return;
+//console.log();
+                var obj = editor.vm.model.get(this);
+                var sel_obj = editor.vm.model.selected_object;
+                if (!sel_obj) return;
+                editor.vm.model.is_drag_marker_click = (this.getAttribute('id') == '_ed_select_marker');
+                if ((obj === sel_obj) || editor.vm.model.is_drag_marker_click || (sel_obj && sel_obj.children_objs && (sel_obj.children_objs.indexOf(obj) >= 0))) {
+                    
+                    // Get cartesian position of drag point
+                    var element_pos = [editor.px_to_units(sel_obj.shift_x() || 0), editor.px_to_units(sel_obj.shift_y() || 0)];
+                    var pointer_pos = editor.coords_mouse_event_to_document(e);
+                    //:TODO: make it correct with different document_origin_mode values
+//                    var y_invert = editor.cfg.document_origin_mode == 1 ? -1 : 1;
+                    // Drag point is fixed delta between pointer's position and element's position
+                    editor.vm.model.drag_point = [element_pos[0] - pointer_pos[0], element_pos[1] - pointer_pos[1]];
+//                    editor.vm.model.drag_angle = Math.atan2(pointer_pos[0], -pointer_pos[1]) * 180.0 / Math.PI;
+
+                    // Get radius of drag point
+                    var elem_radius = sel_obj.type == 'arc' ? sel_obj.radius() || 0 : sel_obj.data_r || 0;
+                    // Get delta between element radius and pointer radius
+                    editor.vm.model.drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1]) - editor.px_to_units(elem_radius);
+//                    var radius_delta = editor.vm.model.drag_radius - drag_radius;
+//console.log('M', editor.vm.model.drag_radius, radius_delta, sel_obj[prop_name]);
+//console.log('fix',editor.vm.model.drag_radius,elem_radius)
+                    //this.getAttribute('id') == '_ed_select_marker'
+                    
+                    // Get angle of drag point (only for grouped elements)
+                    if (sel_obj.parent_obj) {
+                        var dx = pointer_pos[0] - editor.px_to_units(sel_obj.parent_obj.shift_x() || 0);
+                        var dy = editor.px_to_units(sel_obj.parent_obj.shift_y() || 0) - pointer_pos[1];
+                        var drag_angle = Math.atan2(dx, dy) * 180.0 / Math.PI - (sel_obj.parent_obj.angle() || 0);
+                        // Fix angle overing period
+                        if (Math.abs(drag_angle-sel_obj.parent_obj.angle()) > 360) {
+                            drag_angle = 360 % drag_angle;
+                            if (drag_angle-sel_obj.parent_obj.angle() > 0)
+                                drag_angle = -drag_angle;
+                        }
+                        // Get delta between element angle and pointer angle
+                        editor.vm.model.drag_angle = drag_angle - (sel_obj.angle_val() || 0);
+//console.log('fix',drag_angle,editor.vm.model.drag_angle)
+                    }
+                }
+            },
+
+            trigger_element_mouseup: function (e) {
+//                if (e.button !== 0) return;
+//console.log('- elem');
+                editor.vm.model.drag_point = null;
+//                $('rect#background', editor.document).css({'cursor': ""});
+                setTimeout(function () {editor.vm.model.is_drag_click = false;editor.vm.model.is_drag_marker_click = false;}, 200);
+            },
+
+            trigger_document_mouseup: function (e) {
+//                if (e.button !== 0) return;
+//console.log('- doc');
+                editor.vm.model.drag_point = null;
+//                $('rect#background', editor.document).css({'cursor': ""});
+                setTimeout(function () {editor.vm.model.is_drag_click = false;editor.vm.model.is_drag_marker_click = false;}, 200);
+            },
+            
+            trigger_document_mousemove: function (e) {
+                var sel_obj = editor.vm.model.selected_object;
+//console.log(editor.vm.model.drag_point,sel_obj)
+                if (editor.vm.model.drag_point && sel_obj) {
+                    editor.vm.model.is_drag_click = true;
+//                    var cursor = 'cur_move.png';
+                    var pointer_pos = editor.coords_mouse_event_to_document(e);
+                    var element_pos = [editor.px_to_units(sel_obj.shift_x() || 0), editor.px_to_units(sel_obj.shift_y() || 0)];
+
+                    if (editor.vm.model.is_drag_marker_click){
+
+//console.log(drag_range,shift_y,radius)
+/*
+                        var drag_range = element_pos[1] - pointer_pos[1];
+                        var shift_y = editor.units_round((sel_obj.shift_y() || 0) - editor.units_to_px(drag_range), 1);
+                        var radius = editor.units_round((sel_obj.radius() || 0) - editor.units_to_px(drag_range), 1);
+                        $.observable(sel_obj).setProperty('shift_y', shift_y);
+                        $.observable(sel_obj).setProperty('radius', radius);
+*/
+                        // Move element
+                        $.observable(sel_obj).setProperty('shift_x', editor.units_round(editor.units_to_px(pointer_pos[0] + editor.vm.model.drag_point[0]), 1));
+                        $.observable(sel_obj).setProperty('shift_y', editor.units_round(editor.units_to_px(pointer_pos[1] + editor.vm.model.drag_point[1]), 1));
+                    
+                    } else if (!e.ctrlKey && (((sel_obj.type == 'div') && (sel_obj.tag == 'line')) || (sel_obj.parent_obj && (sel_obj.parent_obj.tag == 'g') && (sel_obj.tag == 'text')))) {
+//console.log(e)
+                        
+                        // Turn element
+                        if (sel_obj.parent_obj) {
+                            var element_pos = [editor.px_to_units(sel_obj.parent_obj.shift_x() || 0), editor.px_to_units(sel_obj.parent_obj.shift_y() || 0)];
+                            var dx = pointer_pos[0]-element_pos[0];
+                            var dy = element_pos[1]-pointer_pos[1];
+                            var drag_angle = Math.atan2(dx, dy) * 180.0 / Math.PI - (sel_obj.parent_obj.angle() || 0) - editor.vm.model.drag_angle;
+//console.log('m',[dx, dy],Math.atan2(dx, dy),drag_angle,sel_obj.parent_obj.angle())
+                            // Fix angle overing period
+                            if (Math.abs(drag_angle-sel_obj.parent_obj.angle()) > 360) {
+                                drag_angle = 360 % drag_angle;
+                                if (drag_angle-sel_obj.parent_obj.angle() > 0)
+                                    drag_angle = -drag_angle;
+//console.log('fix')
+                            }
+                            // Fix jumping around near 3/4 rotation
+                            if (Math.abs(drag_angle) > 180)
+                                drag_angle = drag_angle > 0 ? drag_angle - 360 : drag_angle + 360;
+                            $.observable(sel_obj).setProperty('angle_val', _.round(drag_angle, 1));
+                        }
+
+                    } else if (!e.ctrlKey && ((sel_obj.type == 'arc') || ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label'))))) {
+                        // Change radius
+//                        var cursor = 'cur_move_radial.png';
+//console.log('Change radius');
+                        var drag_radius = editor.calc.distance(element_pos[0], element_pos[1], pointer_pos[0], pointer_pos[1]);
+//                        var radius_delta = editor.vm.model.drag_radius - drag_radius;
+                        var prop_name = sel_obj.type == 'arc' ? 'radius' : 'data_r';
+//console.log('M', drag_radius, editor.vm.model.drag_radius, sel_obj[prop_name]);
+//                        $.observable(sel_obj).setProperty(prop_name, editor.units_round(editor.units_to_px(drag_radius), 1));
+                        $.observable(sel_obj).setProperty(prop_name, editor.units_round(editor.units_to_px(drag_radius - editor.vm.model.drag_radius), 1));
+                    } else {
+                        // Move element
+                        $.observable(sel_obj).setProperty('shift_x', editor.units_round(editor.units_to_px(pointer_pos[0] + editor.vm.model.drag_point[0]), 1));
+                        $.observable(sel_obj).setProperty('shift_y', editor.units_round(editor.units_to_px(pointer_pos[1] + editor.vm.model.drag_point[1]), 1));
+                    }
+//                    $('rect#background', editor.document).css({'cursor': "url('images/"+cursor+"') 10 10, move"});
+                }
+            },
+            
             // Delete current selected object, or object specified in @delete_obj
             delete: function (event, eventArgs, delete_obj) {
                 if (typeof(delete_obj) == 'undefined')
@@ -277,7 +422,7 @@ editor.vm = {};
                         editor.cfg.new_item.stroke_width = editor.px_to_units(sel_group.stroke_width_val());
                     if (sel_group.font_size)
                         editor.cfg.new_item.font_size = editor.px_to_units(sel_group.element.getAttribute('font-size'));
-console.log(sel_group.font_size)
+//console.log(sel_group.font_size)
                 }
                 // Prefer object over it's group
                 if (sel_obj) {
@@ -291,7 +436,7 @@ console.log(sel_group.font_size)
                         editor.cfg.new_item.stroke_width = editor.px_to_units(sel_obj.stroke_width_val());
                     if (sel_obj.font_size)
                         editor.cfg.new_item.font_size = editor.px_to_units(sel_obj.element.getAttribute('font-size'));
-console.log(sel_obj.font_size)
+//console.log(sel_obj.font_size)
                 }
                 
                 // Request new item parameters
@@ -384,12 +529,13 @@ console.log(sel_obj.font_size)
 //                        element.setAttribute('y', -editor.units_round(base_size*0.2));
                         element.setAttribute('y', 0);
                         element.setAttribute('text-anchor', 'middle');
-                        element.setAttribute('dominant-baseline', 'central');
+//                        element.setAttribute('dominant-baseline', 'central');
+                        element.setAttribute('dy', '0.3em');
                         element.setAttribute('fill', this.obj_color());
                         element.setAttribute('stroke', 'none');
                         element.setAttribute('font-family', editor.cfg.styles.font_family);
                         element.innerText = text;
-console.log(editor.cfg.new_item.font_size)
+//console.log(editor.cfg.new_item.font_size)
                         element.setAttribute('font-size', editor.units_to_px(editor.cfg.new_item.font_size || editor.cfg.styles.font_size));
                         break;
                     case 'line':
@@ -450,13 +596,13 @@ console.log(editor.cfg.new_item.font_size)
                             element.setAttribute('title', $.i18n('new_labels_group'));
                             element.setAttribute('fill', this.obj_color());
                             element.setAttribute('stroke', 'none');
-                            element.setAttribute('dominant-baseline', 'central');
+//                            element.setAttribute('dominant-baseline', 'central');
                             element.setAttribute('text-anchor', 'middle');
                             element.setAttribute('font-family', editor.cfg.styles.font_family);
                             element.setAttribute('font-size', editor.units_to_px(editor.cfg.new_item.font_size || editor.cfg.styles.font_size));
                             element.setAttribute('data-r', editor.units_to_px(editor.cfg.new_item.r*1.2));
                             element.setAttribute('data-angle', editor.cfg.new_item.angle);
-                            element.setAttribute('data-keep-angle', 'true');
+//                            element.setAttribute('data-keep-angle', 'true');
                             element.setAttribute('data-label-step', '1');
                             element.setAttribute('data-label-start', '0');
                         } else {
@@ -578,6 +724,10 @@ console.log(editor.cfg.new_item.font_size)
                 $.observable(editor.vm.model).setProperty('tpl_objects_enabled', true);
                 $.observable(editor.vm.model).setProperty('tpl_context_enabled', true);
 */
+            },
+            
+            insert_symbol: function (event, e) {
+                $.observable(this.selected_object).setProperty('text', (this.selected_object.text || '') + $(event.target).html());
             }
             
         };
@@ -672,11 +822,18 @@ console.log(editor.cfg.new_item.font_size)
         $.observe(editor.vm.model, "selected_object", editor.vm.model.trigger_selection_change);
         $.observe(editor.vm.model, "selected_parent", "selected_child", editor.vm.model.trigger_select);
 
+        // Update page title
         $.observe(editor.vm.model, "title", function (ev, eventArgs) {
             document.title = APP_NAME;
             if (eventArgs.value != '')
                 document.title += ' - ' + eventArgs.value;
         });
+        
+/*
+        $.observe(editor.vm.model, '**', function (ev, eventArgs) {
+            console.log(eventArgs)
+        });
+*/
         
     }
     
@@ -704,9 +861,17 @@ console.log(editor.cfg.new_item.font_size)
         
         // Select object event listener
 //        $('.'+editor.vm.svg_elem_types.join(',.'), scale_wrapper).bind('click', editor.vm.model.trigger_element_click);
-        $('line,text,circle,path,rect,image', scale_wrapper).bind('click', editor.vm.model.trigger_element_click);
+        $(editor.vm.clickable_elements.join(',') + ',#_ed_select_marker', editor.document)
+                .bind('click', editor.vm.model.trigger_element_click)
+                .bind('dblclick', editor.vm.model.trigger_element_dblclick)
+                .bind('mousedown', editor.vm.model.trigger_element_mousedown)
+                .bind('mouseup', editor.vm.model.trigger_element_mouseup);
         // Background click
         $('rect#background', editor.document).bind('click', function () {editor.vm.model.select()});
+        $(editor.document)
+                .bind('mousemove', editor.vm.model.trigger_document_mousemove)
+                .bind('mouseup mouseleave', editor.vm.model.trigger_document_mouseup);
+//        $('#_ed_select_marker', editor.document).bind('click', function () {editor.vm.model.select()});
 
         var bg_elem = $('rect#background', editor.document)[0];
         if (bg_elem){

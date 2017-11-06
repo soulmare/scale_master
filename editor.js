@@ -31,7 +31,7 @@ editor = {};
                 },
                 // Mouse button, used for drag scrolling
                 // 0 - main button; 1 - wheel button; 2 - context menu button
-                drag_scroll_btn: 0,
+//                drag_scroll_btn: 0,
                 rulers: {
                     stroke_style: 'rgba(255,255,255,0.8)',
                     // Vertical ruler labels orientation
@@ -62,7 +62,11 @@ editor = {};
                     size: 100,
                     font_size: 4,
                     stroke_width: 0.3
-                }
+                },
+                store_last_document: true,
+                div_levels_count: 3,
+                initial_image: 'svg/new_scale.svg',
+                export_cutoff_empty_space: true
             };
     
 //        editor.svg_observe_attrs = {
@@ -140,22 +144,29 @@ editor = {};
             editor.bind_listeners();
 
             editor.vm.init();
+            
+            if (!editor.cfg.initial_image)
+                editor.cfg.initial_image = defaultConfig.initial_image;
+            
+//            var initial_document = 'svg/example_multiscale.svg';
+//            var initial_document = 'svg/test_negative_line_length2.svg';
+//            var initial_document = 'svg/test.svg';
 
-            var svg_str_stored = localStorage.getItem('svg_doc');
-            if (svg_str_stored){
-//                console.log(svg_str_stored.length);
-//                svg_str_stored = '<sv'+svg_str_stored;
-                editor.vm.model.enable_templates(false);
-                if (!editor.load_svg_string(svg_str_stored))
-                    editor.open_url('svg/new_scale.svg');
-                editor.vm.model.enable_templates(true);
-            }else
-                editor.open_url('svg/new_scale.svg');
+            if (editor.cfg.store_last_document) {
+                var svg_str_stored = localStorage.getItem('svg_doc');
+                if (svg_str_stored){
+    //                console.log(svg_str_stored.length);
+    //                svg_str_stored = '<sv'+svg_str_stored;
+                    editor.vm.model.enable_templates(false);
+                    if (!editor.load_svg_string(svg_str_stored))
+                        editor.open_url(editor.cfg.initial_image);
+                    editor.vm.model.enable_templates(true);
+                }else
+                    editor.open_url(editor.cfg.initial_image);
+            } else
+                editor.open_url(editor.cfg.initial_image);
             
             
-//            editor.open_url('svg/M4200_69X60_20V.svg');
-//            editor.open_url('svg/example_compass.svg');
-//            editor.open_url('svg/test_multiscale_2.svg');
             
 //            editor.vm.load_svg();
             
@@ -185,17 +196,19 @@ editor = {};
                         $('#editor_viewport').scrollTop($('#editor_viewport').scrollTop() + (clickY - e.clientY));
                         clickY = e.clientY;
                         $('#editor_viewport').scrollLeft($('#editor_viewport').scrollLeft() + (clickX - e.clientX));
-                        clickX = e.clientX;                        
+                        clickX = e.clientX;
+                        e.preventDefault();
                     }
                 },
                 'mousedown': function(e) {
-                    if (e.button != editor.cfg.drag_scroll_btn) return; // ignore other buttons
+                    if (e.button != 1) return; // ignore other buttons
+                    e.preventDefault();
                     clicked = true;
                     clickY = e.clientY;
                     clickX = e.clientX;
                 },
                 'mouseup': function(e) {
-                    if (e.button != editor.cfg.drag_scroll_btn) return; // ignore other buttons
+                    if (e.button != 1) return; // ignore other buttons
                     clicked = false;
                     $('#workspace').css('cursor', 'auto');
                 },
@@ -237,6 +250,7 @@ editor = {};
             // Zoom change events
             
             set_zoom_debounced = _.debounce(function (new_zoom, center_point) {editor.set_zoom(new_zoom, center_point)}, 100, {leading: true, maxWait:100});
+//            set_zoom_debounced = editor.set_zoom;
             
             // Dispatch zoom input
             $('input[type=number][name=zoom]').bind('input', function (e) {
@@ -329,48 +343,101 @@ editor = {};
             // Workspace keyboard actions
             $('#workspace').bind('keydown', function (e) {
 //                console.log(e.which, e.ctrlKey, e.shiftKey);
+                var delta_deg = e.ctrlKey ? 1 : 0.1;
+                var delta_deg2 = e.ctrlKey ? 1 : 0.5;
                 var delta = editor.units_to_px(e.ctrlKey ? 1 : 0.1);
+//                var arrow_keys = [37, 38, 39, 40];
+                var sel_obj = editor.vm.model.selected_object;
+                if (!sel_obj)
+                    return;
+
+                if ((sel_obj.tag == 'line') && (sel_obj.type == 'div') && sel_obj.parent_obj && sel_obj.parent_obj.is_group){
+                    // Move grouped divisions and labels
+                    switch (e.which) {
+                        case 37: // left
+                        case 40: // down
+                            $.observable(sel_obj).setProperty('angle_val', _.round((sel_obj.angle_val() || 0) - delta_deg, 1));
+                            e.preventDefault();
+                            break;
+                        case 38: // up
+                        case 39: // right
+                            $.observable(sel_obj).setProperty('angle_val', _.round((sel_obj.angle_val() || 0) + delta_deg, 1));
+                            e.preventDefault();
+                            break;
+                    }
+                } else {
+                    // Move common objects
+                    switch (e.which) {
+                        case 37:
+                            // left
+                            if (e.shiftKey) {
+                                if (sel_obj.angle !== undefined)
+                                    $.observable(sel_obj).setProperty('angle', _.round((sel_obj.angle() || 0) - delta, 1));
+                                e.preventDefault();
+                            } else {
+                                $.observable(sel_obj).setProperty('shift_x', editor.units_round(sel_obj.shift_x(), 1) - delta);
+                                e.preventDefault();
+                            }
+                            break;
+                        case 38:
+                            // up
+                            if (e.shiftKey && (sel_obj.type == 'arc')) {
+                                $.observable(sel_obj).setProperty('arc_angle', _.round((parseFloat(sel_obj.arc_angle()) || 0) + delta_deg2, 1));
+                                e.preventDefault();
+                            } else if (e.shiftKey && ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label')))) {
+                                $.observable(sel_obj).setProperty('data_angle', _.round((parseFloat(sel_obj.data_angle) || 0) + delta_deg2, 1));
+                                e.preventDefault();
+                            } else {
+                                $.observable(sel_obj).setProperty('shift_y', editor.units_round(sel_obj.shift_y(), 1) - delta);
+                                e.preventDefault();
+                            }
+                            break;
+                        case 39:
+                            // right
+                            if (e.shiftKey) {
+                                if (sel_obj.angle !== undefined)
+                                    $.observable(sel_obj).setProperty('angle', _.round((sel_obj.angle() || 0) + delta, 1));
+                                e.preventDefault();
+                            } else {
+                                $.observable(sel_obj).setProperty('shift_x', editor.units_round(sel_obj.shift_x(), 1) + delta);
+                                e.preventDefault();
+                            }
+                            break;
+                        case 40:
+                            // down
+                            if (e.shiftKey && (sel_obj.type == 'arc')) {
+                                $.observable(sel_obj).setProperty('arc_angle', _.round((parseFloat(sel_obj.arc_angle()) || 0) - delta_deg2, 1));
+                                e.preventDefault();
+                            } else if (e.shiftKey && ((sel_obj.tag == 'g') && ((sel_obj.type == 'div') || (sel_obj.type == 'label')))) {
+                                $.observable(sel_obj).setProperty('data_angle', _.round((parseFloat(sel_obj.data_angle) || 0) - delta_deg2, 1));
+                                e.preventDefault();
+                            } else {
+                                $.observable(sel_obj).setProperty('shift_y', editor.units_round(sel_obj.shift_y(), 1) + delta);
+                                e.preventDefault();
+                            }
+                            break;
+                    }
+                }
+
+                // Common actions
                 switch (e.which) {
-                    case 37:
-                        // left
-                        if (editor.vm.model.selected_object) {
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) - delta);
-                            e.preventDefault();
-                        }
-                        break;
-                    case 38:
-                        // up
-                        if (editor.vm.model.selected_object){
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) - delta);
-                            e.preventDefault();
-                        }
-                        break;
-                    case 39:
-                        // right
-                        if (editor.vm.model.selected_object){
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_x', editor.units_round(editor.vm.model.selected_object.shift_x(), 1) + delta);
-                            e.preventDefault();
-                        }
-                        break;
-                    case 40:
-                        // down
-                        if (editor.vm.model.selected_object){
-                            $.observable(editor.vm.model.selected_object).setProperty('shift_y', editor.units_round(editor.vm.model.selected_object.shift_y(), 1) + delta);
-                            e.preventDefault();
-                        }
-                        break;
                     case 46:
                         // delete
-                        if (editor.vm.model.selected_object)
-                            editor.vm.model.delete(null, {change: 'click'});
+                        editor.vm.model.delete(null, {change: 'click'});
                         break;
                 }
+                
             });
-            
+
+            // URL hash processing
+            $(window).bind('hashchange', function() {
+                console.log(location.hash);
+            });
+
         }
 
         
-        editor.trigget_objects_list_keydown = function (event) {
+        editor.trigger_objects_list_keydown = function (event) {
 //console.log(event);return;
             switch (event.which) {
                 case 46:
@@ -398,6 +465,7 @@ editor = {};
         editor.set_zoom = function (new_zoom, zoom_center_point) {
             if ('undefined' === typeof (new_zoom))
                 new_zoom = editor.zoom;
+//console.log('zoom')
 
             var real_width = parseFloat($(editor.document).attr('data-width'));
             var real_height = parseFloat($(editor.document).attr('data-height'));
@@ -420,20 +488,24 @@ editor = {};
             $('input[type=number][name=zoom]').val(_.round(editor.zoom*100,2));
 //console.log('ZOOM', editor.zoom, zoom_center_point)
 
-            // Resize page
             var display_width = real_width * editor.zoom;
             var display_height = real_height * editor.zoom;
+            var workspace_width = display_width * 1.5;
+            var workspace_height = display_height * 1.5;
+
+            // Resize workspace
+            $(editor.workspace).width(workspace_width);
+            $(editor.workspace).height(workspace_height);
+
+            // Resize page
             $(editor.document).attr('width', display_width);
             $(editor.document).attr('height', display_height);
             $(editor.document).attr('viewBox', [0, 0, real_width, real_height].join(' '));
 
-            // Resize workspace
-            $(editor.workspace).width($(editor.document).width() * 1.5);
-            $(editor.workspace).height($(editor.document).height() * 1.5);
-
             // Center page on workspace
-            $(editor.document).css('left', $('#workspace').width()/2-$(editor.document).width()/2);
-            $(editor.document).css('top', $('#workspace').height()/2-$(editor.document).height()/2);
+            $(editor.document).css('left', workspace_width/2-display_width/2);
+            $(editor.document).css('top', workspace_height/2-display_height/2);
+            
 //            $(editor.document).attr('x', $('#workspace').width()/2-$(editor.document).width()/2);
 //            $(editor.document).attr('y', $('#workspace').height()/2-$(editor.document).height()/2);
 
@@ -458,6 +530,11 @@ editor = {};
             // Redraw rulers
             editor.update_rulers();
 
+            // Change selector box elements sizes
+            $('#_ed_select_marker').attr('r', 3/editor.zoom+0.3);
+            $('#_ed_select_marker').attr('stroke-width', 1.5/editor.zoom);
+            $('._ed_helper_line').attr('stroke-width', 1.5/editor.zoom);
+            
         }
 
         
@@ -711,7 +788,11 @@ editor = {};
         }
         
         
-        editor.open_url = function (url, callback) {
+        editor.open_url = function (url, callback, no_warning) {
+
+            if(editor.modified && !no_warning && !confirm($.i18n('msg_lost_edits_warning')))
+                return;
+
             $(editor.document).hide();
             $('#hdr_buttons button').attr('disabled', 'disabled');
             editor.vm.model.enable_templates(false);
@@ -739,6 +820,8 @@ editor = {};
         
             
         editor.load_svg_string = function (xmlString, callback) {
+            
+            document.title = APP_NAME;
 /*
             $(editor.document).remove();
             $(editor.workspace).append(str);
@@ -787,24 +870,98 @@ editor = {};
             editor.select_box.setAttribute('id', '_ed_select_box');
             editor.select_box.setAttribute('visibility', 'hidden');
             editor.select_box.setAttribute('class', '_ed_temp');
+            
+            // Add select box margin
             var ids = ['_ed_select_box_margin1', '_ed_select_box_margin2'];
             var margin_idx = 0;
+            var dash_colors_margins = ['#FF0000', '#ffff00'];
             for (var i in ids) {
                 var sel_margin = document.createElementNS(editor.ns_svg, 'rect');
                 sel_margin.setAttribute('id', ids[i]);
-                sel_margin.setAttribute('class', '_ed_select_box_margin');
+                sel_margin.setAttribute('class', '_ed_select_box_margin _ed_helper_line');
                 sel_margin.setAttribute('fill', 'none');
 //                    sel_margin.setAttribute('opacity', '0.4');
                 sel_margin.setAttribute('stroke-width', 1.0);
-                sel_margin.setAttribute('stroke', margin_idx ? '#FFFF00' : '#0000FF');
+                sel_margin.setAttribute('stroke', margin_idx ? dash_colors_margins[0] : dash_colors_margins[1]);
                 if (margin_idx)
-                    sel_margin.setAttribute('stroke-dasharray', '5,5');
+                    sel_margin.setAttribute('stroke-dasharray', '3,3');
 //                sel_margin.setAttribute('style', 'pointer-events:none');
                 editor.select_box.appendChild(sel_margin);
                 margin_idx++;
             }
+
+            // Select box helper circles
+            for (var i=1; i<=2; i++)
+                for (var j=1; j<=2; j++) {
+                    var elem = document.createElementNS(editor.ns_svg, 'circle');
+                    elem.setAttribute('id', '_ed_select_circle_'+i+'_'+j);
+                    elem.setAttribute('class', '_ed_select_circle _ed_select_circle_'+i+' _ed_helper_line');
+                    elem.setAttribute('stroke-width', 1.0);
+                    elem.setAttribute('fill', 'none');
+                    elem.setAttribute('stroke', j == 1 ? dash_colors_margins[0] : dash_colors_margins[1]);
+                    if (j == 2)
+                        elem.setAttribute('stroke-dasharray', '2,2');
+                    editor.select_box.appendChild(elem);
+                }
+            
+            // Select box axis
+            var dash_colors_axis = ['#FFFFFF', '#000000'];
+            for (var i=1; i<=3; i++)
+                for (var j=1; j<=2; j++) {
+                    var sel_axe = document.createElementNS(editor.ns_svg, 'line');
+                    sel_axe.setAttribute('id', '_ed_select_axe_'+i+'_'+j);
+                    sel_axe.setAttribute('class', '_ed_select_axe _ed_select_axe_'+i+' _ed_helper_line');
+                    sel_axe.setAttribute('stroke-width', 1.0);
+                    sel_axe.setAttribute('stroke', j == 1 ? dash_colors_axis[0] : dash_colors_axis[1]);
+                    if (j == 2)
+                        sel_axe.setAttribute('stroke-dasharray', '2,2');
+                    editor.select_box.appendChild(sel_axe);
+                }
+
+            // Select box marker
+            var sel_marker = document.createElementNS(editor.ns_svg, 'circle');
+            sel_marker.setAttribute('id', '_ed_select_marker');
+            sel_marker.setAttribute('stroke-width', 1.0);
+            sel_marker.setAttribute('fill', '#ffff00');
+            sel_marker.setAttribute('stroke', '#ff0000');
+            sel_marker.setAttribute('r', 5);
+            editor.select_box.appendChild(sel_marker);
+            
             service_grp.appendChild(editor.select_box);
+
+            
+            // Document median axis
+            var dash_colors = ['#FFFFFF', '#0000ff'];
+            var doc_size = [$(editor.document).width(), $(editor.document).height()];
+            for (var i=1; i<=2; i++)
+                for (var j=1; j<=2; j++) {
+                    var class_name = '_ed_doc_axe _ed_helper_line';
+                    var line = document.createElementNS(editor.ns_svg, 'line');
+                    line.setAttribute('id', '_ed_doc_axe_'+i+'_'+j);
+                    line.setAttribute('stroke-width', 1.0);
+                    line.setAttribute('stroke', j == 1 ? dash_colors[0] : dash_colors[1]);
+                    if (j == 2)
+                        line.setAttribute('stroke-dasharray', '2,2');
+                    if (i == 1) {
+                        // X axe
+                        class_name += ' _ed_doc_axe_x'
+                        line.setAttribute('x1', -doc_size[0]/2);
+                        line.setAttribute('y1', 0);
+                        line.setAttribute('x2', doc_size[0]/2);
+                        line.setAttribute('y2', 0);
+                    } else {
+                        class_name += ' _ed_doc_axe_y'
+                        line.setAttribute('x1', 0);
+                        line.setAttribute('y1', -doc_size[1]/2);
+                        line.setAttribute('x2', 0);
+                        line.setAttribute('y2', doc_size[1]/2);
+                    }
+                    line.setAttribute('class', class_name);
+                    service_grp.appendChild(line);
+                }
+
             editor.document.appendChild(service_grp);
+            
             
             $(editor.document).attr('id', 'svg_doc');
             $(editor.document).attr('data-width', $(editor.document).width());
@@ -817,6 +974,21 @@ editor = {};
             
             editor.vm.create_image_model();
 
+            // Listen to changes in SVG document
+            MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+//console.log(MutationObserver, typeof(MutationObserver))
+            if (MutationObserver) {
+                var observer = new MutationObserver(editor.doc_observer);
+                observer.observe(editor.document.getElementById('scale_wrapper'), {
+                  subtree: true,
+                  attributes: true,
+                  childList: true,
+    //              attributeOldValue: true,
+                  characterData: true
+                });
+            }
+            editor.modified = false;
+            
             if (callback)
                callback(true);
             
@@ -824,6 +996,16 @@ editor = {};
         }
 
         
+        editor.doc_observer = function (mutations, observer) {
+            // fired when a mutation occurs
+            if (!editor.modified && !editor.ignore_modify) {
+//                console.log(mutations);
+                editor.modified = true;
+                document.title += '*';
+            }
+        };
+        
+            
         // Returns @px value converted to current units, then rounded to enough precision and converted back to pixels
         editor.units_round = function (px, after_zero) {
             after_zero = after_zero || 0;
@@ -1109,9 +1291,24 @@ editor = {};
                 var blob = new Blob(byteArrays, {type: contentType});
             }
             
-            var blobUrl = URL.createObjectURL(blob);
-            a = $('<a>hidden</a>').attr({download: filename || 'file', href: blobUrl}).css('display', 'none').appendTo('body');
-            a[0].click();
+            
+            if (window.navigator.msSaveBlob)
+                // IE
+                //window.navigator.msSaveBlob || window.navigator.msSaveOrOpenBlob
+                window.navigator.msSaveBlob(blob, filename);
+            else {
+                // Normal browsers
+                var blobUrl = URL.createObjectURL(blob);
+                var a = $('<a>hidden</a>').attr({download: filename || 'file', href: blobUrl}).css('display', 'none').appendTo('body');
+                a[0].click();
+            }
+            
+//            var b = $('<a>hidden</a>').attr({_download: filename || 'file', href: '#blobUrl'}).css('display', 'block').appendTo('body');
+/*
+console.log(a)
+console.log(a[0])
+console.log(a[0].click)
+*/
             return true;
 		};
     
@@ -1130,6 +1327,8 @@ editor = {};
 //                alert('ERROR: Direct download is not supported by your browser.');
 
             $('#hdr_buttons button').removeAttr('disabled');
+            editor.modified = false;
+            document.title = document.title.substr(0, document.title.length-1);
         };
 
     
@@ -1154,7 +1353,8 @@ editor = {};
                 $('<canvas>', {id: 'export_canvas'}).hide().appendTo('body');
 //                $('<canvas>', {id: 'export_canvas'}).appendTo('body').css('position','absolute');
             }
-            c = $('#export_canvas')[0];
+            
+            var c = $('#export_canvas')[0];
 
             c.width = Math.round($(this.document).attr('data-width') * ppi / 96);
             c.height = Math.round($(this.document).attr('data-height') * ppi / 96);
@@ -1179,26 +1379,62 @@ editor = {};
                         $('#hdr_buttons button').removeAttr('disabled');
                     }
                 };
-                if (ppi != 96) {
-                    canvg_params.ignoreDimensions = true;
-                    canvg_params.ignoreDimensions = true;
-                    canvg_params.scaleWidth = c.width;
-                    canvg_params.scaleHeight = c.height;
-                }
 
 //canvg_params.log = true;
 //canvg_params.ignoreMouse = true;
 //canvg_params.ignoreAnimation = true;
 //canvg_params.ignoreClear = true;
 //canvg_params.useCORS = true;
+                
+                var c = $('#export_canvas')[0];
 
-                canvg(c, editor.svgToString(), canvg_params);
+                // Cut off empty space
+                if (editor.cfg.export_cutoff_empty_space) {
+                    editor.ignore_modify = true;
+                    var scale_wrapper = editor.document.getElementById('scale_wrapper');
+                    var bb = svgedit.utilities.getBBox(scale_wrapper);
+                    var padding = [bb.width*0.2, bb.height*0.2];
+                    var orig_doc_size = _.map([editor.document.getAttribute('data-width'), editor.document.getAttribute('data-height')], parseFloat);
+                    var orig_transform = scale_wrapper.getAttribute('transform');
+                    if (orig_doc_size[0] <= bb.width + padding[0])
+                        padding[0] = 0;
+                    if (orig_doc_size[1] <= bb.height + padding[1])
+                        padding[1] = 0;
+                    var new_width = bb.width + padding[0]*2;
+                    var new_height = bb.height + padding[1]*2;
+                    editor.document.setAttribute('data-width', new_width);
+                    editor.document.setAttribute('data-height', new_height);
+                    scale_wrapper.setAttribute('transform', 'translate(' + (-bb.x+padding[0]) + ',' + (-bb.y+padding[1]) + ')');
+                    c.width = Math.round(new_width * ppi / 96);
+                    c.height = Math.round(new_height * ppi / 96);
+                    var svg_str = editor.svgToString();
+                    // Restore dimensions
+                    editor.document.setAttribute('data-width', orig_doc_size[0]);
+                    editor.document.setAttribute('data-height', orig_doc_size[1]);
+                    scale_wrapper.setAttribute('transform', orig_transform);
+                    setTimeout(function (){editor.ignore_modify = false;}, 100);
+    //console.log(bb)
+    //console.log(editor.svgToString())
+    /*
+    console.log(viewBox)
+    console.log(newViewBox)
+    */
+                } else
+                    var svg_str = editor.svgToString();
+
+                if (ppi != 96) {
+                    canvg_params.ignoreDimensions = true;
+                    canvg_params.scaleWidth = c.width;
+                    canvg_params.scaleHeight = c.height;
+                }
+                
+                canvg(c, svg_str, canvg_params);
             })();
         };
     
 
         editor.new_image = function() {
-            this.open_url('svg/new_scale.svg');
+            this.open_url(editor.cfg.initial_image);
         };
     
     
@@ -1282,41 +1518,149 @@ editor = {};
     
     
         editor.init_dropdowns = function() {
-            $('[data-dropdown]').bind('click', function (event) {
-                $('.dropdown:visible:not(#'+$(this).attr('data-dropdown')+')').hide();
-                var dd = $('#'+$(this).attr('data-dropdown'));
-                dd.toggle().css({left:this.offsetLeft+'px',top:(this.clientHeight-this.offsetTop)+'px','min-width':this.clientWidth+'px'});
-                event.stopPropagation();
-            })
+            $('[data-dropdown]').bind('click', editor.dropdown_toggle);
         };
+
     
+        editor.dropdown_toggle = function(event) {
+            var _this = $(event.target).closest('button')[0];
+            var dropdown = $(this).attr('data-dropdown') || $(_this).attr('data-dropdown');
+            $('.dropdown:visible:not(#'+dropdown+')').hide();
+            var dd = $('#'+dropdown);
+            dd.toggle().css({left:_this.offsetLeft+'px',top:(_this.clientHeight > _this.offsetTop ? _this.clientHeight-_this.offsetTop : _this.offsetTop+_this.clientHeight/2)+'px','min-width':_this.clientWidth+'px'});
+            event.stopPropagation();
+        };
+                
             
         editor.update_select_box = function() {
-//console.log('update_select_box');
             
             var obj = editor.vm.model.selected_object;
             
             if (obj) {
-                // Set select box position and size
                 editor.select_box.setAttribute('visibility', 'visible');
-                var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
-                var obj_stroke_width = parseFloat(obj.element.getAttribute('stroke-width')) || 0;
-                var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
-//console.log(obj.stroke_width_val(), obj.element.getAttribute('stroke-width'))
-                // Apply minimum constraints on bbox
-                var min_bbox_size = 2;
-                if (bb.width < min_bbox_size){
-                    bb.x -= (min_bbox_size-bb.width)/2;
-                    bb.width = min_bbox_size;
+
+                $('#_ed_select_marker,._ed_select_box_margin,._ed_select_axe,._ed_select_circle').attr('visibility', 'hidden').removeAttr('transform');
+//                console.log(obj.element.getAttribute('transform'))
+
+                if ((((obj.type == 'div') || (obj.type == 'label')) && (obj.tag == 'g')) || (obj.type == 'arc')) {
+//console.log(obj.data_angle, obj.angle() || 0, obj.data_r);
+//                    var radius = obj.data_r || 0;
+                    var radius = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
+                    var p1 = editor.calc.polarToCartesian(obj.shift_x() || 0, obj.shift_y() || 0, radius, -(obj.data_angle || 0) / 2 + (obj.angle() || 0));
+                    var p2 = editor.calc.polarToCartesian(obj.shift_x() || 0, obj.shift_y() || 0, radius, (obj.data_angle || 0) / 2 + (obj.angle() || 0));
+                    var p_med = editor.calc.polarToCartesian(obj.shift_x() || 0, obj.shift_y() || 0, radius, obj.angle() || 0);
+//                    p1.x = editor.px_to_units(p1.x);
+//                    p1.y = editor.px_to_units(p1.y);
+//console.log(p1);
+                    // left angle
+                    $('._ed_select_axe_1')
+                        .attr('x1', obj.shift_x() || 0)
+                        .attr('y1', obj.shift_y() || 0)
+                        .attr('x2', p1.x || 0)
+                        .attr('y2', p1.y || 0)
+                        .removeAttr('visibility');
+                    // right angle
+                    $('._ed_select_axe_2')
+                        .attr('x1', obj.shift_x() || 0)
+                        .attr('y1', obj.shift_y() || 0)
+                        .attr('x2', p2.x || 0)
+                        .attr('y2', p2.y || 0)
+                        .removeAttr('visibility');
+                    // median angle
+                    $('._ed_select_axe_3')
+                        .attr('x1', obj.shift_x() || 0)
+                        .attr('y1', obj.shift_y() || 0)
+                        .attr('x2', p_med.x || 0)
+                        .attr('y2', p_med.y || 0)
+                        .removeAttr('visibility');
+                    $('#_ed_select_marker')
+                            .removeAttr('visibility')
+                            .attr('transform', obj.element.getAttribute('transform'));
+                    
+                    // Circular helpers
+                    var radius = obj.type == 'arc' ? parseFloat(obj.radius() || 0) : parseFloat(obj.data_r || 0);
+                    if (radius>0) {
+                        $('._ed_select_circle').attr('transform', obj.element.getAttribute('transform'))
+                        $('._ed_select_circle_1')
+                                .removeAttr('visibility')
+                                .attr('r', radius);
+                        if (obj.type == 'div') {
+                            var r2 = radius + parseFloat(obj.data_length || 0);
+                            if (r2 > 0)
+                                $('._ed_select_circle_2')
+                                        .removeAttr('visibility')
+                                        .attr('r', r2);
+                        }
+                    }
+//                } else if ((obj.type == 'image') || (obj.type == 'circle') || (obj.type == 'circlecnt') || (obj.type == 'rect') || (obj.type == 'plate')) {
+                } else {
+
+//                    if ((obj.tag !== 'line') && (obj.tag !== 'text')) {
+                    // Select box crosschair axis
+                    // Not for non-grouped lines
+                    var is_group_member = obj.parent_obj && (obj.parent_obj.tag == 'g');
+                    if (is_group_member) {
+                        var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
+                        $('._ed_select_axe_1')
+                            .attr('x1', 0)
+                            .attr('y1', 0)
+                            .attr('x2', 0)
+                            .attr('y2', -size)
+                            .removeAttr('visibility');
+                        var transform = obj.element.getAttribute('transform');
+                        if (transform){
+//                            $('._ed_select_axe').attr('transform', transform.replace(/\srotate\([^)]+[,\s][^)]+[,\s][^)]+\)/, ''));
+                            // Get only rotation with default center 
+                            var m1 = transform.match(/rotate\(\s*\-?\s*[\d\.]+\s*\)/);
+                            var m2 = transform.match(/rotate\(\s*\-?\s*[\d\.]+[\s,]+\-?\s*0[\.0]*[\s,]+-?\s*0[\.0]*\s*\)/);
+//                            console.log(transform);
+                            if (m1)
+                                $('._ed_select_axe').attr('transform', m1[0]);
+                            else if (m2)
+                                $('._ed_select_axe').attr('transform', m2[0]);
+//                            console.log($('._ed_select_axe').attr('transform'));
+                        }
+                    } else if (obj.tag !== 'line') {
+                        var size = Math.max(editor.document.width.baseVal.value, editor.document.height.baseVal.value);
+                        $('._ed_select_axe_1')
+                            .attr('x1', 0)
+                            .attr('y1', -size)
+                            .attr('x2', 0)
+                            .attr('y2', size)
+                            .removeAttr('visibility');
+                        $('._ed_select_axe_2')
+                            .attr('x1', -size)
+                            .attr('y1', 0)
+                            .attr('x2', size)
+                            .attr('y2', 0)
+                            .removeAttr('visibility');
+                        $('._ed_select_axe').attr('transform', obj.element.getAttribute('transform'));
+                    }
+
+                    // Set select box rectangle-type margins
+                    
+                    var sb_stroke_width = parseFloat($('._ed_select_box_margin').attr('stroke-width'));
+                    var obj_stroke_width = parseFloat(obj.element.getAttribute('stroke-width')) || 0;
+                    var bb = svgedit.utilities.getBBoxWithTransform(obj.element);
+                    // Apply minimum constraints on bbox
+                    var min_bbox_size = 2;
+                    if (bb.width < min_bbox_size){
+                        bb.x -= (min_bbox_size-bb.width)/2;
+                        bb.width = min_bbox_size;
+                    }
+                    if (bb.height < min_bbox_size){
+                        bb.y -= (min_bbox_size-bb.height)/2;
+                        bb.height = min_bbox_size;
+                    }
+                    $('._ed_select_box_margin')
+                            .attr('x', bb.x - sb_stroke_width - obj_stroke_width/2)
+                            .attr('y', bb.y - sb_stroke_width - obj_stroke_width/2)
+                            .attr('width', bb.width + sb_stroke_width*2 + obj_stroke_width)
+                            .attr('height', bb.height + sb_stroke_width*2 + obj_stroke_width)
+                            .removeAttr('visibility');
+                                        
                 }
-                if (bb.height < min_bbox_size){
-                    bb.y -= (min_bbox_size-bb.height)/2;
-                    bb.height = min_bbox_size;
-                }
-                $('._ed_select_box_margin').attr('x', bb.x - sb_stroke_width - obj_stroke_width/2);
-                $('._ed_select_box_margin').attr('y', bb.y - sb_stroke_width - obj_stroke_width/2);
-                $('._ed_select_box_margin').attr('width', bb.width + sb_stroke_width*2 + obj_stroke_width);
-                $('._ed_select_box_margin').attr('height', bb.height + sb_stroke_width*2 + obj_stroke_width);
+                
                 // Take into account parent group transform
                 if (obj.parent_obj && obj.parent_obj.element.getAttribute('transform'))
                     editor.select_box.setAttribute('transform', obj.parent_obj.element.getAttribute('transform'));
@@ -1376,6 +1720,11 @@ editor = {};
                 $('.set-language-' + lang).hide();
                 $('button#set-language .icon').attr('class', 'icon icon-flag icon-flag-' + lang);
                 $('button#set-language .language-name-orig').text($('.set-language-' + lang + ' .language-name-orig').text());
+
+                // Check browser support
+                if (editor.ie_version())
+                    alert($.i18n('msg_browser_not_supported'));
+//                    setTimeout(function(){alert($.i18n('msg_browser_not_supported'))}, 1000);
                 
             }); // end i18n.load()
             
@@ -1390,6 +1739,16 @@ editor = {};
 //                editor.vm.model.select($(this).val());
         };
     
+        editor.toggle_block = function (e) {
+//            console.log()
+            $('.block_contents', $(e.target).closest('.block')).slideToggle();
+        };
+
+    
+        editor.ie_version = function () {
+            var match = navigator.userAgent.match(/(?:MSIE |Trident\/.*; rv:)([\d\.]+)/);
+            return match ? parseFloat(match[1]) : undefined;
+        }
     
 		return editor;
 }(jQuery));

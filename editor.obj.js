@@ -36,14 +36,17 @@ editor.elm = function(element) {
 
 editor.elm.prototype.ext_title = function () {
     var name = this.title;
-    if (((name === '') || (typeof(name) === 'undefined')) && this.is_text_node)
+    if (((name === '') || (typeof(name) === 'undefined')) && this.is_text_node && (typeof(this.text) !== 'undefined'))
         name = this.text.toString();
     if (typeof(name) === 'undefined')
         name = '$' + this.idx; // :TODO: use parent's child index instead of @idx
-    return '[' + $.i18n('type_' + this.tag + '_' + this.type) + '] ' + name.substring(0, 100);
+    name = name.substring(0, 100);
+    if (this.data_anchor)
+        name = '[' + $.i18n('anchor') + '] ' + name;
+    return '[' + $.i18n('type_' + this.tag + '_' + this.type) + '] ' + name;
 //    return '[' + this.element.nodeName + '] ' + name.substring(0, 100);
 };
-editor.elm.prototype.ext_title.depends = ['title', 'text'];
+editor.elm.prototype.ext_title.depends = ['title', 'text', 'data_anchor'];
 
 editor.elm.prototype.count_children = function () {
     return this.children_objs.length;
@@ -72,7 +75,7 @@ editor.elm_graphic = function(element) {
         var link_attributes = ['font-size', 'font-family', 'fill'];
     else
         var link_attributes = ['title', 'stroke-width', 'stroke', 'fill'];
-    link_attributes.push('data-keep-angle', 'x', 'y', 'opacity');
+    link_attributes.push('data-keep-angle', 'x', 'y', 'opacity', 'data-anchor');
     // Merge with ancestor's @link_attributes if present
     this.link_attributes = this.link_attributes ? this.link_attributes.concat(link_attributes) : link_attributes;
     // Parent constructor
@@ -93,7 +96,7 @@ editor.elm_graphic = function(element) {
 //        _this.angle.set(_this.angle());
     }
     $.observe(this, 'data_keep_angle', 'x', 'y', this.rotation_recalc);
-
+    $.observe(this, 'data_anchor', this.trigger_anchor);
 }
 editor.elm_graphic.prototype = Object.create(editor.elm.prototype);
 editor.elm_graphic.prototype.constructor = editor.elm_graphic;
@@ -131,13 +134,17 @@ editor.elm_graphic.prototype.set_transform = function(tr_list) {
         for (var i in tr_list) {
             var tr = tr_list[i];
             if ((tr.fn == 'translate') && ((tr.args[0] != 0) || (tr.args[1] != 0)))
-                fn_list_translate.push('translate(' + (tr.args[0] || 0) + ',' + (tr.args[1] || 0) + ')');
-            if ((tr.fn == 'rotate') && (tr.args[0] != 0)){
-                // Convert empty values to zeros
-                for (var j in tr.args)
-                    tr.args[j] = tr.args[j] || 0;
-                if (tr.args[0])
-                    fn_list_rotate.push('rotate(' + tr.args.join(',') + ')');
+                fn_list_translate.push('translate(' + parseFloat(tr.args[0] || 0) + ',' + parseFloat(tr.args[1] || 0) + ')');
+            if ((tr.fn == 'rotate') && parseFloat(tr.args[0])) {
+                // Remove period from angle
+                tr.args[0] = tr.args[0] % 360;
+                if (tr.args[0] != 0) {
+                    // Convert empty values to zeros
+                    for (var j in tr.args)
+                        tr.args[j] = tr.args[j] || 0;
+                    if (tr.args[0])
+                        fn_list_rotate.push('rotate(' + tr.args.join(',') + ')');
+                }
             }
         }
 /*
@@ -162,11 +169,10 @@ editor.elm_graphic.prototype.set_transform = function(tr_list) {
         } else
             tr = [fn_list_rotate.join(' '), fn_list_translate.join(' ')].join(' ');
 
-        if (tr.trim() !== '')
+        if (tr.trim() !== '') {
             this.element.setAttribute('transform', tr.trim());
-        else
+        }else
             this.element.removeAttribute('transform');
-//console.log(this.element.getAttribute('transform'));
     } else
        this.element.removeAttribute('transform'); 
 }
@@ -176,46 +182,45 @@ editor.elm_graphic.prototype.set_transform = function(tr_list) {
 editor.elm_graphic.prototype.angle = function () {
     var tr_list = this.get_transform();
     for (var i in tr_list)
-        if (tr_list[i].fn == 'rotate')
-            return tr_list[i].args[0];
+        if ((tr_list[i].fn == 'rotate') && ((tr_list[i].args.length == 1) || (!tr_list[i].args[1] && !tr_list[i].args[2])))
+            return _.round(tr_list[i].args[0], 4);
+//            return tr_list[i].args[0];
 };
-editor.elm_graphic.prototype.angle.set = function(val) {
-    var tr_list = this.get_transform();
-//console.log(tr_list[0],tr_list[1]);
-    // Update transform function if exists
-    var invert = 1;
-    var updated_rotations = 0;
-    var remove_rotation = -1;
+editor.elm_graphic.prototype.angle.set = function(val, _this) {
+    if (!_this)
+        _this = this;
+    var tr_list = _this.get_transform();
+
+    // Remove current rotations if any
+    var new_tr_list = [];
     for (var i in tr_list)
-        if (tr_list[i].fn == 'rotate') {
-            tr_list[i].args[0] = parseFloat(val) * invert;
-            // Non-first rotation is compensative one, so update it's center
-            if ((tr_list[i].args.length > 1) && updated_rotations) {
-                tr_list[i].args[1] = this.x || this.x1 || 0;
-                tr_list[i].args[2] = this.y || this.y1 || 0;
-            }
-            updated_rotations++;
-            // If there's second rotation, it compensates previous one(for rotated-but-horizontal text labels).
-            // So, must use -angle value in second rotation.
-            invert = invert * -1;
-            if (!this.data_keep_angle && (updated_rotations > 1))
-                remove_rotation = i;
-        }
-    if (remove_rotation > 0) {
-//console.log(tr_list[0], tr_list[1]);
-//console.log(remove_rotation);
-        tr_list.splice(remove_rotation, 1);
-//console.log(tr_list);
+        if (tr_list[i].fn !== 'rotate')
+            new_tr_list.push(tr_list[i]);
+
+    // Set up new rotation(s)
+    var angle = _.round(parseFloat(val) || 0, 4);
+    var parent_angle = _this.parent_obj && _this.parent_obj.angle() ? _.round(parseFloat(_this.parent_obj.angle()) || 0, 4) : 0;
+    var x = parseFloat(_this.x || _this.x1) || 0;
+    var y = parseFloat(_this.y || _this.y1) || 0;
+    if (angle) {
+        // Add strict rotation
+        new_tr_list.push({fn:'rotate', args: [angle]});
+        // Add compensate rotation
+        if ((_this.data_keep_angle == 'relative') && (_this.tag !== 'g'))
+            new_tr_list.push({fn:'rotate', args: [-angle, x, y]});
     }
-    // If not updated existing - add as new
-    if (!updated_rotations) {
-        tr_list.push({fn:'rotate', args: [parseFloat(val)]});
-    }
-    if (this.data_keep_angle && (updated_rotations < 2) && (this.tag !== 'g'))
-        // Compensate rotation
-        tr_list.push({fn:'rotate', args: [-parseFloat(val), this.x || this.x1 || 0, this.y || this.y1 || 0]});
-    this.set_transform(tr_list);
+    
+    if ((_this.data_keep_angle == 'absolute') && (parent_angle || angle) && (_this.tag !== 'g'))
+        new_tr_list.push({fn:'rotate', args: [-parent_angle - angle, x, y]});
+     
+    _this.set_transform(new_tr_list);
+
+    if (_this.tag === 'g')
+        for (var i in _this.children_objs)
+            _this.children_objs[i].angle.set(_this.children_objs[i].angle(), _this.children_objs[i]);
+
 };
+
 
 // Shift transformation
 editor.elm_graphic.prototype.get_shift = function () {
@@ -388,6 +393,60 @@ editor.elm_graphic.prototype.is_last = function () {
     return !this.element.nextElementSibling;
 }
 
+
+editor.elm_graphic.prototype.angle_val = function() {
+    return this.angle();
+};
+editor.elm_graphic.prototype.angle_val.set = function(val) {
+    
+    $.observable(this).setProperty("angle", val);
+    
+    // Check if parent group angle was updated
+    var parent = this.parent_obj;
+    var parent_updated = false;
+    if (parent && parent.is_group && ((parent.type == 'div') || (parent.type == 'label'))) {
+        // Get angle from parent group parameters
+        var scale_angle = parseFloat(parent.data_angle);
+        var start_angle = - parseFloat(scale_angle)/2;
+        var end_angle = start_angle + scale_angle;
+        // Get the real angle as delta between first and last child divs
+        var real_start_angle = parent.children_objs[0].angle_val() || 0;
+        var real_end_angle = parent.children_objs[parent.children_objs.length-1].angle_val() || 0;
+        var real_angle = real_end_angle - real_start_angle;
+//        var real_angle = Math.abs(real_end_angle - real_start_angle);
+        // If group angle differs from edge children's real position
+        if (scale_angle != real_angle) {
+            // Group must be rotated?
+//            var rotation = _.round((real_start_angle + real_end_angle) / 2 - parseFloat(parent.angle()), 2);
+            var rotation = _.round((real_start_angle + real_end_angle) / 2 + (parent.angle() || 0), 2);
+            $.observable(parent).setProperty('angle', rotation || 0);
+            // Update group's angle value
+            $.observable(parent).setProperty('data_angle', real_angle);
+            parent_updated = true;
+        }
+//        if ((val < start_angle) || (val > end_angle))
+//            return false;
+        // Re-arrange neighbour divs in current group
+        if (!parent_updated)
+            parent.update_data_angle({target:parent});
+    }
+
+    if (!this.data_anchor)
+        $.observable(this).setProperty('data_anchor', 'true');
+
+};
+editor.elm_graphic.prototype.angle_val.depends = ['angle'];
+
+editor.elm_graphic.prototype.trigger_anchor = function(ev, eventArgs) {
+    var _this = ev.target;
+    // Re-arrange neighbour divs in current group
+    var parent = _this.parent_obj;
+    if (parent && parent.is_group)
+        parent.update_data_angle({target:parent});
+};
+
+
+
 // Class elm_line
 // Extends elm_graphic
 
@@ -404,42 +463,72 @@ editor.elm_line.prototype.constructor = editor.elm_line;
 
 // Length (if changed, updates [x2,y2] point position)
 editor.elm_line.prototype.line_length = function () {
-//    console.log(this.x1, this.y1, this.x2, this.y2);
-    this.x1 = parseFloat(this.x1);
-    this.y1 = parseFloat(this.y1);
-    this.x2 = parseFloat(this.x2);
-    this.y2 = parseFloat(this.y2);
-    var length = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
-    return editor.units_round(length);
+    if (!this.data_length) {
+        this.x1 = parseFloat(this.x1);
+        this.y1 = parseFloat(this.y1);
+        this.x2 = parseFloat(this.x2);
+        this.y2 = parseFloat(this.y2);
+        var length = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
+        if (this.y1 < this.y2)
+            length = -length;
+        $.observable(this).setProperty("data_length", length);
+    }
+    return this.data_length;
 };
 editor.elm_line.prototype.line_length.set = function(val) {
-    val = parseFloat(val) || 1;
-//    if (val <= 0) {
-//        $.observable(this).setProperty("x2", this.x1);
-//        $.observable(this).setProperty("y2", this.y1);
-//        return;
-//    }
-    if (val <= 0)
-        val = 1;
+//console.log(val)
+    val = parseFloat(val) || 0;
+    var radius = this.parent_obj && this.parent_obj.data_r ? parseFloat(this.parent_obj.data_r) : 0;
+//    val = parseFloat(val) || 1;
+//    var invert = val > 0 ? 1 : -1;
+//    var invert2 = ((val > 0) && (this.line_length() < 0)) || ((val < 0) && (this.line_length() > 0)) ? -1 : 1;
 
-    this.x1 = parseFloat(this.x1);
-    this.y1 = parseFloat(this.y1);
-    this.x2 = parseFloat(this.x2);
-    this.y2 = parseFloat(this.y2);
-    var dist = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
-    var cos = dist ? (this.x2 - this.x1) / dist : 0;
-    var sin = dist ? (this.y2 - this.y1) / dist : 0;
-    if (!cos && !sin) {cos=1;sin=-1;}
-//    console.log(this.x1, this.y1, this.x2, this.y2, dist);
-    var new_x2 = this.x1 + cos * val;
-    var new_y2 = this.y1 + sin * val;
-//    console.log(new_x2, new_y2, editor.calc.distance(this.x1, this.y1, new_x2, new_y2));
-    $.observable(this).setProperty("x2", editor.units_round(new_x2, 2));
-    $.observable(this).setProperty("y2", editor.units_round(new_y2, 2));
+//    if (val <= 0)
+//        val = 1;
+
+    if (radius) {
+        $.observable(this).setProperty("x1", 0);
+        $.observable(this).setProperty("x2", 0);
+        $.observable(this).setProperty("y1", -radius);
+        $.observable(this).setProperty("y2", -radius - val);
+//console.log(-radius, -radius - val)
+    } else {
+        this.x1 = parseFloat(this.x1);
+        this.y1 = parseFloat(this.y1);
+        this.x2 = parseFloat(this.x2);
+        this.y2 = parseFloat(this.y2);
+        var dist = editor.calc.distance(this.x1, this.y1, this.x2, this.y2);
+        var cos = dist ? (this.x2 - this.x1) / dist : 0;
+        var sin = dist ? (this.y2 - this.y1) / dist : 0;
+        if (!cos && !sin) {sin=-1;cos=0;}
+    //console.log(val, sin, cos);
+
+        if (val == 0) {
+            if (this.line_length() > 0) {
+                $.observable(this).setProperty("x2", this.x1);
+                $.observable(this).setProperty("y2", this.y1);
+            } else {
+                $.observable(this).setProperty("x1", this.x2);
+                $.observable(this).setProperty("y1", this.y2);
+            }
+        } else if (val > 0) {
+            var new_x2 = this.x1 + cos * Math.abs(val);
+            var new_y2 = this.y1 + sin * Math.abs(val);
+            $.observable(this).setProperty("x2", editor.units_round(new_x2, 2));
+            $.observable(this).setProperty("y2", editor.units_round(new_y2, 2));
+        } else {
+            var new_x1 = this.x2 - cos * Math.abs(val);
+            var new_y1 = this.y2 - sin * Math.abs(val);
+            $.observable(this).setProperty("x1", editor.units_round(new_x1, 2));
+            $.observable(this).setProperty("y1", editor.units_round(new_y1, 2));
+        }
+    }
+//    this.element.setAttribute('data-length', val);
+    $.observable(this).setProperty("data_length", val);
 };
 editor.elm_line.prototype.line_length.depends = ['x1', 'y1', 'x2', 'y2'];
 
-
+    
 // Class elm_path
 // Extends elm_graphic
 
@@ -629,14 +718,13 @@ editor.elm_plate.prototype.update_path = function(ev, eventArgs) {
 // Abstract group, automatically creates and arranges it's children 
 
 editor.elm_supervisor_group = function(element) {
-//    this.link_attributes = ['data-r', 'data-angle', 'data-length'];
-    var link_attributes = ['data-r', 'data-angle'];
+    var link_attributes = ['data-r', 'data-angle', 'data-linearity-exponent', 'data-interpolation-method'];
     // Merge with ancestor's @link_attributes if present
     this.link_attributes = this.link_attributes ? this.link_attributes.concat(link_attributes) : link_attributes;
     // Parent constructor
     editor.elm_graphic.apply(this, arguments);
     $.observe(this, 'data_r', this.update_data_r);    
-    $.observe(this, 'data_angle', this.update_data_angle);    
+    $.observe(this, 'data_angle', 'data_linearity_exponent', 'data_interpolation_method', this.update_data_angle);    
     $.observe(this, 'data_keep_angle', this.update_keep_angle);
 }
 editor.elm_supervisor_group.prototype = Object.create(editor.elm_graphic.prototype);
@@ -647,26 +735,35 @@ editor.elm_supervisor_group.prototype.count_children.set = function (val) {
     if (val < 0) val = 0;
     if (this.children_objs.length < val) {
         // Append new children
+        var old_last_child = this.children_objs[this.children_objs.length-1];
         while (this.children_objs.length < val) {
             // add_element() must be defined in ancestor class, as it creates different element types
             var idx = editor.vm.model.add_element(this.new_child_element());
             var new_obj = editor.vm.model.get(idx);
+            new_obj.element.setAttribute('data-is-new', 'true');
             $.observable(new_obj).setProperty('data_keep_angle', this.data_keep_angle);
 //            $.observable(new_obj).setProperty('angle');
 //            element.setAttribute('title', '#'+idx);
             children_count_delta++;
         }
+        // Old last div is not edge any more, so remove it's anchor
+        if (children_count_delta && old_last_child && old_last_child.data_anchor)
+            $.observable(old_last_child).setProperty('data_anchor', false);
+        if (this.update_child_objs)
+            this.update_child_objs({target:this});
+//            _.throttle(function () {this.update_child_objs({target:this})}, 30);
     } else if (this.children_objs.length > val) {
         // Remove children
         while (this.children_objs.length > val) {
             var obj = this.children_objs.pop();
 //console.log('-child');
-//            obj.element.remove();
-//            editor.vm.model.remove(obj.idx);
             editor.vm.model.delete(null, null, obj);
             children_count_delta--;
         }
     }
+    
+    for (var i in this.children_objs)
+         this.children_objs[i].element.removeAttribute('data-is-new');
 
     if (children_count_delta)
         // Re-arrange children according to new count
@@ -684,15 +781,163 @@ editor.elm_supervisor_group.prototype.update_keep_angle = function(ev, eventArgs
 
 editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs) {
     var _this = ev.target;
-    for (var i in _this.children_objs) {
+    var new_scale_angle = parseFloat(_this.data_angle);
+    var new_start_angle = - parseFloat(new_scale_angle)/2;
+    var new_end_angle = new_start_angle + new_scale_angle;
+    var points_count = _this.children_objs.length - 1;
+
+    if (eventArgs && (eventArgs.path == 'data_linearity_exponent')) {
+        // Unfix any fixed divs if setting exponent
+        for (var i = 0; i <= points_count; i++) {
+            var child = _this.children_objs[i].element;
+            if (_this.children_objs[i].data_anchor)
+                $.observable(_this.children_objs[i]).setProperty("data_anchor");
+        }
+    }
+    
+    // Set first and last div's angle
+    if (_this.children_objs.length) {
+//console.log(new_start_angle, new_end_angle)
+        $.observable(_this.children_objs[0]).setProperty("angle", new_start_angle);
+        $.observable(_this.children_objs[points_count]).setProperty("angle", new_end_angle);
+    }
+
+    
+    // Get anchored divs for interpolation
+    var fixed_divs_angles = [];
+    var fixed_divs_indexes = [];
+    for (var i = 0; i <= points_count; i++) {
         var child = _this.children_objs[i];
-        var new_scale_angle = parseFloat(eventArgs.value);
-        var new_child_angle = i * (new_scale_angle / (_this.children_objs.length-1)) - new_scale_angle/2;
+        // First and last div is always "fixed"
+        if (child.data_anchor || !i || (i == points_count)) {
+/*
+            if ((child.angle() > new_end_angle) || (child.angle() < new_start_angle)) {
+                // Unfix div if it is out of range
+                child.element.removeAttribute('data-anchor');
+            } else {
+                // ok, store fixed div in lists
+                fixed_divs_angles.push(child.angle() || 0);
+                fixed_divs_indexes.push(i);
+            }
+*/
+            fixed_divs_angles.push(child.angle() || 0);
+            fixed_divs_indexes.push(i);
+        }
+    }
+//console.log(fixed_divs_angles)
+//console.log(fixed_divs_indexes)
+    
+    // We need at least 3 points to interpolate
+    if (fixed_divs_angles.length >= 3) {
+        
+        var int_opts = {};
+        switch (_this.data_interpolation_method) {
+            case 'cubic':
+                int_opts.method = Smooth.METHOD_CUBIC;
+//                int_opts.cubicTension = Smooth.CUBIC_TENSION_CATMULL_ROM;
+//                int_opts.cubicTension = 0.1; // 0...1
+                break;
+            case 'sinc':
+                int_opts.method = Smooth.METHOD_SINC;
+                int_opts.sincFilterSize = 2;
+                int_opts.sincWindow = function(x) { return Math.exp(-x * x); };
+                break;
+            case 'lanczos':
+                int_opts.method = Smooth.METHOD_LANCZOS;
+                break;
+            case 'linear':
+            default:
+                int_opts.method = Smooth.METHOD_LINEAR;
+        }
+        
+        var fn_interpolate = Smooth(fixed_divs_angles, int_opts);
+        for (var i = 0; i <= points_count; i++)
+            // Interpolating all non-fixed divs
+            if (fixed_divs_indexes.indexOf(i) === -1) {
+                var child = _this.children_objs[i];
+                // Detect interpolation range for current div.
+                // Range is a pair of two closest fixed divs - one is before, and second is after our div.
+                var j = 0;
+                while ((j in fixed_divs_indexes) && (fixed_divs_indexes[j] < i))
+                    j++;
+                var range_left = fixed_divs_indexes[j-1];
+                var range_right = fixed_divs_indexes[j];
+                // Get div's relative position in this range
+                var pos = (i - range_left) / (range_right - range_left);
+                // Get interpolated angle
+                var new_child_angle = _.round(fn_interpolate(j - 1 + pos), 5);
+                // Check for getting out of bounds
+                new_child_angle = Math.min(new_child_angle, new_end_angle);
+                new_child_angle = Math.max(new_child_angle, new_start_angle);
+//                console.log(i, j, [range_left, range_right], pos, child.angle(), new_child_angle);
+                $.observable(child).setProperty("angle", new_child_angle);
+            }
+    } else {
+        
+        // No interpolation. Use auto angle arrange algorhytm
+
+        var exp = parseFloat(_this.data_linearity_exponent) || 1;
+    //    var k = parseFloat(_this.data_k) || 0;
+        var k = 0;
+    //console.log(exp)
+        var k_angle = new_scale_angle / (Math.pow(points_count, exp) + k * points_count);
+        for (var i = 0; i <= points_count; i++) {
+            var child = _this.children_objs[i];
+            var new_child_angle = (Math.pow(i, exp) + k * i) * k_angle + new_start_angle;
+            $.observable(child).setProperty("angle", new_child_angle);
+    //console.log(i, new_child_angle-new_start_angle)
+        }
+        
+    }
+    
+}
+
+
+editor.elm_supervisor_group.prototype.anchors_count = function() {
+    var count = 0;
+    for (var i in this.children_objs) {
+        var child = this.children_objs[i].element;
+        if (this.children_objs[i].data_anchor)
+            count++;
+    }
+    return count;
+}
+
+editor.elm_supervisor_group.prototype.reset_children_position = function(ev, eventArgs) {
+//console.log(ev, eventArgs, eventArgs.linkCtx.elem)
+    $(eventArgs.linkCtx.elem).hide();
+    for (var i in this.children_objs) {
+        var child = this.children_objs[i].element;
+        if (this.children_objs[i].data_anchor)
+            $.observable(this.children_objs[i]).setProperty("data_anchor");
+    }
+//    $.observable(this).setProperty("anchors_count", 0);
+};
+
+
+/*
+editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs) {
+    var _this = ev.target;
+    var new_scale_angle = _this.data_angle;
+    var new_start_angle = - new_scale_angle/2;
+    var points_count = _this.children_objs.length - 1;
+    var exp = parseFloat(_this.data_linearity_exponent) || 1;
+//    var k = parseFloat(_this.data_k) || 0;
+    var k = 0;
+//console.log(exp)
+    var k_angle = new_scale_angle / (Math.pow(points_count, exp) + k * points_count);
+    for (var i = 0; i <= points_count; i++) {
+        var child = _this.children_objs[i];
+        var new_child_angle = (Math.pow(i, exp) + k * i) * k_angle + new_start_angle;
         $.observable(child).setProperty("angle", new_child_angle);
-//        $.observable(child).setProperty("data_keep_angle", _this.data_keep_angle || false);
-//console.log('update_data_angle', _this.data_keep_angle);
+//console.log(i, new_child_angle-new_start_angle)
     }
 }
+*/
+
+
+//editor.vm.model.objects[11].update_data_angle({target:editor.vm.model.objects[11]})
+//editor.vm.model.selected_object.update_data_angle({target:editor.vm.model.selected_object})
 
 
 // Class elm_div_group
@@ -700,9 +945,17 @@ editor.elm_supervisor_group.prototype.update_data_angle = function(ev, eventArgs
 
 editor.elm_div_group = function(element) {
     this.link_attributes = ['data-length'];
+    for (var i = 2; i<=editor.cfg.div_levels_count; i++) {
+        this.link_attributes.push('data-lev'+i+'-each');
+        this.link_attributes.push('data-lev'+i+'-length');
+        this.link_attributes.push('data-lev'+i+'-stroke-width');
+        this.link_attributes.push('data-lev'+i+'-stroke');
+    }
     // Parent constructor
     editor.elm_supervisor_group.apply(this, arguments);
-    $.observe(this, 'data_length', this.update_data_length);    
+    $.observe(this, 'data_length', this.update_child_objs);
+    for (var i = 2; i<=editor.cfg.div_levels_count; i++)
+        $.observe(this, 'data_lev'+i+'_each', 'data_lev'+i+'_length', 'data_lev'+i+'_stroke_width', 'data_lev'+i+'_stroke', this.update_child_objs);
 }
 editor.elm_div_group.prototype = Object.create(editor.elm_supervisor_group.prototype);
 editor.elm_div_group.prototype.constructor = editor.elm_div_group;
@@ -714,32 +967,78 @@ editor.elm_div_group.prototype.new_child_element = function() {
     element.setAttribute('y1', -parseFloat(this.data_r));
     element.setAttribute('x2', 0);
     element.setAttribute('y2', -(parseFloat(this.data_r) + parseFloat(this.data_length)));
+    element.setAttribute('data-length', parseFloat(this.data_length));
+//console.log(element.getAttribute('data-length'))
     return element;
 }
 
 editor.elm_div_group.prototype.update_data_r = function(ev, eventArgs) {
     var _this = ev.target;
+    var r = parseFloat(eventArgs.value);
     for (var i in _this.children_objs) {
         var child = _this.children_objs[i];
-        var r = parseFloat(eventArgs.value);
-        // y1, y2 coordinates are negative usually
-        var y1 = parseFloat(child.y1);
-        var y2 = parseFloat(child.y2);
-        var dy = y1 + r;
-        var new_y1 = y1 - dy;
-        var new_y2 = y2 - dy;
+        var new_y1 = -r;
+        var new_y2 = -r - (child.line_length() || 0);
+//        $.observable(this).setProperty("y1", -radius);
+//        $.observable(this).setProperty("y2", -radius - val);
+//console.log(new_y1, new_y2, child.line_length());
         $.observable(child).setProperty("y1", new_y1);
         $.observable(child).setProperty("y2", new_y2);
     }
 }
 
-// Update @line_length for all group's children
-editor.elm_div_group.prototype.update_data_length = function(ev, eventArgs) {
+editor.elm_div_group.prototype.update_child_objs = function(ev, eventArgs) {
     var _this = ev.target;
+    var length = parseFloat(_this.data_length);
+
+    var levn_data = [];
+    for (var j = 2; j<=editor.cfg.div_levels_count; j++) {
+        levn_data[j] = {
+                each: parseInt(_this['data_lev'+j+'_each']),
+                length: parseFloat(_this['data_lev'+j+'_length']),
+                stroke_width: parseFloat(_this['data_lev'+j+'_stroke_width']),
+                stroke: _this['data_lev'+j+'_stroke']
+            };
+    }
+    
     for (var i in _this.children_objs) {
         var child = _this.children_objs[i];
-        var new_length = parseFloat(eventArgs.value);
-        $.observable(child).setProperty("line_length", new_length);
+        var div_length = length;
+        var div_stroke_width = null;
+        var div_stroke = null;
+        for (var j = 2; j<=editor.cfg.div_levels_count; j++) {
+            if (levn_data[j].each && !(i % levn_data[j].each)) {
+                // Level 2 div
+                if (!isNaN(levn_data[j].length))
+                    div_length = levn_data[j].length;
+                if (!isNaN(levn_data[j].stroke_width))
+                    div_stroke_width = levn_data[j].stroke_width;
+                if (levn_data[j].stroke)
+                    div_stroke = levn_data[j].stroke;
+            }
+        }
+
+//console.log(child.line_length(), div_length)
+        var set_length_all = eventArgs && eventArgs.path.match(/length/);
+        var set_length_current = child.element.getAttribute('data-is-new');
+        if ((set_length_all || set_length_current) && (child.line_length() != div_length))
+            $.observable(child).setProperty('line_length', div_length);
+
+        if (typeof(div_stroke_width) == 'number') {
+            if (child.element.getAttribute('stroke-width') != div_stroke_width)
+                child.element.setAttribute('stroke-width', div_stroke_width);
+        } else
+            child.element.removeAttribute('stroke-width');
+
+        if (div_stroke) {
+            if (child.element.getAttribute('stroke') != div_stroke)
+                child.element.setAttribute('stroke', div_stroke);
+        } else
+            child.element.removeAttribute('stroke');
+        
+//        $.observable(child).setProperty('y2', -parseFloat(_this.data_r || 0));
+//        $.observable(child).setProperty('y1', -parseFloat(_this.data_r || 0) - div_length);
+//console.log(div_length)
     }
 }
 
@@ -751,7 +1050,7 @@ editor.elm_label_group = function(element) {
     this.link_attributes = ['data-label-start', 'data-label-step', 'font-size', 'font-family'];
     // Parent constructor
     editor.elm_supervisor_group.apply(this, arguments);
-    $.observe(this, 'data_label_start', this.update_labels_text);    
+    $.observe(this, 'data_label_start', 'data_label_step', this.update_labels_text);    
 }
 editor.elm_label_group.prototype = Object.create(editor.elm_supervisor_group.prototype);
 editor.elm_label_group.prototype.constructor = editor.elm_label_group;
@@ -762,7 +1061,8 @@ editor.elm_label_group.prototype.new_child_element = function() {
     element.setAttribute('x', 0);
     element.setAttribute('y', -parseFloat(this.data_r));
     element.setAttribute('text-anchor', 'middle');
-    element.setAttribute('dominant-baseline', 'central');
+//    element.setAttribute('dominant-baseline', 'central');
+    element.setAttribute('dy', '0.3em');
     element.setAttribute('stroke', 'none');
     element.setAttribute('data-keep-angle', this.data_keep_angle);
     element.innerText = this.get_label_text(this.children_objs.length);
