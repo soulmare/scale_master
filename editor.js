@@ -1398,7 +1398,11 @@ console.log(a[0].click)
 //                        if (!editor.client_download_datauri(editor.get_filename(), '.png', datauri))
 //                            alert('ERROR: Direct download is not supported by your browser.');
 
-                        editor.client_download_blob(editor.get_filename() + ' ' + ppi + 'ppi.png', 'image/png', modified_src);
+                        var size_mm = [_.round(c.width / ppi * 25.4, 2).toString(), _.round(c.height / ppi * 25.4, 2).toString()];
+                        for (var i in size_mm)
+                            while (size_mm[i].length < size_mm[i].indexOf('.') + 3) size_mm[i] += '0';
+                        
+                        editor.client_download_blob(editor.get_filename() + ' (' + ppi + 'ppi '+size_mm[0]+'x'+size_mm[1]+'mm).png', 'image/png', modified_src);
                         
                         $('#hdr_buttons button').not('[data-disabled-permanently]').removeAttr('disabled');
                     }
@@ -1451,7 +1455,7 @@ console.log(a[0].click)
                     canvg_params.scaleWidth = c.width;
                     canvg_params.scaleHeight = c.height;
                 }
-                
+                                
                 canvg(c, svg_str, canvg_params);
             })();
         };
