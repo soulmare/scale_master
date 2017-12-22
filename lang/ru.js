@@ -74,6 +74,7 @@ editor.languages.ru = {
     "keep_angle_none": "нет",
     "keep_angle_absolute": "абсолютный",
     "keep_angle_relative": "относительный",
+    "keep_angle_invert": "отразить от центра",
     "anchor": "якорь",
     "anchor_label": "Якорь:",
     "x_shift": "Сдвиг по X:",

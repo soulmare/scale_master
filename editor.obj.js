@@ -212,6 +212,9 @@ editor.elm_graphic.prototype.angle.set = function(val, _this) {
     
     if ((_this.data_keep_angle == 'absolute') && (parent_angle || angle) && (_this.tag !== 'g'))
         new_tr_list.push({fn:'rotate', args: [-parent_angle - angle, x, y]});
+    
+    if ((_this.data_keep_angle == 'invert') && (_this.tag !== 'g'))
+        new_tr_list.push({fn:'rotate', args: [180, x, y]});
      
     _this.set_transform(new_tr_list);
 
