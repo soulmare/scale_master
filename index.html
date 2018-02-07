@@ -26,7 +26,7 @@
     <script src="svgedit/math.js"></script>
     <script>
         APP_NAME = 'Scale Master';
-        APP_VERSION = '0.4.3';
+        APP_VERSION = '0.4.4';
         APP_VERSION_TYPE = 'beta';
         var app_style_names = ['main.css']
         for (var i in app_style_names)
@@ -733,11 +733,13 @@
         <div class="l" data-link="{i18n:'image_size' 'Size:'}"></div>
         <div class="i">
             <select data-link="image_size()">
-                <option value="A3">A3 (297 × 420)</option>
-                <option value="A4">A4 (210 × 297)</option>
-                <option value="A5">A5 (148 × 210)</option>
-                <option value="A6">A6 (105 × 148)</option>
-                <option value="A7">A7 (74 × 105)</option>
+                <option value="A1">A1 (594mm × 841mm)</option>
+                <option value="A2">A2 (420mm × 594mm)</option>
+                <option value="A3">A3 (297mm × 420mm)</option>
+                <option value="A4">A4 (210mm × 297mm)</option>
+                <option value="A5">A5 (148mm × 210mm)</option>
+                <option value="A6">A6 (105mm × 148mm)</option>
+                <option value="A7">A7 (74mm × 105mm)</option>
             </select>
         </div>
     </label>

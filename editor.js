@@ -80,6 +80,8 @@ editor = {};
 
         // Paper sizes in pixels 96 ppi
         editor.image_sizes = {
+            'A1': [2245,3179],
+            'A2': [1587,2245],
             'A3': [1123,1587],
             'A4': [794,1123],
             'A5': [559,794],
