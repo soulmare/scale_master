@@ -26,7 +26,7 @@
     <script src="svgedit/math.js"></script>
     <script>
         APP_NAME = 'Scale Master';
-        APP_VERSION = '0.4.4';
+        APP_VERSION = '0.4.5';
         APP_VERSION_TYPE = 'beta';
         var app_style_names = ['main.css']
         for (var i in app_style_names)
@@ -37,7 +37,8 @@
             'editor.obj.js',
             'editor.vm.js',
             'lang/en.js',
-            'lang/ru.js'
+            'lang/ru.js',
+            'lang/uk.js'
         ]
         if (location.href.match('(.*)://')[1].toLowerCase() === 'file')
             app_script_names.push('lib/canvg.js', 'lib/rgbcolor.js');
@@ -115,6 +116,7 @@
             <ul class="dropdown" id="languages_dropdown" style="display:none">
                 <li class="set-language set-language-en"><a href="#" onclick="editor.localize('en');return false;"><span class="icon icon-flag icon-flag-en"></span><span class="language-name-orig">English</span></a></li>
                 <li class="set-language set-language-ru"><a href="#" onclick="editor.localize('ru');return false;"><span class="icon icon-flag icon-flag-ru"></span><span class="language-name-orig">Русский</span></a></li>
+                <li class="set-language set-language-uk"><a href="#" onclick="editor.localize('uk');return false;"><span class="icon icon-flag icon-flag-uk"></span><span class="language-name-orig">Українська</span></a></li>
             </ul>
             
         </div>
