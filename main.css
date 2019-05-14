@@ -358,6 +358,9 @@ button.m .icon{
 .icon-flag.icon-flag-ru{
     background-position: -2px -21px;
 }
+.icon-flag.icon-flag-uk{
+    background-position: -2px -41px;
+}
 .dropdown{
     position: absolute;
     left: 28px;
